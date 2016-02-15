@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  SecondViewController.swift
 //  TFG
 //
 //  Created by Johannes Berger on 14.02.16.
@@ -8,18 +8,18 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
-
+class PreferencesViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Hallo Welt!")
+        print("Preferences View")
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 
