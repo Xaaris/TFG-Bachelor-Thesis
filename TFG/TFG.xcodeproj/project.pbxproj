@@ -11,8 +11,8 @@
 		3B31DF021C78F5AB00651B3F /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B31DEFF1C78F5AB00651B3F /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3B31DF031C78F5AB00651B3F /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B31DF001C78F5AB00651B3F /* RealmSwift.framework */; };
 		3B31DF041C78F5AB00651B3F /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B31DF001C78F5AB00651B3F /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3B451DA31C793C6500D4B0D2 /* Sample1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B451DA21C793C6500D4B0D2 /* Sample1.csv */; };
 		3B7F65171C78F97F00BE0812 /* CSwiftV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7F65161C78F97F00BE0812 /* CSwiftV.swift */; };
-		3B7F651B1C790A3600BE0812 /* Sample1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B7F651A1C790A3600BE0812 /* Sample1.csv */; };
 		3BC8B4171C70F251000FD25D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC8B4161C70F251000FD25D /* AppDelegate.swift */; };
 		3BC8B4191C70F251000FD25D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC8B4181C70F251000FD25D /* MainViewController.swift */; };
 		3BC8B41B1C70F251000FD25D /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC8B41A1C70F251000FD25D /* StatisticsViewController.swift */; };
@@ -40,8 +40,8 @@
 /* Begin PBXFileReference section */
 		3B31DEFF1C78F5AB00651B3F /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		3B31DF001C78F5AB00651B3F /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		3B451DA21C793C6500D4B0D2 /* Sample1.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample1.csv; sourceTree = "<group>"; };
 		3B7F65161C78F97F00BE0812 /* CSwiftV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSwiftV.swift; sourceTree = "<group>"; };
-		3B7F651A1C790A3600BE0812 /* Sample1.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample1.csv; sourceTree = "<group>"; };
 		3BC8B4131C70F251000FD25D /* TFG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TFG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BC8B4161C70F251000FD25D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BC8B4181C70F251000FD25D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -87,7 +87,7 @@
 		3BC8B4151C70F251000FD25D /* TFG */ = {
 			isa = PBXGroup;
 			children = (
-				3B7F651A1C790A3600BE0812 /* Sample1.csv */,
+				3B451DA21C793C6500D4B0D2 /* Sample1.csv */,
 				3B7F65161C78F97F00BE0812 /* CSwiftV.swift */,
 				3BC8B4161C70F251000FD25D /* AppDelegate.swift */,
 				3BC8B4181C70F251000FD25D /* MainViewController.swift */,
@@ -162,7 +162,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B7F651B1C790A3600BE0812 /* Sample1.csv in Resources */,
+				3B451DA31C793C6500D4B0D2 /* Sample1.csv in Resources */,
 				3BC8B4231C70F251000FD25D /* LaunchScreen.storyboard in Resources */,
 				3BC8B4201C70F251000FD25D /* Assets.xcassets in Resources */,
 				3BC8B41E1C70F251000FD25D /* Main.storyboard in Resources */,
