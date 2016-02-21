@@ -190,8 +190,6 @@ class ChooseTopicViewController: UITableViewController {
                         
                         questionArr.append(tmpQuestion)
                         
-                        print(tmpQuestion)
-                        
                     }else{
                         print("failed to assign difficulty, Int parsing failed")
                     }
@@ -205,7 +203,26 @@ class ChooseTopicViewController: UITableViewController {
     }
     
     func saveToRealm(questionArr: [Question]){
+        // Realms are used to group data together
+        let realm = try! Realm() // Create realm pointing to default file
         
+        // Save objects
+        realm.beginWrite()
+        realm.add(questionArr)
+        try! realm.commitWrite()
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
