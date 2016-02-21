@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ChooseTopicViewController: UITableViewController {
 
@@ -98,7 +99,9 @@ class ChooseTopicViewController: UITableViewController {
     
     func loadExampleData() {
         if let keyedRowsDic = loadDataFromFile("Sample1"){
-            parseDataForValues(keyedRowsDic)
+           let questionArr = parseDataForValues(keyedRowsDic)
+            saveToRealm(questionArr)
+            
         }else{
             print("Could not load Data")
         }
@@ -119,7 +122,8 @@ class ChooseTopicViewController: UITableViewController {
         return nil
     }
     
-    func parseDataForValues(keyedRowsDic: [[String:String]]) {
+    func parseDataForValues(keyedRowsDic: [[String:String]]) -> [Question] {
+        var questionArr = [Question]()
         var title = ""
         var author = ""
         var date = ""
@@ -142,47 +146,65 @@ class ChooseTopicViewController: UITableViewController {
                 //Normal row
             }else if !row["QuestionType"]!.isEmpty {
                 if let type = row["QuestionType"], question = row["Question"], hint = row["Hint"], feedback = row["Feedback"], tmpDifficulty = row["Difficulty"], correctAnswers = row["CorrectAnswers"]?.componentsSeparatedByString(","){
-                    let difficulty = Int(tmpDifficulty)
-                    var tmpAnswerDic = [String:String]()
-                    var answers = [String: Bool]()
-                    var tags = universalTags
-                    //extracting answers and tags
-                    for cell in row{
-                        if cell.0.containsString("Answer") && !cell.0.containsString("C") && !cell.1.isEmpty{
-                            tmpAnswerDic[cell.0.lowercaseString.stringByReplacingOccurrencesOfString("answer", withString: "")] = cell.1
-                        }else if cell.0.containsString("Tag") && !cell.1.isEmpty{
-                            tags.insert(cell.1)
+                    if let difficulty = Int(tmpDifficulty){
+                        var tmpAnswerDic = [String:String]()
+                        var answers = [String: Bool]()
+                        var tags = universalTags
+                        //extracting answers and tags
+                        for cell in row{
+                            if cell.0.containsString("Answer") && !cell.0.containsString("C") && !cell.1.isEmpty{
+                                tmpAnswerDic[cell.0.lowercaseString.stringByReplacingOccurrencesOfString("answer", withString: "")] = cell.1
+                            }else if cell.0.containsString("Tag") && !cell.1.isEmpty{
+                                tags.insert(cell.1)
+                            }
                         }
-                    }
-                    //mapping answers with their value of truth
-                    for answerKey in tmpAnswerDic.keys {
-                        if correctAnswers.contains(answerKey){
-                            answers[tmpAnswerDic[answerKey]!] = true
-                        }else{
-                            answers[tmpAnswerDic[answerKey]!] = false
+                        //mapping answers with their value of truth
+                        for answerKey in tmpAnswerDic.keys {
+                            if correctAnswers.contains(answerKey){
+                                answers[tmpAnswerDic[answerKey]!] = true
+                            }else{
+                                answers[tmpAnswerDic[answerKey]!] = false
+                            }
                         }
+                        
+                        let answerContainer = AnswerContainer()
+                        let tagContainer = TagContainer()
+                        
+                        for answer in answers {
+                            answerContainer.answers.append(Answer(text: answer.0,isCorrect: answer.1))
+                        }
+                        for tag in tags {
+                            tagContainer.tags.append(Tag(tag: tag))
+                        }
+                        let tmpQuestion = Question()
+                        tmpQuestion.title = title
+                        tmpQuestion.author = author
+                        tmpQuestion.date = date
+                        tmpQuestion.type = type
+                        tmpQuestion.questionText = question
+                        tmpQuestion.hint = hint
+                        tmpQuestion.feedback = feedback
+                        tmpQuestion.difficulty = difficulty
+                        tmpQuestion.answerContainer = answerContainer
+                        tmpQuestion.tagContainer = tagContainer
+                        
+                        questionArr.append(tmpQuestion)
+                        
+                        print(tmpQuestion)
+                        
+                    }else{
+                        print("failed to assign difficulty, Int parsing failed")
                     }
-                    
-                    print("Type: \(type)")
-                    print("question: \(question)")
-                    print("Hint: \(hint)")
-                    print("Feedback: \(feedback)")
-                    print("Difficulty: \(difficulty)")
-                    print("CorrectAnswers: \(correctAnswers)")
-                    print("Answers: \(answers)")
-                    print("Tags: \(tags)")
-                    print("")
-                    
                     
                 }else{
                     print("Unwrapping type, Question, Hint, Feedback or CorrectAnswers failed!")
                 }
             }
         }
-        print("Title: \(title)")
-        print("Author: \(author)")
-        print("Date: \(date)")
-        print("Tags: \(universalTags)")
+        return questionArr
+    }
+    
+    func saveToRealm(questionArr: [Question]){
         
     }
 
