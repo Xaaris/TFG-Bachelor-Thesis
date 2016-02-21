@@ -22,13 +22,11 @@ class MainViewController: UIViewController {
     
     @IBAction func loadExampleDataButtonPressed(sender: AnyObject) {
         if let keyedRowsDic = loadDataFromFile("Sample1"){
-//            print(keyedRowsDic)
             var title = ""
             var author = ""
             var date = ""
             var universalTags = Set<String>()
             for row in keyedRowsDic{
-//                print(row)
                 //Info row
                 if row["QuestionType"] == "Info"{
                     title = row["Question"]!.isEmpty ? "No title" : row["Question"]!
@@ -94,20 +92,12 @@ class MainViewController: UIViewController {
     
     func loadDataFromFile(fileName: String) -> [[String : String]]? {
         let csvURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(fileName, ofType: "csv")!)
-        //                print(csvURL)
         do{
             let text = try String(contentsOfURL: csvURL)
-            let csv = CSwiftV(String: text, separator: ";")
-            //            let rows = csv.rows
-            //            let headers = csv.headers
-            let keyedRows = csv.keyedRows!
-            //            print(headers)
-            //            print(rows)
-            //            print("")
-            //            print(keyedRows[1])
-            //            print(keyedRows[2])
-            //            print(keyedRows[3])
-            return keyedRows
+            let csvImporter = CSVImporter(String: text, separator: ";")
+            if let keyedRows = csvImporter.keyedRows{
+                return keyedRows
+            }
         }catch{
             print(error)
         }
