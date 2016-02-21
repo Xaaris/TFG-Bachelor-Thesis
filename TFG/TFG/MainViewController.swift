@@ -45,14 +45,24 @@ class MainViewController: UIViewController {
                     universalTags.remove("Info")
                 //Normal row
                 }else if !row["QuestionType"]!.isEmpty {
-                    if let type = row["QuestionType"], question = row["Question"], hint = row["Hint"], feedback = row["Feedback"], correctAnswers = row["CorrectAnswers"]{
-                        var answers = Set<String>()
+                    if let type = row["QuestionType"], question = row["Question"], hint = row["Hint"], feedback = row["Feedback"], difficulty = row["Difficulty"], correctAnswers = row["CorrectAnswers"]?.componentsSeparatedByString(","){
+                        var tmpAnswerDic = [String:String]()
+                        var answers = [String: Bool]()
                         var tags = universalTags
+                        //extracting answers and tags
                         for cell in row{
                             if cell.0.containsString("Answer") && !cell.0.containsString("C") && !cell.1.isEmpty{
-                                answers.insert(cell.1)
+                                tmpAnswerDic[cell.0.lowercaseString.stringByReplacingOccurrencesOfString("answer", withString: "")] = cell.1
                             }else if cell.0.containsString("Tag") && !cell.1.isEmpty{
                                 tags.insert(cell.1)
+                            }
+                        }
+                        //mapping answers with their value of truth
+                        for answerKey in tmpAnswerDic.keys {
+                            if correctAnswers.contains(answerKey){
+                                answers[tmpAnswerDic[answerKey]!] = true
+                            }else{
+                                answers[tmpAnswerDic[answerKey]!] = false
                             }
                         }
                         
@@ -60,6 +70,7 @@ class MainViewController: UIViewController {
                         print("question: \(question)")
                         print("Hint: \(hint)")
                         print("Feedback: \(feedback)")
+                        print("Difficulty: \(difficulty)")
                         print("CorrectAnswers: \(correctAnswers)")
                         print("Answers: \(answers)")
                         print("Tags: \(tags)")
