@@ -31,17 +31,12 @@ class Answer: Object {
     dynamic var text = ""
     dynamic var isCorrect = false
     
-    init(text: String, isCorrect: Bool){
-        super.init()
+    convenience required init(text: String, isCorrect: Bool){
+        self.init()
         self.text = text
         self.isCorrect = isCorrect
     }
-    
-    required init() {
-        super.init()
-        self.text = "ERROR: No answer data"
-        self.isCorrect = false
-    }
+
 }
 
 class TagContainer: Object {
@@ -52,15 +47,11 @@ class Tag: Object {
     
     dynamic var tag = ""
     
-    init(tag: String){
-        super.init()
+    convenience required init(tag: String){
+        self.init()
         self.tag = tag
     }
     
-    required init() {
-        super.init()
-        self.tag = "ERROR: No tag data"
-    }
 }
 
 
