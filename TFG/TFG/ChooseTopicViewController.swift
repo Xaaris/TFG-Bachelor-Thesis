@@ -141,7 +141,8 @@ class ChooseTopicViewController: UITableViewController {
                 universalTags.remove("Info")
                 //Normal row
             }else if !row["QuestionType"]!.isEmpty {
-                if let type = row["QuestionType"], question = row["Question"], hint = row["Hint"], feedback = row["Feedback"], difficulty = row["Difficulty"], correctAnswers = row["CorrectAnswers"]?.componentsSeparatedByString(","){
+                if let type = row["QuestionType"], question = row["Question"], hint = row["Hint"], feedback = row["Feedback"], tmpDifficulty = row["Difficulty"], correctAnswers = row["CorrectAnswers"]?.componentsSeparatedByString(","){
+                    let difficulty = Int(tmpDifficulty)
                     var tmpAnswerDic = [String:String]()
                     var answers = [String: Bool]()
                     var tags = universalTags
