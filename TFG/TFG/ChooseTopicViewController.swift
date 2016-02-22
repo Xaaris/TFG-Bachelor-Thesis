@@ -29,44 +29,59 @@ class ChooseTopicViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        let result = realm.objects(Question)
+        var titles = [String]()
+        for question in result{
+            if !titles.contains(question.title){
+                titles.append(question.title)
+            }
+        }
+        return titles.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         // Configure the cell...
-
+        let result = realm.objects(Question)
+        var titles = [String]()
+        for question in result{
+            if !titles.contains(question.title){
+                titles.append(question.title)
+            }
+        }
+        cell.textLabel?.text = titles[indexPath.row]
         return cell
     }
-    */
 
-    /*
+
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
+            print("Self: \(self)")
+            let predicate = NSPredicate(format: "title = %@ ", self.tableView!.cellForRowAtIndexPath(indexPath)!.textLabel!.text!)
+            let results = realm.objects(Question).filter(predicate)
+            try! realm.write {
+                realm.delete(results)
+            }
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
+        } //else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+//        }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
@@ -167,6 +182,7 @@ class ChooseTopicViewController: UITableViewController {
                             }
                         }
                         
+                        //Building a Question
                         let answerContainer = AnswerContainer()
                         let tagContainer = TagContainer()
                         
@@ -204,35 +220,6 @@ class ChooseTopicViewController: UITableViewController {
     
     func saveToRealm(questionArr: [Question]){
         
-        //TODO: This should probably be moved
-        // Inside your application(application:didFinishLaunchingWithOptions:)
-        
-        let config = Realm.Configuration(
-            // Set the new schema version. This must be greater than the previously used
-            // version (if you've never set a schema version before, the version is 0).
-            schemaVersion: 1,
-            
-            // Set the block which will be called automatically when opening a Realm with
-            // a schema version lower than the one set above
-            migrationBlock: { migration, oldSchemaVersion in
-                // We haven’t migrated anything yet, so oldSchemaVersion == 0
-                if (oldSchemaVersion < 1) {
-                    
-                    // Nothing to do!
-                    // Realm will automatically detect new properties and removed properties
-                    // And will update the schema on disk automatically
-                }
-        })
-        
-        // Tell Realm to use this new configuration object for the default Realm
-        Realm.Configuration.defaultConfiguration = config
-        
-        // Now that we've told Realm how to handle the schema change, opening the file
-        // will automatically perform the migration
-        
-        
-        // Realms are used to group data together
-        let realm = try! Realm() // Create realm pointing to default file
         
         // Save objects
         realm.beginWrite()
@@ -240,11 +227,13 @@ class ChooseTopicViewController: UITableViewController {
             //check if it already exists
             if realm.objectForPrimaryKey(Question.self, key: question.questionText) == nil {
                 realm.add(question)
+            }else{
+                print("Question with questionText: \(question.questionText) already exists")
             }
         }
         try! realm.commitWrite()
+        self.tableView.reloadData()
         
-        print(realm.objects(Question).count)
     }
 
 }
