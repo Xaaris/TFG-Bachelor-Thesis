@@ -20,6 +20,10 @@ class Question: Object {
     dynamic var difficulty = 0
     var answerContainer: AnswerContainer? = AnswerContainer()
     var tagContainer: TagContainer? = TagContainer()
+    
+    override class func primaryKey() -> String {
+        return "questionText"
+    }
 }
 
 class AnswerContainer: Object {
