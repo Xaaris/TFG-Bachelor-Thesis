@@ -70,11 +70,39 @@ class ChooseTopicViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
-            print("Self: \(self)")
             let predicate = NSPredicate(format: "title = %@ ", self.tableView!.cellForRowAtIndexPath(indexPath)!.textLabel!.text!)
             let results = realm.objects(Question).filter(predicate)
+            //Cascading delete
+            var resultsAnswerContainers:[AnswerContainer] = []
+            var resultsTagContainers:[TagContainer] = []
+            for question in results{
+                resultsAnswerContainers.append(question.answerContainer!)
+                resultsTagContainers.append(question.tagContainer!)
+            }
+            var resultAnswers:[Answer] = []
+            var resultTags:[Tag] = []
+            for answerContainer in resultsAnswerContainers{
+                for answer in answerContainer.answers{
+                    resultAnswers.append(answer)
+                }
+            }
+            for tagContainer in resultsTagContainers{
+                for tag in tagContainer.tags{
+                    resultTags.append(tag)
+                }
+            }
+            
+            //TODO: Fix deletion process
             try! realm.write {
-                realm.delete(results)
+//                for tag in resultTags{
+//                    realm.delete(tag)
+//                }
+////                realm.delete(resultTags)
+//                realm.delete(resultAnswers)
+////                realm.delete(resultsTagContainers)
+////                realm.delete(resultsAnswerContainers)
+//                realm.delete(results)
+                realm.deleteAll()
             }
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } //else if editingStyle == .Insert {
@@ -189,6 +217,7 @@ class ChooseTopicViewController: UITableViewController {
                         for answer in answers {
                             answerContainer.answers.append(Answer(text: answer.0,isCorrect: answer.1))
                         }
+                        //TODO: Link multiple tag instances
                         for tag in tags {
                             tagContainer.tags.append(Tag(tag: tag))
                         }
