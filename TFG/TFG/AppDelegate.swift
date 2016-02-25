@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             migrationBlock: { migration, oldSchemaVersion in
                 // We haven’t migrated anything yet, so oldSchemaVersion == 0
                 if (oldSchemaVersion < 3) {
-                    // Nothing to do!
+                    realm.deleteAll()
                     // Realm will automatically detect new properties and removed properties
                     // And will update the schema on disk automatically
                 }
