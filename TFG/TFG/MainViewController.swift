@@ -10,6 +10,10 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    @IBOutlet weak var topicLabel: UILabel!
+    
+    var lastSelectedTopic:String? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Main View")
@@ -18,6 +22,14 @@ class MainViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        if lastSelectedTopic != nil {
+            topicLabel.text = lastSelectedTopic
+        }else{
+            topicLabel.text = "No topic selected"
+        }
     }
     
     

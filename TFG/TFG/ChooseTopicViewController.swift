@@ -75,6 +75,9 @@ class ChooseTopicViewController: UITableViewController {
             print(lastSelectedIndexPath?.row)
             lastSelectedTopic = tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text
             print(lastSelectedTopic)
+            
+            let a = self.navigationController!.viewControllers.first as! MainViewController
+            a.lastSelectedTopic = lastSelectedTopic
         }
     }
     
