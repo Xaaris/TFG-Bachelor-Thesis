@@ -34,30 +34,16 @@ class ChooseTopicViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let result = realm.objects(Question)
-        var titles = [String]()
-        for question in result{
-            if !titles.contains(question.title){
-                titles.append(question.title)
-            }
-        }
-        return titles.count
+        return realm.objects(Topic).count
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TopicCell", forIndexPath: indexPath)
         // Configure the cell...
-        print(lastSelectedIndexPath)
         cell.accessoryType = (lastSelectedIndexPath?.row == indexPath.row) ? .Checkmark : .None
-        let result = realm.objects(Question)
-        var titles = [String]()
-        for question in result{
-            if !titles.contains(question.title){
-                titles.append(question.title)
-            }
-        }
-        cell.textLabel?.text = titles[indexPath.row]
+        let result = realm.objects(Topic)
+        cell.textLabel?.text = result[indexPath.row].title
         if cell.textLabel?.text == lastSelectedTopic{
             cell.accessoryType = .Checkmark
         }
@@ -95,19 +81,28 @@ class ChooseTopicViewController: UITableViewController {
         if editingStyle == .Delete {
             // Delete the row from the data source
             let predicate = NSPredicate(format: "title = %@ ", self.tableView!.cellForRowAtIndexPath(indexPath)!.textLabel!.text!)
-            let results = realm.objects(Question).filter(predicate)
-            //delete answers
-            for question in results{
-                try! realm.write {
-                    realm.delete(question.answers)
+            let result = realm.objects(Topic).filter(predicate).first
+            try! realm.write {
+                realm.delete(result!)
+            }
+            //delete questions without associated topics
+            let questions = realm.objects(Question.self)
+            for question in questions{
+                if question.topic == nil{
+                    try! realm.write {
+                        realm.delete(question)
+                    }
                 }
             }
-            //delete questions
-            try! realm.write {
-                realm.delete(results)
+            //delete answers without associated questions
+            let answers = realm.objects(Answer.self)
+            for answer in answers{
+                if answer.associatedQuestion == nil{
+                    try! realm.write {
+                        realm.delete(answer)
+                    }
+                }
             }
-            //delete row
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             //delete tags without associated questions
             let tags = realm.objects(Tag.self)
             for tag in tags{
@@ -117,7 +112,9 @@ class ChooseTopicViewController: UITableViewController {
                     }
                 }
             }
-        } 
+            //delete row
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
     }
     
     
@@ -139,12 +136,13 @@ class ChooseTopicViewController: UITableViewController {
     
     // MARK: - Navigation
     
+    /*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     // Get the new view controller using segue.destinationViewController.
     // Pass the selected object to the new view controller.
-    //TODO: pass title to main screen
     }
+    */
     
     
     @IBAction func addTopicButtonPressed(sender: AnyObject) {
@@ -186,10 +184,12 @@ class ChooseTopicViewController: UITableViewController {
         var author = ""
         var date = ""
         var universalTags = Set<String>()
+        let topic = Topic()
         for row in keyedRowsDic{
             //Info row
             if row["QuestionType"] == "Info"{
                 title = row["Question"]!.isEmpty ? "No title" : row["Question"]!
+                topic.title = title
                 author = row["Hint"]!.isEmpty ? "No author" : row["Hint"]!
                 date = row["Feedback"]!.isEmpty ? "No Date" : row["Feedback"]!
                 for tag in row.values{
@@ -227,7 +227,7 @@ class ChooseTopicViewController: UITableViewController {
                         
                         //Building a Question
                         let tmpQuestion = Question()
-                        tmpQuestion.title = title
+                        tmpQuestion.topic = topic
                         tmpQuestion.author = author
                         tmpQuestion.date = date
                         tmpQuestion.type = type
@@ -267,6 +267,15 @@ class ChooseTopicViewController: UITableViewController {
                 }
             }
         }
+        //Save topic to realm
+        realm.beginWrite()
+        if realm.objectForPrimaryKey(Topic.self, key: title) == nil {
+            realm.add(topic)
+        }else{
+            print("Topic already exists")
+        }
+        try! realm.commitWrite()
+        self.tableView.reloadData()
     }
     
     func saveToRealm(question: Question){
@@ -279,7 +288,6 @@ class ChooseTopicViewController: UITableViewController {
             print("Question with questionText: \(question.questionText) already exists")
         }
         try! realm.commitWrite()
-        self.tableView.reloadData()
         
     }
     
