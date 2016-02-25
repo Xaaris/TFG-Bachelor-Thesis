@@ -11,14 +11,15 @@ import RealmSwift
 
 class ChooseTopicViewController: UITableViewController {
     
+    var lastSelectedIndexPath:NSIndexPath? = nil
+    var lastSelectedTopic:String? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     override func didReceiveMemoryWarning() {
@@ -45,8 +46,10 @@ class ChooseTopicViewController: UITableViewController {
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("TopicCell", forIndexPath: indexPath)
         // Configure the cell...
+        print(lastSelectedIndexPath)
+        cell.accessoryType = (lastSelectedIndexPath?.row == indexPath.row) ? .Checkmark : .None
         let result = realm.objects(Question)
         var titles = [String]()
         for question in result{
@@ -56,6 +59,23 @@ class ChooseTopicViewController: UITableViewController {
         }
         cell.textLabel?.text = titles[indexPath.row]
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        if indexPath.row != lastSelectedIndexPath?.row {
+            if let lastSelectedIndexPath = lastSelectedIndexPath {
+                let oldCell = tableView.cellForRowAtIndexPath(lastSelectedIndexPath)
+                oldCell?.accessoryType = .None
+            }
+            let newCell = tableView.cellForRowAtIndexPath(indexPath)
+            newCell?.accessoryType = .Checkmark
+            lastSelectedIndexPath = indexPath
+            print(lastSelectedIndexPath?.row)
+            lastSelectedTopic = tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text
+            print(lastSelectedTopic)
+        }
     }
     
     
@@ -112,15 +132,16 @@ class ChooseTopicViewController: UITableViewController {
     }
     */
     
-    /*
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     // Get the new view controller using segue.destinationViewController.
     // Pass the selected object to the new view controller.
+    //TODO: pass title to main screen
     }
-    */
+    
     
     @IBAction func addTopicButtonPressed(sender: AnyObject) {
         loadExampleData()
