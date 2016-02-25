@@ -10,28 +10,28 @@ import UIKit
 import RealmSwift
 
 class ChooseTopicViewController: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let result = realm.objects(Question)
         var titles = [String]()
@@ -42,7 +42,7 @@ class ChooseTopicViewController: UITableViewController {
         }
         return titles.count
     }
-
+    
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
@@ -57,14 +57,14 @@ class ChooseTopicViewController: UITableViewController {
         cell.textLabel?.text = titles[indexPath.row]
         return cell
     }
-
-
+    
+    
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-
+    
     
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -72,67 +72,53 @@ class ChooseTopicViewController: UITableViewController {
             // Delete the row from the data source
             let predicate = NSPredicate(format: "title = %@ ", self.tableView!.cellForRowAtIndexPath(indexPath)!.textLabel!.text!)
             let results = realm.objects(Question).filter(predicate)
-            //Cascading delete
-            var resultsAnswerContainers:[AnswerContainer] = []
-            var resultsTagContainers:[TagContainer] = []
+            //delete answers
             for question in results{
-                resultsAnswerContainers.append(question.answerContainer!)
-                resultsTagContainers.append(question.tagContainer!)
-            }
-            var resultAnswers:[Answer] = []
-            var resultTags:[Tag] = []
-            for answerContainer in resultsAnswerContainers{
-                for answer in answerContainer.answers{
-                    resultAnswers.append(answer)
+                try! realm.write {
+                    realm.delete(question.answers)
                 }
             }
-            for tagContainer in resultsTagContainers{
-                for tag in tagContainer.tags{
-                    resultTags.append(tag)
-                }
-            }
-            
-            //TODO: Fix deletion process
+            //delete questions
             try! realm.write {
-//                for tag in resultTags{
-//                    realm.delete(tag)
-//                }
-////                realm.delete(resultTags)
-//                realm.delete(resultAnswers)
-////                realm.delete(resultsTagContainers)
-////                realm.delete(resultsAnswerContainers)
-//                realm.delete(results)
-                realm.deleteAll()
+                realm.delete(results)
             }
+            //delete row
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } //else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-//        }    
+            //delete tags without associated questions
+            let tags = realm.objects(Tag.self)
+            for tag in tags{
+                if tag.associatedQuestions.isEmpty {
+                    try! realm.write {
+                        realm.delete(tag)
+                    }
+                }
+            }
+        } 
     }
     
-
+    
     /*
     // Override to support rearranging the table view.
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+    
     }
     */
-
+    
     /*
     // Override to support conditional rearranging of the table view.
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    // Return false if you do not want the item to be re-orderable.
+    return true
     }
     */
-
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
     
@@ -142,8 +128,7 @@ class ChooseTopicViewController: UITableViewController {
     
     func loadExampleData() {
         if let keyedRowsDic = loadDataFromFile("Sample1"){
-           let questionArr = parseDataForValues(keyedRowsDic)
-            saveToRealm(questionArr)
+            parseDataForValuesAndSaveToRealm(keyedRowsDic)
             
         }else{
             print("Could not load Data")
@@ -165,8 +150,7 @@ class ChooseTopicViewController: UITableViewController {
         return nil
     }
     
-    func parseDataForValues(keyedRowsDic: [[String:String]]) -> [Question] {
-        var questionArr = [Question]()
+    func parseDataForValuesAndSaveToRealm(keyedRowsDic: [[String:String]]) {
         var title = ""
         var author = ""
         var date = ""
@@ -211,16 +195,6 @@ class ChooseTopicViewController: UITableViewController {
                         }
                         
                         //Building a Question
-                        let answerContainer = AnswerContainer()
-                        let tagContainer = TagContainer()
-                        
-                        for answer in answers {
-                            answerContainer.answers.append(Answer(text: answer.0,isCorrect: answer.1))
-                        }
-                        //TODO: Link multiple tag instances
-                        for tag in tags {
-                            tagContainer.tags.append(Tag(tag: tag))
-                        }
                         let tmpQuestion = Question()
                         tmpQuestion.title = title
                         tmpQuestion.author = author
@@ -230,41 +204,54 @@ class ChooseTopicViewController: UITableViewController {
                         tmpQuestion.hint = hint
                         tmpQuestion.feedback = feedback
                         tmpQuestion.difficulty = difficulty
-                        tmpQuestion.answerContainer = answerContainer
-                        tmpQuestion.tagContainer = tagContainer
                         
-                        questionArr.append(tmpQuestion)
+                        //Creating the answers
+                        for answer in answers {
+                            let tmpAnswer = Answer()
+                            tmpAnswer.answerText = answer.0
+                            tmpAnswer.isCorrect = answer.1
+                            tmpAnswer.associatedQuestion = tmpQuestion
+                            tmpQuestion.answers.append(tmpAnswer)
+                        }
+                        
+                        //Creating the tags
+                        for tag in tags {
+                            //See if tag already exists
+                            if let tagExists = realm.objectForPrimaryKey(Tag.self, key: tag){
+                                tmpQuestion.tags.append(tagExists)
+                            }else{
+                                let newTag = Tag()
+                                newTag.tagText = tag
+                                tmpQuestion.tags.append(newTag)
+                            }
+                        }
+                        
+                        saveToRealm(tmpQuestion)
                         
                     }else{
                         print("failed to assign difficulty, Int parsing failed")
                     }
-                    
                 }else{
                     print("Unwrapping type, Question, Hint, Feedback or CorrectAnswers failed!")
                 }
             }
         }
-        return questionArr
     }
     
-    func saveToRealm(questionArr: [Question]){
-        
-        
-        // Save objects
+    func saveToRealm(question: Question){
+        // Save object
         realm.beginWrite()
-        for question in questionArr{
-            //check if it already exists
-            if realm.objectForPrimaryKey(Question.self, key: question.questionText) == nil {
-                realm.add(question)
-            }else{
-                print("Question with questionText: \(question.questionText) already exists")
-            }
+        //check if it already exists
+        if realm.objectForPrimaryKey(Question.self, key: question.questionText) == nil {
+            realm.add(question)
+        }else{
+            print("Question with questionText: \(question.questionText) already exists")
         }
         try! realm.commitWrite()
         self.tableView.reloadData()
         
     }
-
+    
 }
 
 
