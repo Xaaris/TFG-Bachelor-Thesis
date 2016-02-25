@@ -154,6 +154,12 @@ class ChooseTopicViewController: UITableViewController {
         }else{
             print("Could not load Data")
         }
+        if let keyedRowsDic = loadDataFromFile("Sample2"){
+            parseDataForValuesAndSaveToRealm(keyedRowsDic)
+            
+        }else{
+            print("Could not load Data")
+        }
         
     }
     
