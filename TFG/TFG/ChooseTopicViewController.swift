@@ -11,9 +11,6 @@ import RealmSwift
 
 class ChooseTopicViewController: UITableViewController {
     
-    var lastSelectedIndexPath:NSIndexPath? = nil
-    var lastSelectedTopic:String? = nil
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,31 +38,30 @@ class ChooseTopicViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TopicCell", forIndexPath: indexPath)
         // Configure the cell...
-        cell.accessoryType = (lastSelectedIndexPath?.row == indexPath.row) ? .Checkmark : .None
-        let result = realm.objects(Topic)
-        cell.textLabel?.text = result[indexPath.row].title
-        if cell.textLabel?.text == lastSelectedTopic{
-            cell.accessoryType = .Checkmark
-        }
+        let topics = realm.objects(Topic)
+        let currentCell = topics[indexPath.row]
+        cell.accessoryType = currentCell.isSelected ? .Checkmark : .None
+        cell.textLabel?.text = currentCell.title
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        if indexPath.row != lastSelectedIndexPath?.row {
-            if let lastSelectedIndexPath = lastSelectedIndexPath {
-                let oldCell = tableView.cellForRowAtIndexPath(lastSelectedIndexPath)
-                oldCell?.accessoryType = .None
-            }
-            let newCell = tableView.cellForRowAtIndexPath(indexPath)
-            newCell?.accessoryType = .Checkmark
-            lastSelectedIndexPath = indexPath
-            lastSelectedTopic = tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text
-            //Giving info of selected topic to mainVC
-            let mainVC = self.navigationController!.viewControllers.first as! MainViewController
-            mainVC.lastSelectedTopic = lastSelectedTopic
+        realm.beginWrite()
+        //Uncheck all
+        let topics = realm.objects(Topic)
+        for topic in topics{
+            topic.isSelected = false
         }
+        //Check just the one selected
+        let currentCell = tableView.cellForRowAtIndexPath(indexPath)
+        let topicOfCurrentCell = currentCell?.textLabel?.text
+        let currentCellData = realm.objectForPrimaryKey(Topic.self, key: topicOfCurrentCell!)!
+        currentCellData.isSelected = true
+        realm.add(topics)
+        try! realm.commitWrite()
+        tableView.reloadData()
     }
     
     
@@ -275,7 +271,7 @@ class ChooseTopicViewController: UITableViewController {
             print("Topic already exists")
         }
         try! realm.commitWrite()
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
     
     func saveToRealm(question: Question){

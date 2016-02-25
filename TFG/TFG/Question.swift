@@ -11,6 +11,7 @@ import RealmSwift
 
 class Topic: Object{
     dynamic var title = ""
+    dynamic var isSelected = false
     var questions: [Question] {
         return linkingObjects(Question.self, forProperty: "topic")
     }

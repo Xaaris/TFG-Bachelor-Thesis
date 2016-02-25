@@ -12,8 +12,6 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var topicLabel: UILabel!
     
-    var lastSelectedTopic:String? = nil
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Main View")
@@ -25,18 +23,12 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        if lastSelectedTopic != nil {
-            topicLabel.text = lastSelectedTopic
+        if let currentTopic = realm.objects(Topic).filter("isSelected == true").first{
+            topicLabel.text = currentTopic.title
         }else{
             topicLabel.text = "No topic selected"
         }
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let chooseTopicVC = segue.destinationViewController as! ChooseTopicViewController
-        chooseTopicVC.lastSelectedTopic = lastSelectedTopic
-    }
-    
     
 }
 
