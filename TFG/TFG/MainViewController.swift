@@ -32,6 +32,11 @@ class MainViewController: UIViewController {
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let chooseTopicVC = segue.destinationViewController as! ChooseTopicViewController
+        chooseTopicVC.lastSelectedTopic = lastSelectedTopic
+    }
+    
     
 }
 

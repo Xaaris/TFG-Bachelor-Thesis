@@ -58,6 +58,9 @@ class ChooseTopicViewController: UITableViewController {
             }
         }
         cell.textLabel?.text = titles[indexPath.row]
+        if cell.textLabel?.text == lastSelectedTopic{
+            cell.accessoryType = .Checkmark
+        }
         return cell
     }
     
@@ -72,12 +75,10 @@ class ChooseTopicViewController: UITableViewController {
             let newCell = tableView.cellForRowAtIndexPath(indexPath)
             newCell?.accessoryType = .Checkmark
             lastSelectedIndexPath = indexPath
-            print(lastSelectedIndexPath?.row)
             lastSelectedTopic = tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text
-            print(lastSelectedTopic)
-            
-            let a = self.navigationController!.viewControllers.first as! MainViewController
-            a.lastSelectedTopic = lastSelectedTopic
+            //Giving info of selected topic to mainVC
+            let mainVC = self.navigationController!.viewControllers.first as! MainViewController
+            mainVC.lastSelectedTopic = lastSelectedTopic
         }
     }
     

@@ -21,7 +21,7 @@
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Choose a topic"/>
                                 <connections>
-                                    <segue destination="iVf-Qn-9xN" kind="show" id="MrU-j0-6YK"/>
+                                    <segue destination="iVf-Qn-9xN" kind="show" identifier="showTopicChooser" id="MrU-j0-6YK"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1L-WK-8sK">
