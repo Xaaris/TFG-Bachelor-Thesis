@@ -43,7 +43,7 @@
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Start"/>
                                 <connections>
-                                    <segue destination="xV0-vs-vUz" kind="show" id="Hrc-uk-UVb"/>
+                                    <action selector="startButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="rLD-sE-wZJ"/>
                                 </connections>
                             </button>
                         </subviews>

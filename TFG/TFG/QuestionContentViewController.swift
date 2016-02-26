@@ -28,8 +28,8 @@ class QuestionContentViewController: UIViewController,UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         questionTextLabel!.text = Util().getCurrentTopic()!.questions[pageIndex].questionText
-        answerTableView.delegate      =   self
-        answerTableView.dataSource    =   self
+        answerTableView.delegate = self
+        answerTableView.dataSource = self
     }
     
      func numberOfSectionsInTableView(tableView: UITableView) -> Int {

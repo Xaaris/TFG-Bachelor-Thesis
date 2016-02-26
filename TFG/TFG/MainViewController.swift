@@ -29,6 +29,18 @@ class MainViewController: UIViewController {
             topicLabel.text = "No topic selected"
         }
     }
+    @IBAction func startButtonPressed(sender: AnyObject) {
+        if Util().getCurrentTopic() != nil{
+            let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PageController") as! PresentQuestionPageViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else{
+            let alertController = UIAlertController(title: "No Topic Selected", message:
+                "Please choose a topic first", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+    }
     
 }
 
