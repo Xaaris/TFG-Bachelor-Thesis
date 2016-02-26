@@ -30,6 +30,7 @@ class Question: Object {
     dynamic var hint = ""
     dynamic var feedback = ""
     dynamic var difficulty = 0
+    dynamic var isAnswered = false
     let answers = List<Answer>()
     let tags = List<Tag>()
     

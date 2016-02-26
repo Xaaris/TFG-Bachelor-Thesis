@@ -153,7 +153,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H5d-ne-yql" id="lay-PX-HuQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tRh-TO-aOV">
@@ -201,14 +201,14 @@
                                                     <exclude reference="6Ud-fV-xkn"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="Jsr-A1-rgd"/>
-                                                    <exclude reference="cZP-s8-Mgg"/>
-                                                    <exclude reference="ng4-Ok-fYk"/>
-                                                    <exclude reference="u12-Y0-4Ei"/>
                                                     <exclude reference="Lsc-Vt-deC"/>
                                                     <exclude reference="Lwc-6G-vxb"/>
                                                     <exclude reference="Rr7-aB-vME"/>
                                                     <exclude reference="y86-ER-m3N"/>
+                                                    <exclude reference="Jsr-A1-rgd"/>
+                                                    <exclude reference="cZP-s8-Mgg"/>
+                                                    <exclude reference="ng4-Ok-fYk"/>
+                                                    <exclude reference="u12-Y0-4Ei"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
@@ -217,14 +217,14 @@
                                                     <include reference="6Ud-fV-xkn"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="Jsr-A1-rgd"/>
-                                                    <include reference="cZP-s8-Mgg"/>
-                                                    <exclude reference="ng4-Ok-fYk"/>
-                                                    <include reference="u12-Y0-4Ei"/>
                                                     <include reference="Lsc-Vt-deC"/>
                                                     <include reference="Lwc-6G-vxb"/>
                                                     <include reference="Rr7-aB-vME"/>
                                                     <include reference="y86-ER-m3N"/>
+                                                    <include reference="Jsr-A1-rgd"/>
+                                                    <include reference="cZP-s8-Mgg"/>
+                                                    <exclude reference="ng4-Ok-fYk"/>
+                                                    <include reference="u12-Y0-4Ei"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
