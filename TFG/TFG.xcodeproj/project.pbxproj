@@ -27,6 +27,7 @@
 		3BE4BA321C7FDBE30053EC96 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4BA311C7FDBE30053EC96 /* Util.swift */; };
 		3BE4BA341C80B11A0053EC96 /* Sample2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3BE4BA331C80B11A0053EC96 /* Sample2.csv */; };
 		3BE4BA361C80CB6C0053EC96 /* AnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4BA351C80CB6C0053EC96 /* AnswerCell.swift */; };
+		3BE4BA391C80E5970053EC96 /* QuizFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4BA371C80E5970053EC96 /* QuizFinishedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,6 +66,7 @@
 		3BE4BA311C7FDBE30053EC96 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		3BE4BA331C80B11A0053EC96 /* Sample2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample2.csv; sourceTree = "<group>"; };
 		3BE4BA351C80CB6C0053EC96 /* AnswerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerCell.swift; sourceTree = "<group>"; };
+		3BE4BA371C80E5970053EC96 /* QuizFinishedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizFinishedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				3BC8B42A1C723581000FD25D /* PreferencesViewController.swift */,
 				3BE4BA2D1C7FCB940053EC96 /* PresentQuestionPageViewController.swift */,
 				3BE4BA2F1C7FD9A60053EC96 /* QuestionContentViewController.swift */,
+				3BE4BA371C80E5970053EC96 /* QuizFinishedViewController.swift */,
 				3BE4BA351C80CB6C0053EC96 /* AnswerCell.swift */,
 				3BE4BA311C7FDBE30053EC96 /* Util.swift */,
 				3BC8B41C1C70F251000FD25D /* Main.storyboard */,
@@ -224,6 +227,7 @@
 				3BE4BA2E1C7FCB940053EC96 /* PresentQuestionPageViewController.swift in Sources */,
 				3BE4BA321C7FDBE30053EC96 /* Util.swift in Sources */,
 				3BC8B42B1C723581000FD25D /* PreferencesViewController.swift in Sources */,
+				3BE4BA391C80E5970053EC96 /* QuizFinishedViewController.swift in Sources */,
 				3BE4BA301C7FD9A60053EC96 /* QuestionContentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

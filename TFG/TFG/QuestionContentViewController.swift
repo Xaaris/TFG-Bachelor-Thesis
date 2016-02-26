@@ -15,8 +15,6 @@ class QuestionContentViewController: UIViewController,UITableViewDelegate, UITab
     
     var currentQuestionDataSet:[Question] = []
 
-    
-    // MARK: - Variables
     var pageIndex: Int = 0 {
         didSet {
             if let label = questionTextLabel{
@@ -62,7 +60,9 @@ class QuestionContentViewController: UIViewController,UITableViewDelegate, UITab
         let answer = question.answers[indexPath.row]
         realm.beginWrite()
         answer.isSelected = true
+        question.isAnswered = true
         realm.add(answer)
+        realm.add(question)
         try! realm.commitWrite()
         tableView.reloadData()
     }

@@ -41,32 +41,42 @@ class PresentQuestionPageViewController: UIPageViewController, UIPageViewControl
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         
-        let questionContentVC = viewController as! QuestionContentViewController
-        
-        if questionContentVC.pageIndex > 0 {
-            return getPageController(questionContentVC.pageIndex-1)
+        if let questionContentVC = viewController as? QuestionContentViewController{
+            if questionContentVC.pageIndex > 0{
+                return getPageController(questionContentVC.pageIndex-1)
+            }
+        }else if let finishedVC = viewController as? QuizFinishedViewController{
+            if finishedVC.pageIndex > 0{
+                return getPageController(finishedVC.pageIndex-1)
+            }
         }
-        
         return nil
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         
-        let questionContentVC = viewController as! QuestionContentViewController
-        
-        if questionContentVC.pageIndex+1 < Util().getCurrentTopic()!.questions.count {
-            return getPageController(questionContentVC.pageIndex+1)
+        if let questionContentVC = viewController as? QuestionContentViewController{
+            if questionContentVC.pageIndex+1 < Util().getCurrentTopic()!.questions.count + 1{
+                return getPageController(questionContentVC.pageIndex+1)
+            }
+        }else if let finishedVC = viewController as? QuizFinishedViewController{
+            if finishedVC.pageIndex+1 < Util().getCurrentTopic()!.questions.count + 1{
+                return getPageController(finishedVC.pageIndex+1)
+            }
         }
-        
         return nil
     }
     
-    private func getPageController(pageIndex: Int) -> QuestionContentViewController? {
+    private func getPageController(pageIndex: Int) -> UIViewController? {
         
         if pageIndex < Util().getCurrentTopic()!.questions.count {
             let questionContentVC = self.storyboard!.instantiateViewControllerWithIdentifier("ContentController") as! QuestionContentViewController
             questionContentVC.pageIndex = pageIndex
             return questionContentVC
+        } else if pageIndex < Util().getCurrentTopic()!.questions.count + 1 {
+            let finishedVC = self.storyboard!.instantiateViewControllerWithIdentifier("QuizFinished") as! QuizFinishedViewController
+            finishedVC.pageIndex = pageIndex
+            return finishedVC
         }
         
         return nil
@@ -77,7 +87,7 @@ class PresentQuestionPageViewController: UIPageViewController, UIPageViewControl
     // MARK: - Page Indicator
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return Util().getCurrentTopic()!.questions.count
+        return Util().getCurrentTopic()!.questions.count + 1
     }
     
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {

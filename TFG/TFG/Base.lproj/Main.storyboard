@@ -293,6 +293,53 @@
             </objects>
             <point key="canvasLocation" x="2958" y="36"/>
         </scene>
+        <!--Quiz Finished View Controller-->
+        <scene sceneID="K4J-hY-Jps">
+            <objects>
+                <viewController storyboardIdentifier="QuizFinished" id="Y5r-IS-Tby" customClass="QuizFinishedViewController" customModule="TFG" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hPQ-9u-ZOm"/>
+                        <viewControllerLayoutGuide type="bottom" id="E07-3h-d6g"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rI3-mB-EAr">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YAY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sH-5d-U18">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8sH-5d-U18" firstAttribute="top" secondItem="hPQ-9u-ZOm" secondAttribute="bottom" constant="137" id="XrK-QJ-Euc"/>
+                            <constraint firstItem="8sH-5d-U18" firstAttribute="centerX" secondItem="rI3-mB-EAr" secondAttribute="centerX" id="aVo-bJ-z4z"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="8sH-5d-U18"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="XrK-QJ-Euc"/>
+                                <exclude reference="aVo-bJ-z4z"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="8sH-5d-U18"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="XrK-QJ-Euc"/>
+                                <include reference="aVo-bJ-z4z"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pvv-t1-yvf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3603" y="36"/>
+        </scene>
         <!--Choose a Topic-->
         <scene sceneID="bsa-af-9Jh">
             <objects>
