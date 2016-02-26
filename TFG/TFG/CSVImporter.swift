@@ -128,3 +128,159 @@ func sanitizedStringMap(String string: String) -> String {
     }
     
 }
+
+
+
+
+
+
+
+class ImportAndSaveHelper {
+    
+    func loadAndSave(filename: String){
+        if let keyedRowsDic = loadDataFromFile(filename){
+            parseDataForValuesAndSaveToRealm(keyedRowsDic)
+        }else{
+            print("Could not load Data")
+        }
+    }
+    
+    private func loadDataFromFile(fileName: String) -> [[String : String]]? {
+        let csvURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(fileName, ofType: "csv")!)
+        do{
+            let text = try String(contentsOfURL: csvURL)
+            let csvImporter = CSVImporter(String: text, separator: ";")
+            if let keyedRows = csvImporter.keyedRows{
+                return keyedRows
+            }
+        }catch{
+            print(error)
+        }
+        return nil
+    }
+    
+    private func parseDataForValuesAndSaveToRealm(keyedRowsDic: [[String:String]]) {
+        var universalTags = Set<String>()
+        var topic = Topic()
+        for row in keyedRowsDic{
+            //Info row
+            if row["QuestionType"] == "Info"{
+                let returnValues = getTopicAndUniversalTags(row)
+                universalTags = returnValues.universalTags
+                topic = returnValues.topic
+                //Normal row
+            }else if !row["QuestionType"]!.isEmpty {
+                if let question = buildQuestionFromRow(row, topic: topic, universalTags: universalTags){
+                    saveToRealm(question)
+                }else{
+                    print("could not build a question")
+                }
+            }
+        }
+        saveToRealm(topic)
+    }
+    
+    private func getTopicAndUniversalTags(row: [String:String]) -> (topic: Topic,universalTags: Set<String>){
+        let topic = Topic()
+        topic.title = row["Question"]!.isEmpty ? "No title" : row["Question"]!
+        topic.author = row["Hint"]!.isEmpty ? "No author" : row["Hint"]!
+        topic.date = row["Feedback"]!.isEmpty ? "No Date" : row["Feedback"]!
+        var universalTags = Set<String>()
+        for tag in row.values{
+            if !tag.isEmpty{
+                universalTags.insert(tag)
+            }
+        }
+        universalTags.remove(topic.title)
+        universalTags.remove(topic.author)
+        universalTags.remove(topic.date)
+        universalTags.remove("Info")
+        return (topic, universalTags)
+    }
+    
+    private func buildQuestionFromRow(row: [String:String], topic: Topic, universalTags: Set<String>) -> Question? {
+        if let type = row["QuestionType"], question = row["Question"], hint = row["Hint"], feedback = row["Feedback"], tmpDifficulty = row["Difficulty"], correctAnswers = row["CorrectAnswers"]?.componentsSeparatedByString(","){
+            if let difficulty = Int(tmpDifficulty){
+                var tmpAnswerDic = [String:String]()
+                var answers = [String: Bool]()
+                var tags = universalTags
+                //extracting answers and tags
+                for cell in row{
+                    if cell.0.containsString("Answer") && !cell.0.containsString("C") && !cell.1.isEmpty{
+                        tmpAnswerDic[cell.0.lowercaseString.stringByReplacingOccurrencesOfString("answer", withString: "")] = cell.1
+                    }else if cell.0.containsString("Tag") && !cell.1.isEmpty{
+                        tags.insert(cell.1)
+                    }
+                }
+                //mapping answers with their value of truth
+                for answerKey in tmpAnswerDic.keys {
+                    if correctAnswers.contains(answerKey){
+                        answers[tmpAnswerDic[answerKey]!] = true
+                    }else{
+                        answers[tmpAnswerDic[answerKey]!] = false
+                    }
+                }
+                
+                //Building a Question
+                let tmpQuestion = Question()
+                tmpQuestion.topic = topic
+                tmpQuestion.type = type
+                tmpQuestion.questionText = question
+                tmpQuestion.hint = hint
+                tmpQuestion.feedback = feedback
+                tmpQuestion.difficulty = difficulty
+                
+                //Creating the answers
+                for answer in answers {
+                    let tmpAnswer = Answer()
+                    tmpAnswer.answerText = answer.0
+                    tmpAnswer.isCorrect = answer.1
+                    tmpAnswer.associatedQuestion = tmpQuestion
+                    tmpQuestion.answers.append(tmpAnswer)
+                }
+                
+                //Creating the tags
+                for tag in tags {
+                    //See if tag already exists
+                    if let tagExists = realm.objectForPrimaryKey(Tag.self, key: tag){
+                        tmpQuestion.tags.append(tagExists)
+                    }else{
+                        let newTag = Tag()
+                        newTag.tagText = tag
+                        tmpQuestion.tags.append(newTag)
+                    }
+                }
+                return tmpQuestion
+            }else{
+                print("failed to assign difficulty, Int parsing failed")
+            }
+        }else{
+            print("Unwrapping type, Question, Hint, Feedback or CorrectAnswers failed!")
+        }
+        return nil
+    }
+    
+    private func saveToRealm(question: Question){
+        // Save Question
+        realm.beginWrite()
+        //check if it already exists
+        if realm.objectForPrimaryKey(Question.self, key: question.questionText) == nil {
+            realm.add(question)
+        }else{
+            print("Question with questionText: \(question.questionText) already exists")
+        }
+        try! realm.commitWrite()
+        
+    }
+    
+    private func saveToRealm(topic: Topic){
+        //Save topic to realm
+        realm.beginWrite()
+        if realm.objectForPrimaryKey(Topic.self, key: topic.title) == nil {
+            realm.add(topic)
+        }else{
+            print("Topic already exists")
+        }
+        try! realm.commitWrite()
+    }
+}
