@@ -29,8 +29,8 @@ class PresentQuestionPageViewController: UIPageViewController, UIPageViewControl
     private func setupPageControl() {
         let appearance = UIPageControl.appearance()
         appearance.pageIndicatorTintColor = UIColor.grayColor()
-        appearance.currentPageIndicatorTintColor = UIColor.blueColor()
-        appearance.backgroundColor = UIColor.darkGrayColor()
+        appearance.currentPageIndicatorTintColor = UIColor.darkGrayColor()
+        appearance.backgroundColor = UIColor.whiteColor()
     }
     
     
