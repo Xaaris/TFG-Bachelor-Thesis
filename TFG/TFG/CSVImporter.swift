@@ -267,7 +267,7 @@ class ImportAndSaveHelper {
         if realm.objectForPrimaryKey(Question.self, key: question.questionText) == nil {
             realm.add(question)
         }else{
-            print("Question with questionText: \(question.questionText) already exists")
+            // print("Question with questionText: \(question.questionText) already exists")
         }
         try! realm.commitWrite()
         
@@ -279,7 +279,7 @@ class ImportAndSaveHelper {
         if realm.objectForPrimaryKey(Topic.self, key: topic.title) == nil {
             realm.add(topic)
         }else{
-            print("Topic already exists")
+           // print("Topic already exists")
         }
         try! realm.commitWrite()
     }
