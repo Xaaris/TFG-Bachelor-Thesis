@@ -10,27 +10,17 @@ import UIKit
 
 class PresentQuestionPageViewController: UIPageViewController, UIPageViewControllerDataSource {
     
-    // MARK: - Variables
-    var currentQuestionNumber = 0
-    
-    
     
     override func viewDidLoad() {
-        currentQuestionNumber = Util().getCurrentTopic()!.questions.count
-        print("currentPages = \(currentQuestionNumber)")
         super.viewDidLoad()
         createPageViewController()
         setupPageControl()
     }
     
-    
-    
     private func createPageViewController() {
         
-
-        
+        self.dataSource = self
         let firstController = getPageController(0)!
-        print(firstController)
         let startingViewControllers: NSArray = [firstController]
         self.setViewControllers(startingViewControllers as? [UIViewController], direction: .Forward, animated: false, completion: nil)
     
@@ -75,7 +65,6 @@ class PresentQuestionPageViewController: UIPageViewController, UIPageViewControl
         if pageIndex < Util().getCurrentTopic()!.questions.count {
             let questionContentVC = self.storyboard!.instantiateViewControllerWithIdentifier("ContentController") as! QuestionContentViewController
             questionContentVC.pageIndex = pageIndex
-            questionContentVC.randomString = "Hallo"
             return questionContentVC
         }
         

@@ -13,13 +13,11 @@ class QuestionContentViewController: UIViewController {
     @IBOutlet weak var questionTextLabel: UILabel?
     
     // MARK: - Variables
-    var pageIndex: Int = 0
-    
-    var randomString: String = "" {
+    var pageIndex: Int = 0 {
         
         didSet {
             if let label = questionTextLabel{
-                label.text = randomString + String(pageIndex) + "Bla"
+                label.text = Util().getCurrentTopic()!.questions[pageIndex].questionText
             }
             
         }
@@ -28,6 +26,6 @@ class QuestionContentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        questionTextLabel!.text = randomString + String(pageIndex)
+        questionTextLabel!.text = Util().getCurrentTopic()!.questions[pageIndex].questionText
     }
 }
