@@ -30,7 +30,6 @@ class QuestionContentViewController: UIViewController,UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         currentQuestionDataSet = Util().getCurrentTopic()!.questions
-        resetDataSet()
         questionTextLabel!.text = currentQuestionDataSet[pageIndex].questionText
         answerTableView.delegate = self
         answerTableView.dataSource = self
@@ -68,16 +67,5 @@ class QuestionContentViewController: UIViewController,UITableViewDelegate, UITab
         tableView.reloadData()
     }
     
-    func resetDataSet() {
-        realm.beginWrite()
-        for question in currentQuestionDataSet{
-            question.isAnswered = false
-            realm.add(question)
-            for answer in question.answers{
-                answer.isSelected = false
-                realm.add(answer)
-            }
-        }
-        try! realm.commitWrite()
-    }
+
 }

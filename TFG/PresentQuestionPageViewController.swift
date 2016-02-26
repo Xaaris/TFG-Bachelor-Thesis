@@ -15,6 +15,7 @@ class PresentQuestionPageViewController: UIPageViewController, UIPageViewControl
         super.viewDidLoad()
         createPageViewController()
         setupPageControl()
+        resetDataSet()
     }
     
     private func createPageViewController() {
@@ -81,6 +82,20 @@ class PresentQuestionPageViewController: UIPageViewController, UIPageViewControl
     
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
         return 0
+    }
+    
+    //resets the questiondata so no question is answered and no answer is seleted
+    func resetDataSet() {
+        realm.beginWrite()
+        for question in Util().getCurrentTopic()!.questions{
+            question.isAnswered = false
+            realm.add(question)
+            for answer in question.answers{
+                answer.isSelected = false
+                realm.add(answer)
+            }
+        }
+        try! realm.commitWrite()
     }
 
 }
