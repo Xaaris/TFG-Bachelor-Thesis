@@ -42,6 +42,7 @@ class ChooseTopicViewController: UITableViewController {
         let currentCell = topics[indexPath.row]
         cell.accessoryType = currentCell.isSelected ? .Checkmark : .None
         cell.textLabel?.text = currentCell.title
+        cell.detailTextLabel?.text = currentCell.author + " " + currentCell.date
         return cell
     }
     
