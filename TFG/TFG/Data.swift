@@ -41,6 +41,7 @@ class Question: Object {
 class Answer: Object {
     dynamic var answerText = ""
     dynamic var isCorrect = false
+    dynamic var isSelected = false
     dynamic var associatedQuestion: Question? // to-one relationships must be optional
 }
 
