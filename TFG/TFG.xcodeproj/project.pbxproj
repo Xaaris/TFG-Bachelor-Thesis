@@ -26,6 +26,7 @@
 		3BE4BA301C7FD9A60053EC96 /* QuestionContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4BA2F1C7FD9A60053EC96 /* QuestionContentViewController.swift */; };
 		3BE4BA321C7FDBE30053EC96 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4BA311C7FDBE30053EC96 /* Util.swift */; };
 		3BE4BA341C80B11A0053EC96 /* Sample2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3BE4BA331C80B11A0053EC96 /* Sample2.csv */; };
+		3BE4BA361C80CB6C0053EC96 /* AnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4BA351C80CB6C0053EC96 /* AnswerCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -63,6 +64,7 @@
 		3BE4BA2F1C7FD9A60053EC96 /* QuestionContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionContentViewController.swift; sourceTree = "<group>"; };
 		3BE4BA311C7FDBE30053EC96 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		3BE4BA331C80B11A0053EC96 /* Sample2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample2.csv; sourceTree = "<group>"; };
+		3BE4BA351C80CB6C0053EC96 /* AnswerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				3BC8B42A1C723581000FD25D /* PreferencesViewController.swift */,
 				3BE4BA2D1C7FCB940053EC96 /* PresentQuestionPageViewController.swift */,
 				3BE4BA2F1C7FD9A60053EC96 /* QuestionContentViewController.swift */,
+				3BE4BA351C80CB6C0053EC96 /* AnswerCell.swift */,
 				3BE4BA311C7FDBE30053EC96 /* Util.swift */,
 				3BC8B41C1C70F251000FD25D /* Main.storyboard */,
 				3BC8B41F1C70F251000FD25D /* Assets.xcassets */,
@@ -214,6 +217,7 @@
 				3B7F65171C78F97F00BE0812 /* CSVImporter.swift in Sources */,
 				3BBD159E1C7A081C00672569 /* ChooseTopicViewController.swift in Sources */,
 				3BC8B41B1C70F251000FD25D /* StatisticsViewController.swift in Sources */,
+				3BE4BA361C80CB6C0053EC96 /* AnswerCell.swift in Sources */,
 				3BC8B4171C70F251000FD25D /* AppDelegate.swift in Sources */,
 				3BC8B4191C70F251000FD25D /* MainViewController.swift in Sources */,
 				3BBD15A01C7A18C500672569 /* Question.swift in Sources */,
