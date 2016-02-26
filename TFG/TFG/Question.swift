@@ -11,6 +11,8 @@ import RealmSwift
 
 class Topic: Object{
     dynamic var title = ""
+    dynamic var author = ""
+    dynamic var date = ""
     dynamic var isSelected = false
     var questions: [Question] {
         return linkingObjects(Question.self, forProperty: "topic")
@@ -23,8 +25,6 @@ class Topic: Object{
 
 class Question: Object {
     dynamic var topic: Topic? // to-one relationships must be optional
-    dynamic var author = ""
-    dynamic var date = ""
     dynamic var type = ""
     dynamic var questionText = ""
     dynamic var hint = ""

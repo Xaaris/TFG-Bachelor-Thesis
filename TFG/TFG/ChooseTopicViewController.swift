@@ -185,9 +185,11 @@ class ChooseTopicViewController: UITableViewController {
             //Info row
             if row["QuestionType"] == "Info"{
                 title = row["Question"]!.isEmpty ? "No title" : row["Question"]!
-                topic.title = title
                 author = row["Hint"]!.isEmpty ? "No author" : row["Hint"]!
                 date = row["Feedback"]!.isEmpty ? "No Date" : row["Feedback"]!
+                topic.title = title
+                topic.author = author
+                topic.date = date
                 for tag in row.values{
                     if !tag.isEmpty{
                         universalTags.insert(tag)
@@ -224,8 +226,6 @@ class ChooseTopicViewController: UITableViewController {
                         //Building a Question
                         let tmpQuestion = Question()
                         tmpQuestion.topic = topic
-                        tmpQuestion.author = author
-                        tmpQuestion.date = date
                         tmpQuestion.type = type
                         tmpQuestion.questionText = question
                         tmpQuestion.hint = hint
