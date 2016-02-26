@@ -1,0 +1,98 @@
+//
+//  PresentQuestionPageViewController.swift
+//  TFG
+//
+//  Created by Johannes Berger on 26.02.16.
+//  Copyright © 2016 Johannes Berger. All rights reserved.
+//
+
+import UIKit
+
+class PresentQuestionPageViewController: UIPageViewController, UIPageViewControllerDataSource {
+    
+    // MARK: - Variables
+    var currentQuestionNumber = 0
+    
+    
+    
+    override func viewDidLoad() {
+        currentQuestionNumber = Util().getCurrentTopic()!.questions.count
+        print("currentPages = \(currentQuestionNumber)")
+        super.viewDidLoad()
+        createPageViewController()
+        setupPageControl()
+    }
+    
+    
+    
+    private func createPageViewController() {
+        
+
+        
+        let firstController = getPageController(0)!
+        print(firstController)
+        let startingViewControllers: NSArray = [firstController]
+        self.setViewControllers(startingViewControllers as? [UIViewController], direction: .Forward, animated: false, completion: nil)
+    
+    }
+    
+    private func setupPageControl() {
+        let appearance = UIPageControl.appearance()
+        appearance.pageIndicatorTintColor = UIColor.grayColor()
+        appearance.currentPageIndicatorTintColor = UIColor.blueColor()
+        appearance.backgroundColor = UIColor.darkGrayColor()
+    }
+    
+    
+    
+    
+    // MARK: - UIPageViewControllerDataSource
+    
+    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+        
+        let questionContentVC = viewController as! QuestionContentViewController
+        
+        if questionContentVC.pageIndex > 0 {
+            return getPageController(questionContentVC.pageIndex-1)
+        }
+        
+        return nil
+    }
+    
+    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+        
+        let questionContentVC = viewController as! QuestionContentViewController
+        
+        if questionContentVC.pageIndex+1 < Util().getCurrentTopic()!.questions.count {
+            return getPageController(questionContentVC.pageIndex+1)
+        }
+        
+        return nil
+    }
+    
+    private func getPageController(pageIndex: Int) -> QuestionContentViewController? {
+        
+        if pageIndex < Util().getCurrentTopic()!.questions.count {
+            let questionContentVC = self.storyboard!.instantiateViewControllerWithIdentifier("ContentController") as! QuestionContentViewController
+            questionContentVC.pageIndex = pageIndex
+            questionContentVC.randomString = "Hallo"
+            return questionContentVC
+        }
+        
+        return nil
+    }
+    
+    
+    
+    // MARK: - Page Indicator
+    
+    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+        print(Util().getCurrentTopic()!.questions.count)
+        return Util().getCurrentTopic()!.questions.count
+    }
+    
+    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+        return 0
+    }
+
+}
