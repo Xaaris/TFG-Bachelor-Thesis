@@ -12,6 +12,7 @@ class QuestionContentViewController: UIViewController,UITableViewDelegate, UITab
 
     @IBOutlet weak var questionTextLabel: UILabel?
     @IBOutlet weak var answerTableView: UITableView!
+
     
     // MARK: - Variables
     var pageIndex: Int = 0 {
@@ -40,14 +41,18 @@ class QuestionContentViewController: UIViewController,UITableViewDelegate, UITab
     }
     
      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("AnswerCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("AnswerCell", forIndexPath: indexPath) as! AnswerCell
         // Configure the cell...
         let question = Util().getCurrentTopic()!.questions[pageIndex]
-        cell.textLabel?.text = question.answers[indexPath.row].answerText
+        cell.AnswerSelectImage.image = UIImage(named: "AnswerChooserSingelChoiceNotSelected")
+        cell.AnswerTextLabel.text = question.answers[indexPath.row].answerText
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("You selected cell #\(indexPath.row)!")
+        let cell = answerTableView.cellForRowAtIndexPath(indexPath)! as! AnswerCell
+        cell.AnswerSelectImage.image = UIImage(named: "AnswerChooserSingelChoiceSelected")
+        
     }
 }
