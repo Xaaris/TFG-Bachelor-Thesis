@@ -76,7 +76,6 @@ class PresentQuestionPageViewController: UIPageViewController, UIPageViewControl
     // MARK: - Page Indicator
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-        print(Util().getCurrentTopic()!.questions.count)
         return Util().getCurrentTopic()!.questions.count
     }
     

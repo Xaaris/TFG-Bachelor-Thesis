@@ -144,9 +144,30 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tFn-65-nga">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnswerCell" id="H5d-ne-yql">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H5d-ne-yql" id="lay-PX-HuQ">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="TUZ-ET-CIg" id="k2X-ri-tww"/>
+                                    <outlet property="delegate" destination="TUZ-ET-CIg" id="OGL-GX-4kS"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="tFn-65-nga" firstAttribute="top" secondItem="p5K-tA-U4Z" secondAttribute="bottom" constant="45" id="2n3-wp-25m"/>
+                            <constraint firstAttribute="trailing" secondItem="tFn-65-nga" secondAttribute="trailing" id="CaG-kd-ZEB"/>
+                            <constraint firstItem="nbg-Rh-OfN" firstAttribute="top" secondItem="tFn-65-nga" secondAttribute="bottom" id="GBm-10-sNK"/>
+                            <constraint firstItem="tFn-65-nga" firstAttribute="leading" secondItem="02u-L1-dNQ" secondAttribute="leading" id="Kum-5J-Qzs"/>
                             <constraint firstItem="p5K-tA-U4Z" firstAttribute="trailing" secondItem="02u-L1-dNQ" secondAttribute="trailingMargin" id="Mos-IN-J5x"/>
                             <constraint firstItem="p5K-tA-U4Z" firstAttribute="leading" secondItem="02u-L1-dNQ" secondAttribute="leadingMargin" id="ThW-Zw-Dih"/>
                             <constraint firstItem="p5K-tA-U4Z" firstAttribute="top" secondItem="XNe-T3-pki" secondAttribute="bottom" id="rpl-pq-HeI"/>
@@ -154,21 +175,31 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="p5K-tA-U4Z"/>
+                                <exclude reference="tFn-65-nga"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="Mos-IN-J5x"/>
                                 <exclude reference="ThW-Zw-Dih"/>
                                 <exclude reference="rpl-pq-HeI"/>
+                                <exclude reference="2n3-wp-25m"/>
+                                <exclude reference="CaG-kd-ZEB"/>
+                                <exclude reference="Kum-5J-Qzs"/>
+                                <exclude reference="GBm-10-sNK"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="p5K-tA-U4Z"/>
+                                <include reference="tFn-65-nga"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="Mos-IN-J5x"/>
                                 <include reference="ThW-Zw-Dih"/>
                                 <include reference="rpl-pq-HeI"/>
+                                <include reference="2n3-wp-25m"/>
+                                <include reference="CaG-kd-ZEB"/>
+                                <include reference="Kum-5J-Qzs"/>
+                                <include reference="GBm-10-sNK"/>
                             </mask>
                         </variation>
                     </view>
@@ -176,6 +207,7 @@
                         <keyCommand/>
                     </keyCommands>
                     <connections>
+                        <outlet property="answerTableView" destination="tFn-65-nga" id="MAC-Ji-bfo"/>
                         <outlet property="questionTextLabel" destination="p5K-tA-U4Z" id="MLK-yQ-sn2"/>
                     </connections>
                 </viewController>
