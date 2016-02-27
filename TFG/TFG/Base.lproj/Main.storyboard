@@ -129,7 +129,7 @@
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="107" id="1Rw-lu-rj7">
-                                        <variation key="widthClass=compact" constant="200"/>
+                                        <variation key="widthClass=compact" constant="150"/>
                                     </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -242,7 +242,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tFn-65-nga" firstAttribute="top" secondItem="p5K-tA-U4Z" secondAttribute="bottom" constant="45" id="2n3-wp-25m"/>
+                            <constraint firstItem="tFn-65-nga" firstAttribute="top" secondItem="p5K-tA-U4Z" secondAttribute="bottom" constant="45" id="2n3-wp-25m">
+                                <variation key="widthClass=compact" constant="30"/>
+                            </constraint>
                             <constraint firstAttribute="trailing" secondItem="tFn-65-nga" secondAttribute="trailing" id="CaG-kd-ZEB"/>
                             <constraint firstItem="nbg-Rh-OfN" firstAttribute="top" secondItem="tFn-65-nga" secondAttribute="bottom" id="GBm-10-sNK"/>
                             <constraint firstItem="tFn-65-nga" firstAttribute="leading" secondItem="02u-L1-dNQ" secondAttribute="leading" id="Kum-5J-Qzs"/>
@@ -302,6 +304,7 @@
                         <viewControllerLayoutGuide type="bottom" id="E07-3h-d6g"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rI3-mB-EAr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YAY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sH-5d-U18">

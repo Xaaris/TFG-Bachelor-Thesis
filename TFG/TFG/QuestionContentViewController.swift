@@ -57,14 +57,16 @@ class QuestionContentViewController: UIViewController,UITableViewDelegate, UITab
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let question = currentQuestionDataSet[pageIndex]
-        let answer = question.answers[indexPath.row]
-        realm.beginWrite()
-        answer.isSelected = true
-        question.isAnswered = true
-        realm.add(answer)
-        realm.add(question)
-        try! realm.commitWrite()
-        tableView.reloadData()
+        if !question.isLocked{
+            let answer = question.answers[indexPath.row]
+            realm.beginWrite()
+            answer.isSelected = true
+            question.isLocked = true
+            realm.add(answer)
+            realm.add(question)
+            try! realm.commitWrite()
+            tableView.reloadData()
+        }
     }
     
 

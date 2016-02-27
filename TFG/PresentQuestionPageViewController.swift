@@ -98,7 +98,8 @@ class PresentQuestionPageViewController: UIPageViewController, UIPageViewControl
     func resetDataSet() {
         realm.beginWrite()
         for question in Util().getCurrentTopic()!.questions{
-            question.isAnswered = false
+            question.isLocked = false
+            question.revealAnswers = false
             realm.add(question)
             for answer in question.answers{
                 answer.isSelected = false
