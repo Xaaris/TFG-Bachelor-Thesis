@@ -258,13 +258,13 @@
                                 <exclude reference="tFn-65-nga"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="GBm-10-sNK"/>
                                 <exclude reference="Mos-IN-J5x"/>
                                 <exclude reference="ThW-Zw-Dih"/>
                                 <exclude reference="rpl-pq-HeI"/>
                                 <exclude reference="2n3-wp-25m"/>
                                 <exclude reference="CaG-kd-ZEB"/>
                                 <exclude reference="Kum-5J-Qzs"/>
+                                <exclude reference="GBm-10-sNK"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -273,13 +273,13 @@
                                 <include reference="tFn-65-nga"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="GBm-10-sNK"/>
                                 <include reference="Mos-IN-J5x"/>
                                 <include reference="ThW-Zw-Dih"/>
                                 <include reference="rpl-pq-HeI"/>
                                 <include reference="2n3-wp-25m"/>
                                 <include reference="CaG-kd-ZEB"/>
                                 <include reference="Kum-5J-Qzs"/>
+                                <include reference="GBm-10-sNK"/>
                             </mask>
                         </variation>
                     </view>
