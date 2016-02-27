@@ -76,8 +76,7 @@ class PresentQuestionPageViewController: UIPageViewController, UIPageViewControl
     }
     
     private func getPageController(pageIndex: Int) -> UIViewController? {
-        print(pageIndex)
-        updatePageController(pageIndex)
+        
         if pageIndex < Util().getCurrentTopic()!.questions.count {
             let questionContentVC = self.storyboard!.instantiateViewControllerWithIdentifier("ContentController") as! QuestionContentViewController
             questionContentVC.pageIndex = pageIndex

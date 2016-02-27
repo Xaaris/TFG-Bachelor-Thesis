@@ -20,7 +20,6 @@ class QuestionContentViewController: UIViewController,UITableViewDelegate, UITab
             if let label = questionTextLabel{
                 label.text = currentQuestionDataSet[pageIndex].questionText
             }
-            
         }
     }
 
@@ -31,6 +30,11 @@ class QuestionContentViewController: UIViewController,UITableViewDelegate, UITab
         questionTextLabel!.text = currentQuestionDataSet[pageIndex].questionText
         answerTableView.delegate = self
         answerTableView.dataSource = self
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        let vc = parentViewController as! PresentQuestionPageViewController
+        vc.updatePageController(pageIndex)
     }
     
      func numberOfSectionsInTableView(tableView: UITableView) -> Int {
