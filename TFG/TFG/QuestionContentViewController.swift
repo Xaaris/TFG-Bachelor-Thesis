@@ -68,9 +68,9 @@ class QuestionContentViewController: UIViewController,UITableViewDelegate, UITab
                 cell.AnswerSelectImage.image = UIImage(named: singleChoiceImageName + lockedStr)
             }
             if answer.isCorrect{
-                cell.AnswerTextLabel.textColor = UIColor.greenColor()
+                cell.AnswerTextLabel.textColor = Util().myGreenColor
             }else{
-                cell.AnswerTextLabel.textColor = UIColor.redColor()
+                cell.AnswerTextLabel.textColor = Util().myRedColor
             }
         }else{
             if question.isLocked{

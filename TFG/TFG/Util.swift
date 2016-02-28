@@ -7,9 +7,17 @@
 //
 
 import Foundation
+import UIKit
 
 class Util {
     
+    let myGreenColor: UIColor
+    let myRedColor: UIColor
+    
+    init(){
+        myGreenColor = UIColor(red: 33/255, green: 127/255, blue: 0/255, alpha: 1)
+        myRedColor = UIColor(red: 127/255, green: 0/255, blue: 0/255, alpha: 1)
+    }
     func getCurrentTopic() -> Topic? {
         let topics = realm.objects(Topic.self)
         for topic in topics{
