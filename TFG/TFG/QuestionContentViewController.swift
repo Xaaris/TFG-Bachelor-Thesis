@@ -32,10 +32,13 @@ class QuestionContentViewController: UIViewController,UITableViewDelegate, UITab
         answerTableView.dataSource = self
     }
     
+    override func viewWillAppear(animated: Bool) {
+        answerTableView.reloadData()
+    }
+    
     override func viewDidAppear(animated: Bool) {
         let vc = parentViewController as! PresentQuestionPageViewController
         vc.updatePageController(pageIndex)
-        answerTableView.reloadData()
     }
     
      func numberOfSectionsInTableView(tableView: UITableView) -> Int {
