@@ -17,6 +17,7 @@ class PresentQuestionPageViewController: UIPageViewController, UIPageViewControl
         createPageViewController()
         setupPageControl()
         resetDataSet()
+        self.view.backgroundColor = UIColor.whiteColor()
     }
     
     private func createPageViewController() {
@@ -28,7 +29,7 @@ class PresentQuestionPageViewController: UIPageViewController, UIPageViewControl
     
     private func setupPageControl() {
         pageControl = UIPageControl()
-        pageControl.frame = CGRectMake(0,60,self.view.frame.width,37)
+        pageControl.frame = CGRectMake(0,0,self.view.frame.width,37)
         self.view.addSubview(pageControl)
         pageControl.pageIndicatorTintColor = UIColor.grayColor()
         pageControl.currentPageIndicatorTintColor = UIColor.darkGrayColor()

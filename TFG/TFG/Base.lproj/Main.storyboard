@@ -108,7 +108,7 @@
         <!--Present Question Page View Controller-->
         <scene sceneID="Bkp-AT-yxS">
             <objects>
-                <pageViewController storyboardIdentifier="PageController" autoresizesArchivedViewToFullSize="NO" hidesBottomBarWhenPushed="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="xV0-vs-vUz" customClass="PresentQuestionPageViewController" customModule="TFG" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="PageController" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" transitionStyle="scroll" pageSpacing="10" navigationOrientation="horizontal" spineLocation="none" id="xV0-vs-vUz" customClass="PresentQuestionPageViewController" customModule="TFG" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M5J-jT-pF6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2311.5" y="36"/>
@@ -243,7 +243,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="tFn-65-nga" firstAttribute="top" secondItem="p5K-tA-U4Z" secondAttribute="bottom" constant="45" id="2n3-wp-25m">
-                                <variation key="widthClass=compact" constant="30"/>
+                                <variation key="widthClass=compact" constant="25"/>
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="tFn-65-nga" secondAttribute="trailing" id="CaG-kd-ZEB"/>
                             <constraint firstItem="nbg-Rh-OfN" firstAttribute="top" secondItem="tFn-65-nga" secondAttribute="bottom" id="GBm-10-sNK"/>
@@ -251,7 +251,7 @@
                             <constraint firstItem="p5K-tA-U4Z" firstAttribute="trailing" secondItem="02u-L1-dNQ" secondAttribute="trailingMargin" id="Mos-IN-J5x"/>
                             <constraint firstItem="p5K-tA-U4Z" firstAttribute="leading" secondItem="02u-L1-dNQ" secondAttribute="leadingMargin" id="ThW-Zw-Dih"/>
                             <constraint firstItem="p5K-tA-U4Z" firstAttribute="top" secondItem="XNe-T3-pki" secondAttribute="bottom" id="rpl-pq-HeI">
-                                <variation key="widthClass=compact" constant="10"/>
+                                <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
                         </constraints>
                         <variation key="default">
@@ -408,7 +408,8 @@
             <objects>
                 <navigationController id="2cG-Q1-qRl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Main" id="fu1-Il-8ok"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LQ5-SN-jdp">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="LQ5-SN-jdp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
