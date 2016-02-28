@@ -50,10 +50,21 @@ class QuestionContentViewController: UIViewController,UITableViewDelegate, UITab
         // Configure the cell...
         let question = currentQuestionDataSet[pageIndex]
         let answer = question.answers[indexPath.row]
-        if answer.isSelected {
-            cell.AnswerSelectImage.image = UIImage(named: "AnswerChooserSingelChoiceSelected")
+        let singleChoiceImageName = "AnswerChooserSingelChoice"
+        let selectedStr = "Selected"
+        let lockedStr = "Locked"
+        if question.isLocked{
+            if answer.isSelected{
+                cell.AnswerSelectImage.image = UIImage(named: singleChoiceImageName + lockedStr + selectedStr)
+            }else{
+                cell.AnswerSelectImage.image = UIImage(named: singleChoiceImageName + lockedStr)
+            }
         }else{
-            cell.AnswerSelectImage.image = UIImage(named: "AnswerChooserSingelChoiceNotSelected")
+            if answer.isSelected{
+                cell.AnswerSelectImage.image = UIImage(named: singleChoiceImageName + selectedStr)
+            }else{
+                cell.AnswerSelectImage.image = UIImage(named: singleChoiceImageName)
+            }
         }
         cell.AnswerTextLabel.text = question.answers[indexPath.row].answerText
         return cell
