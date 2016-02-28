@@ -35,6 +35,7 @@ class QuestionContentViewController: UIViewController,UITableViewDelegate, UITab
     override func viewDidAppear(animated: Bool) {
         let vc = parentViewController as! PresentQuestionPageViewController
         vc.updatePageController(pageIndex)
+        answerTableView.reloadData()
     }
     
      func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -53,17 +54,34 @@ class QuestionContentViewController: UIViewController,UITableViewDelegate, UITab
         let singleChoiceImageName = "AnswerChooserSingelChoice"
         let selectedStr = "Selected"
         let lockedStr = "Locked"
-        if question.isLocked{
-            if answer.isSelected{
-                cell.AnswerSelectImage.image = UIImage(named: singleChoiceImageName + lockedStr + selectedStr)
+        let correctStr = "Correct"
+        let wrongStr = "Wrong"
+        if question.revealAnswers{
+            if answer.isSelected && answer.isCorrect{
+                cell.AnswerSelectImage.image = UIImage(named: singleChoiceImageName + correctStr)
+            }else if answer.isSelected && !answer.isCorrect{
+                cell.AnswerSelectImage.image = UIImage(named: singleChoiceImageName + wrongStr)
             }else{
                 cell.AnswerSelectImage.image = UIImage(named: singleChoiceImageName + lockedStr)
             }
-        }else{
-            if answer.isSelected{
-                cell.AnswerSelectImage.image = UIImage(named: singleChoiceImageName + selectedStr)
+            if answer.isCorrect{
+                cell.AnswerTextLabel.textColor = UIColor.greenColor()
             }else{
-                cell.AnswerSelectImage.image = UIImage(named: singleChoiceImageName)
+                cell.AnswerTextLabel.textColor = UIColor.redColor()
+            }
+        }else{
+            if question.isLocked{
+                if answer.isSelected{
+                    cell.AnswerSelectImage.image = UIImage(named: singleChoiceImageName + lockedStr + selectedStr)
+                }else{
+                    cell.AnswerSelectImage.image = UIImage(named: singleChoiceImageName + lockedStr)
+                }
+            }else{
+                if answer.isSelected{
+                    cell.AnswerSelectImage.image = UIImage(named: singleChoiceImageName + selectedStr)
+                }else{
+                    cell.AnswerSelectImage.image = UIImage(named: singleChoiceImageName)
+                }
             }
         }
         cell.AnswerTextLabel.text = question.answers[indexPath.row].answerText
