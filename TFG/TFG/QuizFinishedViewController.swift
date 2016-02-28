@@ -38,6 +38,7 @@ class QuizFinishedViewController: UIViewController {
         realm.beginWrite()
         for question in (Util().getCurrentTopic()?.questions)!{
             question.revealAnswers = true
+            question.isLocked = true
             realm.add(question)
         }
         try! realm.commitWrite()
