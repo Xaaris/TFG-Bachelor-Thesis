@@ -38,41 +38,28 @@ class PresentQuestionPageViewController: UIPageViewController, UIPageViewControl
         pageControl.currentPage = 0
     }
     
-    
-    //TODO: Not working yet as intended
     func updatePageController(pageIndex: Int){
         pageControl.currentPage = pageIndex
     }
-    
     
     
     // MARK: - UIPageViewControllerDataSource
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         
-        if let questionContentVC = viewController as? QuestionContentViewController{
-            if questionContentVC.pageIndex > 0{
-                return getPageController(questionContentVC.pageIndex-1)
+        let vc = viewController as! PageViewContent
+            if vc.pageIndex > 0{
+                return getPageController(vc.pageIndex - 1)
             }
-        }else if let finishedVC = viewController as? QuizFinishedViewController{
-            if finishedVC.pageIndex > 0{
-                return getPageController(finishedVC.pageIndex-1)
-            }
-        }
         return nil
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         
-        if let questionContentVC = viewController as? QuestionContentViewController{
-            if questionContentVC.pageIndex+1 < Util().getCurrentTopic()!.questions.count + 1{
-                return getPageController(questionContentVC.pageIndex+1)
+        let vc = viewController as! PageViewContent
+            if vc.pageIndex + 1 <= Util().getCurrentTopic()!.questions.count {
+                return getPageController(vc.pageIndex + 1)
             }
-        }else if let finishedVC = viewController as? QuizFinishedViewController{
-            if finishedVC.pageIndex+1 < Util().getCurrentTopic()!.questions.count + 1{
-                return getPageController(finishedVC.pageIndex+1)
-            }
-        }
         return nil
     }
     
@@ -114,6 +101,36 @@ class PresentQuestionPageViewController: UIPageViewController, UIPageViewControl
             }
         }
         super.viewDidLayoutSubviews()
+    }
+    
+}
+
+
+
+
+
+
+
+class PageViewContent: UIViewController{
+    
+    var currentQuestionDataSet:[Question] = []
+    
+    var pageIndex: Int = 0 {
+        didSet {
+            updateContent()
+        }
+    }
+    
+    func updateContent(){}
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        currentQuestionDataSet = Util().getCurrentTopic()!.questions
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        let vc = parentViewController as! PresentQuestionPageViewController
+        vc.updatePageController(pageIndex)
     }
     
 }

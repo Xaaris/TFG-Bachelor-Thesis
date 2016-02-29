@@ -8,30 +8,12 @@
 
 import UIKit
 
-class QuizFinishedViewController: UIViewController {
+class QuizFinishedViewController: PageViewContent{
     
-    var pageIndex: Int = 0 {
-        didSet {
-            
-            
-        }
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
     
     override func viewDidAppear(animated: Bool) {
-        let vc = parentViewController as! PresentQuestionPageViewController
-        vc.updatePageController(pageIndex)
+        super.viewDidAppear(animated)
         revealAnswers()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     func revealAnswers(){

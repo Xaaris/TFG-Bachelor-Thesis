@@ -8,26 +8,15 @@
 
 import UIKit
 
-class QuestionContentViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
+class QuestionContentViewController: PageViewContent, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var questionTextLabel: UILabel?
     @IBOutlet weak var answerTableView: UITableView!
-    
-    var currentQuestionDataSet:[Question] = []
-
-    var pageIndex: Int = 0 {
-        didSet {
-            if let label = questionTextLabel{
-                label.text = currentQuestionDataSet[pageIndex].questionText
-            }
-        }
-    }
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentQuestionDataSet = Util().getCurrentTopic()!.questions
-        questionTextLabel!.text = currentQuestionDataSet[pageIndex].questionText
+        updateContent()
         answerTableView.delegate = self
         answerTableView.dataSource = self
     }
@@ -36,9 +25,10 @@ class QuestionContentViewController: UIViewController,UITableViewDelegate, UITab
         answerTableView.reloadData()
     }
     
-    override func viewDidAppear(animated: Bool) {
-        let vc = parentViewController as! PresentQuestionPageViewController
-        vc.updatePageController(pageIndex)
+    override func updateContent() {
+        if let label = questionTextLabel{
+            label.text = currentQuestionDataSet[pageIndex].questionText
+        }
     }
     
      func numberOfSectionsInTableView(tableView: UITableView) -> Int {
