@@ -112,10 +112,7 @@
 				3BBD159F1C7A18C500672569 /* Data.swift */,
 				3BC8B41A1C70F251000FD25D /* StatisticsViewController.swift */,
 				3BC8B42A1C723581000FD25D /* PreferencesViewController.swift */,
-				3BE4BA2D1C7FCB940053EC96 /* PresentQuestionPageViewController.swift */,
-				3BE4BA2F1C7FD9A60053EC96 /* QuestionContentViewController.swift */,
-				3BE4BA371C80E5970053EC96 /* QuizFinishedViewController.swift */,
-				3BE4BA351C80CB6C0053EC96 /* AnswerCell.swift */,
+				3BF5B71F1C85F79D007C88B2 /* Quiz View */,
 				3BE4BA311C7FDBE30053EC96 /* Util.swift */,
 				3BC8B41C1C70F251000FD25D /* Main.storyboard */,
 				3BC8B41F1C70F251000FD25D /* Assets.xcassets */,
@@ -123,6 +120,17 @@
 				3BC8B4241C70F251000FD25D /* Info.plist */,
 			);
 			path = TFG;
+			sourceTree = "<group>";
+		};
+		3BF5B71F1C85F79D007C88B2 /* Quiz View */ = {
+			isa = PBXGroup;
+			children = (
+				3BE4BA2D1C7FCB940053EC96 /* PresentQuestionPageViewController.swift */,
+				3BE4BA2F1C7FD9A60053EC96 /* QuestionContentViewController.swift */,
+				3BE4BA371C80E5970053EC96 /* QuizFinishedViewController.swift */,
+				3BE4BA351C80CB6C0053EC96 /* AnswerCell.swift */,
+			);
+			name = "Quiz View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
