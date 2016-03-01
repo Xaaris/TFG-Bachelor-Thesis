@@ -64,17 +64,25 @@ class PresentQuestionPageViewController: UIPageViewController, UIPageViewControl
     }
     
     private func getPageController(pageIndex: Int) -> UIViewController? {
+        var vc:PageViewContent = PageViewContent()
         
         if pageIndex < Util().getCurrentTopic()!.questions.count {
-            let questionContentVC = self.storyboard!.instantiateViewControllerWithIdentifier("ContentController") as! QuestionContentViewController
-            questionContentVC.pageIndex = pageIndex
-            return questionContentVC
+            if Util().getCurrentTopic()!.questions[pageIndex].type == "SingleChoice"{
+                vc = self.storyboard!.instantiateViewControllerWithIdentifier("SingleChoice") as! SingleChoiceQuestion
+            }else if Util().getCurrentTopic()!.questions[pageIndex].type == "MultipleChoice"{
+                vc = self.storyboard!.instantiateViewControllerWithIdentifier("MultiChoice") as! MultiChoiceQuestion
+            }else{
+                //TODO: Implement other question types
+                vc = self.storyboard!.instantiateViewControllerWithIdentifier("SingleChoice") as! SingleChoiceQuestion
+            }
+            
         } else if pageIndex == Util().getCurrentTopic()!.questions.count {
-            let finishedVC = self.storyboard!.instantiateViewControllerWithIdentifier("QuizFinished") as! QuizFinishedViewController
-            finishedVC.pageIndex = pageIndex
-            return finishedVC
+            vc = self.storyboard!.instantiateViewControllerWithIdentifier("QuizFinished") as! QuizFinishedViewController
+        }else{
+            print("Error: Out of bounds (PageviewController)")
         }
-        return nil
+        vc.pageIndex = pageIndex
+        return vc
     }
     
     

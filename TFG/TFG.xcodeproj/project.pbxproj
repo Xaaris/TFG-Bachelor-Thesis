@@ -28,6 +28,8 @@
 		3BF5B71C1C85E88E007C88B2 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3BF5B7191C85E88E007C88B2 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3BF5B71D1C85E88E007C88B2 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BF5B71A1C85E88E007C88B2 /* RealmSwift.framework */; };
 		3BF5B71E1C85E88E007C88B2 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3BF5B71A1C85E88E007C88B2 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3BF5B7211C862D9C007C88B2 /* SingleChoiceQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5B7201C862D9C007C88B2 /* SingleChoiceQuestion.swift */; };
+		3BF5B7231C863282007C88B2 /* MultiChoiceQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5B7221C863282007C88B2 /* MultiChoiceQuestion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -67,6 +69,8 @@
 		3BF5B7131C8366D2007C88B2 /* Sample2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample2.csv; sourceTree = "<group>"; };
 		3BF5B7191C85E88E007C88B2 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		3BF5B71A1C85E88E007C88B2 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		3BF5B7201C862D9C007C88B2 /* SingleChoiceQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleChoiceQuestion.swift; sourceTree = "<group>"; };
+		3BF5B7221C863282007C88B2 /* MultiChoiceQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiChoiceQuestion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,8 @@
 			children = (
 				3BE4BA2D1C7FCB940053EC96 /* PresentQuestionPageViewController.swift */,
 				3BE4BA2F1C7FD9A60053EC96 /* QuestionContentViewController.swift */,
+				3BF5B7201C862D9C007C88B2 /* SingleChoiceQuestion.swift */,
+				3BF5B7221C863282007C88B2 /* MultiChoiceQuestion.swift */,
 				3BE4BA371C80E5970053EC96 /* QuizFinishedViewController.swift */,
 				3BE4BA351C80CB6C0053EC96 /* AnswerCell.swift */,
 			);
@@ -225,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BF5B7231C863282007C88B2 /* MultiChoiceQuestion.swift in Sources */,
 				3B7F65171C78F97F00BE0812 /* CSVImporter.swift in Sources */,
 				3BBD159E1C7A081C00672569 /* ChooseTopicViewController.swift in Sources */,
 				3BC8B41B1C70F251000FD25D /* StatisticsViewController.swift in Sources */,
@@ -234,6 +241,7 @@
 				3BBD15A01C7A18C500672569 /* Data.swift in Sources */,
 				3BE4BA2E1C7FCB940053EC96 /* PresentQuestionPageViewController.swift in Sources */,
 				3BE4BA321C7FDBE30053EC96 /* Util.swift in Sources */,
+				3BF5B7211C862D9C007C88B2 /* SingleChoiceQuestion.swift in Sources */,
 				3BC8B42B1C723581000FD25D /* PreferencesViewController.swift in Sources */,
 				3BE4BA391C80E5970053EC96 /* QuizFinishedViewController.swift in Sources */,
 				3BE4BA301C7FD9A60053EC96 /* QuestionContentViewController.swift in Sources */,
