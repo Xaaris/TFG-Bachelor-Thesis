@@ -515,7 +515,7 @@
                             <constraint firstAttribute="centerY" secondItem="8Oq-BW-Oqd" secondAttribute="centerY" id="mNx-KY-oIV"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Preferences" image="second" id="C2o-C0-ttc"/>
+                    <tabBarItem key="tabBarItem" title="Preferences" image="Preferences" selectedImage="Preferences" id="C2o-C0-ttc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LtV-fW-StX" sceneMemberID="firstResponder"/>
             </objects>
@@ -725,6 +725,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Preferences" width="25" height="25"/>
         <image name="second" width="30" height="30"/>
     </resources>
 </document>
