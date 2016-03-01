@@ -1,3 +1,23 @@
+0.98.3 Release notes (2016-02-26)
+=============================================================
+
+### Enhancements
+
+* Initializing the shared schema is 3x faster.
+
+### Bugfixes
+
+* Using Realm Objective-C from Swift while having Realm Swift linked no longer causes that the
+  declared `ignoredProperties` are not taken into account.
+* Fix assertion failures when rolling back a migration which added Object link
+  properties to a class.
+* Fix potential errors when cancelling a write transaction which modified
+  multiple `RLMArray`/`List` properties.
+* Report the correct value for inWriteTransaction after attempting to commit a
+  write transaction fails.
+* Support CocoaPods 1.0 beginning from prerelease 1.0.0.beta.4 while retaining
+  backwards compatibility with 0.39.
+
 0.98.2 Release notes (2016-02-18)
 =============================================================
 
