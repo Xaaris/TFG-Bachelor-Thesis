@@ -11,7 +11,7 @@ import UIKit
 
 class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, UITableViewDataSource {
     
-        @IBOutlet weak var answerTableView: UITableView!
+    @IBOutlet weak var answerTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +21,10 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
     
     override func viewWillAppear(animated: Bool) {
         answerTableView.reloadData()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

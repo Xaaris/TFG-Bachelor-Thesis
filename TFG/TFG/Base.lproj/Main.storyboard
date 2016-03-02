@@ -183,6 +183,9 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="64" y="8" width="168" height="48"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -573,16 +576,16 @@
                                                     </constraints>
                                                     <variation key="default">
                                                         <mask key="constraints">
+                                                            <exclude reference="64u-S9-F66"/>
                                                             <exclude reference="J0i-Ie-umR"/>
                                                             <exclude reference="goz-rW-oT0"/>
-                                                            <exclude reference="64u-S9-F66"/>
                                                         </mask>
                                                     </variation>
                                                     <variation key="widthClass=compact">
                                                         <mask key="constraints">
+                                                            <exclude reference="64u-S9-F66"/>
                                                             <include reference="J0i-Ie-umR"/>
                                                             <exclude reference="goz-rW-oT0"/>
-                                                            <exclude reference="64u-S9-F66"/>
                                                         </mask>
                                                     </variation>
                                                 </imageView>
@@ -613,10 +616,10 @@
                                                     <exclude reference="Y4R-fh-a47"/>
                                                     <exclude reference="ZvO-HG-1EJ"/>
                                                     <exclude reference="kd6-bR-10z"/>
-                                                    <exclude reference="dQP-7a-cCs"/>
-                                                    <exclude reference="UFE-Ek-VaF"/>
-                                                    <exclude reference="hCC-CE-tNM"/>
                                                     <exclude reference="O3R-BA-3xX"/>
+                                                    <exclude reference="UFE-Ek-VaF"/>
+                                                    <exclude reference="dQP-7a-cCs"/>
+                                                    <exclude reference="hCC-CE-tNM"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
@@ -629,10 +632,10 @@
                                                     <include reference="Y4R-fh-a47"/>
                                                     <include reference="ZvO-HG-1EJ"/>
                                                     <include reference="kd6-bR-10z"/>
-                                                    <include reference="dQP-7a-cCs"/>
-                                                    <include reference="UFE-Ek-VaF"/>
-                                                    <exclude reference="hCC-CE-tNM"/>
                                                     <include reference="O3R-BA-3xX"/>
+                                                    <include reference="UFE-Ek-VaF"/>
+                                                    <include reference="dQP-7a-cCs"/>
+                                                    <exclude reference="hCC-CE-tNM"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -649,7 +652,30 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dsB-sS-gOt">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Lock"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="7Yb-Vg-bpA"/>
+                                    <constraint firstAttribute="height" constant="25" id="oPf-bp-qvu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Lock" backgroundImage="ButtonBackground">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" backgroundImage="ButtonBackgroundSelected">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7Yb-Vg-bpA"/>
+                                        <exclude reference="oPf-bp-qvu"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                    <mask key="constraints">
+                                        <include reference="7Yb-Vg-bpA"/>
+                                        <include reference="oPf-bp-qvu"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="lockButtonPressed:" destination="ZSB-DW-ygf" eventType="touchUpInside" id="L76-TY-zGF"/>
                                 </connections>
@@ -680,15 +706,15 @@
                                 <exclude reference="dsB-sS-gOt"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="tko-b1-kL8"/>
+                                <exclude reference="KBf-wt-tTX"/>
+                                <exclude reference="jip-Ku-1fJ"/>
                                 <exclude reference="9Jq-ZA-BYI"/>
                                 <exclude reference="KR4-Kd-9XF"/>
                                 <exclude reference="rUg-HX-Ac9"/>
                                 <exclude reference="3c8-R9-aLo"/>
                                 <exclude reference="OZX-wO-fkK"/>
                                 <exclude reference="VVa-tk-oTS"/>
-                                <exclude reference="KBf-wt-tTX"/>
-                                <exclude reference="jip-Ku-1fJ"/>
-                                <exclude reference="tko-b1-kL8"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -698,15 +724,15 @@
                                 <include reference="dsB-sS-gOt"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="tko-b1-kL8"/>
+                                <include reference="KBf-wt-tTX"/>
+                                <include reference="jip-Ku-1fJ"/>
                                 <include reference="9Jq-ZA-BYI"/>
                                 <include reference="KR4-Kd-9XF"/>
                                 <include reference="rUg-HX-Ac9"/>
                                 <include reference="3c8-R9-aLo"/>
                                 <include reference="OZX-wO-fkK"/>
                                 <include reference="VVa-tk-oTS"/>
-                                <include reference="KBf-wt-tTX"/>
-                                <include reference="jip-Ku-1fJ"/>
-                                <include reference="tko-b1-kL8"/>
                             </mask>
                         </variation>
                     </view>
@@ -725,6 +751,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ButtonBackground" width="19" height="19"/>
+        <image name="ButtonBackgroundSelected" width="18" height="18"/>
         <image name="Preferences" width="25" height="25"/>
         <image name="second" width="30" height="30"/>
     </resources>

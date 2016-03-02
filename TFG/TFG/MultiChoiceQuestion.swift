@@ -18,16 +18,33 @@ class MultiChoiceQuestion: QuestionContentViewController, UITableViewDelegate, U
         super.viewDidLoad()
         answerTableView.delegate = self
         answerTableView.dataSource = self
+        lockButton.enabled = true
     }
     
     override func viewWillAppear(animated: Bool) {
-        answerTableView.reloadData()
-        //show the lock button if answer is not locked
-        if !currentQuestionDataSet[pageIndex].isLocked{
-            lockButton.hidden = false
+        super.viewWillAppear(animated)
+        startTimer()
+    }
+    
+    func updateLockedButton(){
+        //enable the lock button if answer is not locked
+        //due to problems with realm multithreading
+        if currentQuestionDataSet[pageIndex].isLocked{
+            lockButton.enabled = false
         }else{
-            lockButton.hidden = true
+            lockButton.enabled = true
         }
+    }
+    
+    func startTimer(){
+        var timer = NSTimer()
+        let aSelector : Selector = "updateLockedButton"
+        timer.tolerance = 0.05
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: aSelector, userInfo: nil, repeats: false)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -88,7 +105,7 @@ class MultiChoiceQuestion: QuestionContentViewController, UITableViewDelegate, U
     }
     
     @IBAction func lockButtonPressed(sender: AnyObject) {
-        lockButton.hidden = true
+        lockButton.enabled = false
         let question = currentQuestionDataSet[pageIndex]
         realm.beginWrite()
         question.isLocked = true

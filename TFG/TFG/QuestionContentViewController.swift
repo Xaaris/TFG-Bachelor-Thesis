@@ -25,6 +25,14 @@ class QuestionContentViewController: PageViewContent{
         updateContent()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     override func updateContent() {
         if let label = questionTextLabel{
             label.text = currentQuestionDataSet[pageIndex].questionText
