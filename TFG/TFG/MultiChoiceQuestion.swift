@@ -18,7 +18,7 @@ class MultiChoiceQuestion: QuestionContentViewController, UITableViewDelegate, U
         super.viewDidLoad()
         answerTableView.delegate = self
         answerTableView.dataSource = self
-        lockButton.enabled = true
+        updateLockedButton()
     }
     
     override func viewWillAppear(animated: Bool) {
