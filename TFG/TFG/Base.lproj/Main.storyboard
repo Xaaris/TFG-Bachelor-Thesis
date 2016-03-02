@@ -22,6 +22,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6GA-yP-0m5">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Choose a topic"/>
                                 <connections>
                                     <segue destination="iVf-Qn-9xN" kind="show" identifier="showTopicChooser" id="MrU-j0-6YK"/>
@@ -41,7 +42,27 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pvn-qv-cic">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Start"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="QFC-30-N9b"/>
+                                    <constraint firstAttribute="width" constant="120" id="eQx-iV-dub"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <state key="normal" title="Start" backgroundImage="ButtonBackground">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" backgroundImage="ButtonBackgroundSelected"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="QFC-30-N9b"/>
+                                        <exclude reference="eQx-iV-dub"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="QFC-30-N9b"/>
+                                        <include reference="eQx-iV-dub"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="startButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="rLD-sE-wZJ"/>
                                 </connections>
@@ -52,7 +73,9 @@
                             <constraint firstItem="Pvn-qv-cic" firstAttribute="top" secondItem="djF-di-2pe" secondAttribute="bottom" constant="75" id="17W-pG-pFl"/>
                             <constraint firstItem="6GA-yP-0m5" firstAttribute="top" secondItem="O1L-WK-8sK" secondAttribute="bottom" constant="43" id="8eR-Rf-XfM"/>
                             <constraint firstItem="6GA-yP-0m5" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="VXM-OD-ya1"/>
-                            <constraint firstItem="djF-di-2pe" firstAttribute="top" secondItem="6GA-yP-0m5" secondAttribute="bottom" constant="29" id="bAh-nb-uTy"/>
+                            <constraint firstItem="djF-di-2pe" firstAttribute="top" secondItem="6GA-yP-0m5" secondAttribute="bottom" constant="29" id="bAh-nb-uTy">
+                                <variation key="widthClass=compact" constant="10"/>
+                            </constraint>
                             <constraint firstItem="O1L-WK-8sK" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="57" id="d1T-F8-VMm"/>
                             <constraint firstItem="djF-di-2pe" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="fbD-ll-lCB"/>
                             <constraint firstItem="Pvn-qv-cic" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="uPC-iX-3wj"/>
@@ -183,9 +206,6 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="64" y="8" width="168" height="48"/>
-                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -756,4 +776,5 @@
         <image name="Preferences" width="25" height="25"/>
         <image name="second" width="30" height="30"/>
     </resources>
+    <color key="tintColor" red="0.0" green="0.4392156862745098" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
 </document>

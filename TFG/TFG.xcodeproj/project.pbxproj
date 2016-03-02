@@ -24,13 +24,13 @@
 		3BE4BA361C80CB6C0053EC96 /* AnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4BA351C80CB6C0053EC96 /* AnswerCell.swift */; };
 		3BE4BA391C80E5970053EC96 /* QuizFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4BA371C80E5970053EC96 /* QuizFinishedViewController.swift */; };
 		3BF5B7141C8366D2007C88B2 /* Sample2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3BF5B7131C8366D2007C88B2 /* Sample2.csv */; };
-		3BF5B71B1C85E88E007C88B2 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BF5B7191C85E88E007C88B2 /* Realm.framework */; };
-		3BF5B71C1C85E88E007C88B2 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3BF5B7191C85E88E007C88B2 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3BF5B71D1C85E88E007C88B2 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BF5B71A1C85E88E007C88B2 /* RealmSwift.framework */; };
-		3BF5B71E1C85E88E007C88B2 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3BF5B71A1C85E88E007C88B2 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3BF5B7211C862D9C007C88B2 /* SingleChoiceQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5B7201C862D9C007C88B2 /* SingleChoiceQuestion.swift */; };
 		3BF5B7231C863282007C88B2 /* MultiChoiceQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5B7221C863282007C88B2 /* MultiChoiceQuestion.swift */; };
 		3BF5B7251C86711F007C88B2 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 3BF5B7241C86711F007C88B2 /* .gitignore */; };
+		3BF5B7281C8674B0007C88B2 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BF5B7261C8674B0007C88B2 /* Realm.framework */; };
+		3BF5B7291C8674B0007C88B2 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3BF5B7261C8674B0007C88B2 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3BF5B72A1C8674B0007C88B2 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BF5B7271C8674B0007C88B2 /* RealmSwift.framework */; };
+		3BF5B72B1C8674B0007C88B2 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3BF5B7271C8674B0007C88B2 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,8 +40,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3BF5B71E1C85E88E007C88B2 /* RealmSwift.framework in Embed Frameworks */,
-				3BF5B71C1C85E88E007C88B2 /* Realm.framework in Embed Frameworks */,
+				3BF5B72B1C8674B0007C88B2 /* RealmSwift.framework in Embed Frameworks */,
+				3BF5B7291C8674B0007C88B2 /* Realm.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,11 +68,12 @@
 		3BE4BA351C80CB6C0053EC96 /* AnswerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerCell.swift; sourceTree = "<group>"; };
 		3BE4BA371C80E5970053EC96 /* QuizFinishedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizFinishedViewController.swift; sourceTree = "<group>"; };
 		3BF5B7131C8366D2007C88B2 /* Sample2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample2.csv; sourceTree = "<group>"; };
-		3BF5B7191C85E88E007C88B2 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
-		3BF5B71A1C85E88E007C88B2 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		3BF5B7201C862D9C007C88B2 /* SingleChoiceQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleChoiceQuestion.swift; sourceTree = "<group>"; };
 		3BF5B7221C863282007C88B2 /* MultiChoiceQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiChoiceQuestion.swift; sourceTree = "<group>"; };
 		3BF5B7241C86711F007C88B2 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
+		3BF5B7261C8674B0007C88B2 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		3BF5B7271C8674B0007C88B2 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		3BF5B72D1C8678FC007C88B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +81,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BF5B71D1C85E88E007C88B2 /* RealmSwift.framework in Frameworks */,
-				3BF5B71B1C85E88E007C88B2 /* Realm.framework in Frameworks */,
+				3BF5B72A1C8674B0007C88B2 /* RealmSwift.framework in Frameworks */,
+				3BF5B7281C8674B0007C88B2 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,9 +92,9 @@
 		3BC8B40A1C70F251000FD25D = {
 			isa = PBXGroup;
 			children = (
+				3BF5B7261C8674B0007C88B2 /* Realm.framework */,
+				3BF5B7271C8674B0007C88B2 /* RealmSwift.framework */,
 				3BF5B7241C86711F007C88B2 /* .gitignore */,
-				3BF5B7191C85E88E007C88B2 /* Realm.framework */,
-				3BF5B71A1C85E88E007C88B2 /* RealmSwift.framework */,
 				3BC8B4151C70F251000FD25D /* TFG */,
 				3BC8B4141C70F251000FD25D /* Products */,
 			);
@@ -259,6 +260,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				3BC8B41D1C70F251000FD25D /* Base */,
+				3BF5B72D1C8678FC007C88B2 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
