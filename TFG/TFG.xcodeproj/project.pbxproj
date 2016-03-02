@@ -30,6 +30,7 @@
 		3BF5B71E1C85E88E007C88B2 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3BF5B71A1C85E88E007C88B2 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3BF5B7211C862D9C007C88B2 /* SingleChoiceQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5B7201C862D9C007C88B2 /* SingleChoiceQuestion.swift */; };
 		3BF5B7231C863282007C88B2 /* MultiChoiceQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5B7221C863282007C88B2 /* MultiChoiceQuestion.swift */; };
+		3BF5B7251C86711F007C88B2 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 3BF5B7241C86711F007C88B2 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -71,6 +72,7 @@
 		3BF5B71A1C85E88E007C88B2 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		3BF5B7201C862D9C007C88B2 /* SingleChoiceQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleChoiceQuestion.swift; sourceTree = "<group>"; };
 		3BF5B7221C863282007C88B2 /* MultiChoiceQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiChoiceQuestion.swift; sourceTree = "<group>"; };
+		3BF5B7241C86711F007C88B2 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 		3BC8B40A1C70F251000FD25D = {
 			isa = PBXGroup;
 			children = (
+				3BF5B7241C86711F007C88B2 /* .gitignore */,
 				3BF5B7191C85E88E007C88B2 /* Realm.framework */,
 				3BF5B71A1C85E88E007C88B2 /* RealmSwift.framework */,
 				3BC8B4151C70F251000FD25D /* TFG */,
@@ -204,6 +207,7 @@
 				3BBD159C1C79E69000672569 /* Sample1.csv in Resources */,
 				3BC8B4231C70F251000FD25D /* LaunchScreen.storyboard in Resources */,
 				3BC8B4201C70F251000FD25D /* Assets.xcassets in Resources */,
+				3BF5B7251C86711F007C88B2 /* .gitignore in Resources */,
 				3BC8B41E1C70F251000FD25D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
