@@ -139,7 +139,11 @@ class ImportAndSaveHelper {
     
     func loadAndSave(filename: String){
         if let keyedRowsDic = loadDataFromFile(filename){
-            parseDataForValuesAndSaveToRealm(keyedRowsDic)
+            if checkCSV(keyedRowsDic) {
+                parseDataForValuesAndSaveToRealm(keyedRowsDic)
+            }else{
+                print("CSV check failed")
+            }
         }else{
             print("Could not load Data")
         }
@@ -278,9 +282,80 @@ class ImportAndSaveHelper {
         realm.beginWrite()
         if realm.objectForPrimaryKey(Topic.self, key: topic.title) == nil {
             realm.add(topic)
-        }else{
-           // print("Topic already exists")
         }
         try! realm.commitWrite()
+    }
+    
+    private func checkCSV(keyedRows: [[String:String]]) -> Bool {
+        
+        if !checkHeaderRow(keyedRows[0]){
+            return false
+        }
+        for i in Range(1 ..< keyedRows.count){
+            if !checkBodyRow(keyedRows[i]){
+                return false
+            }
+        }
+        return true
+    }
+    
+    private func checkHeaderRow(headerRow: [String:String]) -> Bool {
+        //Check if keys exist
+        if headerRow["QuestionType"] != "Info"{
+            print("Info missing")
+            return false
+        }
+        if headerRow["Question"] == nil || headerRow["Question"]!.isEmpty{
+            print("Title missing")
+            return false
+        }
+        if headerRow["Hint"] == nil || headerRow["Hint"]!.isEmpty{
+            print("Author missing")
+            return false
+        }
+        if headerRow["Feedback"] == nil || headerRow["Feedback"]!.isEmpty{
+            print("Date missing")
+            return false
+        }
+        if headerRow["Difficulty"] == nil || headerRow["CorrectAnswers"] == nil || headerRow["Answer1"] == nil || headerRow["Answer2"] == nil{
+            print("Columns missing")
+            return false
+        }
+        return true
+    }
+    
+    private func checkBodyRow(bodyRow: [String:String]) -> Bool {
+        let questionTypes: Set = ["SingleChoice", "TrueFalse", "MultipleChoice"]
+        if !bodyRow["QuestionType"]!.isEmpty {
+            if !questionTypes.contains(bodyRow["QuestionType"]!){
+                print("QuestionType wrong")
+                return false
+            }
+            if bodyRow["Question"] == nil || bodyRow["Question"]!.isEmpty{
+                print("Question missing")
+                return false
+            }
+            if bodyRow["CorrectAnswers"] == nil || bodyRow["CorrectAnswers"]!.isEmpty {
+                print("CorrectAnswers missing")
+                return false
+            }
+            let correctAnswersArr = bodyRow["CorrectAnswers"]!.componentsSeparatedByString(",")
+            for i in correctAnswersArr{
+                if Int(i) == nil{
+                    print("CorrectAnswers not convertable to int")
+                    return false
+                }
+            }
+            if bodyRow["Answer1"] == nil || bodyRow["Answer1"]!.isEmpty{
+                print("First answer missing")
+                return false
+            }
+            if bodyRow["Answer2"] == nil || bodyRow["Answer2"]!.isEmpty{
+                print("Second answer missing")
+                return false
+            }
+        }
+        
+        return true
     }
 }
