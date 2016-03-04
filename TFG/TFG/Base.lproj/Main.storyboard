@@ -516,29 +516,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="Preferences" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="8Oq-BW-Oqd">
-                                <rect key="frame" x="195" y="279" width="210" height="42"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdA-h6-nlG">
-                                <rect key="frame" x="192" y="329" width="216" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uQu-Bx-2jS">
+                                <rect key="frame" x="-25" y="-15" width="51" height="31"/>
+                                <connections>
+                                    <action selector="immediateFeedbackSwitchPressed:" destination="wQ6-GI-QDi" eventType="valueChanged" id="L7g-W8-yXs"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Immediate feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXB-Fh-LB8">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bdA-h6-nlG" firstAttribute="top" secondItem="8Oq-BW-Oqd" secondAttribute="bottom" constant="8" symbolic="YES" id="5CI-3R-czN"/>
-                            <constraint firstAttribute="centerX" secondItem="8Oq-BW-Oqd" secondAttribute="centerX" id="Mc7-7t-ipk"/>
-                            <constraint firstItem="bdA-h6-nlG" firstAttribute="centerX" secondItem="8Oq-BW-Oqd" secondAttribute="centerX" id="Pic-zL-1ku"/>
-                            <constraint firstAttribute="centerY" secondItem="8Oq-BW-Oqd" secondAttribute="centerY" id="mNx-KY-oIV"/>
+                            <constraint firstItem="SXB-Fh-LB8" firstAttribute="leading" secondItem="RQS-Vd-kK7" secondAttribute="leadingMargin" constant="27" id="9jr-6X-IaE">
+                                <variation key="widthClass=compact" constant="15"/>
+                            </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="uQu-Bx-2jS" secondAttribute="trailing" constant="19" id="OmR-nM-Rdg">
+                                <variation key="widthClass=compact" constant="15"/>
+                            </constraint>
+                            <constraint firstItem="SXB-Fh-LB8" firstAttribute="top" secondItem="ZTR-WV-cRV" secondAttribute="bottom" constant="40" id="rR5-4B-eUW"/>
+                            <constraint firstItem="uQu-Bx-2jS" firstAttribute="top" secondItem="ZTR-WV-cRV" secondAttribute="bottom" constant="35" id="sj0-tv-Tee"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="uQu-Bx-2jS"/>
+                                <exclude reference="SXB-Fh-LB8"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="9jr-6X-IaE"/>
+                                <exclude reference="rR5-4B-eUW"/>
+                                <exclude reference="OmR-nM-Rdg"/>
+                                <exclude reference="sj0-tv-Tee"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="uQu-Bx-2jS"/>
+                                <include reference="SXB-Fh-LB8"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="9jr-6X-IaE"/>
+                                <include reference="rR5-4B-eUW"/>
+                                <include reference="OmR-nM-Rdg"/>
+                                <include reference="sj0-tv-Tee"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Preferences" image="Preferences" selectedImage="Preferences" id="C2o-C0-ttc"/>
+                    <connections>
+                        <outlet property="immediateFeedbackSwitch" destination="uQu-Bx-2jS" id="eFI-n4-BqS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LtV-fW-StX" sceneMemberID="firstResponder"/>
             </objects>
