@@ -27,7 +27,9 @@ class MultiChoiceQuestion: QuestionContentViewController, UITableViewDelegate, U
         if !currentQuestionDataSet[pageIndex].hint.isEmpty{
             parentViewController!.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Hint", style: .Plain, target: self, action: "showHint")
         }else{
-            parentViewController!.navigationItem.rightBarButtonItem = nil
+            let disabledButton = UIBarButtonItem(title: "Hint", style: .Plain, target: self, action: "showHint")
+            disabledButton.enabled = false
+            parentViewController!.navigationItem.rightBarButtonItem = disabledButton
         }
     }
     
