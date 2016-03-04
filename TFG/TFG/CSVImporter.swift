@@ -339,10 +339,26 @@ class ImportAndSaveHelper {
                 print("CorrectAnswers missing")
                 return false
             }
+            var numberOfAnswers = 0
+            for cell in bodyRow{
+                if cell.0.containsString("Answer") && !cell.0.containsString("C") && !cell.1.isEmpty{
+                    numberOfAnswers++
+                }
+            }
             let correctAnswersArr = bodyRow["CorrectAnswers"]!.componentsSeparatedByString(",")
             for i in correctAnswersArr{
                 if Int(i) == nil{
                     print("CorrectAnswers not convertable to int")
+                    return false
+                }
+                if Int(i) > numberOfAnswers{
+                    print("CorrectAnswers out of bounds")
+                    return false
+                }
+            }
+            if bodyRow["QuestionType"] == "SingleChoice"{
+                if correctAnswersArr.count != 1{
+                    print("CorrectAnswers.count revealed wrong number")
                     return false
                 }
             }
