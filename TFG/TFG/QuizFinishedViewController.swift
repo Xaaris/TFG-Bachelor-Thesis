@@ -10,6 +10,9 @@ import UIKit
 
 class QuizFinishedViewController: PageViewContent{
     
+    override func viewWillAppear(animated: Bool) {
+        parentViewController!.navigationItem.rightBarButtonItem = nil
+    }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)

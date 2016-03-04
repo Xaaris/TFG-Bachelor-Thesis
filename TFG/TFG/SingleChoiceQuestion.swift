@@ -21,6 +21,11 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
     
     override func viewWillAppear(animated: Bool) {
         answerTableView.reloadData()
+        if !currentQuestionDataSet[pageIndex].hint.isEmpty{
+            parentViewController!.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Hint", style: .Plain, target: self, action: "showHint")
+        }else{
+            parentViewController!.navigationItem.rightBarButtonItem = nil
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -84,6 +89,14 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
             try! realm.commitWrite()
             tableView.reloadData()
         }
+    }
+    
+    func showHint(){
+        let hintStr = currentQuestionDataSet[pageIndex].hint
+        let alertController = UIAlertController(title: "Hint", message: hintStr, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
 
 }

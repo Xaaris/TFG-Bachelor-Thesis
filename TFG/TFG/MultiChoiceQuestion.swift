@@ -24,6 +24,11 @@ class MultiChoiceQuestion: QuestionContentViewController, UITableViewDelegate, U
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         startTimer()
+        if !currentQuestionDataSet[pageIndex].hint.isEmpty{
+            parentViewController!.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Hint", style: .Plain, target: self, action: "showHint")
+        }else{
+            parentViewController!.navigationItem.rightBarButtonItem = nil
+        }
     }
     
     func updateLockedButton(){
@@ -112,6 +117,14 @@ class MultiChoiceQuestion: QuestionContentViewController, UITableViewDelegate, U
         realm.add(question)
         try! realm.commitWrite()
         answerTableView.reloadData()
+    }
+    
+    func showHint(){
+        let hintStr = currentQuestionDataSet[pageIndex].hint
+        let alertController = UIAlertController(title: "Hint", message: hintStr, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
 
 }
