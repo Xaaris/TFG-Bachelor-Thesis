@@ -17,7 +17,7 @@
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6GA-yP-0m5">
@@ -332,36 +332,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YAY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sH-5d-U18">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YAY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppm-Tg-8fz">
+                                <rect key="frame" x="20" y="89" width="560" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="6Cv-6A-Pht"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oky-n7-cbt">
+                                <rect key="frame" x="262" y="163" width="76" height="30"/>
+                                <state key="normal" title="Finish Quiz"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="8sH-5d-U18" firstAttribute="top" secondItem="hPQ-9u-ZOm" secondAttribute="bottom" constant="137" id="XrK-QJ-Euc"/>
-                            <constraint firstItem="8sH-5d-U18" firstAttribute="centerX" secondItem="rI3-mB-EAr" secondAttribute="centerX" id="aVo-bJ-z4z"/>
+                            <constraint firstItem="ppm-Tg-8fz" firstAttribute="top" secondItem="hPQ-9u-ZOm" secondAttribute="bottom" constant="69" id="LRW-27-VqF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ppm-Tg-8fz" secondAttribute="trailing" id="NLK-hd-kI4"/>
+                            <constraint firstItem="Oky-n7-cbt" firstAttribute="centerX" secondItem="rI3-mB-EAr" secondAttribute="centerX" id="kRM-Qc-0WG"/>
+                            <constraint firstItem="Oky-n7-cbt" firstAttribute="top" secondItem="ppm-Tg-8fz" secondAttribute="bottom" constant="21" id="rTm-u8-AM9"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="ppm-Tg-8fz" secondAttribute="leading" id="y6A-ub-hrj"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="8sH-5d-U18"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="XrK-QJ-Euc"/>
-                                <exclude reference="aVo-bJ-z4z"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="8sH-5d-U18"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="XrK-QJ-Euc"/>
-                                <include reference="aVo-bJ-z4z"/>
-                            </mask>
-                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pvv-t1-yvf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -373,7 +365,7 @@
             <objects>
                 <tableViewController id="iVf-Qn-9xN" customClass="ChooseTopicViewController" customModule="TFG" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="56" sectionHeaderHeight="28" sectionFooterHeight="28" id="s5a-go-oRP">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -546,10 +538,10 @@
                                 <exclude reference="SXB-Fh-LB8"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="9jr-6X-IaE"/>
-                                <exclude reference="rR5-4B-eUW"/>
                                 <exclude reference="OmR-nM-Rdg"/>
                                 <exclude reference="sj0-tv-Tee"/>
+                                <exclude reference="9jr-6X-IaE"/>
+                                <exclude reference="rR5-4B-eUW"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -558,10 +550,10 @@
                                 <include reference="SXB-Fh-LB8"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="9jr-6X-IaE"/>
-                                <include reference="rR5-4B-eUW"/>
                                 <include reference="OmR-nM-Rdg"/>
                                 <include reference="sj0-tv-Tee"/>
+                                <include reference="9jr-6X-IaE"/>
+                                <include reference="rR5-4B-eUW"/>
                             </mask>
                         </variation>
                     </view>
