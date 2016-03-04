@@ -36,11 +36,17 @@ class MultiChoiceQuestion: QuestionContentViewController, UITableViewDelegate, U
     func updateLockedButton(){
         //enable the lock button if answer is not locked
         //due to problems with realm multithreading
-        if currentQuestionDataSet[pageIndex].isLocked{
-            lockButton.enabled = false
+        if Util().getPreferences()!.immediateFeedback{
+            lockButton.hidden = false
+            if currentQuestionDataSet[pageIndex].isLocked{
+                lockButton.enabled = false
+            }else{
+                lockButton.enabled = true
+            }
         }else{
-            lockButton.enabled = true
+            lockButton.hidden = true
         }
+        
     }
     
     func startTimer(){
@@ -116,6 +122,7 @@ class MultiChoiceQuestion: QuestionContentViewController, UITableViewDelegate, U
         let question = currentQuestionDataSet[pageIndex]
         realm.beginWrite()
         question.isLocked = true
+        question.revealAnswers = true
         realm.add(question)
         try! realm.commitWrite()
         answerTableView.reloadData()

@@ -82,10 +82,18 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let question = currentQuestionDataSet[pageIndex]
         if !question.isLocked{
+            //TODO: implement timer here
             let answer = question.answers[indexPath.row]
             realm.beginWrite()
+            //deselect all answers
+            for ans in question.answers{
+                ans.isSelected = false
+            }
             answer.isSelected = !answer.isSelected
-            question.isLocked = true
+            if Util().getPreferences()!.immediateFeedback{
+                question.isLocked = true
+                question.revealAnswers = true
+            }
             realm.add(answer)
             realm.add(question)
             try! realm.commitWrite()
