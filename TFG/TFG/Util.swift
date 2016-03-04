@@ -28,6 +28,10 @@ class Util {
         return nil
     }
     
+    func getPreferences() -> Preference? {
+        return realm.objects(Preference.self).first
+    }
+    
     
     
     
