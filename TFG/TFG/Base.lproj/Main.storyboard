@@ -30,13 +30,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1L-WK-8sK">
                                 <rect key="frame" x="236" y="50" width="128" height="37"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djF-di-2pe">
                                 <rect key="frame" x="279" y="193" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pvn-qv-cic">
@@ -130,7 +130,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ud-fV-xkn">
                                                     <rect key="frame" x="96" y="-8" width="496" height="80"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -202,7 +202,7 @@
                                 <string key="text">Congratulations!
 You made it to the end</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oky-n7-cbt">
@@ -217,7 +217,9 @@ You made it to the end</string>
                                 <state key="disabled" backgroundImage="ButtonBackgroundSelected"/>
                                 <connections>
                                     <action selector="finishQuizButtonPressed:" destination="Y5r-IS-Tby" eventType="touchUpInside" id="vxX-WJ-de4"/>
-                                    <segue destination="Jb5-Ru-CPY" kind="show" id="ipK-dA-ttt"/>
+                                    <segue destination="hXm-Oe-ukp" kind="popoverPresentation" popoverAnchorView="Oky-n7-cbt" id="n8y-N1-XZX">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                         </subviews>
@@ -238,23 +240,80 @@ You made it to the end</string>
             </objects>
             <point key="canvasLocation" x="3603" y="36"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="sWj-qk-1Yi">
+        <!--Quiz Results View Controller-->
+        <scene sceneID="q5w-CP-XYq">
             <objects>
-                <viewController id="Jb5-Ru-CPY" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ouw-6U-laX"/>
-                        <viewControllerLayoutGuide type="bottom" id="910-Uh-QbS"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Qsy-Ol-4IW">
+                <tableViewController id="hXm-Oe-ukp" customClass="QuizResultsViewController" customModule="TFG" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="nl9-53-Fwe">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ERy-tI-JT2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuizResultsTableViewCell" rowHeight="200" id="4bA-uw-ubL" customClass="QuizResultsTableViewCell" customModule="TFG" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="200"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4bA-uw-ubL" id="k0n-L3-uvi">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="199"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You did great!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pft-os-pyE">
+                                            <rect key="frame" x="247" y="51" width="107" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x out of x" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QaE-an-K2H">
+                                            <rect key="frame" x="265" y="102" width="71" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pcm-kK-q4Y">
+                                            <rect key="frame" x="240" y="144" width="120" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="120" id="XMh-fo-mBf"/>
+                                                <constraint firstAttribute="height" constant="50" id="bpF-xr-cda"/>
+                                            </constraints>
+                                            <state key="normal" title="Quit" backgroundImage="ButtonBackground">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="quitButtonPressed:" destination="4bA-uw-ubL" eventType="touchUpInside" id="dDa-83-5bT"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="QaE-an-K2H" firstAttribute="top" secondItem="Pft-os-pyE" secondAttribute="bottom" constant="30" id="Gx9-ra-1ks"/>
+                                        <constraint firstItem="Pft-os-pyE" firstAttribute="top" secondItem="k0n-L3-uvi" secondAttribute="topMargin" constant="43" id="INN-Jd-FYk"/>
+                                        <constraint firstItem="pcm-kK-q4Y" firstAttribute="centerX" secondItem="k0n-L3-uvi" secondAttribute="centerX" id="SW1-9D-yUe"/>
+                                        <constraint firstItem="pcm-kK-q4Y" firstAttribute="top" secondItem="QaE-an-K2H" secondAttribute="bottom" constant="21" id="YUy-z6-DXx"/>
+                                        <constraint firstItem="Pft-os-pyE" firstAttribute="centerX" secondItem="k0n-L3-uvi" secondAttribute="centerX" id="g9D-bw-Zc9"/>
+                                        <constraint firstItem="QaE-an-K2H" firstAttribute="centerX" secondItem="k0n-L3-uvi" secondAttribute="centerX" id="sU1-G7-uLA"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="titleLabel" destination="Pft-os-pyE" id="ZQl-EG-uEn"/>
+                                    <outlet property="xOutOfxLabel" destination="QaE-an-K2H" id="LeS-pT-7Fm"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuizResultQuestionCell" rowHeight="100" id="Jdx-UE-QDa">
+                                <rect key="frame" x="0.0" y="228" width="600" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jdx-UE-QDa" id="Klg-uk-xUb">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="hXm-Oe-ukp" id="neh-H6-LdY"/>
+                            <outlet property="delegate" destination="hXm-Oe-ukp" id="w7c-bC-tJz"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UV5-xj-lu5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4290" y="36"/>
+            <point key="canvasLocation" x="4254" y="36"/>
         </scene>
         <!--Choose a Topic-->
         <scene sceneID="bsa-af-9Jh">
@@ -276,14 +335,14 @@ You made it to the end</string>
                                             <rect key="frame" x="15" y="5" width="39" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lc7-uJ-Y2y">
                                             <rect key="frame" x="15" y="29" width="59" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -329,7 +388,7 @@ You made it to the end</string>
         <!--Statistics-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="StatisticsViewController" customModule="TFG" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StatisticsVC" id="8rJ-Kc-sve" customClass="StatisticsViewController" customModule="TFG" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -364,12 +423,12 @@ You made it to the end</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="360"/>
+            <point key="canvasLocation" x="750" y="394"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Home" id="49e-Tb-3d3" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -407,7 +466,7 @@ You made it to the end</string>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Immediate feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXB-Fh-LB8">
                                 <rect key="frame" x="47" y="60" width="156" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -475,7 +534,7 @@ You made it to the end</string>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOz-xL-sZI">
                                                     <rect key="frame" x="96" y="-8" width="496" height="80"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
