@@ -10,6 +10,7 @@ import UIKit
 
 class QuizFinishedViewController: PageViewContent{
     
+    @IBOutlet weak var finishQuizButton: UIButton!
     override func viewWillAppear(animated: Bool) {
         parentViewController!.navigationItem.rightBarButtonItem = nil
     }
@@ -19,6 +20,11 @@ class QuizFinishedViewController: PageViewContent{
         revealAnswers()
     }
 
+    @IBAction func finishQuizButtonPressed(sender: AnyObject) {
+        finishQuizButton.enabled = false
+        revealAnswers()
+    }
+    
     func revealAnswers(){
         realm.beginWrite()
         for question in (Util().getCurrentTopic()?.questions)!{

@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10072.1"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -195,18 +194,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YAY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppm-Tg-8fz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppm-Tg-8fz">
                                 <rect key="frame" x="20" y="89" width="560" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="6Cv-6A-Pht"/>
                                 </constraints>
+                                <string key="text">Congratulations!
+You made it to the end</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oky-n7-cbt">
-                                <rect key="frame" x="262" y="163" width="76" height="30"/>
-                                <state key="normal" title="Finish Quiz"/>
+                                <rect key="frame" x="240" y="163" width="120" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="OoW-NF-dSf"/>
+                                    <constraint firstAttribute="width" constant="120" id="gOi-s9-6My"/>
+                                </constraints>
+                                <state key="normal" title="Finish Quiz" backgroundImage="ButtonBackground">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" backgroundImage="ButtonBackgroundSelected"/>
+                                <connections>
+                                    <action selector="finishQuizButtonPressed:" destination="Y5r-IS-Tby" eventType="touchUpInside" id="vxX-WJ-de4"/>
+                                    <segue destination="Jb5-Ru-CPY" kind="show" id="ipK-dA-ttt"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -218,10 +230,31 @@
                             <constraint firstAttribute="leadingMargin" secondItem="ppm-Tg-8fz" secondAttribute="leading" id="y6A-ub-hrj"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="finishQuizButton" destination="Oky-n7-cbt" id="DD1-aB-kaZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pvv-t1-yvf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3603" y="36"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="sWj-qk-1Yi">
+            <objects>
+                <viewController id="Jb5-Ru-CPY" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ouw-6U-laX"/>
+                        <viewControllerLayoutGuide type="bottom" id="910-Uh-QbS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qsy-Ol-4IW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ERy-tI-JT2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4290" y="36"/>
         </scene>
         <!--Choose a Topic-->
         <scene sceneID="bsa-af-9Jh">
