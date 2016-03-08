@@ -257,12 +257,14 @@ You made it to the end</string>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="382-w3-1ND">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="580"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="580" placeholder="YES" id="y3j-ZC-WQS"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="382-w3-1ND" firstAttribute="height" secondItem="E3B-cd-Dnw" secondAttribute="height" id="EdD-Yg-4Rz"/>
+                                    <constraint firstAttribute="bottom" secondItem="382-w3-1ND" secondAttribute="bottom" id="2kv-88-g2Y"/>
                                     <constraint firstItem="382-w3-1ND" firstAttribute="top" secondItem="E3B-cd-Dnw" secondAttribute="top" id="HJz-dU-PYc"/>
-                                    <constraint firstAttribute="bottom" secondItem="382-w3-1ND" secondAttribute="bottom" id="TgE-dt-bwZ"/>
                                     <constraint firstAttribute="trailing" secondItem="382-w3-1ND" secondAttribute="trailing" id="Trz-mI-s6J"/>
                                     <constraint firstItem="382-w3-1ND" firstAttribute="width" secondItem="E3B-cd-Dnw" secondAttribute="width" id="WhU-gk-qSd"/>
                                     <constraint firstItem="382-w3-1ND" firstAttribute="leading" secondItem="E3B-cd-Dnw" secondAttribute="leading" id="tFk-My-jfk"/>
@@ -284,7 +286,7 @@ You made it to the end</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="48a-Ry-Ek2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4903" y="36"/>
+            <point key="canvasLocation" x="4290" y="36"/>
         </scene>
         <!--Choose a Topic-->
         <scene sceneID="bsa-af-9Jh">

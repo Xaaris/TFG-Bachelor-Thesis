@@ -32,6 +32,7 @@ class QuizResultsViewController: UIViewController, UIGestureRecognizerDelegate{
             let index = stack.arrangedSubviews.count
             stack.alignment = .Fill
             stack.distribution = .EqualSpacing
+            stack.spacing = 30
             //        let addView = stack.arrangedSubviews[index]
             
             //        let scroll = scrollView
@@ -55,7 +56,7 @@ class QuizResultsViewController: UIViewController, UIGestureRecognizerDelegate{
        
     }
     
-     
+    
     
     func createResultsView()-> UIView{
         let title = "You did great"
@@ -65,7 +66,7 @@ class QuizResultsViewController: UIViewController, UIGestureRecognizerDelegate{
         stack.axis = .Vertical
         stack.alignment = .Center
         stack.distribution = .EqualCentering
-        stack.spacing = 8
+        stack.spacing = 20
         
         let titleLabel = UILabel()
         titleLabel.text = title
