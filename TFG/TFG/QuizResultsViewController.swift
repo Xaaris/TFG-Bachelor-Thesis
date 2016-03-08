@@ -57,7 +57,6 @@ class QuizResultsViewController: UIViewController, UIGestureRecognizerDelegate{
     
     func createAnswerView(row: Int)-> UIView{
         let question = Util().getCurrentTopic()!.questions[row]
-        let title = question.questionText
         
         let stack = UIStackView()
         stack.axis = .Vertical
@@ -65,10 +64,11 @@ class QuizResultsViewController: UIViewController, UIGestureRecognizerDelegate{
         stack.distribution = .EqualSpacing
         stack.spacing = 5
         
-        let titleLabel = UILabel()
-        titleLabel.text = title
+        let questionTextLabel = UILabel()
+        questionTextLabel.text = question.questionText
+        questionTextLabel.font = UIFont.boldSystemFontOfSize(17.0)
         
-        stack.addArrangedSubview(titleLabel)
+        stack.addArrangedSubview(questionTextLabel)
         
         for answer in question.answers{
             let subStack = UIStackView()
