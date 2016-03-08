@@ -217,7 +217,7 @@ You made it to the end</string>
                                 <state key="disabled" backgroundImage="ButtonBackgroundSelected"/>
                                 <connections>
                                     <action selector="finishQuizButtonPressed:" destination="Y5r-IS-Tby" eventType="touchUpInside" id="vxX-WJ-de4"/>
-                                    <segue destination="hXm-Oe-ukp" kind="popoverPresentation" popoverAnchorView="Oky-n7-cbt" id="n8y-N1-XZX">
+                                    <segue destination="Y7p-XV-xbb" kind="popoverPresentation" popoverAnchorView="Oky-n7-cbt" id="UcZ-me-Cbm">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
@@ -241,79 +241,50 @@ You made it to the end</string>
             <point key="canvasLocation" x="3603" y="36"/>
         </scene>
         <!--Quiz Results View Controller-->
-        <scene sceneID="q5w-CP-XYq">
+        <scene sceneID="rsk-TG-x55">
             <objects>
-                <tableViewController id="hXm-Oe-ukp" customClass="QuizResultsViewController" customModule="TFG" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="nl9-53-Fwe">
+                <viewController id="Y7p-XV-xbb" customClass="QuizResultsViewController" customModule="TFG" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="I1r-7K-j2f"/>
+                        <viewControllerLayoutGuide type="bottom" id="pwv-8S-7qn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KkK-ru-mlL">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E3B-cd-Dnw">
+                                <rect key="frame" x="20" y="20" width="560" height="580"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="382-w3-1ND">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="580"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="382-w3-1ND" firstAttribute="height" secondItem="E3B-cd-Dnw" secondAttribute="height" id="EdD-Yg-4Rz"/>
+                                    <constraint firstItem="382-w3-1ND" firstAttribute="top" secondItem="E3B-cd-Dnw" secondAttribute="top" id="HJz-dU-PYc"/>
+                                    <constraint firstAttribute="bottom" secondItem="382-w3-1ND" secondAttribute="bottom" id="TgE-dt-bwZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="382-w3-1ND" secondAttribute="trailing" id="Trz-mI-s6J"/>
+                                    <constraint firstItem="382-w3-1ND" firstAttribute="width" secondItem="E3B-cd-Dnw" secondAttribute="width" id="WhU-gk-qSd"/>
+                                    <constraint firstItem="382-w3-1ND" firstAttribute="leading" secondItem="E3B-cd-Dnw" secondAttribute="leading" id="tFk-My-jfk"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuizResultsTableViewCell" rowHeight="200" id="4bA-uw-ubL" customClass="QuizResultsTableViewCell" customModule="TFG" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="200"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4bA-uw-ubL" id="k0n-L3-uvi">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="199"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You did great!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pft-os-pyE">
-                                            <rect key="frame" x="247" y="51" width="107" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x out of x" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QaE-an-K2H">
-                                            <rect key="frame" x="265" y="102" width="71" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pcm-kK-q4Y">
-                                            <rect key="frame" x="240" y="144" width="120" height="50"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="120" id="XMh-fo-mBf"/>
-                                                <constraint firstAttribute="height" constant="50" id="bpF-xr-cda"/>
-                                            </constraints>
-                                            <state key="normal" title="Quit" backgroundImage="ButtonBackground">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="quitButtonPressed:" destination="4bA-uw-ubL" eventType="touchUpInside" id="dDa-83-5bT"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="QaE-an-K2H" firstAttribute="top" secondItem="Pft-os-pyE" secondAttribute="bottom" constant="30" id="Gx9-ra-1ks"/>
-                                        <constraint firstItem="Pft-os-pyE" firstAttribute="top" secondItem="k0n-L3-uvi" secondAttribute="topMargin" constant="43" id="INN-Jd-FYk"/>
-                                        <constraint firstItem="pcm-kK-q4Y" firstAttribute="centerX" secondItem="k0n-L3-uvi" secondAttribute="centerX" id="SW1-9D-yUe"/>
-                                        <constraint firstItem="pcm-kK-q4Y" firstAttribute="top" secondItem="QaE-an-K2H" secondAttribute="bottom" constant="21" id="YUy-z6-DXx"/>
-                                        <constraint firstItem="Pft-os-pyE" firstAttribute="centerX" secondItem="k0n-L3-uvi" secondAttribute="centerX" id="g9D-bw-Zc9"/>
-                                        <constraint firstItem="QaE-an-K2H" firstAttribute="centerX" secondItem="k0n-L3-uvi" secondAttribute="centerX" id="sU1-G7-uLA"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="titleLabel" destination="Pft-os-pyE" id="ZQl-EG-uEn"/>
-                                    <outlet property="xOutOfxLabel" destination="QaE-an-K2H" id="LeS-pT-7Fm"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuizResultQuestionCell" rowHeight="100" id="Jdx-UE-QDa">
-                                <rect key="frame" x="0.0" y="228" width="600" height="100"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jdx-UE-QDa" id="Klg-uk-xUb">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="hXm-Oe-ukp" id="neh-H6-LdY"/>
-                            <outlet property="delegate" destination="hXm-Oe-ukp" id="w7c-bC-tJz"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UV5-xj-lu5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstItem="E3B-cd-Dnw" firstAttribute="top" secondItem="KkK-ru-mlL" secondAttribute="topMargin" constant="20" id="0QJ-lw-3LO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="E3B-cd-Dnw" secondAttribute="trailing" id="66v-hy-wHh"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="E3B-cd-Dnw" secondAttribute="bottom" id="7wp-vn-KuE"/>
+                            <constraint firstItem="E3B-cd-Dnw" firstAttribute="leading" secondItem="KkK-ru-mlL" secondAttribute="leadingMargin" id="vwW-Er-8g7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="E3B-cd-Dnw" id="2tc-Sn-YvT"/>
+                        <outlet property="stackView" destination="382-w3-1ND" id="H46-n1-K1e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="48a-Ry-Ek2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4254" y="36"/>
+            <point key="canvasLocation" x="4903" y="36"/>
         </scene>
         <!--Choose a Topic-->
         <scene sceneID="bsa-af-9Jh">

@@ -13,7 +13,6 @@
 		3B238D901C88FA9200E71EA3 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B238D8C1C88FA9200E71EA3 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3B238D921C890AEB00E71EA3 /* PreferencesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B238D911C890AEB00E71EA3 /* PreferencesData.swift */; };
 		3B5BCE531C8CCEBB00108989 /* QuizResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BCE521C8CCEBB00108989 /* QuizResultsViewController.swift */; };
-		3B5BCE581C8CD1A300108989 /* QuizResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BCE561C8CD1A300108989 /* QuizResultsTableViewCell.swift */; };
 		3B7F65171C78F97F00BE0812 /* CSVImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7F65161C78F97F00BE0812 /* CSVImporter.swift */; };
 		3BBD159C1C79E69000672569 /* Sample1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3BBD159B1C79E68F00672569 /* Sample1.csv */; };
 		3BBD159E1C7A081C00672569 /* ChooseTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBD159D1C7A081C00672569 /* ChooseTopicViewController.swift */; };
@@ -56,7 +55,6 @@
 		3B238D8C1C88FA9200E71EA3 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		3B238D911C890AEB00E71EA3 /* PreferencesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesData.swift; sourceTree = "<group>"; };
 		3B5BCE521C8CCEBB00108989 /* QuizResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizResultsViewController.swift; sourceTree = "<group>"; };
-		3B5BCE561C8CD1A300108989 /* QuizResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizResultsTableViewCell.swift; sourceTree = "<group>"; };
 		3B7F65161C78F97F00BE0812 /* CSVImporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSVImporter.swift; sourceTree = "<group>"; };
 		3BBD159B1C79E68F00672569 /* Sample1.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample1.csv; sourceTree = "<group>"; };
 		3BBD159D1C7A081C00672569 /* ChooseTopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseTopicViewController.swift; sourceTree = "<group>"; };
@@ -155,7 +153,6 @@
 				3BE4BA371C80E5970053EC96 /* QuizFinishedViewController.swift */,
 				3BE4BA351C80CB6C0053EC96 /* AnswerCell.swift */,
 				3B5BCE521C8CCEBB00108989 /* QuizResultsViewController.swift */,
-				3B5BCE561C8CD1A300108989 /* QuizResultsTableViewCell.swift */,
 			);
 			name = "Quiz View";
 			sourceTree = "<group>";
@@ -268,7 +265,6 @@
 				3BC8B42B1C723581000FD25D /* PreferencesViewController.swift in Sources */,
 				3BE4BA391C80E5970053EC96 /* QuizFinishedViewController.swift in Sources */,
 				3B238D921C890AEB00E71EA3 /* PreferencesData.swift in Sources */,
-				3B5BCE581C8CD1A300108989 /* QuizResultsTableViewCell.swift in Sources */,
 				3BE4BA301C7FD9A60053EC96 /* QuestionContentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
