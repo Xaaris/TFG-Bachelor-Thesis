@@ -27,7 +27,7 @@ class QuizResultsViewController: UIViewController, UIGestureRecognizerDelegate{
     }
     
     func loadStackViews(){
-        for row in Range(0 ..< Util().getCurrentTopic()!.questions.count + 1){
+        for row in Range(0 ..< Util().getCurrentTopic()!.questions.count){
             let stack = stackView
             let index = stack.arrangedSubviews.count
             stack.alignment = .Leading
@@ -39,11 +39,7 @@ class QuizResultsViewController: UIViewController, UIGestureRecognizerDelegate{
             //        let offset = CGPoint(x: scroll.contentOffset.x,
             //            y: scroll.contentOffset.y + addView.frame.size.height)
             var newView = UIView()
-            if row == 0{
-                newView = createResultsView()
-            }else{
-                newView = createAnswerView(row)
-            }
+            newView = createAnswerView(row)
             newView.hidden = true
             stack.insertArrangedSubview(newView, atIndex: index)
             
@@ -55,7 +51,6 @@ class QuizResultsViewController: UIViewController, UIGestureRecognizerDelegate{
         }
        
     }
-    
     
     
     func createResultsView()-> UIView{
@@ -92,14 +87,13 @@ class QuizResultsViewController: UIViewController, UIGestureRecognizerDelegate{
 
     
     func createAnswerView(row: Int)-> UIView{
-        let question = Util().getCurrentTopic()!.questions[row - 1]
+        let question = Util().getCurrentTopic()!.questions[row]
         let title = question.questionText
         
         let stack = UIStackView()
         stack.axis = .Vertical
         stack.alignment = .Leading
         stack.distribution = .EqualSpacing
-        stack.spacing = 8
         
         let titleLabel = UILabel()
         titleLabel.text = title
@@ -109,15 +103,19 @@ class QuizResultsViewController: UIViewController, UIGestureRecognizerDelegate{
         for answer in question.answers{
             let subStack = UIStackView()
             subStack.axis = .Horizontal
-            subStack.distribution = .EqualCentering
+            subStack.distribution = .EqualSpacing
             subStack.alignment = .FirstBaseline
-            subStack.spacing = 0
 
+            
             
             let answerImage = UIImage(named: "AnswerChooserMultiChoiceCorrect")
             let imageView = UIImageView(image: answerImage)
             let answerLabel = UILabel()
-            answerLabel.text = answer.answerText
+            answerLabel.preferredMaxLayoutWidth = 200
+            answerLabel.text = "\n" + answer.answerText
+            answerLabel.numberOfLines = 0
+            
+                
             subStack.addArrangedSubview(imageView)
             subStack.addArrangedSubview(answerLabel)
             stack.addArrangedSubview(subStack)
