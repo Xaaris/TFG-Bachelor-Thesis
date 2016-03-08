@@ -30,7 +30,7 @@ class QuizResultsViewController: UIViewController, UIGestureRecognizerDelegate{
         for row in Range(0 ..< Util().getCurrentTopic()!.questions.count + 1){
             let stack = stackView
             let index = stack.arrangedSubviews.count
-            stack.alignment = .Fill
+            stack.alignment = .Leading
             stack.distribution = .EqualSpacing
             stack.spacing = 30
             //        let addView = stack.arrangedSubviews[index]
@@ -79,7 +79,7 @@ class QuizResultsViewController: UIViewController, UIGestureRecognizerDelegate{
         let quitButton = UIButton(type: .RoundedRect)
         quitButton.setTitle("Quit", forState: .Normal)
         quitButton.setBackgroundImage(UIImage(named: "ButtonBackground"), forState: .Normal)
-        quitButton.frame = CGRect(x: quitButton.frame.origin.x, y: quitButton.frame.origin.y, width: 120, height: 50)
+        quitButton.frame = CGRectMake(quitButton.frame.origin.x , quitButton.frame.origin.y, 120, 50)
         quitButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         quitButton.addTarget(self, action: "goBackToRootVC", forControlEvents: .TouchUpInside)
         
@@ -107,9 +107,20 @@ class QuizResultsViewController: UIViewController, UIGestureRecognizerDelegate{
         stack.addArrangedSubview(titleLabel)
         
         for answer in question.answers{
+            let subStack = UIStackView()
+            subStack.axis = .Horizontal
+            subStack.distribution = .EqualCentering
+            subStack.alignment = .FirstBaseline
+            subStack.spacing = 0
+
+            
+            let answerImage = UIImage(named: "AnswerChooserMultiChoiceCorrect")
+            let imageView = UIImageView(image: answerImage)
             let answerLabel = UILabel()
             answerLabel.text = answer.answerText
-            stack.addArrangedSubview(answerLabel)
+            subStack.addArrangedSubview(imageView)
+            subStack.addArrangedSubview(answerLabel)
+            stack.addArrangedSubview(subStack)
         }
         
         let recognizer = UITapGestureRecognizer(target: self, action: "stackViewTapped")
