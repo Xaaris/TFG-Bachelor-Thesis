@@ -258,17 +258,17 @@ You made it to the end</string>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You did great!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aII-aN-5vO">
                                         <rect key="frame" x="227" y="32" width="107" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x out of x" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5s-gv-L3X">
                                         <rect key="frame" x="245" y="83" width="71" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="382-w3-1ND">
-                                        <rect key="frame" x="0.0" y="190" width="560" height="580"/>
+                                        <rect key="frame" x="0.0" y="220" width="560" height="580"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="580" placeholder="YES" id="y3j-ZC-WQS"/>
                                         </constraints>
@@ -279,13 +279,19 @@ You made it to the end</string>
                                             <constraint firstAttribute="height" constant="50" id="nnH-sR-mpf"/>
                                             <constraint firstAttribute="width" constant="120" id="urf-a8-HFU"/>
                                         </constraints>
-                                        <state key="normal" title="Quit" backgroundImage="ButtonBackground"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                        <state key="normal" title="Quit" backgroundImage="ButtonBackground">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="quitButtonPressed:" destination="Y7p-XV-xbb" eventType="touchUpInside" id="AYI-5N-0oC"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="382-w3-1ND" secondAttribute="bottom" id="2kv-88-g2Y"/>
                                     <constraint firstItem="D5s-gv-L3X" firstAttribute="top" secondItem="aII-aN-5vO" secondAttribute="bottom" constant="30" id="6x4-Xl-ZCQ"/>
-                                    <constraint firstItem="382-w3-1ND" firstAttribute="top" secondItem="Zqx-wQ-Hcv" secondAttribute="bottom" constant="20" id="B2h-S5-5Uc"/>
+                                    <constraint firstItem="382-w3-1ND" firstAttribute="top" secondItem="Zqx-wQ-Hcv" secondAttribute="bottom" constant="50" id="B2h-S5-5Uc"/>
                                     <constraint firstItem="Zqx-wQ-Hcv" firstAttribute="top" secondItem="D5s-gv-L3X" secondAttribute="bottom" constant="16" id="CTZ-Sf-rkj"/>
                                     <constraint firstItem="aII-aN-5vO" firstAttribute="centerX" secondItem="E3B-cd-Dnw" secondAttribute="centerX" id="Njy-QR-RkU"/>
                                     <constraint firstAttribute="trailing" secondItem="382-w3-1ND" secondAttribute="trailing" id="Trz-mI-s6J"/>
@@ -308,6 +314,8 @@ You made it to the end</string>
                     <connections>
                         <outlet property="scrollView" destination="E3B-cd-Dnw" id="2tc-Sn-YvT"/>
                         <outlet property="stackView" destination="382-w3-1ND" id="H46-n1-K1e"/>
+                        <outlet property="titleLabel" destination="aII-aN-5vO" id="1Dx-LJ-kiF"/>
+                        <outlet property="xOutOfxLabel" destination="D5s-gv-L3X" id="PjC-qb-4od"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="48a-Ry-Ek2" userLabel="First Responder" sceneMemberID="firstResponder"/>

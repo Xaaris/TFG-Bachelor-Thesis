@@ -13,6 +13,8 @@ class QuizResultsViewController: UIViewController, UIGestureRecognizerDelegate{
     
     @IBOutlet weak private var scrollView: UIScrollView!
     @IBOutlet weak private var stackView: UIStackView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var xOutOfxLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,39 +53,6 @@ class QuizResultsViewController: UIViewController, UIGestureRecognizerDelegate{
         }
        
     }
-    
-    
-    func createResultsView()-> UIView{
-        let title = "You did great"
-        let xOutOfx = "x out of x"
-        
-        let stack = UIStackView()
-        stack.axis = .Vertical
-        stack.alignment = .Center
-        stack.distribution = .EqualCentering
-        stack.spacing = 20
-        
-        let titleLabel = UILabel()
-        titleLabel.text = title
-        titleLabel.textAlignment = .Center
-        
-        let xOutOfxLabel = UILabel()
-        xOutOfxLabel.text = xOutOfx
-        xOutOfxLabel.textAlignment = .Center
-        
-        let quitButton = UIButton(type: .RoundedRect)
-        quitButton.setTitle("Quit", forState: .Normal)
-        quitButton.setBackgroundImage(UIImage(named: "ButtonBackground"), forState: .Normal)
-        quitButton.frame = CGRectMake(quitButton.frame.origin.x , quitButton.frame.origin.y, 120, 50)
-        quitButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        quitButton.addTarget(self, action: "goBackToRootVC", forControlEvents: .TouchUpInside)
-        
-        stack.addArrangedSubview(titleLabel)
-        stack.addArrangedSubview(xOutOfxLabel)
-        stack.addArrangedSubview(quitButton)
-        
-        return stack
-    }
 
     
     func createAnswerView(row: Int)-> UIView{
@@ -94,6 +63,7 @@ class QuizResultsViewController: UIViewController, UIGestureRecognizerDelegate{
         stack.axis = .Vertical
         stack.alignment = .Leading
         stack.distribution = .EqualSpacing
+        stack.spacing = 5
         
         let titleLabel = UILabel()
         titleLabel.text = title
@@ -104,16 +74,16 @@ class QuizResultsViewController: UIViewController, UIGestureRecognizerDelegate{
             let subStack = UIStackView()
             subStack.axis = .Horizontal
             subStack.distribution = .EqualSpacing
-            subStack.alignment = .FirstBaseline
-
+            subStack.alignment = .Center
             
             
             let answerImage = UIImage(named: "AnswerChooserMultiChoiceCorrect")
             let imageView = UIImageView(image: answerImage)
             let answerLabel = UILabel()
-            answerLabel.preferredMaxLayoutWidth = 200
-            answerLabel.text = "\n" + answer.answerText
+            answerLabel.preferredMaxLayoutWidth = 250
+            answerLabel.text = answer.answerText
             answerLabel.numberOfLines = 0
+            answerLabel.lineBreakMode = .ByWordWrapping
             
                 
             subStack.addArrangedSubview(imageView)
@@ -126,8 +96,9 @@ class QuizResultsViewController: UIViewController, UIGestureRecognizerDelegate{
         stack.addGestureRecognizer(recognizer)
         return stack
     }
-
-    func goBackToRootVC() {
+    
+    
+    @IBAction func quitButtonPressed(sender: AnyObject) {
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("Home") as! UITabBarController
         vc.selectedIndex = 1
         self.presentViewController(vc, animated: true, completion: nil)
