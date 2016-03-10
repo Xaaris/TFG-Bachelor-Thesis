@@ -38,7 +38,7 @@ class QuizResultsViewController: UIViewController{
             let index = stack.arrangedSubviews.count
             stack.alignment = .Leading
             stack.distribution = .EqualSpacing
-            stack.spacing = 30
+            stack.spacing = 5
             
             var newView = UIView()
             newView = createAnswerView(row)
@@ -61,7 +61,7 @@ class QuizResultsViewController: UIViewController{
         expansionButton.tag = row
         
         let questionTextLabel = UILabel()
-        questionTextLabel.text = question.questionText
+        questionTextLabel.text = "Question \(row)"
         questionTextLabel.font = UIFont.boldSystemFontOfSize(17.0)
         
         
@@ -78,26 +78,27 @@ class QuizResultsViewController: UIViewController{
         let titleView = UIView()
         titleView.addSubview(expansionButton)
         titleView.addSubview(questionTextLabel)
-        titleView.heightAnchor.constraintEqualToConstant(64).active = true
-        titleView.widthAnchor.constraintEqualToConstant(350).active = true
-        titleView.backgroundColor = UIColor.redColor()
+        titleView.heightAnchor.constraintEqualToConstant(50).active = true
+        titleView.widthAnchor.constraintEqualToConstant(280).active = true
+        titleView.backgroundColor = Util().myLightRedColor
         titleView.translatesAutoresizingMaskIntoConstraints = false
+        expansionButton.translatesAutoresizingMaskIntoConstraints = false
+        questionTextLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        print(questionTextLabel.intrinsicContentSize().width)
-        print(questionTextLabel.intrinsicContentSize().height)
+        //TODO: ganze zeile tapbar mit button in uiview und imageview als pfeil
         //Button Constraints
-        var leftSideConstraint = NSLayoutConstraint(item: expansionButton, attribute: .Left, relatedBy: .Equal, toItem: titleView, attribute: .Left, multiplier: 1.0, constant: 0.0)
+        var leftSideConstraint = NSLayoutConstraint(item: expansionButton, attribute: .Left, relatedBy: .Equal, toItem: titleView, attribute: .Left, multiplier: 1.0, constant: 10.0)
         var bottomConstraint = NSLayoutConstraint(item: expansionButton, attribute: .CenterY , relatedBy: .Equal, toItem: titleView, attribute: .CenterY, multiplier: 1.0, constant: 0.0)
-//        var widthConstraint = NSLayoutConstraint(item: expansionButton, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 32)
-//        var heightConstraint = NSLayoutConstraint(item: expansionButton, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 32)
-        titleView.addConstraints([leftSideConstraint, bottomConstraint]) //, heightConstraint, widthConstraint])
+        var widthConstraint = NSLayoutConstraint(item: expansionButton, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 32)
+        var heightConstraint = NSLayoutConstraint(item: expansionButton, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 32)
+        titleView.addConstraints([leftSideConstraint, bottomConstraint, heightConstraint, widthConstraint])
         
-        //questionTextLabel Constraints
+//        //questionTextLabel Constraints
          leftSideConstraint = NSLayoutConstraint(item: questionTextLabel, attribute: .Left, relatedBy: .Equal, toItem: expansionButton, attribute: .Right, multiplier: 1.0, constant: 5)
          bottomConstraint = NSLayoutConstraint(item: questionTextLabel, attribute: .CenterY, relatedBy: .Equal, toItem: expansionButton, attribute: .CenterY, multiplier: 1.0, constant: 0.0)
-//         widthConstraint = NSLayoutConstraint(item: questionTextLabel, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: questionTextLabel.intrinsicContentSize().width)
-//         heightConstraint = NSLayoutConstraint(item: questionTextLabel, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: questionTextLabel.intrinsicContentSize().height)
-        titleView.addConstraints([leftSideConstraint, bottomConstraint]) //, heightConstraint, widthConstraint])
+         widthConstraint = NSLayoutConstraint(item: questionTextLabel, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: questionTextLabel.intrinsicContentSize().width)
+         heightConstraint = NSLayoutConstraint(item: questionTextLabel, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: questionTextLabel.intrinsicContentSize().height)
+        titleView.addConstraints([leftSideConstraint, bottomConstraint, heightConstraint, widthConstraint])
         
         
         stack.addArrangedSubview(titleView)
