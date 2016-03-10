@@ -16,6 +16,9 @@ class QuizResultsViewController: UIViewController, UIGestureRecognizerDelegate{
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var xOutOfxLabel: UILabel!
     
+    var stackViewArray:[UIStackView] = [UIStackView]()
+    var stackViewsHidden = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,7 +32,8 @@ class QuizResultsViewController: UIViewController, UIGestureRecognizerDelegate{
     }
     
     func loadStackViews(){
-        for row in Range(0 ..< Util().getCurrentTopic()!.questions.count){
+        let numberOfQuestions = Util().getCurrentTopic()!.questions.count
+        for row in Range(0 ..< numberOfQuestions){
             let stack = stackView
             let index = stack.arrangedSubviews.count
             stack.alignment = .Leading
@@ -42,13 +46,9 @@ class QuizResultsViewController: UIViewController, UIGestureRecognizerDelegate{
             //            y: scroll.contentOffset.y + addView.frame.size.height)
             var newView = UIView()
             newView = createAnswerView(row)
-            newView.hidden = true
             stack.insertArrangedSubview(newView, atIndex: index)
             
-            UIView.animateWithDuration(0.25) { () -> Void in
-                newView.hidden = false
-                //            scroll.contentOffset = offset
-            }
+            
             
         }
        
@@ -80,7 +80,7 @@ class QuizResultsViewController: UIViewController, UIGestureRecognizerDelegate{
             let answerImage = UIImage(named: "AnswerChooserMultiChoiceCorrect")
             let imageView = UIImageView(image: answerImage)
             let answerLabel = UILabel()
-            answerLabel.preferredMaxLayoutWidth = 250
+            answerLabel.preferredMaxLayoutWidth = 220
             answerLabel.text = answer.answerText
             answerLabel.numberOfLines = 0
             answerLabel.lineBreakMode = .ByWordWrapping
@@ -88,12 +88,16 @@ class QuizResultsViewController: UIViewController, UIGestureRecognizerDelegate{
                 
             subStack.addArrangedSubview(imageView)
             subStack.addArrangedSubview(answerLabel)
+//            subStack.hidden = true
             stack.addArrangedSubview(subStack)
         }
         
         let recognizer = UITapGestureRecognizer(target: self, action: "stackViewTapped")
         recognizer.delegate = self
         stack.addGestureRecognizer(recognizer)
+        
+        stackViewArray.append(stack)
+        
         return stack
     }
     
@@ -106,6 +110,26 @@ class QuizResultsViewController: UIViewController, UIGestureRecognizerDelegate{
     
     func stackViewTapped() {
         print("stack view tappt")
+        if stackViewsHidden{
+//            UIView.animateWithDuration(0.25) { () -> Void in
+                for i in Range(0 ..< self.stackViewArray.count){
+                    for j in Range(1 ..< self.stackViewArray[i].arrangedSubviews.count){
+                        self.stackViewArray[i].arrangedSubviews[j].hidden = false
+                    }
+                }
+                self.stackViewsHidden = !self.stackViewsHidden
+//            }
+        }else{
+//            UIView.animateWithDuration(0.25) { () -> Void in
+                for i in Range(0 ..< self.stackViewArray.count){
+                    for j in Range(1 ..< self.stackViewArray[i].arrangedSubviews.count){
+                        self.stackViewArray[i].arrangedSubviews[j].hidden = true
+                    }
+                }
+                self.stackViewsHidden = !self.stackViewsHidden
+//            }
+            
+        }
     }
     
     
