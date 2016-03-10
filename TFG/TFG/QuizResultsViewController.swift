@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class QuizResultsViewController: UIViewController, UIGestureRecognizerDelegate{
+class QuizResultsViewController: UIViewController{
     
     @IBOutlet weak private var scrollView: UIScrollView!
     @IBOutlet weak private var stackView: UIStackView!
@@ -17,7 +17,7 @@ class QuizResultsViewController: UIViewController, UIGestureRecognizerDelegate{
     @IBOutlet weak var xOutOfxLabel: UILabel!
     
     var stackViewArray:[UIStackView] = [UIStackView]()
-    var stackViewsHidden = true
+    var stackViewArrayHiddenStates:[Bool] = [Bool]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,11 +64,25 @@ class QuizResultsViewController: UIViewController, UIGestureRecognizerDelegate{
         stack.distribution = .EqualSpacing
         stack.spacing = 5
         
+        let expansionButton = UIButton()
+        expansionButton.setImage(UIImage(named: "AnswerChooserMultiChoiceWrong"), forState: .Normal)
+        expansionButton.addTarget(self, action: "expansionButtonPressed:", forControlEvents: .TouchUpInside)
+        expansionButton.tag = row
+        
         let questionTextLabel = UILabel()
         questionTextLabel.text = question.questionText
         questionTextLabel.font = UIFont.boldSystemFontOfSize(17.0)
         
-        stack.addArrangedSubview(questionTextLabel)
+        let questionTitleStack = UIStackView()
+        questionTitleStack.axis = .Horizontal
+        questionTitleStack.distribution = .EqualSpacing
+        questionTitleStack.alignment = .Center
+        questionTitleStack.addArrangedSubview(questionTextLabel)
+        questionTitleStack.addArrangedSubview(expansionButton)
+        
+        
+        
+        stack.addArrangedSubview(questionTitleStack)
         
         for answer in question.answers{
             let subStack = UIStackView()
@@ -88,15 +102,12 @@ class QuizResultsViewController: UIViewController, UIGestureRecognizerDelegate{
                 
             subStack.addArrangedSubview(imageView)
             subStack.addArrangedSubview(answerLabel)
-//            subStack.hidden = true
+            subStack.hidden = true
             stack.addArrangedSubview(subStack)
         }
         
-        let recognizer = UITapGestureRecognizer(target: self, action: "stackViewTapped")
-        recognizer.delegate = self
-        stack.addGestureRecognizer(recognizer)
-        
         stackViewArray.append(stack)
+        stackViewArrayHiddenStates.append(true)
         
         return stack
     }
@@ -108,27 +119,22 @@ class QuizResultsViewController: UIViewController, UIGestureRecognizerDelegate{
         self.presentViewController(vc, animated: true, completion: nil)
     }
     
-    func stackViewTapped() {
-        print("stack view tappt")
-        if stackViewsHidden{
-//            UIView.animateWithDuration(0.25) { () -> Void in
-                for i in Range(0 ..< self.stackViewArray.count){
-                    for j in Range(1 ..< self.stackViewArray[i].arrangedSubviews.count){
-                        self.stackViewArray[i].arrangedSubviews[j].hidden = false
-                    }
+    
+    func expansionButtonPressed(sender: AnyObject){
+        if stackViewArrayHiddenStates[sender.tag]{
+            UIView.animateWithDuration(0.25) { () -> Void in
+                for j in Range(1 ..< self.stackViewArray[sender.tag].arrangedSubviews.count){
+                    self.stackViewArray[sender.tag].arrangedSubviews[j].hidden = false
                 }
-                self.stackViewsHidden = !self.stackViewsHidden
-//            }
+                self.stackViewArrayHiddenStates[sender.tag] = !self.stackViewArrayHiddenStates[sender.tag]
+            }
         }else{
-//            UIView.animateWithDuration(0.25) { () -> Void in
-                for i in Range(0 ..< self.stackViewArray.count){
-                    for j in Range(1 ..< self.stackViewArray[i].arrangedSubviews.count){
-                        self.stackViewArray[i].arrangedSubviews[j].hidden = true
-                    }
+            UIView.animateWithDuration(0.25) { () -> Void in
+                for j in Range(1 ..< self.stackViewArray[sender.tag].arrangedSubviews.count){
+                    self.stackViewArray[sender.tag].arrangedSubviews[j].hidden = true
                 }
-                self.stackViewsHidden = !self.stackViewsHidden
-//            }
-            
+                self.stackViewArrayHiddenStates[sender.tag] = !self.stackViewArrayHiddenStates[sender.tag]
+            }
         }
     }
     
