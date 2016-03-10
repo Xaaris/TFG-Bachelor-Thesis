@@ -39,21 +39,12 @@ class QuizResultsViewController: UIViewController{
             stack.alignment = .Leading
             stack.distribution = .EqualSpacing
             stack.spacing = 30
-            //        let addView = stack.arrangedSubviews[index]
             
-            //        let scroll = scrollView
-            //        let offset = CGPoint(x: scroll.contentOffset.x,
-            //            y: scroll.contentOffset.y + addView.frame.size.height)
             var newView = UIView()
             newView = createAnswerView(row)
             stack.insertArrangedSubview(newView, atIndex: index)
-            
-            
-            
         }
-       
     }
-
     
     func createAnswerView(row: Int)-> UIView{
         let question = Util().getCurrentTopic()!.questions[row]
@@ -65,7 +56,7 @@ class QuizResultsViewController: UIViewController{
         stack.spacing = 5
         
         let expansionButton = UIButton()
-        expansionButton.setImage(UIImage(named: "AnswerChooserMultiChoiceWrong"), forState: .Normal)
+        expansionButton.setImage(UIImage(named: "ResultsUnfold"), forState: .Normal)
         expansionButton.addTarget(self, action: "expansionButtonPressed:", forControlEvents: .TouchUpInside)
         expansionButton.tag = row
         
@@ -77,10 +68,8 @@ class QuizResultsViewController: UIViewController{
         questionTitleStack.axis = .Horizontal
         questionTitleStack.distribution = .EqualSpacing
         questionTitleStack.alignment = .Center
-        questionTitleStack.addArrangedSubview(questionTextLabel)
         questionTitleStack.addArrangedSubview(expansionButton)
-        
-        
+        questionTitleStack.addArrangedSubview(questionTextLabel)
         
         stack.addArrangedSubview(questionTitleStack)
         
@@ -90,7 +79,6 @@ class QuizResultsViewController: UIViewController{
             subStack.distribution = .EqualSpacing
             subStack.alignment = .Center
             
-            
             let answerImage = UIImage(named: "AnswerChooserMultiChoiceCorrect")
             let imageView = UIImageView(image: answerImage)
             let answerLabel = UILabel()
@@ -98,20 +86,17 @@ class QuizResultsViewController: UIViewController{
             answerLabel.text = answer.answerText
             answerLabel.numberOfLines = 0
             answerLabel.lineBreakMode = .ByWordWrapping
-            
                 
             subStack.addArrangedSubview(imageView)
             subStack.addArrangedSubview(answerLabel)
             subStack.hidden = true
             stack.addArrangedSubview(subStack)
         }
-        
         stackViewArray.append(stack)
         stackViewArrayHiddenStates.append(true)
         
         return stack
     }
-    
     
     @IBAction func quitButtonPressed(sender: AnyObject) {
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("Home") as! UITabBarController
@@ -119,22 +104,33 @@ class QuizResultsViewController: UIViewController{
         self.presentViewController(vc, animated: true, completion: nil)
     }
     
-    
     func expansionButtonPressed(sender: AnyObject){
+        //TODO: nice to have: make button turn
+        var arrangedSubViews = self.stackViewArray[sender.tag].arrangedSubviews
+        let button = arrangedSubViews[0].subviews[0] as! UIButton
+        
         if stackViewArrayHiddenStates[sender.tag]{
-            UIView.animateWithDuration(0.25) { () -> Void in
-                for j in Range(1 ..< self.stackViewArray[sender.tag].arrangedSubviews.count){
-                    self.stackViewArray[sender.tag].arrangedSubviews[j].hidden = false
+            var scrollDelta:CGFloat = 0
+            UIView.animateWithDuration(0.3) { () -> Void in
+                button.setImage(UIImage(named: "ResultsFold"), forState: .Normal)
+                for j in Range(1 ..< arrangedSubViews.count){
+                    arrangedSubViews[j].hidden = false
+                    scrollDelta += 64
                 }
-                self.stackViewArrayHiddenStates[sender.tag] = !self.stackViewArrayHiddenStates[sender.tag]
+                let scroll = self.scrollView
+                let offset = CGPoint(x: scroll.contentOffset.x, y: scroll.contentOffset.y + scrollDelta)
+                scroll.contentOffset = offset
             }
+            self.stackViewArrayHiddenStates[sender.tag] = !self.stackViewArrayHiddenStates[sender.tag]
+            
         }else{
-            UIView.animateWithDuration(0.25) { () -> Void in
-                for j in Range(1 ..< self.stackViewArray[sender.tag].arrangedSubviews.count){
-                    self.stackViewArray[sender.tag].arrangedSubviews[j].hidden = true
+            UIView.animateWithDuration(0.3) { () -> Void in
+                button.setImage(UIImage(named: "ResultsUnfold"), forState: .Normal)
+                for j in Range(1 ..< arrangedSubViews.count){
+                    arrangedSubViews[j].hidden = true
                 }
-                self.stackViewArrayHiddenStates[sender.tag] = !self.stackViewArrayHiddenStates[sender.tag]
             }
+            self.stackViewArrayHiddenStates[sender.tag] = !self.stackViewArrayHiddenStates[sender.tag]
         }
     }
     
