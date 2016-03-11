@@ -34,7 +34,7 @@ class Question: Object {
     dynamic var revealAnswers = false
     dynamic var answerScore: Float {
         var tmpScore: Float = 0.0
-        if type == "SingleChoice"{
+        if type == "SingleChoice" || type == "TrueFalse"{
             for answer in answers{
                 if answer.isCorrect && answer.isSelected{
                     tmpScore += 1

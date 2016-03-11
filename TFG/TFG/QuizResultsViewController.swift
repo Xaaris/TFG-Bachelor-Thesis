@@ -73,10 +73,10 @@ class QuizResultsViewController: UIViewController{
         print("score: \(question.answerScore)")
         if question.answerScore == 0{
             titleView.backgroundColor = Util().myLightRedColor
-        }else if question.answerScore == 1{
-            titleView.backgroundColor = Util().myLightGreenColor
-        }else{
+        }else if question.answerScore < 1{
             titleView.backgroundColor = Util().myLightYellowColor
+        }else{
+            titleView.backgroundColor = Util().myLightGreenColor
         }
         
         titleView.translatesAutoresizingMaskIntoConstraints = false
@@ -121,12 +121,36 @@ class QuizResultsViewController: UIViewController{
             subStack.distribution = .EqualSpacing
             subStack.alignment = .Center
             
-            let answerImage = UIImage(named: "AnswerChooserMultiChoiceCorrect")
+            var imageName = ""
+            if question.type == "MultipleChoice"{
+                if answer.isSelected && answer.isCorrect{
+                    imageName = "AnswerChooserMultiChoiceCorrect"
+                }else if answer.isSelected && !answer.isCorrect{
+                    imageName = "AnswerChooserMultiChoiceWrong"
+                }else{
+                    imageName = "AnswerChooserMultiChoiceLocked"
+                }
+            }else{
+                if answer.isSelected && answer.isCorrect{
+                    imageName = "AnswerChooserSingelChoiceCorrect"
+                }else if answer.isSelected && !answer.isCorrect{
+                    imageName = "AnswerChooserSingelChoiceWrong"
+                }else{
+                    imageName = "AnswerChooserSingelChoiceLocked"
+                }
+            }
+            
+            let answerImage = UIImage(named: imageName)
             let imageView = UIImageView(image: answerImage)
             let answerLabel = UILabel()
             answerLabel.preferredMaxLayoutWidth = 220
             answerLabel.text = answer.answerText
             answerLabel.numberOfLines = 0
+            if answer.isCorrect{
+                answerLabel.textColor = Util().myGreenColor
+            }else{
+                answerLabel.textColor = Util().myRedColor
+            }
                 
             subStack.addArrangedSubview(imageView)
             subStack.addArrangedSubview(answerLabel)

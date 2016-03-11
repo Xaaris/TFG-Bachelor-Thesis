@@ -20,9 +20,13 @@ class Util {
     init(){
         myGreenColor = UIColor(red: 33/255, green: 127/255, blue: 0/255, alpha: 1)
         myRedColor = UIColor(red: 127/255, green: 0/255, blue: 0/255, alpha: 1)
-        myLightRedColor = UIColor(red: 255/255, green: 150/255, blue: 150/255, alpha: 1)
-        myLightYellowColor = UIColor(red: 255/255, green: 255/255, blue: 150/255, alpha: 1)
-        myLightGreenColor = UIColor(red: 150/255, green: 255/255, blue: 150/255, alpha: 1)
+        myLightRedColor = UIColor(red: 127/255, green: 0/255, blue: 0/255, alpha: 0.5)
+        myLightYellowColor = UIColor(red: 255/255, green: 236/255, blue: 28/255, alpha: 0.5)
+        myLightGreenColor = UIColor(red: 33/255, green: 127/255, blue: 0/255, alpha: 0.5)
+        
+//        myLightRedColor = UIColor(red: 250/255, green: 191/255, blue: 143/255, alpha: 1)
+//        myLightYellowColor = UIColor(red: 196/255, green: 215/255, blue: 155/255, alpha: 1)
+//        myLightGreenColor = UIColor(red: 253/255, green: 240/255, blue: 141/255, alpha: 1)
     }
     func getCurrentTopic() -> Topic? {
         let topics = realm.objects(Topic.self)
