@@ -70,7 +70,15 @@ class QuizResultsViewController: UIViewController{
         titleView.addSubview(questionNumberLabel)
         titleView.heightAnchor.constraintEqualToConstant(50).active = true
         titleView.widthAnchor.constraintEqualToConstant(280).active = true
-        titleView.backgroundColor = Util().myLightRedColor
+        print("score: \(question.answerScore)")
+        if question.answerScore == 0{
+            titleView.backgroundColor = Util().myLightRedColor
+        }else if question.answerScore == 1{
+            titleView.backgroundColor = Util().myLightGreenColor
+        }else{
+            titleView.backgroundColor = Util().myLightYellowColor
+        }
+        
         titleView.translatesAutoresizingMaskIntoConstraints = false
         expansionButton.translatesAutoresizingMaskIntoConstraints = false
         questionNumberLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -133,7 +141,7 @@ class QuizResultsViewController: UIViewController{
     
     @IBAction func quitButtonPressed(sender: AnyObject) {
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("Home") as! UITabBarController
-        vc.selectedIndex = 1
+        vc.selectedIndex = 1 // Statistics View
         self.presentViewController(vc, animated: true, completion: nil)
     }
     
