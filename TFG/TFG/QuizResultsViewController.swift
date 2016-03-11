@@ -34,15 +34,13 @@ class QuizResultsViewController: UIViewController{
     func loadStackViews(){
         let numberOfQuestions = Util().getCurrentTopic()!.questions.count
         for row in Range(0 ..< numberOfQuestions){
-            let stack = stackView
-            let index = stack.arrangedSubviews.count
-            stack.alignment = .Leading
-            stack.distribution = .EqualSpacing
-            stack.spacing = 5
+            let mainStack = stackView
+            mainStack.alignment = .Leading
+            mainStack.distribution = .EqualSpacing
+            mainStack.spacing = 5
             
-            var newView = UIView()
-            newView = createAnswerView(row)
-            stack.insertArrangedSubview(newView, atIndex: index)
+            let newView = createAnswerView(row)
+            mainStack.addArrangedSubview(newView)
         }
     }
     
@@ -59,34 +57,23 @@ class QuizResultsViewController: UIViewController{
         expansionButton.addTarget(self, action: "expansionButtonPressed:", forControlEvents: .TouchUpInside)
         expansionButton.tag = row
         
-        let questionTextLabel = UILabel()
-        questionTextLabel.text = "Question \(row)"
-        questionTextLabel.font = UIFont.boldSystemFontOfSize(17.0)
+        let questionNumberLabel = UILabel()
+        questionNumberLabel.text = "Question \(row)"
+        questionNumberLabel.font = UIFont.boldSystemFontOfSize(17.0)
         
         let arrowImageView = UIImageView()
         arrowImageView.image = UIImage(named: "ResultsUnfold")
         
-        
-        
-        
-//        let questionTitleStack = UIStackView()
-//        questionTitleStack.axis = .Horizontal
-//        questionTitleStack.distribution = .EqualSpacing
-//        questionTitleStack.alignment = .Center
-//        questionTitleStack.addArrangedSubview(expansionButton)
-//        questionTitleStack.addArrangedSubview(questionTextLabel)
-//        questionTitleStack.translatesAutoresizingMaskIntoConstraints = false
-        
         let titleView = UIView()
         titleView.addSubview(arrowImageView)
         titleView.addSubview(expansionButton)
-        titleView.addSubview(questionTextLabel)
+        titleView.addSubview(questionNumberLabel)
         titleView.heightAnchor.constraintEqualToConstant(50).active = true
         titleView.widthAnchor.constraintEqualToConstant(280).active = true
         titleView.backgroundColor = Util().myLightRedColor
         titleView.translatesAutoresizingMaskIntoConstraints = false
         expansionButton.translatesAutoresizingMaskIntoConstraints = false
-        questionTextLabel.translatesAutoresizingMaskIntoConstraints = false
+        questionNumberLabel.translatesAutoresizingMaskIntoConstraints = false
         arrowImageView.translatesAutoresizingMaskIntoConstraints = false
         
         //Button Constraints
@@ -103,15 +90,22 @@ class QuizResultsViewController: UIViewController{
         heightConstraint = NSLayoutConstraint(item: arrowImageView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 32)
         titleView.addConstraints([leftSideConstraint, bottomConstraint, heightConstraint, widthConstraint])
         
-        //        //questionTextLabel Constraints
-        leftSideConstraint = NSLayoutConstraint(item: questionTextLabel, attribute: .Left, relatedBy: .Equal, toItem: arrowImageView, attribute: .Right, multiplier: 1.0, constant: 5)
-        bottomConstraint = NSLayoutConstraint(item: questionTextLabel, attribute: .CenterY, relatedBy: .Equal, toItem: arrowImageView, attribute: .CenterY, multiplier: 1.0, constant: 0.0)
-        widthConstraint = NSLayoutConstraint(item: questionTextLabel, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: questionTextLabel.intrinsicContentSize().width)
-        heightConstraint = NSLayoutConstraint(item: questionTextLabel, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: questionTextLabel.intrinsicContentSize().height)
+        //questionNumberLabel Constraints
+        leftSideConstraint = NSLayoutConstraint(item: questionNumberLabel, attribute: .Left, relatedBy: .Equal, toItem: arrowImageView, attribute: .Right, multiplier: 1.0, constant: 5)
+        bottomConstraint = NSLayoutConstraint(item: questionNumberLabel, attribute: .CenterY, relatedBy: .Equal, toItem: arrowImageView, attribute: .CenterY, multiplier: 1.0, constant: 0.0)
+        widthConstraint = NSLayoutConstraint(item: questionNumberLabel, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: questionNumberLabel.intrinsicContentSize().width)
+        heightConstraint = NSLayoutConstraint(item: questionNumberLabel, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: questionNumberLabel.intrinsicContentSize().height)
         titleView.addConstraints([leftSideConstraint, bottomConstraint, heightConstraint, widthConstraint])
         
         
         stack.addArrangedSubview(titleView)
+        
+        let questionTextLabel = UILabel()
+        questionTextLabel.text = question.questionText
+        questionTextLabel.numberOfLines = 0
+        questionTextLabel.font = UIFont.boldSystemFontOfSize(17.0)
+        questionTextLabel.hidden = true
+        stack.addArrangedSubview(questionTextLabel)
         
         for answer in question.answers{
             let subStack = UIStackView()
@@ -125,7 +119,6 @@ class QuizResultsViewController: UIViewController{
             answerLabel.preferredMaxLayoutWidth = 220
             answerLabel.text = answer.answerText
             answerLabel.numberOfLines = 0
-            answerLabel.lineBreakMode = .ByWordWrapping
                 
             subStack.addArrangedSubview(imageView)
             subStack.addArrangedSubview(answerLabel)
@@ -150,14 +143,13 @@ class QuizResultsViewController: UIViewController{
         let arrow = arrangedSubViews[0].subviews[0] as! UIImageView
         
         if stackViewArrayHiddenStates[sender.tag]{
-            var scrollDelta:CGFloat = 0
             UIView.animateWithDuration(0.3) { () -> Void in
                 arrow.image = UIImage(named: "ResultsFold")
                 for j in Range(1 ..< arrangedSubViews.count){
                     arrangedSubViews[j].hidden = false
-                    scrollDelta += 64
                 }
                 let scroll = self.scrollView
+                let scrollDelta:CGFloat = 32 + 32 * CGFloat(arrangedSubViews.count)
                 let offset = CGPoint(x: scroll.contentOffset.x, y: scroll.contentOffset.y + scrollDelta)
                 scroll.contentOffset = offset
             }
