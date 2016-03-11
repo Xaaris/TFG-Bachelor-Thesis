@@ -56,13 +56,15 @@ class QuizResultsViewController: UIViewController{
         stack.spacing = 5
         
         let expansionButton = UIButton()
-        expansionButton.setImage(UIImage(named: "ResultsUnfold"), forState: .Normal)
         expansionButton.addTarget(self, action: "expansionButtonPressed:", forControlEvents: .TouchUpInside)
         expansionButton.tag = row
         
         let questionTextLabel = UILabel()
         questionTextLabel.text = "Question \(row)"
         questionTextLabel.font = UIFont.boldSystemFontOfSize(17.0)
+        
+        let arrowImageView = UIImageView()
+        arrowImageView.image = UIImage(named: "ResultsUnfold")
         
         
         
@@ -76,6 +78,7 @@ class QuizResultsViewController: UIViewController{
 //        questionTitleStack.translatesAutoresizingMaskIntoConstraints = false
         
         let titleView = UIView()
+        titleView.addSubview(arrowImageView)
         titleView.addSubview(expansionButton)
         titleView.addSubview(questionTextLabel)
         titleView.heightAnchor.constraintEqualToConstant(50).active = true
@@ -84,20 +87,27 @@ class QuizResultsViewController: UIViewController{
         titleView.translatesAutoresizingMaskIntoConstraints = false
         expansionButton.translatesAutoresizingMaskIntoConstraints = false
         questionTextLabel.translatesAutoresizingMaskIntoConstraints = false
+        arrowImageView.translatesAutoresizingMaskIntoConstraints = false
         
-        //TODO: ganze zeile tapbar mit button in uiview und imageview als pfeil
         //Button Constraints
-        var leftSideConstraint = NSLayoutConstraint(item: expansionButton, attribute: .Left, relatedBy: .Equal, toItem: titleView, attribute: .Left, multiplier: 1.0, constant: 10.0)
-        var bottomConstraint = NSLayoutConstraint(item: expansionButton, attribute: .CenterY , relatedBy: .Equal, toItem: titleView, attribute: .CenterY, multiplier: 1.0, constant: 0.0)
-        var widthConstraint = NSLayoutConstraint(item: expansionButton, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 32)
-        var heightConstraint = NSLayoutConstraint(item: expansionButton, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 32)
+        var leftSideConstraint = NSLayoutConstraint(item: expansionButton, attribute: .Left, relatedBy: .Equal, toItem: titleView, attribute: .Left, multiplier: 1.0, constant: 0.0)
+        var bottomConstraint = NSLayoutConstraint(item: expansionButton, attribute: .Bottom , relatedBy: .Equal, toItem: titleView, attribute: .Bottom, multiplier: 1.0, constant: 0.0)
+        var widthConstraint = NSLayoutConstraint(item: expansionButton, attribute: .Right, relatedBy: .Equal, toItem: titleView, attribute: .Right, multiplier: 1.0, constant: 0)
+        var heightConstraint = NSLayoutConstraint(item: expansionButton, attribute: .Top, relatedBy: .Equal, toItem: titleView, attribute: .Top, multiplier: 1.0, constant: 0)
         titleView.addConstraints([leftSideConstraint, bottomConstraint, heightConstraint, widthConstraint])
         
-//        //questionTextLabel Constraints
-         leftSideConstraint = NSLayoutConstraint(item: questionTextLabel, attribute: .Left, relatedBy: .Equal, toItem: expansionButton, attribute: .Right, multiplier: 1.0, constant: 5)
-         bottomConstraint = NSLayoutConstraint(item: questionTextLabel, attribute: .CenterY, relatedBy: .Equal, toItem: expansionButton, attribute: .CenterY, multiplier: 1.0, constant: 0.0)
-         widthConstraint = NSLayoutConstraint(item: questionTextLabel, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: questionTextLabel.intrinsicContentSize().width)
-         heightConstraint = NSLayoutConstraint(item: questionTextLabel, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: questionTextLabel.intrinsicContentSize().height)
+        //Image Constraints
+        leftSideConstraint = NSLayoutConstraint(item: arrowImageView, attribute: .Left, relatedBy: .Equal, toItem: titleView, attribute: .Left, multiplier: 1.0, constant: 10.0)
+        bottomConstraint = NSLayoutConstraint(item: arrowImageView, attribute: .CenterY , relatedBy: .Equal, toItem: titleView, attribute: .CenterY, multiplier: 1.0, constant: 0.0)
+        widthConstraint = NSLayoutConstraint(item: arrowImageView, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 32)
+        heightConstraint = NSLayoutConstraint(item: arrowImageView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 32)
+        titleView.addConstraints([leftSideConstraint, bottomConstraint, heightConstraint, widthConstraint])
+        
+        //        //questionTextLabel Constraints
+        leftSideConstraint = NSLayoutConstraint(item: questionTextLabel, attribute: .Left, relatedBy: .Equal, toItem: arrowImageView, attribute: .Right, multiplier: 1.0, constant: 5)
+        bottomConstraint = NSLayoutConstraint(item: questionTextLabel, attribute: .CenterY, relatedBy: .Equal, toItem: arrowImageView, attribute: .CenterY, multiplier: 1.0, constant: 0.0)
+        widthConstraint = NSLayoutConstraint(item: questionTextLabel, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: questionTextLabel.intrinsicContentSize().width)
+        heightConstraint = NSLayoutConstraint(item: questionTextLabel, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: questionTextLabel.intrinsicContentSize().height)
         titleView.addConstraints([leftSideConstraint, bottomConstraint, heightConstraint, widthConstraint])
         
         
@@ -137,12 +147,12 @@ class QuizResultsViewController: UIViewController{
     func expansionButtonPressed(sender: AnyObject){
         //TODO: nice to have: make button turn
         var arrangedSubViews = self.stackViewArray[sender.tag].arrangedSubviews
-        let button = arrangedSubViews[0].subviews[0] as! UIButton
+        let arrow = arrangedSubViews[0].subviews[0] as! UIImageView
         
         if stackViewArrayHiddenStates[sender.tag]{
             var scrollDelta:CGFloat = 0
             UIView.animateWithDuration(0.3) { () -> Void in
-                button.setImage(UIImage(named: "ResultsFold"), forState: .Normal)
+                arrow.image = UIImage(named: "ResultsFold")
                 for j in Range(1 ..< arrangedSubViews.count){
                     arrangedSubViews[j].hidden = false
                     scrollDelta += 64
@@ -155,7 +165,7 @@ class QuizResultsViewController: UIViewController{
             
         }else{
             UIView.animateWithDuration(0.3) { () -> Void in
-                button.setImage(UIImage(named: "ResultsUnfold"), forState: .Normal)
+                arrow.image = UIImage(named: "ResultsUnfold")
                 for j in Range(1 ..< arrangedSubViews.count){
                     arrangedSubViews[j].hidden = true
                 }
