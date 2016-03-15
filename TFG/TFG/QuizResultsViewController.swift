@@ -27,7 +27,9 @@ class QuizResultsViewController: UIViewController{
         scrollView.contentInset = insets
         scrollView.scrollIndicatorInsets = insets
         
+        prepareTitleView()
         loadStackViews()
+        
         
     }
     
@@ -196,6 +198,30 @@ class QuizResultsViewController: UIViewController{
             }
             self.stackViewArrayHiddenStates[sender.tag] = !self.stackViewArrayHiddenStates[sender.tag]
         }
+    }
+    
+    func prepareTitleView() {
+        let questions = Util().getCurrentTopic()!.questions
+        let numberOfQuestions = questions.count
+        var numberOfCorrectAnswers:Float = 0.0
+        for question in questions{
+            numberOfCorrectAnswers += question.answerScore
+        }
+        let score = numberOfCorrectAnswers / Float(numberOfQuestions)
+        
+        if score < 0.5 {
+            titleLabel.text = "That needs more work!"
+        }else if score < 0.75 {
+            titleLabel.text = "You did okay.."
+        }else if score < 0.9 {
+            titleLabel.text = "That was good"
+        }else if score < 1 {
+            titleLabel.text = "That was great!"
+        }else{
+            titleLabel.text = "Perfect!"
+        }
+        
+        xOutOfxLabel.text = "You got \(NSString(format: "%.1f", numberOfCorrectAnswers)) out of \(numberOfQuestions) correct"
     }
     
     
