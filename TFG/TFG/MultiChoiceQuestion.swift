@@ -126,12 +126,23 @@ class MultiChoiceQuestion: QuestionContentViewController, UITableViewDelegate, U
         realm.add(question)
         try! realm.commitWrite()
         answerTableView.reloadData()
+        if question.answerScore < 1{
+            showFeedback()
+        }
     }
     
     func showHint(){
         let hintStr = currentQuestionDataSet[pageIndex].hint
         let alertController = UIAlertController(title: "Hint", message: hintStr, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func showFeedback(){
+        let FeedbackStr = currentQuestionDataSet[pageIndex].feedback
+        let alertController = UIAlertController(title: "Feedback", message: FeedbackStr, preferredStyle: .Alert)
+        alertController.addAction(UIAlertAction(title: "Got it", style: .Default,handler: nil))
         
         self.presentViewController(alertController, animated: true, completion: nil)
     }

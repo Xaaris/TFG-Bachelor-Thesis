@@ -89,10 +89,13 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
             for ans in question.answers{
                 ans.isSelected = false
             }
-            answer.isSelected = !answer.isSelected
+            answer.isSelected = true
             if Util().getPreferences()!.immediateFeedback{
                 question.isLocked = true
                 question.revealAnswers = true
+                if question.answerScore < 1{
+                    showFeedback()
+                }
             }
             realm.add(answer)
             realm.add(question)
@@ -103,8 +106,16 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
     
     func showHint(){
         let hintStr = currentQuestionDataSet[pageIndex].hint
-        let alertController = UIAlertController(title: "Hint", message: hintStr, preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: "Hint", message: hintStr, preferredStyle: .Alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func showFeedback(){
+        let FeedbackStr = currentQuestionDataSet[pageIndex].feedback
+        let alertController = UIAlertController(title: "Feedback", message: FeedbackStr, preferredStyle: .Alert)
+        alertController.addAction(UIAlertAction(title: "Got it", style: .Default,handler: nil))
         
         self.presentViewController(alertController, animated: true, completion: nil)
     }
