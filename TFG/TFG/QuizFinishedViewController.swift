@@ -17,7 +17,6 @@ class QuizFinishedViewController: PageViewContent{
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        revealAnswers()
     }
 
     @IBAction func finishQuizButtonPressed(sender: AnyObject) {

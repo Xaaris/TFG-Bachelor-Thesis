@@ -217,9 +217,7 @@ You made it to the end</string>
                                 <state key="disabled" backgroundImage="ButtonBackgroundSelected"/>
                                 <connections>
                                     <action selector="finishQuizButtonPressed:" destination="Y5r-IS-Tby" eventType="touchUpInside" id="vxX-WJ-de4"/>
-                                    <segue destination="Y7p-XV-xbb" kind="popoverPresentation" popoverAnchorView="Oky-n7-cbt" id="UcZ-me-Cbm">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="Y7p-XV-xbb" kind="presentation" id="UcZ-me-Cbm"/>
                                 </connections>
                             </button>
                         </subviews>
