@@ -72,7 +72,6 @@ class QuizResultsViewController: UIViewController{
         titleView.addSubview(questionNumberLabel)
         titleView.heightAnchor.constraintEqualToConstant(50).active = true
         titleView.widthAnchor.constraintEqualToConstant(280).active = true
-        print("score: \(question.answerScore)")
         if question.answerScore == 0{
             titleView.backgroundColor = Util().myLightRedColor
         }else if question.answerScore < 1{

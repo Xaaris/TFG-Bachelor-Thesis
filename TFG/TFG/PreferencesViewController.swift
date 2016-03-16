@@ -17,7 +17,7 @@ class PreferencesViewController: UIViewController {
         super.viewDidLoad()
         print("Preferences View")
         if !realm.objects(Preference.self).isEmpty{
-            immediateFeedbackSwitch.on = realm.objects(Preference.self).first!.immediateFeedback
+            immediateFeedbackSwitch.on = Util().getPreferences()!.immediateFeedback
         }
     }
     
@@ -28,14 +28,9 @@ class PreferencesViewController: UIViewController {
     
     @IBAction func immediateFeedbackSwitchPressed(sender: AnyObject) {
         realm.beginWrite()
-        if let pref = realm.objects(Preference.self).first{
-            pref.immediateFeedback = !pref.immediateFeedback
-            realm.add(pref)
-        }else{
-            let pref = Preference()
-            pref.immediateFeedback = immediateFeedbackSwitch.on
-            realm.add(pref)
-        }
+        let pref = Util().getPreferences()!
+        pref.immediateFeedback = !pref.immediateFeedback
+        realm.add(pref)
         try! realm.commitWrite()
     }
     

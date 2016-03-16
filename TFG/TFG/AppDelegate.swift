@@ -44,6 +44,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Override point for customization after application launch.
         
+        // initialize Preferences
+        if realm.objects(Preference.self).isEmpty{
+            realm.beginWrite()
+            let pref = Preference()
+            pref.immediateFeedback = true
+            realm.add(pref)
+            try! realm.commitWrite()
+        }
+        
         return true
     }
 
