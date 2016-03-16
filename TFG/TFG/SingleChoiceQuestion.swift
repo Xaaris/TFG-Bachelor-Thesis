@@ -13,6 +13,10 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
     
     @IBOutlet weak var answerTableView: UITableView!
     
+    var timer = NSTimer()
+    var lockProgress = 0.0
+    var lastSelectedCell = AnswerCell()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         answerTableView.delegate = self
@@ -84,22 +88,41 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
         if !question.isLocked{
             //TODO: implement timer here
             let answer = question.answers[indexPath.row]
-            realm.beginWrite()
-            //deselect all answers
-            for ans in question.answers{
-                ans.isSelected = false
-            }
-            answer.isSelected = true
             if Util().getPreferences()!.immediateFeedback{
-                question.isLocked = true
-                question.revealAnswers = true
-                if question.answerScore < 1{
-                    showFeedback()
+                stopTimer()
+                realm.beginWrite()
+                //deselect answer if is checked
+                if answer.isSelected{
+                    
+                    answer.isSelected = false
+                }else{
+                    for ans in question.answers{
+                        ans.isSelected = false
+                    }
+                    answer.isSelected = true
+                    lastSelectedCell = tableView.cellForRowAtIndexPath(indexPath) as! AnswerCell
+                    startTimer()
                 }
+                realm.add(answer)
+                realm.add(question)
+                try! realm.commitWrite()
+                
+            }else{
+                realm.beginWrite()
+                //deselect answer if is checked
+                if answer.isSelected{
+                    answer.isSelected = false
+                }else{
+                    //deselect all answers
+                    for ans in question.answers{
+                        ans.isSelected = false
+                    }
+                    answer.isSelected = true
+                }
+                realm.add(answer)
+                realm.add(question)
+                try! realm.commitWrite()
             }
-            realm.add(answer)
-            realm.add(question)
-            try! realm.commitWrite()
             tableView.reloadData()
         }
     }
@@ -119,6 +142,46 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
         
         self.presentViewController(alertController, animated: true, completion: nil)
     }
+    
+    
+    func startTimer(){
+        timer = NSTimer()
+        let aSelector : Selector = "updateLockProgress"
+        timer.tolerance = 0.1
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.05, target: self, selector: aSelector, userInfo: nil, repeats: true)
+    }
+    
+    func lockQuestion(){
+        print("Question should lock now")
+        let question = currentQuestionDataSet[pageIndex]
+        realm.beginWrite()
+        question.isLocked = true
+        realm.add(question)
+        try! realm.commitWrite()
+        answerTableView.reloadData()
+    
+    }
+    
+    func updateLockProgress(){
+        let progressView = lastSelectedCell.AnswerSelectImage
+
+        lockProgress += 0.05
+        print(lockProgress)
+        //Not working yet
+        progressView.progress = lockProgress
+        if lockProgress >= 1 {
+            lockQuestion()
+            stopTimer()
+            progressView.progress = 1
+        }
+        
+    }
+    
+    func stopTimer(){
+        timer.invalidate()
+        lockProgress = 0.0
+    }
+    
 
 }
 
