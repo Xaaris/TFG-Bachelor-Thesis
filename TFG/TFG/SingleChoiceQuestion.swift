@@ -86,7 +86,6 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let question = currentQuestionDataSet[pageIndex]
         if !question.isLocked{
-            //TODO: implement timer here
             let answer = question.answers[indexPath.row]
             if Util().getPreferences()!.immediateFeedback{
                 if lastSelectedCell.progressView != nil {
@@ -157,6 +156,7 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
         let question = currentQuestionDataSet[pageIndex]
         realm.beginWrite()
         question.isLocked = true
+        question.revealAnswers = true
         realm.add(question)
         try! realm.commitWrite()
         answerTableView.reloadData()
@@ -168,22 +168,23 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
     
     func updateLockProgress(){
         let progView = lastSelectedCell.progressView
-
         lockProgress += 0.02
         progView.progress = lockProgress
         if lockProgress >= 1 {
             lockQuestion()
             stopTimer()
-            progView.progress = 1
+            progView.progress = 0
         }
         
     }
     
     func stopTimer(){
-        let progView = lastSelectedCell.progressView
-        timer.invalidate()
-        lockProgress = 0.0
-        progView.progress = lockProgress
+        if lastSelectedCell.progressView != nil {
+            let progView = lastSelectedCell.progressView
+            timer.invalidate()
+            lockProgress = 0.0
+            progView.progress = lockProgress
+        }
     }
     
 

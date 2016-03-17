@@ -654,7 +654,6 @@ You made it to the end</string>
         </scene>
     </scenes>
     <resources>
-        <image name="AnswerChooserSingelChoiceLocked" width="64" height="64"/>
         <image name="AnswerChooserSingelChoiceLockedSelected" width="64" height="64"/>
         <image name="ButtonBackground" width="19" height="19"/>
         <image name="ButtonBackgroundSelected" width="18" height="18"/>
