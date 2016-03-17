@@ -126,27 +126,6 @@
                                                         <constraint firstAttribute="width" secondItem="tRh-TO-aOV" secondAttribute="height" multiplier="1:1" id="ICg-fC-WOK"/>
                                                         <constraint firstAttribute="height" constant="80" id="vW1-gl-TJV"/>
                                                     </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="image" keyPath="trackImage" value="AnswerChooserSingelChoiceLocked"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="trackWidth">
-                                                            <real key="value" value="7"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="progress">
-                                                            <real key="value" value="1"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="trackBackgroundColor">
-                                                            <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="trackFillColor">
-                                                            <color key="value" red="0.36160991539999998" green="1" blue="0.25315701439999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="trackBorderColor">
-                                                            <color key="value" red="1" green="0.0" blue="0.080225848229999994" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="trackBorderWidth">
-                                                            <real key="value" value="2"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ud-fV-xkn">
                                                     <rect key="frame" x="96" y="-8" width="496" height="80"/>
@@ -201,7 +180,7 @@
                                         <connections>
                                             <outlet property="AnswerSelectImage" destination="tRh-TO-aOV" id="B74-c7-Pfo"/>
                                             <outlet property="AnswerTextLabel" destination="6Ud-fV-xkn" id="7EJ-sD-Spv"/>
-                                            <outlet property="progressView" destination="deg-Hn-dfY" id="I2y-rG-bKP"/>
+                                            <outlet property="progressView" destination="deg-Hn-dfY" id="DhT-FN-6q7"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
