@@ -13,7 +13,7 @@
 		3B238D901C88FA9200E71EA3 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B238D8C1C88FA9200E71EA3 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3B238D921C890AEB00E71EA3 /* PreferencesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B238D911C890AEB00E71EA3 /* PreferencesData.swift */; };
 		3B5BCE531C8CCEBB00108989 /* QuizResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BCE521C8CCEBB00108989 /* QuizResultsViewController.swift */; };
-		3B5D5EA71C98F3FE008F7F8F /* CircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5D5EA61C98F3FE008F7F8F /* CircleProgressView.swift */; };
+		3B6CC8271C9A34B3001A1FE3 /* CircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CC8261C9A34B3001A1FE3 /* CircleProgressView.swift */; };
 		3B7F65171C78F97F00BE0812 /* CSVImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7F65161C78F97F00BE0812 /* CSVImporter.swift */; };
 		3BBD159C1C79E69000672569 /* Sample1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3BBD159B1C79E68F00672569 /* Sample1.csv */; };
 		3BBD159E1C7A081C00672569 /* ChooseTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBD159D1C7A081C00672569 /* ChooseTopicViewController.swift */; };
@@ -56,7 +56,7 @@
 		3B238D8C1C88FA9200E71EA3 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		3B238D911C890AEB00E71EA3 /* PreferencesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesData.swift; sourceTree = "<group>"; };
 		3B5BCE521C8CCEBB00108989 /* QuizResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizResultsViewController.swift; sourceTree = "<group>"; };
-		3B5D5EA61C98F3FE008F7F8F /* CircleProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleProgressView.swift; sourceTree = "<group>"; };
+		3B6CC8261C9A34B3001A1FE3 /* CircleProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleProgressView.swift; sourceTree = "<group>"; };
 		3B7F65161C78F97F00BE0812 /* CSVImporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSVImporter.swift; sourceTree = "<group>"; };
 		3BBD159B1C79E68F00672569 /* Sample1.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample1.csv; sourceTree = "<group>"; };
 		3BBD159D1C7A081C00672569 /* ChooseTopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseTopicViewController.swift; sourceTree = "<group>"; };
@@ -137,7 +137,7 @@
 				3BF5B71F1C85F79D007C88B2 /* Quiz View */,
 				3B238D931C890BDD00E71EA3 /* Preferences View */,
 				3BE4BA311C7FDBE30053EC96 /* Util.swift */,
-				3B5D5EA61C98F3FE008F7F8F /* CircleProgressView.swift */,
+				3B6CC8261C9A34B3001A1FE3 /* CircleProgressView.swift */,
 				3BC8B41C1C70F251000FD25D /* Main.storyboard */,
 				3BC8B41F1C70F251000FD25D /* Assets.xcassets */,
 				3BC8B4211C70F251000FD25D /* LaunchScreen.storyboard */,
@@ -259,7 +259,7 @@
 				3BC8B41B1C70F251000FD25D /* StatisticsViewController.swift in Sources */,
 				3B5BCE531C8CCEBB00108989 /* QuizResultsViewController.swift in Sources */,
 				3BE4BA361C80CB6C0053EC96 /* AnswerCell.swift in Sources */,
-				3B5D5EA71C98F3FE008F7F8F /* CircleProgressView.swift in Sources */,
+				3B6CC8271C9A34B3001A1FE3 /* CircleProgressView.swift in Sources */,
 				3BC8B4171C70F251000FD25D /* AppDelegate.swift in Sources */,
 				3BC8B4191C70F251000FD25D /* MainViewController.swift in Sources */,
 				3BBD15A01C7A18C500672569 /* QuestionData.swift in Sources */,

@@ -8,84 +8,101 @@
 
 import UIKit
 
-@IBDesignable class CircleProgressView: UIImageView {
-    
-    internal struct Constants {
+@objc @IBDesignable public class CircleProgressView: UIView {
+
+    private struct Constants {
         let circleDegress = 360.0
         let minimumValue = 0.000001
         let maximumValue = 0.999999
         let ninetyDegrees = 90.0
         let twoSeventyDegrees = 270.0
         var contentView:UIView = UIView()
-        var contentContainer:UIView = UIView()
     }
+
+    private let constants = Constants()
+    private var internalProgress:Double = 0.0
+
+    private var displayLink: CADisplayLink?
+    private var destinationProgress: Double = 0.0
     
-    let constants = Constants()
-    
-    @IBInspectable var progress: Double = 0.000001 {
+    @IBInspectable public var progress: Double = 0.000001 {
+        didSet {
+            internalProgress = progress
+            setNeedsDisplay()
+        }
+    }
+
+    @IBInspectable public var refreshRate: Double = 0.0 {
+        didSet { setNeedsDisplay() }
+    }
+
+    @IBInspectable public var clockwise: Bool = true {
+        didSet { setNeedsDisplay() }
+    }
+
+    @IBInspectable public var trackWidth: CGFloat = 10 {
+        didSet { setNeedsDisplay() }
+    }
+
+    @IBInspectable public var trackImage: UIImage? {
+        didSet { setNeedsDisplay() }
+    }
+
+    @IBInspectable public var trackBackgroundColor: UIColor = UIColor.grayColor() {
+        didSet { setNeedsDisplay() }
+    }
+
+    @IBInspectable public var trackFillColor: UIColor = UIColor.blueColor() {
+        didSet { setNeedsDisplay() }
+    }
+
+    @IBInspectable public var trackBorderColor:UIColor = UIColor.clearColor() {
+        didSet { setNeedsDisplay() }
+    }
+
+    @IBInspectable public var trackBorderWidth: CGFloat = 0 {
+        didSet { setNeedsDisplay() }
+    }
+
+    @IBInspectable public var centerFillColor: UIColor = UIColor.whiteColor() {
         didSet { setNeedsDisplay() }
     }
     
-    @IBInspectable var clockwise: Bool = true {
+    @IBInspectable public var centerImage: UIImage? {
         didSet { setNeedsDisplay() }
     }
-    
-    @IBInspectable var trackWidth: CGFloat = 10 {
-        didSet { setNeedsDisplay() }
-    }
-    
-    @IBInspectable var trackImage: UIImage? {
-        didSet { setNeedsDisplay() }
-    }
-    
-    @IBInspectable var trackBackgroundColor: UIColor = UIColor.grayColor() {
-        didSet { setNeedsDisplay() }
-    }
-    
-    @IBInspectable var trackFillColor: UIColor = UIColor.blueColor() {
-        didSet { setNeedsDisplay() }
-    }
-    
-    @IBInspectable var trackBorderColor:UIColor = UIColor.clearColor() {
-        didSet { setNeedsDisplay() }
-    }
-    
-    @IBInspectable var trackBorderWidth: CGFloat = 0 {
-        didSet { setNeedsDisplay() }
-    }
-    
-    @IBInspectable var centerFillColor: UIColor = UIColor.whiteColor() {
-        didSet { setNeedsDisplay() }
-    }
-    
-    @IBInspectable var contentView: UIView {
+
+    @IBInspectable public var contentView: UIView {
         return self.constants.contentView
     }
-    
-    required override init(frame: CGRect) {
+
+    required override public init(frame: CGRect) {
         super.init(frame: frame)
+        internalInit()
         self.addSubview(contentView)
     }
-    
-    required init?(coder aDecoder: NSCoder) {
+
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        internalInit()
         self.addSubview(contentView)
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.addSubview(contentView)
+    func internalInit() {
+        displayLink = CADisplayLink(target: self, selector: Selector("displayLinkTick"))
     }
     
-    override func drawRect(rect: CGRect) {
+    override public func drawRect(rect: CGRect) {
         
         super.drawRect(rect)
         
         let innerRect = CGRectInset(rect, trackBorderWidth, trackBorderWidth)
         
-        progress = (progress/1.0) == 0.0 ? constants.minimumValue : progress
-        progress = (progress/1.0) == 1.0 ? constants.maximumValue : progress
-        progress = clockwise ? (-constants.twoSeventyDegrees + ((1.0 - progress) * constants.circleDegress)) : (constants.ninetyDegrees - ((1.0 - progress) * constants.circleDegress))
+        internalProgress = (internalProgress/1.0) == 0.0 ? constants.minimumValue : progress
+        internalProgress = (internalProgress/1.0) == 1.0 ? constants.maximumValue : internalProgress
+        internalProgress = clockwise ?
+                                (-constants.twoSeventyDegrees + ((1.0 - internalProgress) * constants.circleDegress)) :
+                                (constants.ninetyDegrees - ((1.0 - internalProgress) * constants.circleDegress))
         
         let context = UIGraphicsGetCurrentContext()
         
@@ -105,8 +122,8 @@ import UIKit
         let progressRect: CGRect = CGRectMake(innerRect.minX, innerRect.minY, CGRectGetWidth(innerRect), CGRectGetHeight(innerRect))
         let center = CGPointMake(progressRect.midX, progressRect.midY)
         let radius = progressRect.width / 2.0
-        let startAngle:CGFloat = clockwise ? CGFloat(-progress * M_PI / 180.0) : CGFloat(constants.twoSeventyDegrees * M_PI / 180)
-        let endAngle:CGFloat = clockwise ? CGFloat(constants.twoSeventyDegrees * M_PI / 180) : CGFloat(-progress * M_PI / 180.0)
+        let startAngle:CGFloat = clockwise ? CGFloat(-internalProgress * M_PI / 180.0) : CGFloat(constants.twoSeventyDegrees * M_PI / 180)
+        let endAngle:CGFloat = clockwise ? CGFloat(constants.twoSeventyDegrees * M_PI / 180) : CGFloat(-internalProgress * M_PI / 180.0)
         
         progressPath.addArcWithCenter(center, radius:radius, startAngle:startAngle, endAngle:endAngle, clockwise:!clockwise)
         progressPath.addLineToPoint(CGPointMake(progressRect.midX, progressRect.midY))
@@ -130,10 +147,54 @@ import UIKit
         centerFillColor.setFill()
         centerPath.fill()
         
-        let layer = CAShapeLayer()
-        layer.path = centerPath.CGPath
-        contentView.layer.mask = layer
-        
+        if let centerImage = centerImage {
+            CGContextSaveGState(context)
+            centerPath.addClip()
+            centerImage.drawInRect(rect)
+            CGContextRestoreGState(context)
+        } else {
+            let layer = CAShapeLayer()
+            layer.path = centerPath.CGPath
+            contentView.layer.mask = layer
+        }
     }
+    
+    //MARK: - Progress Update
+    
+    public func setProgress(newProgress: Double, animated: Bool) {
+        
+        if animated {
+            destinationProgress = newProgress
+            displayLink?.addToRunLoop(NSRunLoop.mainRunLoop(), forMode: NSDefaultRunLoopMode)
+        } else {
+            progress = newProgress
+        }
+    }
+    
+    //MARK: - CADisplayLink Tick
+    
+    internal func displayLinkTick() {
+            
+        let renderTime = refreshRate.isZero ? displayLink!.duration : refreshRate
+
+        if destinationProgress > progress {
+            progress += renderTime
+            if progress >= destinationProgress {
+                progress = destinationProgress
+                displayLink?.removeFromRunLoop(NSRunLoop.mainRunLoop(), forMode: NSDefaultRunLoopMode)
+                return
+            }
+        }
+        
+        if destinationProgress < progress {
+            progress -= renderTime
+            if progress <= destinationProgress {
+                progress = destinationProgress
+                displayLink?.removeFromRunLoop(NSRunLoop.mainRunLoop(), forMode: NSDefaultRunLoopMode)
+                return
+            }
+        }
+    }
+    
     
 }

@@ -120,7 +120,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tRh-TO-aOV" customClass="CircleProgressView" customModule="TFG" customModuleProvider="target">
+                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tRh-TO-aOV">
                                                     <rect key="frame" x="8" y="-8" width="80" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="tRh-TO-aOV" secondAttribute="height" multiplier="1:1" id="ICg-fC-WOK"/>
@@ -154,12 +154,46 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="deg-Hn-dfY" customClass="CircleProgressView" customModule="TFG" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="0.0" width="64" height="64"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="64" id="8hU-S2-Ydh"/>
+                                                        <constraint firstAttribute="width" constant="64" id="MxN-NR-feg"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="progress">
+                                                            <real key="value" value="0.0"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="trackWidth">
+                                                            <real key="value" value="0.0"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="trackBorderWidth">
+                                                            <real key="value" value="0.0"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="trackImage" value="AnswerChooserSingelChoiceLockedSelected"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="trackFillColor">
+                                                            <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="trackBorderColor">
+                                                            <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="centerFillColor">
+                                                            <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="trackBackgroundColor">
+                                                            <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="6Ud-fV-xkn" firstAttribute="centerY" secondItem="lay-PX-HuQ" secondAttribute="centerY" id="Lsc-Vt-deC"/>
                                                 <constraint firstItem="6Ud-fV-xkn" firstAttribute="leading" secondItem="tRh-TO-aOV" secondAttribute="trailing" constant="8" id="Lwc-6G-vxb"/>
                                                 <constraint firstItem="6Ud-fV-xkn" firstAttribute="trailing" secondItem="lay-PX-HuQ" secondAttribute="trailingMargin" id="Rr7-aB-vME"/>
+                                                <constraint firstItem="deg-Hn-dfY" firstAttribute="centerX" secondItem="tRh-TO-aOV" secondAttribute="centerX" id="U97-5d-2s2"/>
                                                 <constraint firstItem="tRh-TO-aOV" firstAttribute="leading" secondItem="lay-PX-HuQ" secondAttribute="leadingMargin" id="cZP-s8-Mgg"/>
+                                                <constraint firstItem="deg-Hn-dfY" firstAttribute="centerY" secondItem="tRh-TO-aOV" secondAttribute="centerY" id="mvu-xc-Lu9"/>
                                                 <constraint firstItem="tRh-TO-aOV" firstAttribute="centerY" secondItem="lay-PX-HuQ" secondAttribute="centerY" id="ng4-Ok-fYk"/>
                                                 <constraint firstItem="6Ud-fV-xkn" firstAttribute="height" secondItem="tRh-TO-aOV" secondAttribute="height" id="y86-ER-m3N"/>
                                             </constraints>
@@ -167,6 +201,7 @@
                                         <connections>
                                             <outlet property="AnswerSelectImage" destination="tRh-TO-aOV" id="B74-c7-Pfo"/>
                                             <outlet property="AnswerTextLabel" destination="6Ud-fV-xkn" id="7EJ-sD-Spv"/>
+                                            <outlet property="progressView" destination="deg-Hn-dfY" id="I2y-rG-bKP"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -641,6 +676,7 @@ You made it to the end</string>
     </scenes>
     <resources>
         <image name="AnswerChooserSingelChoiceLocked" width="64" height="64"/>
+        <image name="AnswerChooserSingelChoiceLockedSelected" width="64" height="64"/>
         <image name="ButtonBackground" width="19" height="19"/>
         <image name="ButtonBackgroundSelected" width="18" height="18"/>
         <image name="Preferences" width="25" height="25"/>

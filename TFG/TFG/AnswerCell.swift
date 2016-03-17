@@ -10,7 +10,8 @@ import UIKit
 
 class AnswerCell: UITableViewCell {
 
-    @IBOutlet weak var AnswerSelectImage: CircleProgressView!
+    @IBOutlet weak var AnswerSelectImage: UIImageView!
     @IBOutlet weak var AnswerTextLabel: UILabel!
+    @IBOutlet weak var progressView: CircleProgressView!
 
 }

@@ -89,24 +89,26 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
             //TODO: implement timer here
             let answer = question.answers[indexPath.row]
             if Util().getPreferences()!.immediateFeedback{
+                if lastSelectedCell.progressView != nil {
+                    lastSelectedCell.progressView.progress = 0
+                }
+                lastSelectedCell = tableView.cellForRowAtIndexPath(indexPath) as! AnswerCell
                 stopTimer()
                 realm.beginWrite()
                 //deselect answer if is checked
                 if answer.isSelected{
-                    
                     answer.isSelected = false
                 }else{
                     for ans in question.answers{
                         ans.isSelected = false
                     }
                     answer.isSelected = true
-                    lastSelectedCell = tableView.cellForRowAtIndexPath(indexPath) as! AnswerCell
                     startTimer()
                 }
                 realm.add(answer)
                 realm.add(question)
                 try! realm.commitWrite()
-                
+
             }else{
                 realm.beginWrite()
                 //deselect answer if is checked
@@ -152,34 +154,36 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
     }
     
     func lockQuestion(){
-        print("Question should lock now")
         let question = currentQuestionDataSet[pageIndex]
         realm.beginWrite()
         question.isLocked = true
         realm.add(question)
         try! realm.commitWrite()
         answerTableView.reloadData()
+        if question.answerScore < 1{
+            showFeedback()
+        }
     
     }
     
     func updateLockProgress(){
-        let progressView = lastSelectedCell.AnswerSelectImage
+        let progView = lastSelectedCell.progressView
 
-        lockProgress += 0.05
-        print(lockProgress)
-        //Not working yet
-        progressView.progress = lockProgress
+        lockProgress += 0.02
+        progView.progress = lockProgress
         if lockProgress >= 1 {
             lockQuestion()
             stopTimer()
-            progressView.progress = 1
+            progView.progress = 1
         }
         
     }
     
     func stopTimer(){
+        let progView = lastSelectedCell.progressView
         timer.invalidate()
         lockProgress = 0.0
+        progView.progress = lockProgress
     }
     
 
