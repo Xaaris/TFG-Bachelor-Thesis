@@ -11,5 +11,6 @@ import RealmSwift
 
 class Preference: Object{
     dynamic var immediateFeedback = false
+    dynamic var lockSeconds = 2
 }
 

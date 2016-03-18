@@ -504,41 +504,86 @@ You made it to the end</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="bMl-HJ-Jsz">
-                                <rect key="frame" x="160" y="60" width="280" height="31"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ufP-HI-POd">
+                                <rect key="frame" x="160" y="60" width="280" height="112"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Immediate feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXB-Fh-LB8">
-                                        <rect key="frame" x="0.0" y="0.0" width="156" height="31"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uQu-Bx-2jS">
-                                        <rect key="frame" x="231" y="0.0" width="51" height="31"/>
-                                        <connections>
-                                            <action selector="immediateFeedbackSwitchPressed:" destination="wQ6-GI-QDi" eventType="valueChanged" id="L7g-W8-yXs"/>
-                                        </connections>
-                                    </switch>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="bMl-HJ-Jsz">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Immediate feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXB-Fh-LB8">
+                                                <rect key="frame" x="0.0" y="0.0" width="156" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uQu-Bx-2jS">
+                                                <rect key="frame" x="231" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="immediateFeedbackSwitchPressed:" destination="wQ6-GI-QDi" eventType="valueChanged" id="L7g-W8-yXs"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="280" id="H9Q-Ga-gY4"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="8gv-6H-T4M">
+                                        <rect key="frame" x="0.0" y="61" width="280" height="51"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="O5Q-QK-XiR">
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="21"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seconds before question locks:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqs-80-6rt">
+                                                        <rect key="frame" x="0.0" y="0.0" width="240" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fer-bn-9XD">
+                                                        <rect key="frame" x="270" y="0.0" width="10" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="280" id="M1b-SM-xVa"/>
+                                                </constraints>
+                                            </stackView>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="cQk-k1-kXV">
+                                                <rect key="frame" x="-2" y="21" width="284" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="280" id="Yuy-4s-VMl"/>
+                                                </constraints>
+                                                <connections>
+                                                    <action selector="lockSecondsSliderValueDidChange:" destination="wQ6-GI-QDi" eventType="valueChanged" id="Yvp-MF-kHS"/>
+                                                </connections>
+                                            </slider>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="51" id="lD6-AR-K6h"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="H9Q-Ga-gY4"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bMl-HJ-Jsz" firstAttribute="centerX" secondItem="RQS-Vd-kK7" secondAttribute="centerX" id="DnI-Az-9i8"/>
-                            <constraint firstItem="bMl-HJ-Jsz" firstAttribute="top" secondItem="ZTR-WV-cRV" secondAttribute="bottom" constant="40" id="P4s-SP-Jny"/>
+                            <constraint firstItem="ufP-HI-POd" firstAttribute="top" secondItem="ZTR-WV-cRV" secondAttribute="bottom" constant="40" id="RcL-Wl-gHt"/>
+                            <constraint firstItem="ufP-HI-POd" firstAttribute="centerX" secondItem="RQS-Vd-kK7" secondAttribute="centerX" id="wpo-bZ-VZ2"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Preferences" image="Preferences" selectedImage="Preferences" id="C2o-C0-ttc"/>
                     <connections>
                         <outlet property="immediateFeedbackSwitch" destination="uQu-Bx-2jS" id="eFI-n4-BqS"/>
+                        <outlet property="lockSecondsSlider" destination="cQk-k1-kXV" id="TiC-XJ-IXK"/>
+                        <outlet property="secondsBeforeLockLabel" destination="dqs-80-6rt" id="dcE-DA-7RN"/>
+                        <outlet property="secondsLabel" destination="fer-bn-9XD" id="jdX-yf-QLj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LtV-fW-StX" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="633" y="1126.5"/>
+            <point key="canvasLocation" x="633" y="1126"/>
         </scene>
         <!--Multi Choice Question-->
         <scene sceneID="uf1-xS-lqj">

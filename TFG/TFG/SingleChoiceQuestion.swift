@@ -168,7 +168,7 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
     
     func updateLockProgress(){
         let progView = lastSelectedCell.progressView
-        lockProgress += 0.02
+        lockProgress += 0.05 / Double(Util().getPreferences()!.lockSeconds)
         progView.progress = lockProgress
         if lockProgress >= 1 {
             lockQuestion()

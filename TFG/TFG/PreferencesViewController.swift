@@ -12,13 +12,21 @@ class PreferencesViewController: UIViewController {
     
     
     @IBOutlet weak var immediateFeedbackSwitch: UISwitch!
+    @IBOutlet weak var secondsBeforeLockLabel: UILabel!
+    @IBOutlet weak var secondsLabel: UILabel!
+    @IBOutlet weak var lockSecondsSlider: UISlider!
+    
+    var pref: Preference!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Preferences View")
-        if !realm.objects(Preference.self).isEmpty{
-            immediateFeedbackSwitch.on = Util().getPreferences()!.immediateFeedback
-        }
+        pref = Util().getPreferences()!
+        immediateFeedbackSwitch.on = pref.immediateFeedback
+        enableLockSecondsSlider(pref.immediateFeedback)
+        lockSecondsSlider.value = Float(pref.lockSeconds)
+        secondsLabel.text = String(pref.lockSeconds)
     }
     
     override func didReceiveMemoryWarning() {
@@ -28,11 +36,25 @@ class PreferencesViewController: UIViewController {
     
     @IBAction func immediateFeedbackSwitchPressed(sender: AnyObject) {
         realm.beginWrite()
-        let pref = Util().getPreferences()!
         pref.immediateFeedback = !pref.immediateFeedback
+        realm.add(pref)
+        try! realm.commitWrite()
+        enableLockSecondsSlider(pref.immediateFeedback)
+    }
+    
+    @IBAction func lockSecondsSliderValueDidChange(sender: AnyObject) {
+        sender.setValue(Float(lroundf(lockSecondsSlider.value)), animated: true)
+        secondsLabel.text = String(Int(lockSecondsSlider.value))
+        realm.beginWrite()
+        pref.lockSeconds = Int(lockSecondsSlider.value)
         realm.add(pref)
         try! realm.commitWrite()
     }
     
+    func enableLockSecondsSlider(enable: Bool){
+        secondsBeforeLockLabel.enabled = enable
+        secondsLabel.enabled = enable
+        lockSecondsSlider.enabled = enable
+    }
 }
 
