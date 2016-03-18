@@ -33,7 +33,7 @@
 "UOz-xL-sZI.text" = "Label";
 
 /* Class = "UITabBarItem"; title = "Main"; ObjectID = "acW-dT-cKf"; */
-"acW-dT-cKf.title" = "Main";
+"acW-dT-cKf.title" = "Home";
 
 /* Class = "UILabel"; text = "Loaded by SecondViewController"; ObjectID = "bdA-h6-nlG"; */
 "bdA-h6-nlG.text" = "Loaded by SecondViewController";
@@ -48,7 +48,7 @@
 "dsB-sS-gOt.normalTitle" = "Lock";
 
 /* Class = "UITabBarItem"; title = "Main"; ObjectID = "fu1-Il-8ok"; */
-"fu1-Il-8ok.title" = "Main";
+"fu1-Il-8ok.title" = "Home";
 
 /* Class = "UILabel"; text = "Error"; ObjectID = "iij-lN-I1k"; */
 "iij-lN-I1k.text" = "Error";
