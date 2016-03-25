@@ -25,10 +25,11 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
     
     override func viewWillAppear(animated: Bool) {
         answerTableView.reloadData()
+        let aSelector : Selector = #selector(MultiChoiceQuestion.showHint)
         if !currentQuestionDataSet[pageIndex].hint.isEmpty{
-            parentViewController!.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Hint", style: .Plain, target: self, action: "showHint")
+            parentViewController!.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Hint", style: .Plain, target: self, action: aSelector)
         }else{
-            let disabledButton = UIBarButtonItem(title: "Hint", style: .Plain, target: self, action: "showHint")
+            let disabledButton = UIBarButtonItem(title: "Hint", style: .Plain, target: self, action: aSelector)
             disabledButton.enabled = false
             parentViewController!.navigationItem.rightBarButtonItem = disabledButton
         }
@@ -147,7 +148,7 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
     
     func startTimer(){
         timer = NSTimer()
-        let aSelector : Selector = "updateLockProgress"
+        let aSelector : Selector = #selector(SingleChoiceQuestion.updateLockProgress)
         timer.tolerance = 0.1
         timer = NSTimer.scheduledTimerWithTimeInterval(0.05, target: self, selector: aSelector, userInfo: nil, repeats: true)
     }

@@ -89,7 +89,7 @@ import UIKit
     }
     
     func internalInit() {
-        displayLink = CADisplayLink(target: self, selector: Selector("displayLinkTick"))
+        displayLink = CADisplayLink(target: self, selector: #selector(CircleProgressView.displayLinkTick))
     }
     
     override public func drawRect(rect: CGRect) {

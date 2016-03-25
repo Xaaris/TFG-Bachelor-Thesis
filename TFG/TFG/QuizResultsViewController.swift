@@ -56,7 +56,7 @@ class QuizResultsViewController: UIViewController{
         stack.spacing = 5
         
         let expansionButton = UIButton()
-        expansionButton.addTarget(self, action: "expansionButtonPressed:", forControlEvents: .TouchUpInside)
+        expansionButton.addTarget(self, action: #selector(QuizResultsViewController.expansionButtonPressed(_:)), forControlEvents: .TouchUpInside)
         expansionButton.tag = row
         
         let questionNumberLabel = UILabel()

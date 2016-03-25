@@ -342,7 +342,7 @@ class ImportAndSaveHelper {
             var numberOfAnswers = 0
             for cell in bodyRow{
                 if cell.0.containsString("Answer") && !cell.0.containsString("C") && !cell.1.isEmpty{
-                    numberOfAnswers++
+                    numberOfAnswers += 1
                 }
             }
             let correctAnswersArr = bodyRow["CorrectAnswers"]!.componentsSeparatedByString(",")

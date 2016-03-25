@@ -24,10 +24,11 @@ class MultiChoiceQuestion: QuestionContentViewController, UITableViewDelegate, U
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         startTimer()
+        let aSelector : Selector = #selector(MultiChoiceQuestion.showHint)
         if !currentQuestionDataSet[pageIndex].hint.isEmpty{
-            parentViewController!.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Hint", style: .Plain, target: self, action: "showHint")
+            parentViewController!.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Hint", style: .Plain, target: self, action: aSelector)
         }else{
-            let disabledButton = UIBarButtonItem(title: "Hint", style: .Plain, target: self, action: "showHint")
+            let disabledButton = UIBarButtonItem(title: "Hint", style: .Plain, target: self, action: aSelector)
             disabledButton.enabled = false
             parentViewController!.navigationItem.rightBarButtonItem = disabledButton
         }
@@ -51,7 +52,7 @@ class MultiChoiceQuestion: QuestionContentViewController, UITableViewDelegate, U
     
     func startTimer(){
         var timer = NSTimer()
-        let aSelector : Selector = "updateLockedButton"
+        let aSelector : Selector = #selector(MultiChoiceQuestion.updateLockedButton)
         timer.tolerance = 0.05
         timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: aSelector, userInfo: nil, repeats: false)
     }
