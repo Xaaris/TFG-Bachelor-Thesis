@@ -481,6 +481,11 @@ You made it to the end</string>
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.054901960784313725" green="0.4392156862745098" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="2cG-Q1-qRl" kind="relationship" relationship="viewControllers" id="dcF-w8-7lJ"/>
@@ -714,5 +719,5 @@ You made it to the end</string>
         <image name="Preferences" width="25" height="25"/>
         <image name="Statistics" width="25" height="25"/>
     </resources>
-    <color key="tintColor" red="0.0" green="0.4392156862745098" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="0.054901960784313725" green="0.4392156862745098" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
 </document>
