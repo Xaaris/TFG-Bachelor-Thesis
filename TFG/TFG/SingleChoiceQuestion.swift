@@ -15,7 +15,7 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
     
     var timer = NSTimer()
     var lockProgress = 0.0
-    var lastSelectedCell = AnswerCell()
+    var lastSelectedCell: AnswerCell?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +35,11 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewDidDisappear(animated: Bool) {
+        if lastSelectedCell != nil{
+            stopTimer()
+            lockQuestion(false)
+        }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -89,10 +92,10 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
         if !question.isLocked{
             let answer = question.answers[indexPath.row]
             if Util().getPreferences()!.immediateFeedback{
-                if lastSelectedCell.progressView != nil {
-                    lastSelectedCell.progressView.progress = 0
+                if lastSelectedCell != nil {
+                    lastSelectedCell!.progressView.progress = 0
                 }
-                lastSelectedCell = tableView.cellForRowAtIndexPath(indexPath) as! AnswerCell
+                lastSelectedCell = tableView.cellForRowAtIndexPath(indexPath) as? AnswerCell
                 stopTimer()
                 realm.beginWrite()
                 //deselect answer if is checked
@@ -153,7 +156,7 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
         timer = NSTimer.scheduledTimerWithTimeInterval(0.05, target: self, selector: aSelector, userInfo: nil, repeats: true)
     }
     
-    func lockQuestion(){
+    func lockQuestion(withFeedback: Bool){
         let question = currentQuestionDataSet[pageIndex]
         realm.beginWrite()
         question.isLocked = true
@@ -161,18 +164,18 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
         realm.add(question)
         try! realm.commitWrite()
         answerTableView.reloadData()
-        if question.answerScore < 1{
+        if question.answerScore < 1 && withFeedback{
             showFeedback()
         }
     
     }
     
     func updateLockProgress(){
-        let progView = lastSelectedCell.progressView
+        let progView = lastSelectedCell!.progressView
         lockProgress += 0.05 / Double(Util().getPreferences()!.lockSeconds)
         progView.progress = lockProgress
         if lockProgress >= 1 {
-            lockQuestion()
+            lockQuestion(true)
             stopTimer()
             progView.progress = 0
         }
@@ -180,8 +183,8 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
     }
     
     func stopTimer(){
-        if lastSelectedCell.progressView != nil {
-            let progView = lastSelectedCell.progressView
+        if lastSelectedCell != nil {
+            let progView = lastSelectedCell!.progressView
             timer.invalidate()
             lockProgress = 0.0
             progView.progress = lockProgress
