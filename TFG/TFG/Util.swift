@@ -39,6 +39,23 @@ class Util {
         return realm.objects(Preference.self).first
     }
     
+    func getNewestStatistic() -> Statistic? {
+        let stats = realm.objects(Statistic)
+        if !stats.isEmpty {
+            var newestStat = stats[0]
+            for stat in stats{
+                if stat.date.compare(newestStat.date) == NSComparisonResult.OrderedDescending {
+                    newestStat = stat
+                }
+            }
+            return newestStat
+        }else{
+            return nil
+        }
+    }
+    
+    
+    
     
     
     

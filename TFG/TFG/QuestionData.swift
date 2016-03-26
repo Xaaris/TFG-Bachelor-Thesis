@@ -32,8 +32,8 @@ class Question: Object {
     dynamic var difficulty = 0
     dynamic var isLocked = false
     dynamic var revealAnswers = false
-    dynamic var answerScore: Float {
-        var tmpScore: Float = 0.0
+    dynamic var answerScore: Double {
+        var tmpScore: Double = 0.0
         if type == "SingleChoice" || type == "TrueFalse"{
             for answer in answers{
                 if answer.isCorrect && answer.isSelected{
@@ -47,7 +47,7 @@ class Question: Object {
                     tmpScore += 1
                 }
             }
-            return tmpScore / Float(answers.count)
+            return tmpScore / Double(answers.count)
         }
     }
     let answers = List<Answer>()

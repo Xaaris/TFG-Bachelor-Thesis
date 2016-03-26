@@ -22,6 +22,8 @@ class QuizResultsViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        saveToStatistics()
+        
         // setup scrollview
         let insets = UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0)
         scrollView.contentInset = insets
@@ -200,29 +202,39 @@ class QuizResultsViewController: UIViewController{
     }
     
     func prepareTitleView() {
-        let questions = Util().getCurrentTopic()!.questions
-        let numberOfQuestions = questions.count
-        var numberOfCorrectAnswers:Float = 0.0
-        for question in questions{
-            numberOfCorrectAnswers += question.answerScore
-        }
-        let score = numberOfCorrectAnswers / Float(numberOfQuestions)
+        let score = Util().getNewestStatistic()!.percentageScore
         
-        if score < 0.5 {
+        if score < 50 {
             titleLabel.text = "That needs more work!"
-        }else if score < 0.75 {
+        }else if score < 75 {
             titleLabel.text = "You did okay.."
-        }else if score < 0.9 {
+        }else if score < 90 {
             titleLabel.text = "That was good"
-        }else if score < 1 {
+        }else if score < 100 {
             titleLabel.text = "That was great!"
         }else{
             titleLabel.text = "Perfect!"
         }
         
-        xOutOfxLabel.text = "You got \(NSString(format: "%.1f", numberOfCorrectAnswers)) out of \(numberOfQuestions) correct"
+        xOutOfxLabel.text = "You got a score of \(Int(score))%"
     }
     
+    
+    func saveToStatistics(){
+        let questions = Util().getCurrentTopic()!.questions
+        var numberOfCorrectAnswers:Double = 0.0
+        for question in questions{
+            numberOfCorrectAnswers += question.answerScore
+        }
+        let score = numberOfCorrectAnswers
+        let stat = Statistic()
+        stat.topic = Util().getCurrentTopic()
+        stat.date = NSDate()
+        stat.score = score
+        realm.beginWrite()
+        realm.add(stat)
+        try! realm.commitWrite()
+    }
     
 }
 
