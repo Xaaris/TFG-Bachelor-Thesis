@@ -202,7 +202,7 @@ class QuizResultsViewController: UIViewController{
     }
     
     func prepareTitleView() {
-        let score = Util().getNewestStatistic()!.percentageScore
+        let score = Util().getLatestStatistic()!.percentageScore
         
         if score < 50 {
             titleLabel.text = "That needs more work!"

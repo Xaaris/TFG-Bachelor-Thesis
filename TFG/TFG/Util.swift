@@ -39,21 +39,31 @@ class Util {
         return realm.objects(Preference.self).first
     }
     
-    func getNewestStatistic() -> Statistic? {
+    func getLatestStatistic() -> Statistic? {
         let stats = realm.objects(Statistic)
         if !stats.isEmpty {
-            var newestStat = stats[0]
+            var latestStat = stats[0]
             for stat in stats{
-                if stat.date.compare(newestStat.date) == NSComparisonResult.OrderedDescending {
-                    newestStat = stat
+                if stat.date.compare(latestStat.date) == NSComparisonResult.OrderedDescending {
+                    latestStat = stat
                 }
             }
-            return newestStat
+            return latestStat
         }else{
             return nil
         }
     }
-    
+
+    func getNLatestStatistics(numberOfStats: Int, topic: Topic) -> [Statistic] {
+        let predicate = NSPredicate(format: "topic.title = %@ ", topic.title)
+        let stats = realm.objects(Statistic).filter(predicate).sorted("date", ascending: false)
+        let numberOfInstances = min(stats.count, numberOfStats)
+        var retArray:[Statistic] = []
+        for i in 0 ..< numberOfInstances{
+            retArray.append(stats[i])
+        }
+        return retArray.reverse()
+    }
     
     
     
