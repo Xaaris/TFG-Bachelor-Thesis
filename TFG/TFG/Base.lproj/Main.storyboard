@@ -574,8 +574,8 @@ You made it to the end</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ufP-HI-POd">
-                                <rect key="frame" x="160" y="60" width="280" height="112"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ufP-HI-POd">
+                                <rect key="frame" x="160" y="60" width="280" height="175"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="bMl-HJ-Jsz">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="31"/>
@@ -634,6 +634,14 @@ You made it to the end</string>
                                             <constraint firstAttribute="height" constant="51" id="lD6-AR-K6h"/>
                                         </constraints>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AlP-t4-dNU">
+                                        <rect key="frame" x="0.0" y="142" width="280" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Delete statistics"/>
+                                        <connections>
+                                            <action selector="deleteStatisticsButtonPressed:" destination="wQ6-GI-QDi" eventType="touchUpInside" id="drO-r7-SIk"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>

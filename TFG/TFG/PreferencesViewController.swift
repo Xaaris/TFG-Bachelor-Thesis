@@ -56,5 +56,25 @@ class PreferencesViewController: UIViewController {
         secondsLabel.enabled = enable
         lockSecondsSlider.enabled = enable
     }
+    
+    @IBAction func deleteStatisticsButtonPressed(sender: AnyObject) {
+        
+        let alertController = UIAlertController(title: "Delete Statistics?", message:
+            "Are you sure you want to delete all statistics? This can not be undone!", preferredStyle: UIAlertControllerStyle.Alert)
+        let deleteAction = UIAlertAction(title: "Delete", style: .Destructive) { (action) in
+            self.deleteAllStatistics()
+        }
+        alertController.addAction(deleteAction)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    private func deleteAllStatistics(){
+        let allStatistics = realm.objects(Statistic)
+        try! realm.write {
+            realm.delete(allStatistics)
+        }
+    }
 }
 
