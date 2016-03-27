@@ -27,8 +27,9 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        setupBarChartView()
+        updatePicker()
         updatePickerSelection()
+        setupBarChartView()
     }
     
     func setupTopicPicker() {
@@ -39,12 +40,16 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
         for topic in topics{
             pickerValues.append(topic.title)
         }
+        updatePicker()
+        updatePickerSelection()
+    }
+    
+    func updatePicker(){
         if let currentTopic = Util().getCurrentTopic() {
             topicPickerView.selectRow(pickerValues.indexOf(currentTopic.title)!, inComponent: 0, animated: false)
         }else{
             topicPickerView.selectRow(0, inComponent: 0, animated: false)
         }
-        updatePickerSelection()
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {

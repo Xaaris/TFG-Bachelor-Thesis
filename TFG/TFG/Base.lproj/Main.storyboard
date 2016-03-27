@@ -444,70 +444,85 @@ You made it to the end</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AEE-h6-RNO">
-                                <rect key="frame" x="20" y="40" width="560" height="271"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oG5-ru-jSv">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FoP-Yb-ael">
-                                        <rect key="frame" x="140" y="0.0" width="280" height="55"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AEE-h6-RNO">
+                                        <rect key="frame" x="140" y="20" width="320" height="271"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current topic:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HlG-nT-3rW">
-                                                <rect key="frame" x="8" y="17" width="106" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No topic selected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBa-iO-J8A">
-                                                <rect key="frame" x="137" y="17" width="135" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HG7-18-mSn">
-                                                <rect key="frame" x="0.0" y="0.0" width="280" height="55"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FoP-Yb-ael">
+                                                <rect key="frame" x="20" y="0.0" width="280" height="55"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current topic:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HlG-nT-3rW">
+                                                        <rect key="frame" x="8" y="17" width="106" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No topic selected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBa-iO-J8A">
+                                                        <rect key="frame" x="137" y="17" width="135" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HG7-18-mSn">
+                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="55"/>
+                                                        <connections>
+                                                            <action selector="showPickerButtonPressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="AR8-QO-W0s"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="HG7-18-mSn" secondAttribute="bottom" id="5GQ-yM-FNl"/>
+                                                    <constraint firstAttribute="height" constant="55" id="7Up-xS-E5E"/>
+                                                    <constraint firstItem="HG7-18-mSn" firstAttribute="leading" secondItem="FoP-Yb-ael" secondAttribute="leading" id="DIQ-Oo-RzD"/>
+                                                    <constraint firstAttribute="trailing" secondItem="SBa-iO-J8A" secondAttribute="trailing" constant="8" id="LqS-sr-8Ev"/>
+                                                    <constraint firstAttribute="width" constant="280" id="MlL-E1-Fu4"/>
+                                                    <constraint firstItem="HlG-nT-3rW" firstAttribute="leading" secondItem="FoP-Yb-ael" secondAttribute="leading" constant="8" id="Ofs-9m-OzM"/>
+                                                    <constraint firstItem="HG7-18-mSn" firstAttribute="top" secondItem="FoP-Yb-ael" secondAttribute="top" id="oci-mG-KMH"/>
+                                                    <constraint firstAttribute="trailing" secondItem="HG7-18-mSn" secondAttribute="trailing" id="rya-wU-W8e"/>
+                                                    <constraint firstItem="HlG-nT-3rW" firstAttribute="centerY" secondItem="FoP-Yb-ael" secondAttribute="centerY" id="vnm-RK-wi3"/>
+                                                    <constraint firstItem="SBa-iO-J8A" firstAttribute="centerY" secondItem="FoP-Yb-ael" secondAttribute="centerY" id="xk9-a5-teV"/>
+                                                </constraints>
+                                            </view>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nBb-SG-Ybn">
+                                                <rect key="frame" x="0.0" y="55" width="320" height="216"/>
                                                 <connections>
-                                                    <action selector="showPickerButtonPressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="AR8-QO-W0s"/>
+                                                    <outlet property="dataSource" destination="8rJ-Kc-sve" id="v4s-BM-3N7"/>
+                                                    <outlet property="delegate" destination="8rJ-Kc-sve" id="8XH-UJ-K84"/>
                                                 </connections>
-                                            </button>
+                                            </pickerView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="320" id="pT7-cz-deq"/>
+                                        </constraints>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPV-OI-wli" customClass="BarChartView" customModule="Charts">
+                                        <rect key="frame" x="140" y="299" width="320" height="250"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="HG7-18-mSn" secondAttribute="bottom" id="5GQ-yM-FNl"/>
-                                            <constraint firstAttribute="height" constant="55" id="7Up-xS-E5E"/>
-                                            <constraint firstItem="HG7-18-mSn" firstAttribute="leading" secondItem="FoP-Yb-ael" secondAttribute="leading" id="DIQ-Oo-RzD"/>
-                                            <constraint firstAttribute="trailing" secondItem="SBa-iO-J8A" secondAttribute="trailing" constant="8" id="LqS-sr-8Ev"/>
-                                            <constraint firstAttribute="width" constant="280" id="MlL-E1-Fu4"/>
-                                            <constraint firstItem="HlG-nT-3rW" firstAttribute="leading" secondItem="FoP-Yb-ael" secondAttribute="leading" constant="8" id="Ofs-9m-OzM"/>
-                                            <constraint firstItem="HG7-18-mSn" firstAttribute="top" secondItem="FoP-Yb-ael" secondAttribute="top" id="oci-mG-KMH"/>
-                                            <constraint firstAttribute="trailing" secondItem="HG7-18-mSn" secondAttribute="trailing" id="rya-wU-W8e"/>
-                                            <constraint firstItem="HlG-nT-3rW" firstAttribute="centerY" secondItem="FoP-Yb-ael" secondAttribute="centerY" id="vnm-RK-wi3"/>
-                                            <constraint firstItem="SBa-iO-J8A" firstAttribute="centerY" secondItem="FoP-Yb-ael" secondAttribute="centerY" id="xk9-a5-teV"/>
+                                            <constraint firstAttribute="height" constant="250" id="VkX-Gj-aMS"/>
+                                            <constraint firstAttribute="width" constant="320" id="pDG-uw-T3s"/>
                                         </constraints>
                                     </view>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nBb-SG-Ybn">
-                                        <rect key="frame" x="120" y="55" width="320" height="216"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="8rJ-Kc-sve" id="v4s-BM-3N7"/>
-                                            <outlet property="delegate" destination="8rJ-Kc-sve" id="8XH-UJ-K84"/>
-                                        </connections>
-                                    </pickerView>
                                 </subviews>
-                            </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPV-OI-wli" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="311" width="560" height="250"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="VkX-Gj-aMS"/>
+                                    <constraint firstAttribute="bottom" secondItem="mPV-OI-wli" secondAttribute="bottom" constant="50" id="QbR-X9-eRC"/>
+                                    <constraint firstItem="AEE-h6-RNO" firstAttribute="centerX" secondItem="oG5-ru-jSv" secondAttribute="centerX" id="R3p-6n-e7K"/>
+                                    <constraint firstItem="AEE-h6-RNO" firstAttribute="top" secondItem="oG5-ru-jSv" secondAttribute="top" constant="20" id="dCh-bW-KXh"/>
+                                    <constraint firstItem="mPV-OI-wli" firstAttribute="top" secondItem="AEE-h6-RNO" secondAttribute="bottom" constant="8" id="kgt-cl-oFV"/>
+                                    <constraint firstAttribute="trailing" secondItem="AEE-h6-RNO" secondAttribute="trailing" id="sme-es-PG7"/>
+                                    <constraint firstItem="mPV-OI-wli" firstAttribute="centerX" secondItem="oG5-ru-jSv" secondAttribute="centerX" id="zZC-VX-mKz"/>
                                 </constraints>
-                            </view>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="AEE-h6-RNO" secondAttribute="trailing" id="0MZ-rI-J9M"/>
-                            <constraint firstItem="mPV-OI-wli" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="8Be-13-8Po"/>
-                            <constraint firstItem="mPV-OI-wli" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="GSX-Bf-9it"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="AEE-h6-RNO" secondAttribute="leading" id="Tza-u9-7bV"/>
-                            <constraint firstItem="AEE-h6-RNO" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="20" id="eV8-jI-f9r"/>
-                            <constraint firstItem="mPV-OI-wli" firstAttribute="top" secondItem="AEE-h6-RNO" secondAttribute="bottom" id="slS-3S-a4w"/>
+                            <constraint firstAttribute="trailing" secondItem="oG5-ru-jSv" secondAttribute="trailing" id="8y3-pl-gcU"/>
+                            <constraint firstAttribute="bottom" secondItem="oG5-ru-jSv" secondAttribute="bottom" id="GIX-DO-fN8"/>
+                            <constraint firstItem="oG5-ru-jSv" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="IkE-l5-Ihu"/>
+                            <constraint firstItem="oG5-ru-jSv" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="ar3-bh-PZ0"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Statistics" image="Statistics" id="cPa-gy-q4n"/>
