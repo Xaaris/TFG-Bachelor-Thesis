@@ -95,9 +95,11 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     @IBAction func showPickerButtonPressed(sender: AnyObject) {
+        self.topicPickerView.alpha = 0
         UIView.animateWithDuration(0.2) { () -> Void in
             if self.topicPickerView.hidden {
                 self.topicPickerView.hidden = false
+                self.topicPickerView.alpha = 1
                 self.restartPickerTimer()
             }else{
                 self.topicPickerView.hidden = true
@@ -113,12 +115,11 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     func hideTopicPicker(){
+        self.topicPickerView.alpha = 0
         UIView.animateWithDuration(0.5) { () -> Void in
             self.topicPickerView.hidden = true
         }
     }
-    
-    
     
     func setupBarChartView(){
         if Util().getCurrentTopic() == nil {
