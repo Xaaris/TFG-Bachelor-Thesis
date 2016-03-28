@@ -448,20 +448,14 @@ You made it to the end</string>
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AEE-h6-RNO">
-                                        <rect key="frame" x="140" y="20" width="320" height="271"/>
+                                        <rect key="frame" x="140" y="20" width="320" height="55"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FoP-Yb-ael">
                                                 <rect key="frame" x="20" y="0.0" width="280" height="55"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current topic:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HlG-nT-3rW">
-                                                        <rect key="frame" x="8" y="17" width="106" height="21"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No topic selected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBa-iO-J8A">
-                                                        <rect key="frame" x="137" y="17" width="135" height="21"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No topic selected" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SBa-iO-J8A">
+                                                        <rect key="frame" x="8" y="8" width="264" height="39"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -479,15 +473,15 @@ You made it to the end</string>
                                                     <constraint firstItem="HG7-18-mSn" firstAttribute="leading" secondItem="FoP-Yb-ael" secondAttribute="leading" id="DIQ-Oo-RzD"/>
                                                     <constraint firstAttribute="trailing" secondItem="SBa-iO-J8A" secondAttribute="trailing" constant="8" id="LqS-sr-8Ev"/>
                                                     <constraint firstAttribute="width" constant="280" id="MlL-E1-Fu4"/>
-                                                    <constraint firstItem="HlG-nT-3rW" firstAttribute="leading" secondItem="FoP-Yb-ael" secondAttribute="leading" constant="8" id="Ofs-9m-OzM"/>
+                                                    <constraint firstItem="SBa-iO-J8A" firstAttribute="top" secondItem="FoP-Yb-ael" secondAttribute="top" constant="8" id="UAM-HX-rut"/>
+                                                    <constraint firstItem="SBa-iO-J8A" firstAttribute="leading" secondItem="FoP-Yb-ael" secondAttribute="leading" constant="8" id="bZI-U2-AEd"/>
+                                                    <constraint firstAttribute="bottom" secondItem="SBa-iO-J8A" secondAttribute="bottom" constant="8" id="dBJ-Cx-QMd"/>
                                                     <constraint firstItem="HG7-18-mSn" firstAttribute="top" secondItem="FoP-Yb-ael" secondAttribute="top" id="oci-mG-KMH"/>
                                                     <constraint firstAttribute="trailing" secondItem="HG7-18-mSn" secondAttribute="trailing" id="rya-wU-W8e"/>
-                                                    <constraint firstItem="HlG-nT-3rW" firstAttribute="centerY" secondItem="FoP-Yb-ael" secondAttribute="centerY" id="vnm-RK-wi3"/>
-                                                    <constraint firstItem="SBa-iO-J8A" firstAttribute="centerY" secondItem="FoP-Yb-ael" secondAttribute="centerY" id="xk9-a5-teV"/>
                                                 </constraints>
                                             </view>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nBb-SG-Ybn">
-                                                <rect key="frame" x="0.0" y="55" width="320" height="216"/>
+                                            <pickerView hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nBb-SG-Ybn">
+                                                <rect key="frame" x="0.0" y="55" width="320" height="0.0"/>
                                                 <connections>
                                                     <outlet property="dataSource" destination="8rJ-Kc-sve" id="v4s-BM-3N7"/>
                                                     <outlet property="delegate" destination="8rJ-Kc-sve" id="8XH-UJ-K84"/>
@@ -498,22 +492,22 @@ You made it to the end</string>
                                             <constraint firstAttribute="width" constant="320" id="pT7-cz-deq"/>
                                         </constraints>
                                     </stackView>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mPV-OI-wli" customClass="BarChartView" customModule="Charts">
-                                        <rect key="frame" x="140" y="299" width="320" height="33"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPV-OI-wli" customClass="BarChartView" customModule="Charts">
+                                        <rect key="frame" x="140" y="83" width="320" height="250"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="250" id="VkX-Gj-aMS"/>
                                             <constraint firstAttribute="width" constant="320" id="pDG-uw-T3s"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Date: No data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExB-wX-pEd">
-                                        <rect key="frame" x="140" y="360" width="106" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date: No data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExB-wX-pEd">
+                                        <rect key="frame" x="140" y="353" width="106" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Score: No data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21D-JE-iSV">
-                                        <rect key="frame" x="140" y="395" width="114" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: No data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21D-JE-iSV">
+                                        <rect key="frame" x="140" y="384" width="114" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
