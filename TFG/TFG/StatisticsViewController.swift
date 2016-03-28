@@ -17,6 +17,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet weak var barChartView: BarChartView!
     
     var pickerValues:[String] = []
+    var timer = NSTimer()
     
     
     override func viewDidLoad() {
@@ -67,6 +68,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         updatePickerSelection()
+        restartPickerTimer()
     }
     
     func updatePickerSelection(){
@@ -93,15 +95,31 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     @IBAction func showPickerButtonPressed(sender: AnyObject) {
-        let topicPicker = topicPickerStackView.arrangedSubviews[1]
         UIView.animateWithDuration(0.2) { () -> Void in
-            if topicPicker.hidden {
-                topicPicker.hidden = false
+            if self.topicPickerView.hidden {
+                self.topicPickerView.hidden = false
+                self.restartPickerTimer()
             }else{
-                topicPicker.hidden = true
+                self.topicPickerView.hidden = true
             }
         }
     }
+    
+    func restartPickerTimer(){
+        timer.invalidate()
+        let aSelector : Selector = #selector(StatisticsViewController.hideTopicPicker)
+        timer.tolerance = 0.1
+        timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: aSelector, userInfo: nil, repeats: false)
+    }
+    
+    func hideTopicPicker(){
+        UIView.animateWithDuration(0.5) { () -> Void in
+            self.topicPickerView.hidden = true
+        }
+    }
+    
+    
+    
     func setupBarChartView(){
         if Util().getCurrentTopic() == nil {
             barChartView.noDataText = "No topic selected"
