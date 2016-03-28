@@ -498,22 +498,38 @@ You made it to the end</string>
                                             <constraint firstAttribute="width" constant="320" id="pT7-cz-deq"/>
                                         </constraints>
                                     </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPV-OI-wli" customClass="BarChartView" customModule="Charts">
-                                        <rect key="frame" x="140" y="299" width="320" height="250"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mPV-OI-wli" customClass="BarChartView" customModule="Charts">
+                                        <rect key="frame" x="140" y="299" width="320" height="33"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="250" id="VkX-Gj-aMS"/>
                                             <constraint firstAttribute="width" constant="320" id="pDG-uw-T3s"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Date: No data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExB-wX-pEd">
+                                        <rect key="frame" x="140" y="360" width="106" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Score: No data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21D-JE-iSV">
+                                        <rect key="frame" x="140" y="395" width="114" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="mPV-OI-wli" secondAttribute="bottom" constant="50" id="QbR-X9-eRC"/>
+                                    <constraint firstItem="ExB-wX-pEd" firstAttribute="top" secondItem="mPV-OI-wli" secondAttribute="bottom" constant="20" id="Ix3-cX-glH"/>
                                     <constraint firstItem="AEE-h6-RNO" firstAttribute="centerX" secondItem="oG5-ru-jSv" secondAttribute="centerX" id="R3p-6n-e7K"/>
+                                    <constraint firstAttribute="bottom" secondItem="21D-JE-iSV" secondAttribute="bottom" constant="164" id="XoE-LF-BRr"/>
                                     <constraint firstItem="AEE-h6-RNO" firstAttribute="top" secondItem="oG5-ru-jSv" secondAttribute="top" constant="20" id="dCh-bW-KXh"/>
                                     <constraint firstItem="mPV-OI-wli" firstAttribute="top" secondItem="AEE-h6-RNO" secondAttribute="bottom" constant="8" id="kgt-cl-oFV"/>
+                                    <constraint firstItem="21D-JE-iSV" firstAttribute="top" secondItem="ExB-wX-pEd" secondAttribute="bottom" constant="10" id="pDG-dQ-6oo"/>
                                     <constraint firstAttribute="trailing" secondItem="AEE-h6-RNO" secondAttribute="trailing" id="sme-es-PG7"/>
+                                    <constraint firstItem="21D-JE-iSV" firstAttribute="leading" secondItem="ExB-wX-pEd" secondAttribute="leading" id="t4N-Qh-2qP"/>
                                     <constraint firstItem="mPV-OI-wli" firstAttribute="centerX" secondItem="oG5-ru-jSv" secondAttribute="centerX" id="zZC-VX-mKz"/>
+                                    <constraint firstItem="ExB-wX-pEd" firstAttribute="leading" secondItem="mPV-OI-wli" secondAttribute="leading" id="zce-Xm-zSY"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -527,6 +543,8 @@ You made it to the end</string>
                     </view>
                     <tabBarItem key="tabBarItem" title="Statistics" image="Statistics" id="cPa-gy-q4n"/>
                     <connections>
+                        <outlet property="barChartDateLabel" destination="ExB-wX-pEd" id="QzA-TK-Ady"/>
+                        <outlet property="barChartScoreLabel" destination="21D-JE-iSV" id="YgP-80-fyB"/>
                         <outlet property="barChartView" destination="mPV-OI-wli" id="MSo-3V-UT9"/>
                         <outlet property="currentTopicLabel" destination="SBa-iO-J8A" id="bt7-zD-lOB"/>
                         <outlet property="topicPickerStackView" destination="AEE-h6-RNO" id="Kcb-5l-3Jc"/>

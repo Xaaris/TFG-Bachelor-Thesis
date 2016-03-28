@@ -9,20 +9,24 @@
 import UIKit
 import Charts
 
-class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, ChartViewDelegate {
     
     @IBOutlet weak var topicPickerStackView: UIStackView!
     @IBOutlet weak var currentTopicLabel: UILabel!
     @IBOutlet weak var topicPickerView: UIPickerView!
     @IBOutlet weak var barChartView: BarChartView!
+    @IBOutlet weak var barChartDateLabel: UILabel!
+    @IBOutlet weak var barChartScoreLabel: UILabel!
     
     var pickerValues:[String] = []
     var timer = NSTimer()
+    var displayedStatistics: [Statistic] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Statistics View")
+        barChartView.delegate = self
         setupTopicPicker()
     }
     
@@ -126,8 +130,8 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
             barChartView.noDataText = "No topic selected"
         }else{
             barChartView.noDataText = "No data yet"
-            let stats = Util().getNLatestStatistics(7, topic: Util().getCurrentTopic()!)
-            if !stats.isEmpty {
+            displayedStatistics = Util().getNLatestStatistics(7, topic: Util().getCurrentTopic()!)
+            if !displayedStatistics.isEmpty {
                 var dates:[String] = []
                 var scores:[Double] = []
                 
@@ -136,13 +140,13 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 dayDateFormatter.dateFormat = "dd.MM" //"yyyy-MM-dd'T'HH:mm:ssZZZZZ"
                 hourDateFormatter.dateFormat = "HH:mm"
                 
-                for i in 0..<stats.count {
-                    if stats[i].date.timeIntervalSinceNow > NSTimeInterval(-86400) { //86.400 seconds = one day
-                        dates.append(hourDateFormatter.stringFromDate(stats[i].date))
+                for i in 0..<displayedStatistics.count {
+                    if displayedStatistics[i].date.timeIntervalSinceNow > NSTimeInterval(-86400) { //86.400 seconds = one day
+                        dates.append(hourDateFormatter.stringFromDate(displayedStatistics[i].date))
                     }else{
-                        dates.append(dayDateFormatter.stringFromDate(stats[i].date))
+                        dates.append(dayDateFormatter.stringFromDate(displayedStatistics[i].date))
                     }
-                    scores.append(stats[i].percentageScore)
+                    scores.append(displayedStatistics[i].percentageScore)
                 }
                 var dataEntries: [BarChartDataEntry] = []
                 
@@ -179,6 +183,14 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
             }
         }
         barChartView.setNeedsDisplay()
+    }
+    
+    func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: ChartHighlight) {
+        let statistic = displayedStatistics[entry.xIndex]
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yy 'at' HH:mm" //"yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        barChartDateLabel.text = "Date: " + dateFormatter.stringFromDate(statistic.date)
+        barChartScoreLabel.text = "Score: \(NSString(format: "%.2f", statistic.score)) out of \(statistic.numberOfQuestions)"
     }
     
     
