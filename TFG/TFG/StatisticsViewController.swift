@@ -26,8 +26,8 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
         setupTopicPicker()
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         updatePicker()
         updatePickerSelection()
         setupBarChartView()
