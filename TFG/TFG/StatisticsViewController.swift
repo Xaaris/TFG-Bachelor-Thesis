@@ -112,12 +112,17 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 var dates:[String] = []
                 var scores:[Double] = []
                 
-                let dateFormatter = NSDateFormatter()
-                dateFormatter.dateStyle = .ShortStyle
-                dateFormatter.timeStyle = .NoStyle
+                let dayDateFormatter = NSDateFormatter()
+                let hourDateFormatter = NSDateFormatter()
+                dayDateFormatter.dateFormat = "dd.MM" //"yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+                hourDateFormatter.dateFormat = "HH:mm"
                 
                 for i in 0..<stats.count {
-                    dates.append(dateFormatter.stringFromDate(stats[i].date))
+                    if stats[i].date.timeIntervalSinceNow > NSTimeInterval(-86400) { //86.400 seconds = one day
+                        dates.append(hourDateFormatter.stringFromDate(stats[i].date))
+                    }else{
+                        dates.append(dayDateFormatter.stringFromDate(stats[i].date))
+                    }
                     scores.append(stats[i].percentageScore)
                 }
                 var dataEntries: [BarChartDataEntry] = []
@@ -134,6 +139,8 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 barChartView.descriptionText = ""
                 barChartView.animate(yAxisDuration: 2.0, easingOption: .EaseInOutCubic)
                 barChartView.xAxis.labelPosition = .Bottom
+                barChartView.xAxis.labelRotationAngle = -45
+                barChartView.xAxis.setLabelsToSkip(0)
                 barChartView.drawValueAboveBarEnabled = false
                 barChartView.setScaleEnabled(false)
                 barChartView.leftAxis.customAxisMin = 0
