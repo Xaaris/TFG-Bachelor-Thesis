@@ -38,13 +38,8 @@ class QuizResultsViewController: UIViewController{
     func loadStackViews(){
         let numberOfQuestions = Util().getCurrentTopic()!.questions.count
         for row in Range(0 ..< numberOfQuestions){
-            let mainStack = stackView
-            mainStack.alignment = .Leading
-            mainStack.distribution = .EqualSpacing
-            mainStack.spacing = 5
-            
             let newView = createAnswerView(row)
-            mainStack.addArrangedSubview(newView)
+            stackView.addArrangedSubview(newView)
         }
     }
     

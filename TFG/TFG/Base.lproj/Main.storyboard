@@ -307,8 +307,8 @@ You made it to the end</string>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="382-w3-1ND">
-                                        <rect key="frame" x="20" y="223" width="560" height="580"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="382-w3-1ND">
+                                        <rect key="frame" x="19" y="223" width="560" height="580"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="580" placeholder="YES" id="y3j-ZC-WQS"/>
                                         </constraints>
@@ -336,9 +336,9 @@ You made it to the end</string>
                                     <constraint firstItem="aII-aN-5vO" firstAttribute="centerX" secondItem="E3B-cd-Dnw" secondAttribute="centerX" id="Njy-QR-RkU"/>
                                     <constraint firstItem="382-w3-1ND" firstAttribute="width" secondItem="E3B-cd-Dnw" secondAttribute="width" constant="-40" id="WhU-gk-qSd"/>
                                     <constraint firstItem="aII-aN-5vO" firstAttribute="top" secondItem="E3B-cd-Dnw" secondAttribute="top" constant="32" id="Z4k-D0-Zkv"/>
+                                    <constraint firstItem="382-w3-1ND" firstAttribute="centerX" secondItem="Zqx-wQ-Hcv" secondAttribute="centerX" id="Zdo-cP-YF2"/>
                                     <constraint firstItem="Zqx-wQ-Hcv" firstAttribute="centerX" secondItem="D5s-gv-L3X" secondAttribute="centerX" id="irf-9h-DNb"/>
                                     <constraint firstItem="D5s-gv-L3X" firstAttribute="centerX" secondItem="aII-aN-5vO" secondAttribute="centerX" id="kg9-UR-bCq"/>
-                                    <constraint firstItem="382-w3-1ND" firstAttribute="leading" secondItem="E3B-cd-Dnw" secondAttribute="leading" constant="20" id="tFk-My-jfk"/>
                                     <constraint firstAttribute="trailing" secondItem="382-w3-1ND" secondAttribute="trailing" constant="20" id="zoJ-jz-JG9"/>
                                 </constraints>
                             </scrollView>
@@ -574,7 +574,7 @@ You made it to the end</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ufP-HI-POd">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ufP-HI-POd">
                                 <rect key="frame" x="160" y="60" width="280" height="175"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="bMl-HJ-Jsz">
@@ -634,7 +634,7 @@ You made it to the end</string>
                                             <constraint firstAttribute="height" constant="51" id="lD6-AR-K6h"/>
                                         </constraints>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AlP-t4-dNU">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AlP-t4-dNU">
                                         <rect key="frame" x="0.0" y="142" width="280" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Delete statistics"/>
