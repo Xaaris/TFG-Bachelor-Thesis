@@ -1,4 +1,3 @@
-# README #
 
 This repo houses my TFG, Trabajo Fin de Grado, the Spanish version of a bachelors thesis. My tutor is Luis R. Izquierdo Millán. The following is the official description (in Spanish).
 
