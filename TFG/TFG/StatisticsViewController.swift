@@ -45,16 +45,16 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
     func setupTopicPicker() {
         topicPickerStackView.translatesAutoresizingMaskIntoConstraints = false
         topicPickerView.hidden = true
-        let topics = realm.objects(Topic.self)
-        pickerValues = ["Overview"]
-        for topic in topics{
-            pickerValues.append(topic.title)
-        }
         updatePicker()
         updatePickerSelection()
     }
     
     func updatePicker(){
+        let topics = realm.objects(Topic.self)
+        pickerValues = ["Overview"]
+        for topic in topics{
+            pickerValues.append(topic.title)
+        }
         var rowToSelect = 0
         if !overviewWasSelected {
             if let currentTopic = Util().getCurrentTopic() {
