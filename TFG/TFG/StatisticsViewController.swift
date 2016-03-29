@@ -168,7 +168,6 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
                     let topicUIColor = UIColor(red: CGFloat(topicColor.red)/255, green: CGFloat(topicColor.green)/255, blue: CGFloat(topicColor.blue)/255, alpha: 1)
                     chartColors.append(topicUIColor)
                 }
-                print(chartColors)
                 chartDataSet.colors = chartColors
 //                chartDataSet.colors = [UIColor(red: 230/255, green: 126/255, blue: 34/255, alpha: 1)] //orange
                 barChartView.descriptionText = ""

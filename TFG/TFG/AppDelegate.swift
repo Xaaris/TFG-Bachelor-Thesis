@@ -56,14 +56,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             realm.beginWrite()
             let blue = MyColor(value: [64,89,129])
             let green = MyColor(value: [149,166,124])
+            let red = MyColor(value: [179,48,80])
             let beige = MyColor(value: [216,184,161])
             let orange = MyColor(value: [192,134,133])
-            let red = MyColor(value: [179,48,80])
             realm.add(blue)
             realm.add(green)
+            realm.add(red)
             realm.add(beige)
             realm.add(orange)
-            realm.add(red)
             try! realm.commitWrite()
         }
         
