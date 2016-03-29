@@ -501,14 +501,14 @@ You made it to the end</string>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date: No data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExB-wX-pEd">
-                                        <rect key="frame" x="140" y="353" width="106" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="160" y="353" width="95" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: No data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21D-JE-iSV">
-                                        <rect key="frame" x="140" y="384" width="114" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="160" y="381" width="102" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -523,7 +523,7 @@ You made it to the end</string>
                                     <constraint firstAttribute="trailing" secondItem="AEE-h6-RNO" secondAttribute="trailing" id="sme-es-PG7"/>
                                     <constraint firstItem="21D-JE-iSV" firstAttribute="leading" secondItem="ExB-wX-pEd" secondAttribute="leading" id="t4N-Qh-2qP"/>
                                     <constraint firstItem="mPV-OI-wli" firstAttribute="centerX" secondItem="oG5-ru-jSv" secondAttribute="centerX" id="zZC-VX-mKz"/>
-                                    <constraint firstItem="ExB-wX-pEd" firstAttribute="leading" secondItem="mPV-OI-wli" secondAttribute="leading" id="zce-Xm-zSY"/>
+                                    <constraint firstItem="ExB-wX-pEd" firstAttribute="leading" secondItem="mPV-OI-wli" secondAttribute="leading" constant="20" id="zce-Xm-zSY"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
