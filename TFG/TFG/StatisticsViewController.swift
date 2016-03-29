@@ -28,6 +28,8 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
         print("Statistics View")
         barChartView.delegate = self
         setupTopicPicker()
+        //Highlights last value in bar chart view
+        barChartView.highlightValue(xIndex: displayedStatistics.count-1, dataSetIndex: 0, callDelegate: true)
     }
     
     override func viewWillAppear(animated: Bool) {
