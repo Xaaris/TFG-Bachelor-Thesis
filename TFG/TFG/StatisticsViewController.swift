@@ -15,12 +15,14 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet weak var currentTopicLabel: UILabel!
     @IBOutlet weak var topicPickerView: UIPickerView!
     @IBOutlet weak var barChartView: BarChartView!
+    @IBOutlet weak var barChartTopicLabel: UILabel!
     @IBOutlet weak var barChartDateLabel: UILabel!
     @IBOutlet weak var barChartScoreLabel: UILabel!
     
     var pickerValues:[String] = []
     var timer = NSTimer()
     var displayedStatistics: [Statistic] = []
+    var overviewWasSelected = false
     
     
     override func viewDidLoad() {
@@ -37,6 +39,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
         updatePicker()
         updatePickerSelection()
         setupBarChartView()
+        reloadBarChartData(overviewWasSelected)
     }
     
     func setupTopicPicker() {
@@ -52,11 +55,13 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     func updatePicker(){
-        if let currentTopic = Util().getCurrentTopic() {
-            topicPickerView.selectRow(pickerValues.indexOf(currentTopic.title)!, inComponent: 0, animated: false)
-        }else{
-            topicPickerView.selectRow(0, inComponent: 0, animated: false)
+        var rowToSelect = 0
+        if !overviewWasSelected {
+            if let currentTopic = Util().getCurrentTopic() {
+                rowToSelect = pickerValues.indexOf(currentTopic.title)!
+            }
         }
+        topicPickerView.selectRow(rowToSelect, inComponent: 0, animated: false)
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -95,7 +100,13 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
             realm.add(topics)
             try! realm.commitWrite()
             
-            reloadBarChartData()
+            overviewWasSelected = false
+            reloadBarChartData(overviewWasSelected)
+            barChartTopicLabel.hidden = true
+        }else{
+            overviewWasSelected = true
+            reloadBarChartData(overviewWasSelected)
+            barChartTopicLabel.hidden = false
         }
     }
     
@@ -146,16 +157,24 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         //        let ll = ChartLimitLine(limit: 50)
         //        barChartView.rightAxis.addLimitLine(ll)
-        
-        reloadBarChartData()
+
     }
     
-    func reloadBarChartData() {
+    func reloadBarChartData(overview: Bool) {
         if Util().getCurrentTopic() == nil {
             barChartView.noDataText = "No topic selected"
         }else{
             barChartView.noDataText = "No data yet"
-            displayedStatistics = Util().getNLatestStatistics(7, topic: Util().getCurrentTopic()!)
+            if overview{
+                let stats = realm.objects(Statistic).sorted("date", ascending: false)
+                displayedStatistics = []
+                for i in 0 ..< stats.count{
+                    displayedStatistics.append(stats[i])
+                }
+                displayedStatistics = displayedStatistics.reverse()
+            }else{
+                displayedStatistics = Util().getNLatestStatistics(7, topic: Util().getCurrentTopic()!)
+            }
             if !displayedStatistics.isEmpty {
                 var dates:[String] = []
                 var scores:[Double] = []
@@ -205,6 +224,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
         let statistic = displayedStatistics[entry.xIndex]
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd.MM.yy 'at' HH:mm" //"yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        barChartTopicLabel.text = "Topic: \(statistic.topic!.title)"
         barChartDateLabel.text = "Date: " + dateFormatter.stringFromDate(statistic.date)
         barChartScoreLabel.text = "Score: \(NSString(format: "%.2f", statistic.score)) out of \(statistic.numberOfQuestions)"
     }

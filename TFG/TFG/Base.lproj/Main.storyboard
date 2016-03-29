@@ -500,30 +500,39 @@ You made it to the end</string>
                                             <constraint firstAttribute="width" constant="320" id="pDG-uw-T3s"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date: No data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExB-wX-pEd">
-                                        <rect key="frame" x="160" y="353" width="95" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: No data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21D-JE-iSV">
-                                        <rect key="frame" x="160" y="381" width="102" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pYQ-Ky-xpa">
+                                        <rect key="frame" x="160" y="333" width="166" height="64"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Topic: No topic selected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A02-YA-7tn">
+                                                <rect key="frame" x="0.0" y="0.0" width="166" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date: No data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExB-wX-pEd">
+                                                <rect key="frame" x="0.0" y="23" width="95" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: No data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21D-JE-iSV">
+                                                <rect key="frame" x="0.0" y="46" width="102" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="ExB-wX-pEd" firstAttribute="top" secondItem="mPV-OI-wli" secondAttribute="bottom" constant="20" id="Ix3-cX-glH"/>
+                                    <constraint firstItem="pYQ-Ky-xpa" firstAttribute="leading" secondItem="mPV-OI-wli" secondAttribute="leading" constant="20" id="IY3-Wd-yTM"/>
+                                    <constraint firstItem="pYQ-Ky-xpa" firstAttribute="top" secondItem="mPV-OI-wli" secondAttribute="bottom" id="IuE-FJ-gKl"/>
                                     <constraint firstItem="AEE-h6-RNO" firstAttribute="centerX" secondItem="oG5-ru-jSv" secondAttribute="centerX" id="R3p-6n-e7K"/>
-                                    <constraint firstAttribute="bottom" secondItem="21D-JE-iSV" secondAttribute="bottom" constant="164" id="XoE-LF-BRr"/>
                                     <constraint firstItem="AEE-h6-RNO" firstAttribute="top" secondItem="oG5-ru-jSv" secondAttribute="top" constant="20" id="dCh-bW-KXh"/>
                                     <constraint firstItem="mPV-OI-wli" firstAttribute="top" secondItem="AEE-h6-RNO" secondAttribute="bottom" constant="8" id="kgt-cl-oFV"/>
-                                    <constraint firstItem="21D-JE-iSV" firstAttribute="top" secondItem="ExB-wX-pEd" secondAttribute="bottom" constant="10" id="pDG-dQ-6oo"/>
                                     <constraint firstAttribute="trailing" secondItem="AEE-h6-RNO" secondAttribute="trailing" id="sme-es-PG7"/>
-                                    <constraint firstItem="21D-JE-iSV" firstAttribute="leading" secondItem="ExB-wX-pEd" secondAttribute="leading" id="t4N-Qh-2qP"/>
                                     <constraint firstItem="mPV-OI-wli" firstAttribute="centerX" secondItem="oG5-ru-jSv" secondAttribute="centerX" id="zZC-VX-mKz"/>
-                                    <constraint firstItem="ExB-wX-pEd" firstAttribute="leading" secondItem="mPV-OI-wli" secondAttribute="leading" constant="20" id="zce-Xm-zSY"/>
+                                    <constraint firstAttribute="bottom" secondItem="pYQ-Ky-xpa" secondAttribute="bottom" constant="185" id="zrt-As-BBg"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -539,6 +548,7 @@ You made it to the end</string>
                     <connections>
                         <outlet property="barChartDateLabel" destination="ExB-wX-pEd" id="QzA-TK-Ady"/>
                         <outlet property="barChartScoreLabel" destination="21D-JE-iSV" id="YgP-80-fyB"/>
+                        <outlet property="barChartTopicLabel" destination="A02-YA-7tn" id="pkc-Zx-oIK"/>
                         <outlet property="barChartView" destination="mPV-OI-wli" id="MSo-3V-UT9"/>
                         <outlet property="currentTopicLabel" destination="SBa-iO-J8A" id="bt7-zD-lOB"/>
                         <outlet property="topicPickerStackView" destination="AEE-h6-RNO" id="Kcb-5l-3Jc"/>
@@ -618,13 +628,13 @@ You made it to the end</string>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seconds before question locks:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqs-80-6rt">
                                                         <rect key="frame" x="0.0" y="0.0" width="240" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fer-bn-9XD">
                                                         <rect key="frame" x="270" y="0.0" width="10" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
