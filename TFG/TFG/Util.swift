@@ -23,8 +23,8 @@ class Util {
         myLightRedColor = UIColor(red: 127/255, green: 0/255, blue: 0/255, alpha: 0.6)
         myLightYellowColor = UIColor(red: 255/255, green: 236/255, blue: 28/255, alpha: 0.6)
         myLightGreenColor = UIColor(red: 33/255, green: 127/255, blue: 0/255, alpha: 0.6)
-        
     }
+    
     func getCurrentTopic() -> Topic? {
         let topics = realm.objects(Topic.self)
         for topic in topics{
@@ -65,6 +65,23 @@ class Util {
         return retArray.reverse()
     }
     
+    func getUnassignedColor() -> MyColor{
+        let colors = realm.objects(MyColor)
+        for color in colors {
+            if color.isAssignedTo.isEmpty {
+                return color
+            }
+        }
+        // create random new color
+        let newColor = MyColor()
+        newColor.red = Int(arc4random_uniform(256))
+        newColor.green = Int(arc4random_uniform(256))
+        newColor.blue = Int(arc4random_uniform(256))
+        realm.beginWrite()
+        realm.add(newColor)
+        try! realm.commitWrite()
+        return newColor
+    }
     
     
     

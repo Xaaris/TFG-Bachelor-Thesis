@@ -162,7 +162,15 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 
                 chartDataSet.highlightAlpha = 0.3
                 chartDataSet.highlightColor = UIColor.whiteColor()
-                chartDataSet.colors = [UIColor(red: 230/255, green: 126/255, blue: 34/255, alpha: 1)]
+                var chartColors: [UIColor] = []
+                for i in 0 ..< displayedStatistics.count {
+                    let topicColor = displayedStatistics[i].topic!.color!
+                    let topicUIColor = UIColor(red: CGFloat(topicColor.red)/255, green: CGFloat(topicColor.green)/255, blue: CGFloat(topicColor.blue)/255, alpha: 1)
+                    chartColors.append(topicUIColor)
+                }
+                print(chartColors)
+                chartDataSet.colors = chartColors
+//                chartDataSet.colors = [UIColor(red: 230/255, green: 126/255, blue: 34/255, alpha: 1)] //orange
                 barChartView.descriptionText = ""
                 barChartView.animate(yAxisDuration: 2.0, easingOption: .EaseInOutCubic)
                 barChartView.xAxis.labelPosition = .Bottom

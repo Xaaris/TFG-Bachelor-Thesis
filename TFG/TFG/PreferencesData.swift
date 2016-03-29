@@ -14,3 +14,13 @@ class Preference: Object{
     dynamic var lockSeconds = 2
 }
 
+class MyColor: Object {
+    dynamic var red = 0
+    dynamic var green = 0
+    dynamic var blue = 0
+    var isAssignedTo: [Topic] {
+        // Realm doesn't persist this property because it only has a getter defined
+        // Define "isAssignedTo" as the inverse relationship to Topic.Color
+        return linkingObjects(Topic.self, forProperty: "color")
+    }
+}

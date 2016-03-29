@@ -189,6 +189,7 @@ class ImportAndSaveHelper {
         topic.title = row["Question"]!.isEmpty ? "No title" : row["Question"]!
         topic.author = row["Hint"]!.isEmpty ? "No author" : row["Hint"]!
         topic.date = row["Feedback"]!.isEmpty ? "No Date" : row["Feedback"]!
+        topic.color = Util().getUnassignedColor()
         var universalTags = Set<String>()
         for tag in row.values{
             if !tag.isEmpty{
