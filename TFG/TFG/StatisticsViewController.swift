@@ -95,8 +95,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
             realm.add(topics)
             try! realm.commitWrite()
             
-            //TODO: update charts
-            setupBarChartView()
+            reloadBarChartData()
         }
     }
     
@@ -128,6 +127,30 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     func setupBarChartView(){
+        barChartView.descriptionText = ""
+        barChartView.animate(yAxisDuration: 2.0, easingOption: .EaseInOutCubic)
+        barChartView.xAxis.labelPosition = .Bottom
+        barChartView.xAxis.labelRotationAngle = -45
+        barChartView.xAxis.setLabelsToSkip(0)
+        barChartView.drawValueAboveBarEnabled = false
+        barChartView.setScaleEnabled(false)
+        barChartView.leftAxis.customAxisMin = 0
+        barChartView.leftAxis.customAxisMax = 100
+        barChartView.rightAxis.enabled = false
+        barChartView.leftAxis.enabled = false
+        barChartView.legend.enabled = false
+        //                barChartView.leftAxis.labelCount = 2
+        barChartView.leftAxis.drawGridLinesEnabled = false
+        barChartView.rightAxis.drawGridLinesEnabled = false
+        barChartView.xAxis.drawGridLinesEnabled = false
+        
+        //        let ll = ChartLimitLine(limit: 50)
+        //        barChartView.rightAxis.addLimitLine(ll)
+        
+        reloadBarChartData()
+    }
+    
+    func reloadBarChartData() {
         if Util().getCurrentTopic() == nil {
             barChartView.noDataText = "No topic selected"
         }else{
@@ -169,26 +192,8 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
                     chartColors.append(topicUIColor)
                 }
                 chartDataSet.colors = chartColors
-//                chartDataSet.colors = [UIColor(red: 230/255, green: 126/255, blue: 34/255, alpha: 1)] //orange
-                barChartView.descriptionText = ""
+                //                chartDataSet.colors = [UIColor(red: 230/255, green: 126/255, blue: 34/255, alpha: 1)] //orange
                 barChartView.animate(yAxisDuration: 2.0, easingOption: .EaseInOutCubic)
-                barChartView.xAxis.labelPosition = .Bottom
-                barChartView.xAxis.labelRotationAngle = -45
-                barChartView.xAxis.setLabelsToSkip(0)
-                barChartView.drawValueAboveBarEnabled = false
-                barChartView.setScaleEnabled(false)
-                barChartView.leftAxis.customAxisMin = 0
-                barChartView.leftAxis.customAxisMax = 100
-                barChartView.rightAxis.enabled = false
-                barChartView.leftAxis.enabled = false
-                barChartView.legend.enabled = false
-                barChartView.leftAxis.labelCount = 2
-                barChartView.leftAxis.drawGridLinesEnabled = false
-                barChartView.rightAxis.drawGridLinesEnabled = false
-                barChartView.xAxis.drawGridLinesEnabled = false
-                
-                //        let ll = ChartLimitLine(limit: 50)
-                //        barChartView.rightAxis.addLimitLine(ll)
             }else{
                 barChartView.clear()
             }
