@@ -22,6 +22,9 @@ class QuizFinishedViewController: PageViewContent{
     @IBAction func finishQuizButtonPressed(sender: AnyObject) {
         finishQuizButton.enabled = false
         revealAnswers()
+        let vc = parentViewController as! PresentQuestionPageViewController
+        vc.endTimeTracking()
+        saveToStatistics()
     }
     
     func revealAnswers(){
@@ -31,6 +34,25 @@ class QuizFinishedViewController: PageViewContent{
             question.isLocked = true
             realm.add(question)
         }
+        try! realm.commitWrite()
+    }
+    
+    func saveToStatistics(){
+        let questions = Util().getCurrentTopic()!.questions
+        var numberOfCorrectAnswers:Double = 0.0
+        for question in questions{
+            numberOfCorrectAnswers += question.answerScore
+        }
+        let score = numberOfCorrectAnswers
+        let vc = parentViewController as! PresentQuestionPageViewController
+        let stat = Statistic()
+        stat.topic = Util().getCurrentTopic()
+        stat.date = NSDate()
+        stat.score = score
+        stat.startTime = vc.startTime
+        stat.endTime = vc.endTime
+        realm.beginWrite()
+        realm.add(stat)
         try! realm.commitWrite()
     }
 

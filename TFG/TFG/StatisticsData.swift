@@ -27,6 +27,8 @@ class Statistic: Object{
             return 0
         }
     }
+    dynamic var startTime = NSDate()
+    dynamic var endTime = NSDate()
     
     
 }

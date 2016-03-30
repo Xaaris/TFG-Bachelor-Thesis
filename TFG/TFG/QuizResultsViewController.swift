@@ -22,8 +22,6 @@ class QuizResultsViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        saveToStatistics()
-        
         // setup scrollview
         let insets = UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0)
         scrollView.contentInset = insets
@@ -214,22 +212,6 @@ class QuizResultsViewController: UIViewController{
         xOutOfxLabel.text = "You got a score of \(Int(score))%"
     }
     
-    
-    func saveToStatistics(){
-        let questions = Util().getCurrentTopic()!.questions
-        var numberOfCorrectAnswers:Double = 0.0
-        for question in questions{
-            numberOfCorrectAnswers += question.answerScore
-        }
-        let score = numberOfCorrectAnswers
-        let stat = Statistic()
-        stat.topic = Util().getCurrentTopic()
-        stat.date = NSDate()
-        stat.score = score
-        realm.beginWrite()
-        realm.add(stat)
-        try! realm.commitWrite()
-    }
     
 }
 

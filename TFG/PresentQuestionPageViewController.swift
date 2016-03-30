@@ -12,12 +12,30 @@ class PresentQuestionPageViewController: UIPageViewController, UIPageViewControl
     
     var pageControl:UIPageControl! = UIPageControl()
     
+    var startTime = NSDate()
+    var endTime = NSDate()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         createPageViewController()
         setupPageControl()
         resetDataSet()
         self.view.backgroundColor = UIColor.whiteColor()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        startTimeTracking()
+    }
+    
+    func startTimeTracking(){
+        print("start got called")
+        startTime = NSDate()
+    }
+    
+    func endTimeTracking(){
+        print("end got called")
+        endTime = NSDate()
     }
     
     private func createPageViewController() {
@@ -137,8 +155,14 @@ class PageViewContent: UIViewController{
     }
     
     override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         let vc = parentViewController as! PresentQuestionPageViewController
         vc.updatePageController(pageIndex)
     }
     
+    
 }
+
+
+
+
