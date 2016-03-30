@@ -29,12 +29,10 @@ class PresentQuestionPageViewController: UIPageViewController, UIPageViewControl
     }
     
     func startTimeTracking(){
-        print("start got called")
         startTime = NSDate()
     }
     
     func endTimeTracking(){
-        print("end got called")
         endTime = NSDate()
     }
     
