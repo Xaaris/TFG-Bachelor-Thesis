@@ -18,6 +18,14 @@ class Topic: Object{
     var questions: [Question] {
         return linkingObjects(Question.self, forProperty: "topic")
     }
+    dynamic var timeStudied: Double { //Saved in seconds
+        var totalTime = 0.0
+        let stats = linkingObjects(Statistic.self, forProperty: "topic")
+        for stat in stats {
+            totalTime += stat.timeTaken
+        }
+        return totalTime
+    }
     
     override class func primaryKey() -> String {
         return "title"

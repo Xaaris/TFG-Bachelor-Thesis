@@ -30,6 +30,10 @@ class Statistic: Object{
     dynamic var startTime = NSDate()
     dynamic var endTime = NSDate()
     
+    dynamic var timeTaken: Double {
+        return endTime.timeIntervalSinceDate(startTime)
+    }
+    
     
 }
 

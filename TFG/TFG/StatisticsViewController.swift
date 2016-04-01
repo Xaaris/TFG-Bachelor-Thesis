@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  StatisticsViewController.swift
 //  TFG
 //
 //  Created by Johannes Berger on 14.02.16.
@@ -18,11 +18,12 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet weak var barChartTopicLabel: UILabel!
     @IBOutlet weak var barChartDateLabel: UILabel!
     @IBOutlet weak var barChartScoreLabel: UILabel!
+    @IBOutlet weak var pieChartView: PieChartView!
     
     var pickerValues:[String] = []
     var timer = NSTimer()
     var displayedStatistics: [Statistic] = []
-    var overviewWasSelected = false
+    var overviewWasSelected = true
     
     
     override func viewDidLoad() {
@@ -38,8 +39,18 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
         super.viewWillAppear(animated)
         updatePicker()
         updatePickerSelection()
+        setupCharts()
+        reloadCharts()
+    }
+    
+    func setupCharts(){
         setupBarChartView()
+        setupPieChartView()
+    }
+    
+    func reloadCharts(){
         reloadBarChartData(overviewWasSelected)
+        reloadPieChartData(overviewWasSelected)
     }
     
     func setupTopicPicker() {
@@ -101,11 +112,11 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
             try! realm.commitWrite()
             
             overviewWasSelected = false
-            reloadBarChartData(overviewWasSelected)
+            reloadCharts()
             barChartTopicLabel.hidden = true
         }else{
             overviewWasSelected = true
-            reloadBarChartData(overviewWasSelected)
+            reloadCharts()
             barChartTopicLabel.hidden = false
         }
     }
@@ -150,7 +161,6 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
         barChartView.rightAxis.enabled = false
         barChartView.leftAxis.enabled = false
         barChartView.legend.enabled = false
-        //                barChartView.leftAxis.labelCount = 2
         barChartView.leftAxis.drawGridLinesEnabled = false
         barChartView.rightAxis.drawGridLinesEnabled = false
         barChartView.xAxis.drawGridLinesEnabled = false
@@ -218,6 +228,46 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
             }
         }
         barChartView.setNeedsDisplay()
+    }
+    
+    func setupPieChartView() {
+        pieChartView.descriptionText = ""
+        pieChartView.animate(yAxisDuration: 2.0, easingOption: .EaseInOutCubic)
+//        pieChartView.drawHoleEnabled = false
+        pieChartView.drawSliceTextEnabled = false
+    }
+    
+    func reloadPieChartData(overview: Bool) {
+        
+        if Util().getCurrentTopic() == nil {
+            pieChartView.noDataText = "No topic selected"
+        }else{
+            pieChartView.noDataText = "No data yet"
+        }
+        
+        var dataEntries: [ChartDataEntry] = []
+        
+        if overview {
+            let topics = realm.objects(Topic)
+            var topicTitles: [String] = []
+            var colors: [UIColor] = []
+            var counter = 0
+            for topic in topics{
+                let dataEntry = ChartDataEntry(value: topic.timeStudied , xIndex: counter)
+                counter += 1
+                dataEntries.append(dataEntry)
+                topicTitles.append(topic.title)
+                let color = UIColor(red: CGFloat(topic.color!.red)/255, green: CGFloat(topic.color!.green)/255, blue: CGFloat(topic.color!.blue)/255, alpha: 1)
+                colors.append(color)
+            }
+            let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "")
+            pieChartDataSet.colors = colors
+            let pieChartData = PieChartData(xVals: topicTitles, dataSet: pieChartDataSet)
+            pieChartView.data = pieChartData
+            
+        }else{
+            
+        }
     }
     
     func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: ChartHighlight) {
