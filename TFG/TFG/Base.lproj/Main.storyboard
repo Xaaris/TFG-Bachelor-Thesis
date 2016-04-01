@@ -492,57 +492,73 @@ You made it to the end</string>
                                             <constraint firstAttribute="width" constant="320" id="pT7-cz-deq"/>
                                         </constraints>
                                     </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPV-OI-wli" customClass="BarChartView" customModule="Charts">
-                                        <rect key="frame" x="140" y="299" width="320" height="250"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="250" id="VkX-Gj-aMS"/>
-                                            <constraint firstAttribute="width" constant="320" id="pDG-uw-T3s"/>
-                                        </constraints>
-                                    </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pYQ-Ky-xpa">
-                                        <rect key="frame" x="160" y="549" width="166" height="64"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nAy-UB-tJP">
+                                        <rect key="frame" x="140" y="299" width="320" height="671"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Topic: No topic selected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A02-YA-7tn">
-                                                <rect key="frame" x="0.0" y="0.0" width="166" height="18"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPV-OI-wli" customClass="BarChartView" customModule="Charts">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="250" id="VkX-Gj-aMS"/>
+                                                    <constraint firstAttribute="width" constant="320" id="pDG-uw-T3s"/>
+                                                </constraints>
+                                            </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="pYQ-Ky-xpa">
+                                                <rect key="frame" x="77" y="250" width="166" height="60"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Topic: No topic selected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A02-YA-7tn">
+                                                        <rect key="frame" x="0.0" y="0.0" width="166" height="20"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date: No data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExB-wX-pEd">
+                                                        <rect key="frame" x="0.0" y="20" width="95" height="20"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: No data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21D-JE-iSV">
+                                                        <rect key="frame" x="0.0" y="40" width="102" height="20"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="xIQ-5p-pa4"/>
+                                                </constraints>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oez-lY-uDA" userLabel="Time studied per topic in minutes">
+                                                <rect key="frame" x="27" y="310" width="266" height="41"/>
+                                                <string key="text">
+Time studied per topic in minutes</string>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date: No data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExB-wX-pEd">
-                                                <rect key="frame" x="0.0" y="23" width="95" height="18"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: No data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21D-JE-iSV">
-                                                <rect key="frame" x="0.0" y="46" width="102" height="18"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="beQ-OL-thJ" customClass="PieChartView" customModule="Charts">
+                                                <rect key="frame" x="0.0" y="351" width="320" height="320"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="320" id="IS8-CQ-1ab"/>
+                                                    <constraint firstAttribute="height" constant="320" id="Qwv-CB-U6T"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
-                                    </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="beQ-OL-thJ" customClass="PieChartView" customModule="Charts">
-                                        <rect key="frame" x="140" y="623" width="320" height="320"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="320" id="Qwv-CB-U6T"/>
+                                            <constraint firstAttribute="width" constant="320" id="oAT-Og-oTw"/>
+                                            <constraint firstAttribute="height" constant="671" id="vr7-cb-Gbl"/>
                                         </constraints>
-                                    </view>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="beQ-OL-thJ" firstAttribute="centerX" secondItem="oG5-ru-jSv" secondAttribute="centerX" id="2VQ-6Q-nUT"/>
-                                    <constraint firstAttribute="bottom" secondItem="beQ-OL-thJ" secondAttribute="bottom" constant="50" id="8Zf-aN-Ugj"/>
-                                    <constraint firstItem="pYQ-Ky-xpa" firstAttribute="leading" secondItem="mPV-OI-wli" secondAttribute="leading" constant="20" id="IY3-Wd-yTM"/>
-                                    <constraint firstItem="pYQ-Ky-xpa" firstAttribute="top" secondItem="mPV-OI-wli" secondAttribute="bottom" id="IuE-FJ-gKl"/>
-                                    <constraint firstItem="beQ-OL-thJ" firstAttribute="leading" secondItem="mPV-OI-wli" secondAttribute="leading" id="NMr-GV-p1l"/>
+                                    <constraint firstItem="nAy-UB-tJP" firstAttribute="top" secondItem="AEE-h6-RNO" secondAttribute="bottom" constant="8" id="AII-0v-3o7"/>
                                     <constraint firstItem="AEE-h6-RNO" firstAttribute="centerX" secondItem="oG5-ru-jSv" secondAttribute="centerX" id="R3p-6n-e7K"/>
-                                    <constraint firstItem="beQ-OL-thJ" firstAttribute="top" secondItem="pYQ-Ky-xpa" secondAttribute="bottom" constant="10" id="b66-rH-S7C"/>
+                                    <constraint firstAttribute="bottom" secondItem="nAy-UB-tJP" secondAttribute="bottom" constant="50" id="UwF-4H-tcM"/>
                                     <constraint firstItem="AEE-h6-RNO" firstAttribute="top" secondItem="oG5-ru-jSv" secondAttribute="top" constant="20" id="dCh-bW-KXh"/>
-                                    <constraint firstItem="mPV-OI-wli" firstAttribute="top" secondItem="AEE-h6-RNO" secondAttribute="bottom" constant="8" id="kgt-cl-oFV"/>
+                                    <constraint firstItem="nAy-UB-tJP" firstAttribute="centerX" secondItem="AEE-h6-RNO" secondAttribute="centerX" id="hwt-UG-4MQ"/>
                                     <constraint firstAttribute="trailing" secondItem="AEE-h6-RNO" secondAttribute="trailing" id="sme-es-PG7"/>
-                                    <constraint firstItem="mPV-OI-wli" firstAttribute="centerX" secondItem="oG5-ru-jSv" secondAttribute="centerX" id="zZC-VX-mKz"/>
                                 </constraints>
                             </scrollView>
                         </subviews>

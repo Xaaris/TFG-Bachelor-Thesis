@@ -253,7 +253,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
             var colors: [UIColor] = []
             var counter = 0
             for topic in topics{
-                let dataEntry = ChartDataEntry(value: topic.timeStudied , xIndex: counter)
+                let dataEntry = ChartDataEntry(value: topic.timeStudied / 60 , xIndex: counter) // in minutes
                 counter += 1
                 dataEntries.append(dataEntry)
                 topicTitles.append(topic.title)
