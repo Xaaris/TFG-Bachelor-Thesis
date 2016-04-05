@@ -210,6 +210,10 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 }
                 let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "Prozent")
                 let chartData = BarChartData(xVals: dates, dataSet: chartDataSet)
+                let numberFormatter = NSNumberFormatter()
+                numberFormatter.minimumIntegerDigits = 1
+                numberFormatter.maximumFractionDigits = 1
+                chartData.setValueFormatter(numberFormatter)
                 barChartView.data = chartData
                 
                 chartDataSet.highlightAlpha = 0.3
@@ -246,11 +250,11 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }
         
         var dataEntries: [ChartDataEntry] = []
+        var colors: [UIColor] = []
         
         if overview {
             let topics = realm.objects(Topic)
             var topicTitles: [String] = []
-            var colors: [UIColor] = []
             var counter = 0
             for topic in topics{
                 let dataEntry = ChartDataEntry(value: topic.timeStudied / 60 , xIndex: counter) // in minutes
@@ -263,13 +267,38 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
             let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "")
             pieChartDataSet.colors = colors
             let pieChartData = PieChartData(xVals: topicTitles, dataSet: pieChartDataSet)
+            let numberFormatter = NSNumberFormatter()
+            numberFormatter.minimumIntegerDigits = 1
+            numberFormatter.maximumFractionDigits = 1
+            pieChartData.setValueFormatter(numberFormatter)
             pieChartView.data = pieChartData
             
         }else{
-            
+            //does not work yet because the data gets not saved yet
+//            var answerScores: [Double] = [0,0,0] //[wrongAnswers][partlyCorrectAnswers][correctAnswers]
+//            for stat in displayedStatistics{
+//                if stat.percentageScore == 0 {
+//                    answerScores[0] += 1
+//                }else if stat.percentageScore < 100 {
+//                    answerScores[1] += 1
+//                }else{
+//                    answerScores[2] += 1
+//                }
+//            }
+//            for i in 0 ..< answerScores.count{
+//                let dataEntry = ChartDataEntry(value: answerScores[i] , xIndex: i)
+//                dataEntries.append(dataEntry)
+//            }
+//            colors.append(Util().myLightRedColor)
+//            colors.append(Util().myLightYellowColor)
+//            colors.append(Util().myLightGreenColor)
+//            let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "")
+//            pieChartDataSet.colors = colors
+//            let pieChartData = PieChartData(xVals: ["Wrong answers", "Partly correct answers", "Correct answers"], dataSet: pieChartDataSet)
+//            pieChartView.data = pieChartData
         }
     }
-    
+
     func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: ChartHighlight) {
         let statistic = displayedStatistics[entry.xIndex]
         let dateFormatter = NSDateFormatter()
