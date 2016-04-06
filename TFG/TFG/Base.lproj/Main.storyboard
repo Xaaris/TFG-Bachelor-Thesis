@@ -34,7 +34,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqh-AO-gPO">
                                                 <rect key="frame" x="20" y="41" width="97" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -546,7 +546,7 @@ You made it to the end</string>
                                                 <string key="text">
 Time studied per topic in minutes</string>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="beQ-OL-thJ" customClass="PieChartView" customModule="Charts">
@@ -598,6 +598,101 @@ Time studied per topic in minutes</string>
             </objects>
             <point key="canvasLocation" x="750" y="394"/>
         </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="GKS-Xq-Mvr">
+            <objects>
+                <viewController id="T25-0M-O5p" customClass="SignUpViewController" customModule="TFG" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Ii-Nh-cup"/>
+                        <viewControllerLayoutGuide type="bottom" id="SPF-6f-eTg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yaA-ck-74V">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="RFk-UD-xYw">
+                                <rect key="frame" x="240" y="35" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="Ing-ej-Qac"/>
+                                    <constraint firstAttribute="width" constant="120" id="XQF-X5-fDI"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3fg-eu-rVj">
+                                <rect key="frame" x="178" y="170" width="245" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="245" id="bIy-Ew-fKf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yJc-q9-oFG">
+                                <rect key="frame" x="178" y="210" width="245" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="245" id="GPS-ba-Kvn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hE8-47-Q4d">
+                                <rect key="frame" x="250" y="300" width="100" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="9Jl-rJ-dEw"/>
+                                    <constraint firstAttribute="width" constant="100" id="blm-eQ-8tz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <state key="normal" title="Sign Up" backgroundImage="ButtonBackground">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="RoE-8B-I3c" eventType="touchUpInside" id="Uvs-tg-H41"/>
+                                    <action selector="signUpButtonPressed:" destination="T25-0M-O5p" eventType="touchUpInside" id="UJQ-ny-nfx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eD3-Ft-hZO">
+                                <rect key="frame" x="545" y="30" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="bGx-MH-wHO"/>
+                                    <constraint firstAttribute="height" constant="35" id="yrF-bf-fC3"/>
+                                </constraints>
+                                <state key="normal" image="Close"/>
+                                <connections>
+                                    <segue destination="seu-1b-eDg" kind="unwind" unwindAction="unwindToLogInScreen:" id="3xS-eP-f8k"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N23-5M-BwD">
+                                <rect key="frame" x="178" y="250" width="245" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yJc-q9-oFG" firstAttribute="centerX" secondItem="3fg-eu-rVj" secondAttribute="centerX" id="86i-4V-gQ8"/>
+                            <constraint firstItem="yJc-q9-oFG" firstAttribute="top" secondItem="3fg-eu-rVj" secondAttribute="bottom" constant="10" id="8S8-Nd-ukO"/>
+                            <constraint firstItem="N23-5M-BwD" firstAttribute="width" secondItem="yJc-q9-oFG" secondAttribute="width" id="EQ9-tf-RsE"/>
+                            <constraint firstItem="RFk-UD-xYw" firstAttribute="centerX" secondItem="yaA-ck-74V" secondAttribute="centerX" id="Nvm-DR-a2a"/>
+                            <constraint firstItem="N23-5M-BwD" firstAttribute="centerX" secondItem="yJc-q9-oFG" secondAttribute="centerX" id="QD2-t7-zzB"/>
+                            <constraint firstItem="eD3-Ft-hZO" firstAttribute="top" secondItem="3Ii-Nh-cup" secondAttribute="bottom" constant="10" id="VZM-cY-m4a"/>
+                            <constraint firstItem="N23-5M-BwD" firstAttribute="top" secondItem="yJc-q9-oFG" secondAttribute="bottom" constant="10" id="daO-bZ-kW2"/>
+                            <constraint firstItem="hE8-47-Q4d" firstAttribute="top" secondItem="N23-5M-BwD" secondAttribute="bottom" constant="20" id="eEJ-Vw-6UV"/>
+                            <constraint firstItem="3fg-eu-rVj" firstAttribute="centerX" secondItem="RFk-UD-xYw" secondAttribute="centerX" id="lai-d9-kWP"/>
+                            <constraint firstItem="RFk-UD-xYw" firstAttribute="top" secondItem="3Ii-Nh-cup" secondAttribute="bottom" constant="15" id="mh1-bC-YGc"/>
+                            <constraint firstItem="3fg-eu-rVj" firstAttribute="top" secondItem="RFk-UD-xYw" secondAttribute="bottom" constant="15" id="owa-Kn-xhj"/>
+                            <constraint firstItem="hE8-47-Q4d" firstAttribute="centerX" secondItem="N23-5M-BwD" secondAttribute="centerX" id="u9g-p7-5N4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eD3-Ft-hZO" secondAttribute="trailing" id="vZ0-IV-gL8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailField" destination="yJc-q9-oFG" id="Wok-AP-fGP"/>
+                        <outlet property="passwordField" destination="N23-5M-BwD" id="4RL-PV-AVM"/>
+                        <outlet property="usernameField" destination="3fg-eu-rVj" id="0uK-wz-Cmh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sfq-JA-Ece" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="seu-1b-eDg" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-785" y="-650"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="2QA-Rc-Ven">
             <objects>
@@ -614,7 +709,7 @@ Time studied per topic in minutes</string>
                                 <rect key="frame" x="20" y="20" width="560" height="560"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gwv-2n-L6b">
-                                        <rect key="frame" x="158" y="44" width="245" height="30"/>
+                                        <rect key="frame" x="158" y="170" width="245" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="245" id="VBG-dJ-ODP"/>
                                         </constraints>
@@ -622,12 +717,12 @@ Time studied per topic in minutes</string>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pNK-O3-T0W">
-                                        <rect key="frame" x="158" y="94" width="245" height="30"/>
+                                        <rect key="frame" x="158" y="220" width="245" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cjN-oz-oTX">
-                                        <rect key="frame" x="230" y="150" width="100" height="50"/>
+                                        <rect key="frame" x="230" y="276" width="100" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="GLO-sb-H8A"/>
                                             <constraint firstAttribute="width" constant="100" id="VlQ-tc-oIN"/>
@@ -641,27 +736,39 @@ Time studied per topic in minutes</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nHp-L4-iyU">
-                                        <rect key="frame" x="229" y="306" width="101" height="27"/>
+                                        <rect key="frame" x="229" y="432" width="101" height="27"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="Forgot Password?"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mS7-rl-WWG">
-                                        <rect key="frame" x="245" y="237" width="70" height="35"/>
+                                        <rect key="frame" x="245" y="363" width="70" height="35"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                         <state key="normal" title="Sign Up"/>
+                                        <connections>
+                                            <segue destination="T25-0M-O5p" kind="show" id="mFc-F4-koU"/>
+                                        </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="8Yz-Ze-3lJ">
+                                        <rect key="frame" x="220" y="23" width="120" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="ave-fR-9F8"/>
+                                            <constraint firstAttribute="width" constant="120" id="p11-zx-WKQ"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="cjN-oz-oTX" firstAttribute="top" secondItem="pNK-O3-T0W" secondAttribute="bottom" constant="26" id="6hl-8I-0Uj"/>
+                                    <constraint firstItem="gwv-2n-L6b" firstAttribute="top" secondItem="8Yz-Ze-3lJ" secondAttribute="bottom" constant="27" id="8EQ-ut-ljx"/>
                                     <constraint firstItem="pNK-O3-T0W" firstAttribute="width" secondItem="gwv-2n-L6b" secondAttribute="width" id="8Xc-tR-WWc"/>
                                     <constraint firstItem="pNK-O3-T0W" firstAttribute="top" secondItem="gwv-2n-L6b" secondAttribute="bottom" constant="20" id="IyI-pL-gEm"/>
                                     <constraint firstItem="nHp-L4-iyU" firstAttribute="top" secondItem="mS7-rl-WWG" secondAttribute="bottom" constant="34" id="LDM-TT-37E"/>
                                     <constraint firstItem="gwv-2n-L6b" firstAttribute="centerX" secondItem="pyS-Vy-awI" secondAttribute="centerX" id="Wvv-FA-SaN"/>
                                     <constraint firstItem="nHp-L4-iyU" firstAttribute="centerX" secondItem="mS7-rl-WWG" secondAttribute="centerX" id="Y5D-bA-MKU"/>
-                                    <constraint firstItem="gwv-2n-L6b" firstAttribute="top" secondItem="pyS-Vy-awI" secondAttribute="top" constant="44" id="ZSm-TI-6jV"/>
+                                    <constraint firstItem="gwv-2n-L6b" firstAttribute="top" secondItem="pyS-Vy-awI" secondAttribute="top" constant="170" id="ZSm-TI-6jV"/>
                                     <constraint firstItem="mS7-rl-WWG" firstAttribute="top" secondItem="cjN-oz-oTX" secondAttribute="bottom" constant="37" id="Zjh-uT-Jw0"/>
                                     <constraint firstItem="mS7-rl-WWG" firstAttribute="centerX" secondItem="cjN-oz-oTX" secondAttribute="centerX" id="g4u-i4-CYg"/>
                                     <constraint firstItem="pNK-O3-T0W" firstAttribute="centerX" secondItem="gwv-2n-L6b" secondAttribute="centerX" id="ja7-ab-hG6"/>
+                                    <constraint firstItem="8Yz-Ze-3lJ" firstAttribute="centerX" secondItem="pyS-Vy-awI" secondAttribute="centerX" id="lJ4-mt-2vj"/>
                                     <constraint firstItem="cjN-oz-oTX" firstAttribute="centerX" secondItem="pNK-O3-T0W" secondAttribute="centerX" id="wox-uq-c6U"/>
                                 </constraints>
                             </view>
@@ -942,7 +1049,9 @@ Time studied per topic in minutes</string>
         <image name="AnswerChooserSingelChoiceLockedSelected" width="64" height="64"/>
         <image name="ButtonBackground" width="19" height="19"/>
         <image name="ButtonBackgroundSelected" width="18" height="18"/>
+        <image name="Close" width="25" height="25"/>
         <image name="Home" width="25" height="25"/>
+        <image name="Logo" width="120" height="120"/>
         <image name="Preferences" width="25" height="25"/>
         <image name="Statistics" width="25" height="25"/>
     </resources>

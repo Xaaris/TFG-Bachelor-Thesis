@@ -17,9 +17,6 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Main View")
-        if let pUserName = PFUser.currentUser()?["username"] as? String {
-            self.userNameLabel.text = pUserName
-        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -41,7 +38,11 @@ class MainViewController: UIViewController {
         }else{
             topicLabel.text = "No topic selected"
         }
+        if let pUserName = PFUser.currentUser()?["username"] as? String {
+            self.userNameLabel.text = pUserName
+        }
     }
+    
     @IBAction func startButtonPressed(sender: AnyObject) {
         if Util().getCurrentTopic() != nil{
             let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PageController") as! PresentQuestionPageViewController

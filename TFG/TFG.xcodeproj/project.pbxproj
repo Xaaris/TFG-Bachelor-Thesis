@@ -38,6 +38,8 @@
 		3BF5B7211C862D9C007C88B2 /* SingleChoiceQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5B7201C862D9C007C88B2 /* SingleChoiceQuestion.swift */; };
 		3BF5B7231C863282007C88B2 /* MultiChoiceQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5B7221C863282007C88B2 /* MultiChoiceQuestion.swift */; };
 		3BF5B7251C86711F007C88B2 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 3BF5B7241C86711F007C88B2 /* .gitignore */; };
+		3BF72CA71CB5C58E0079F71D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF72CA61CB5C58E0079F71D /* SignUpViewController.swift */; };
+		3BF72CAC1CB5C8850079F71D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF72CAB1CB5C8850079F71D /* Extensions.swift */; };
 		EF1E47AA7922AE71ED63107C /* Pods_TFG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC516EB9D753112F05F79500 /* Pods_TFG.framework */; };
 /* End PBXBuildFile section */
 
@@ -127,6 +129,8 @@
 		3BF5B7221C863282007C88B2 /* MultiChoiceQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiChoiceQuestion.swift; sourceTree = "<group>"; };
 		3BF5B7241C86711F007C88B2 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
 		3BF5B72D1C8678FC007C88B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		3BF72CA61CB5C58E0079F71D /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		3BF72CAB1CB5C8850079F71D /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4FCA81EB76CEF62732AD7F75 /* Pods-TFG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TFG.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TFG/Pods-TFG.debug.xcconfig"; sourceTree = "<group>"; };
 		A53E96677E59CAF561D5552A /* Pods-TFG.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TFG.release.xcconfig"; path = "Pods/Target Support Files/Pods-TFG/Pods-TFG.release.xcconfig"; sourceTree = "<group>"; };
 		CC516EB9D753112F05F79500 /* Pods_TFG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TFG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +193,7 @@
 			children = (
 				3BC8B4181C70F251000FD25D /* MainViewController.swift */,
 				3BB361031CB49DD300356004 /* LoginViewController.swift */,
+				3BF72CA61CB5C58E0079F71D /* SignUpViewController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -196,6 +201,7 @@
 		3BB361091CB4AF8C00356004 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				3BF72CAB1CB5C8850079F71D /* Extensions.swift */,
 				3BE4BA311C7FDBE30053EC96 /* Util.swift */,
 				3B6CC8261C9A34B3001A1FE3 /* CircleProgressView.swift */,
 			);
@@ -469,7 +475,9 @@
 				3BC8B4191C70F251000FD25D /* MainViewController.swift in Sources */,
 				3BBD15A01C7A18C500672569 /* QuestionData.swift in Sources */,
 				3BE4BA2E1C7FCB940053EC96 /* PresentQuestionPageViewController.swift in Sources */,
+				3BF72CAC1CB5C8850079F71D /* Extensions.swift in Sources */,
 				3BE4BA321C7FDBE30053EC96 /* Util.swift in Sources */,
+				3BF72CA71CB5C58E0079F71D /* SignUpViewController.swift in Sources */,
 				3BF5B7211C862D9C007C88B2 /* SingleChoiceQuestion.swift in Sources */,
 				3BC8B42B1C723581000FD25D /* PreferencesViewController.swift in Sources */,
 				3BE4BA391C80E5970053EC96 /* QuizFinishedViewController.swift in Sources */,
