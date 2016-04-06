@@ -184,6 +184,33 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		3BB361081CB4AF7300356004 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3BC8B4181C70F251000FD25D /* MainViewController.swift */,
+				3BB361031CB49DD300356004 /* LoginViewController.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		3BB361091CB4AF8C00356004 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				3BE4BA311C7FDBE30053EC96 /* Util.swift */,
+				3B6CC8261C9A34B3001A1FE3 /* CircleProgressView.swift */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		3BB3610A1CB4AF9D00356004 /* Import */ = {
+			isa = PBXGroup;
+			children = (
+				3B7F65161C78F97F00BE0812 /* CSVImporter.swift */,
+				3BBD159D1C7A081C00672569 /* ChooseTopicViewController.swift */,
+			);
+			name = Import;
+			sourceTree = "<group>";
+		};
 		3BC8B40A1C70F251000FD25D = {
 			isa = PBXGroup;
 			children = (
@@ -208,20 +235,16 @@
 		3BC8B4151C70F251000FD25D /* TFG */ = {
 			isa = PBXGroup;
 			children = (
+				3BC8B4161C70F251000FD25D /* AppDelegate.swift */,
 				3BBD159B1C79E68F00672569 /* Sample1.csv */,
 				3BF5B7131C8366D2007C88B2 /* Sample2.csv */,
-				3B7F65161C78F97F00BE0812 /* CSVImporter.swift */,
-				3BC8B4161C70F251000FD25D /* AppDelegate.swift */,
-				3BC8B4181C70F251000FD25D /* MainViewController.swift */,
-				3BBD159D1C7A081C00672569 /* ChooseTopicViewController.swift */,
-				3BBD159F1C7A18C500672569 /* QuestionData.swift */,
+				3BB3610A1CB4AF9D00356004 /* Import */,
+				3BB361081CB4AF7300356004 /* Home */,
 				3B2520041CA5DBC0008B6CA7 /* Statistics */,
 				3BF5B71F1C85F79D007C88B2 /* Quiz View */,
 				3B238D931C890BDD00E71EA3 /* Preferences View */,
-				3BE4BA311C7FDBE30053EC96 /* Util.swift */,
-				3B6CC8261C9A34B3001A1FE3 /* CircleProgressView.swift */,
+				3BB361091CB4AF8C00356004 /* Util */,
 				3BC8B41C1C70F251000FD25D /* Main.storyboard */,
-				3BB361031CB49DD300356004 /* LoginViewController.swift */,
 				3BC8B41F1C70F251000FD25D /* Assets.xcassets */,
 				3BC8B4211C70F251000FD25D /* LaunchScreen.storyboard */,
 				3BC8B4241C70F251000FD25D /* Info.plist */,
@@ -233,6 +256,7 @@
 		3BF5B71F1C85F79D007C88B2 /* Quiz View */ = {
 			isa = PBXGroup;
 			children = (
+				3BBD159F1C7A18C500672569 /* QuestionData.swift */,
 				3BE4BA2D1C7FCB940053EC96 /* PresentQuestionPageViewController.swift */,
 				3BE4BA2F1C7FD9A60053EC96 /* QuestionContentViewController.swift */,
 				3BF5B7201C862D9C007C88B2 /* SingleChoiceQuestion.swift */,

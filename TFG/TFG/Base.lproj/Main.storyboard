@@ -646,8 +646,8 @@ Time studied per topic in minutes</string>
                                         <state key="normal" title="Forgot Password?"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mS7-rl-WWG">
-                                        <rect key="frame" x="246" y="237" width="68" height="35"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <rect key="frame" x="245" y="237" width="70" height="35"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                         <state key="normal" title="Sign Up"/>
                                     </button>
                                 </subviews>
