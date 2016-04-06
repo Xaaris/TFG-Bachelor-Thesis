@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class PreferencesViewController: UIViewController {
     
@@ -16,6 +17,7 @@ class PreferencesViewController: UIViewController {
     @IBOutlet weak var secondsLabel: UILabel!
     @IBOutlet weak var lockSecondsSlider: UISlider!
     
+    var activityIndicator = UIActivityIndicatorView()
     var pref: Preference!
     
     
@@ -74,6 +76,40 @@ class PreferencesViewController: UIViewController {
         let allStatistics = realm.objects(Statistic)
         try! realm.write {
             realm.delete(allStatistics)
+        }
+    }
+    
+    @IBAction func logOutButtonPressed(sender: AnyObject) {
+        let alertController = UIAlertController(title: "Log Out?", message:
+            "Are you sure you want to log out?", preferredStyle: UIAlertControllerStyle.Alert)
+        let deleteAction = UIAlertAction(title: "Log Out", style: .Destructive) { (action) in
+            self.logOut()
+        }
+        alertController.addAction(deleteAction)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func logOut(){
+        // Run a spinner to show a task in progress
+        activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0,100,100))
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = .Gray
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+        // Send a request to log out a user
+        PFUser.logOutInBackgroundWithBlock { (error) in
+            // Stop the spinner
+            self.activityIndicator.stopAnimating()
+            UIApplication.sharedApplication().endIgnoringInteractionEvents()
+            
+            //show home view
+            let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("Home") as! UITabBarController
+            homeVC.selectedIndex = 0 // Home View
+            self.presentViewController(homeVC, animated: true, completion: nil)
         }
     }
 }

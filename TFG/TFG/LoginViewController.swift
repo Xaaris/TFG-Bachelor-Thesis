@@ -38,7 +38,7 @@ class LoginViewController: UIViewController {
             showAlert("Invalid", message: "Password must be greater than 8 characters")
         } else {
             // Run a spinner to show a task in progress
-            activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0,50,50))
+            activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0,100,100))
             activityIndicator.center = self.view.center
             activityIndicator.hidesWhenStopped = true
             activityIndicator.activityIndicatorViewStyle = .Gray
