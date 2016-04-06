@@ -12,15 +12,27 @@ import Parse
 class MainViewController: UIViewController {
     
     @IBOutlet weak var topicLabel: UILabel!
+    @IBOutlet weak var userNameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Main View")
+        if let pUserName = PFUser.currentUser()?["username"] as? String {
+            self.userNameLabel.text = pUserName
+        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        //Show Login view
+        if (PFUser.currentUser() == nil) {
+            let loginVC = self.storyboard?.instantiateViewControllerWithIdentifier("Login")
+            self.presentViewController(loginVC!, animated: true, completion: nil)
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
