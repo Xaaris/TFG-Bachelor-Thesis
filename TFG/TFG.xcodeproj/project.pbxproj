@@ -40,6 +40,7 @@
 		3BF5B7251C86711F007C88B2 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 3BF5B7241C86711F007C88B2 /* .gitignore */; };
 		3BF72CA71CB5C58E0079F71D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF72CA61CB5C58E0079F71D /* SignUpViewController.swift */; };
 		3BF72CAC1CB5C8850079F71D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF72CAB1CB5C8850079F71D /* Extensions.swift */; };
+		3BF72CB01CB5D3D40079F71D /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF72CAF1CB5D3D40079F71D /* ForgotPasswordViewController.swift */; };
 		EF1E47AA7922AE71ED63107C /* Pods_TFG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC516EB9D753112F05F79500 /* Pods_TFG.framework */; };
 /* End PBXBuildFile section */
 
@@ -131,6 +132,7 @@
 		3BF5B72D1C8678FC007C88B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		3BF72CA61CB5C58E0079F71D /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3BF72CAB1CB5C8850079F71D /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		3BF72CAF1CB5D3D40079F71D /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		4FCA81EB76CEF62732AD7F75 /* Pods-TFG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TFG.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TFG/Pods-TFG.debug.xcconfig"; sourceTree = "<group>"; };
 		A53E96677E59CAF561D5552A /* Pods-TFG.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TFG.release.xcconfig"; path = "Pods/Target Support Files/Pods-TFG/Pods-TFG.release.xcconfig"; sourceTree = "<group>"; };
 		CC516EB9D753112F05F79500 /* Pods_TFG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TFG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +196,7 @@
 				3BC8B4181C70F251000FD25D /* MainViewController.swift */,
 				3BB361031CB49DD300356004 /* LoginViewController.swift */,
 				3BF72CA61CB5C58E0079F71D /* SignUpViewController.swift */,
+				3BF72CAF1CB5D3D40079F71D /* ForgotPasswordViewController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 			files = (
 				3BF5B7231C863282007C88B2 /* MultiChoiceQuestion.swift in Sources */,
 				3B7F65171C78F97F00BE0812 /* CSVImporter.swift in Sources */,
+				3BF72CB01CB5D3D40079F71D /* ForgotPasswordViewController.swift in Sources */,
 				3BBD159E1C7A081C00672569 /* ChooseTopicViewController.swift in Sources */,
 				3BC8B41B1C70F251000FD25D /* StatisticsViewController.swift in Sources */,
 				3BB361041CB49DD300356004 /* LoginViewController.swift in Sources */,

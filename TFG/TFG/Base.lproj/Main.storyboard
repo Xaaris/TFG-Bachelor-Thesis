@@ -739,6 +739,9 @@ Time studied per topic in minutes</string>
                                         <rect key="frame" x="229" y="432" width="101" height="27"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="Forgot Password?"/>
+                                        <connections>
+                                            <segue destination="z6d-LU-Syu" kind="show" id="b4S-4K-JKZ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mS7-rl-WWG">
                                         <rect key="frame" x="245" y="363" width="70" height="35"/>
@@ -814,6 +817,81 @@ Time studied per topic in minutes</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <!--Forgot Password View Controller-->
+        <scene sceneID="ztn-sp-kou">
+            <objects>
+                <viewController id="z6d-LU-Syu" customClass="ForgotPasswordViewController" customModule="TFG" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5hP-j9-zMd"/>
+                        <viewControllerLayoutGuide type="bottom" id="1Bq-aK-h6a"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QWx-cr-UDd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="hoq-Jd-bDN">
+                                <rect key="frame" x="240" y="45" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="SgP-LZ-wT4"/>
+                                    <constraint firstAttribute="height" constant="120" id="fi5-8Y-yWR"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQT-Qv-wFu">
+                                <rect key="frame" x="206" y="240" width="190" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="UdS-Wk-3NW"/>
+                                    <constraint firstAttribute="width" constant="190" id="aV1-3F-zhe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <state key="normal" title="Reset Password" backgroundImage="ButtonBackground">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="RoE-8B-I3c" eventType="touchUpInside" id="jfH-N3-Ri9"/>
+                                    <action selector="passwordResetButtonPressed:" destination="z6d-LU-Syu" eventType="touchUpInside" id="oTp-yv-mph"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aB1-38-MbH">
+                                <rect key="frame" x="545" y="30" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="oza-rK-ZB4"/>
+                                    <constraint firstAttribute="width" constant="35" id="pJG-mO-ctq"/>
+                                </constraints>
+                                <state key="normal" image="Close"/>
+                                <connections>
+                                    <segue destination="5Yh-gt-1PR" kind="unwind" unwindAction="unwindToLogInScreen:" id="fQ7-bS-Oi7"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DLl-X6-v9k">
+                                <rect key="frame" x="178" y="190" width="245" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="245" id="rzH-yj-cCi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DLl-X6-v9k" firstAttribute="centerX" secondItem="hoq-Jd-bDN" secondAttribute="centerX" id="11U-p3-hJf"/>
+                            <constraint firstItem="hoq-Jd-bDN" firstAttribute="top" secondItem="5hP-j9-zMd" secondAttribute="bottom" constant="25" id="DKf-qH-uPN"/>
+                            <constraint firstItem="DLl-X6-v9k" firstAttribute="top" secondItem="hoq-Jd-bDN" secondAttribute="bottom" constant="25" id="FSO-Xv-zf0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aB1-38-MbH" secondAttribute="trailing" id="KYE-4Y-qXi"/>
+                            <constraint firstItem="hoq-Jd-bDN" firstAttribute="centerX" secondItem="QWx-cr-UDd" secondAttribute="centerX" id="Qpc-Wx-oCB"/>
+                            <constraint firstItem="aB1-38-MbH" firstAttribute="top" secondItem="5hP-j9-zMd" secondAttribute="bottom" constant="10" id="SWu-2P-JDa"/>
+                            <constraint firstItem="VQT-Qv-wFu" firstAttribute="top" secondItem="DLl-X6-v9k" secondAttribute="bottom" constant="20" id="Vv3-OH-Wuj"/>
+                            <constraint firstItem="VQT-Qv-wFu" firstAttribute="centerX" secondItem="DLl-X6-v9k" secondAttribute="centerX" id="sJ8-G9-acy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailField" destination="DLl-X6-v9k" id="b0m-ZN-2jD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BL2-eK-Ss6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="5Yh-gt-1PR" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-785" y="656"/>
         </scene>
         <!--Preferences-->
         <scene sceneID="NOz-Nd-5Q0">
