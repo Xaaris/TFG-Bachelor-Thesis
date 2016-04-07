@@ -23,6 +23,7 @@ class LoginViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         //Dismiss Login view if sign up successful
         if (PFUser.currentUser() != nil) {
+            dismissKeyboard()
             self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
@@ -49,6 +50,7 @@ class LoginViewController: UIViewController {
                 UIApplication.sharedApplication().endIgnoringInteractionEvents()
                 
                 if ((user) != nil) {
+                    self.dismissKeyboard()
                     self.dismissViewControllerAnimated(true, completion: nil)
                 } else {
                     self.showAlert("Error", message: "\(error!.userInfo["error"] as! String)")

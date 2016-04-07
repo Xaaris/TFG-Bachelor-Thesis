@@ -16,8 +16,8 @@ class PreferencesViewController: UIViewController {
     @IBOutlet weak var secondsBeforeLockLabel: UILabel!
     @IBOutlet weak var secondsLabel: UILabel!
     @IBOutlet weak var lockSecondsSlider: UISlider!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var activityIndicator = UIActivityIndicatorView()
     var pref: Preference!
     
     
@@ -95,11 +95,6 @@ class PreferencesViewController: UIViewController {
     
     func logOut(){
         // Run a spinner to show a task in progress
-        activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0,100,100))
-        activityIndicator.center = self.view.center
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = .Gray
-        view.addSubview(activityIndicator)
         activityIndicator.startAnimating()
         UIApplication.sharedApplication().beginIgnoringInteractionEvents()
         // Send a request to log out a user

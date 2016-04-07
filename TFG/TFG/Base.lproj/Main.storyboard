@@ -1001,15 +1001,21 @@ Time studied per topic in minutes</string>
                                     </button>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="19p-9C-EFI">
+                                <rect key="frame" x="290" y="243" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="19p-9C-EFI" firstAttribute="centerX" secondItem="RQS-Vd-kK7" secondAttribute="centerX" id="92J-Lu-8cg"/>
                             <constraint firstItem="ufP-HI-POd" firstAttribute="top" secondItem="ZTR-WV-cRV" secondAttribute="bottom" constant="40" id="RcL-Wl-gHt"/>
+                            <constraint firstItem="MXl-Ot-mM4" firstAttribute="top" secondItem="19p-9C-EFI" secondAttribute="bottom" constant="5" id="Y4h-kc-t55"/>
                             <constraint firstItem="ufP-HI-POd" firstAttribute="centerX" secondItem="RQS-Vd-kK7" secondAttribute="centerX" id="wpo-bZ-VZ2"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Preferences" image="Preferences" id="C2o-C0-ttc"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="19p-9C-EFI" id="shp-cT-mDI"/>
                         <outlet property="immediateFeedbackSwitch" destination="uQu-Bx-2jS" id="eFI-n4-BqS"/>
                         <outlet property="lockSecondsSlider" destination="cQk-k1-kXV" id="TiC-XJ-IXK"/>
                         <outlet property="secondsBeforeLockLabel" destination="dqs-80-6rt" id="dcE-DA-7RN"/>
