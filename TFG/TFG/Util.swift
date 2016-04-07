@@ -101,7 +101,56 @@ struct Util {
         }
     }
     
-    static func deleteAllData(){
+    static func deleteTopic(topic: Topic){
+        try! realm.write {
+            realm.delete(topic)
+        }
+        //delete questions without associated topics
+        let questions = realm.objects(Question.self)
+        for question in questions{
+            if question.topic == nil{
+                try! realm.write {
+                    realm.delete(question)
+                }
+            }
+        }
+        //delete answers without associated questions
+        let answers = realm.objects(Answer.self)
+        for answer in answers{
+            if answer.associatedQuestion == nil{
+                try! realm.write {
+                    realm.delete(answer)
+                }
+            }
+        }
+        //delete tags without associated questions
+        let tags = realm.objects(Tag.self)
+        for tag in tags{
+            if tag.associatedQuestions.isEmpty {
+                try! realm.write {
+                    realm.delete(tag)
+                }
+            }
+        }
+        //delete Statistics without associated topic
+        let stats = realm.objects(Statistic.self)
+        for stat in stats{
+            if stat.topic == nil {
+                try! realm.write {
+                    realm.delete(stat)
+                }
+            }
+        }
+    }
+    
+    static func deleteAllTopics(){
+        let topics = realm.objects(Topic.self)
+        for topic in topics{
+            deleteTopic(topic)
+        }
+    }
+    
+    static func deleteUserData(){
         //TODO: add topics
         deleteAllStatistics()
         deletePreferences()

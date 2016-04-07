@@ -99,7 +99,7 @@ class PreferencesViewController: UIViewController {
         // Send a request to log out a user
         PFUser.logOutInBackgroundWithBlock { (error) in
             if error == nil{
-                Util.deleteAllData()
+                Util.deleteUserData()
                 // Stop the spinner
                 self.activityIndicator.stopAnimating()
                 UIApplication.sharedApplication().endIgnoringInteractionEvents()

@@ -13,10 +13,6 @@ class ChooseTopicViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
     }
     
     // MARK: - Table view data source
@@ -65,63 +61,13 @@ class ChooseTopicViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
-            let predicate = NSPredicate(format: "title = %@ ", self.tableView!.cellForRowAtIndexPath(indexPath)!.textLabel!.text!)
-            let result = realm.objects(Topic).filter(predicate).first
-            try! realm.write {
-                realm.delete(result!)
-            }
-            //delete questions without associated topics
-            let questions = realm.objects(Question.self)
-            for question in questions{
-                if question.topic == nil{
-                    try! realm.write {
-                        realm.delete(question)
-                    }
-                }
-            }
-            //delete answers without associated questions
-            let answers = realm.objects(Answer.self)
-            for answer in answers{
-                if answer.associatedQuestion == nil{
-                    try! realm.write {
-                        realm.delete(answer)
-                    }
-                }
-            }
-            //delete tags without associated questions
-            let tags = realm.objects(Tag.self)
-            for tag in tags{
-                if tag.associatedQuestions.isEmpty {
-                    try! realm.write {
-                        realm.delete(tag)
-                    }
-                }
-            }
-            //delete Statistics without associated topic
-            let stats = realm.objects(Statistic.self)
-            for stat in stats{
-                if stat.topic == nil {
-                    try! realm.write {
-                        realm.delete(stat)
-                    }
-                }
-            }
+            let title = self.tableView!.cellForRowAtIndexPath(indexPath)!.textLabel!.text!
+            let topic = Util.getTopicWithTitle(title)!
+            Util.deleteTopic(topic)
             //delete row
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
     }
-    
-    
-    // MARK: - Navigation
-    
-    /*
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
-    
     
     @IBAction func addTopicButtonPressed(sender: AnyObject) {
         loadExampleData()
