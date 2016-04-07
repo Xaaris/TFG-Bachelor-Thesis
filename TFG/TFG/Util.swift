@@ -28,6 +28,17 @@ struct Util {
         return nil
     }
     
+    static func getTopicWithTitle(title: String) -> Topic? {
+        let topics = realm.objects(Topic.self)
+        for topic in topics{
+            if topic.title == title {
+                return topic
+            }
+        }
+        return nil
+    }
+
+    
     static func getPreferences() -> Preference? {
         return realm.objects(Preference.self).first
     }
@@ -74,6 +85,26 @@ struct Util {
         realm.add(newColor)
         try! realm.commitWrite()
         return newColor
+    }
+    
+    static func deleteAllStatistics(){
+        let allStatistics = realm.objects(Statistic)
+        try! realm.write {
+            realm.delete(allStatistics)
+        }
+    }
+    
+    static func deletePreferences(){
+        let pref = realm.objects(Preference)
+        try! realm.write {
+            realm.delete(pref)
+        }
+    }
+    
+    static func deleteAllData(){
+        //TODO: add topics
+        deleteAllStatistics()
+        deletePreferences()
     }
     
     

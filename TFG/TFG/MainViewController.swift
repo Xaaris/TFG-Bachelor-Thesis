@@ -30,6 +30,10 @@ class MainViewController: UIViewController {
             let loginVC = self.storyboard?.instantiateViewControllerWithIdentifier("Login")
             self.presentViewController(loginVC!, animated: true, completion: nil)
         }
+        // initialize Preferences
+        if realm.objects(Preference.self).isEmpty{
+            createDefaultPreferences()
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -54,6 +58,15 @@ class MainViewController: UIViewController {
             
             self.presentViewController(alertController, animated: true, completion: nil)
         }
+    }
+    
+    func createDefaultPreferences(){
+        realm.beginWrite()
+        let pref = Preference()
+        pref.immediateFeedback = false
+        pref.lockSeconds = 2
+        realm.add(pref)
+        try! realm.commitWrite()
     }
     
 }

@@ -71,7 +71,8 @@ class LoginViewController: UIViewController {
     }
     
     func loadDataFromCloud(){
-        CloudLink.syncPreferencesFromCloudToRealm()
+        CloudLink.syncPreferencesToRealm()
+        CloudLink.syncStatisticsToRealm()
     }
     
     

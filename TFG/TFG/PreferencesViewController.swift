@@ -42,7 +42,7 @@ class PreferencesViewController: UIViewController {
         realm.add(pref)
         try! realm.commitWrite()
         enableLockSecondsSlider(pref.immediateFeedback)
-        CloudLink.syncPreferencesFromRealmToCloud()
+        CloudLink.syncPreferencesToCloud()
     }
     
     @IBAction func lockSecondsSliderValueDidChange(sender: AnyObject) {
@@ -55,7 +55,7 @@ class PreferencesViewController: UIViewController {
             pref.lockSeconds = Int(lockSecondsSlider.value)
             realm.add(pref)
             try! realm.commitWrite()
-            CloudLink.syncPreferencesFromRealmToCloud()
+            CloudLink.syncPreferencesToCloud()
         }
     }
     
@@ -70,7 +70,7 @@ class PreferencesViewController: UIViewController {
         let alertController = UIAlertController(title: "Delete Statistics?", message:
             "Are you sure you want to delete all statistics? This can not be undone!", preferredStyle: UIAlertControllerStyle.Alert)
         let deleteAction = UIAlertAction(title: "Delete", style: .Destructive) { (action) in
-            self.deleteAllStatistics()
+            Util.deleteAllStatistics()
         }
         alertController.addAction(deleteAction)
         alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
@@ -78,12 +78,7 @@ class PreferencesViewController: UIViewController {
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
-    private func deleteAllStatistics(){
-        let allStatistics = realm.objects(Statistic)
-        try! realm.write {
-            realm.delete(allStatistics)
-        }
-    }
+
     
     @IBAction func logOutButtonPressed(sender: AnyObject) {
         let alertController = UIAlertController(title: "Log Out?", message:
@@ -103,14 +98,19 @@ class PreferencesViewController: UIViewController {
         UIApplication.sharedApplication().beginIgnoringInteractionEvents()
         // Send a request to log out a user
         PFUser.logOutInBackgroundWithBlock { (error) in
-            // Stop the spinner
-            self.activityIndicator.stopAnimating()
-            UIApplication.sharedApplication().endIgnoringInteractionEvents()
-            
-            //show home view
-            let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("Home") as! UITabBarController
-            homeVC.selectedIndex = 0 // Home View
-            self.presentViewController(homeVC, animated: true, completion: nil)
+            if error == nil{
+                Util.deleteAllData()
+                // Stop the spinner
+                self.activityIndicator.stopAnimating()
+                UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                
+                //show home view
+                let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("Home") as! UITabBarController
+                homeVC.selectedIndex = 0 // Home View
+                self.presentViewController(homeVC, animated: true, completion: nil)
+            }else{
+                print("Error: \(error!.userInfo["error"])")
+            }
         }
     }
     

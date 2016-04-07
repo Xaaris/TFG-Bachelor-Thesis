@@ -24,7 +24,7 @@ class QuizFinishedViewController: PageViewContent{
         revealAnswers()
         let vc = parentViewController as! PresentQuestionPageViewController
         vc.endTimeTracking()
-        saveToStatistics()
+        saveToStatisticsToRealmAndCloud()
     }
     
     func revealAnswers(){
@@ -37,7 +37,7 @@ class QuizFinishedViewController: PageViewContent{
         try! realm.commitWrite()
     }
     
-    func saveToStatistics(){
+    func saveToStatisticsToRealmAndCloud(){
         let questions = Util.getCurrentTopic()!.questions
         var numberOfCorrectAnswers:Double = 0.0
         for question in questions{
@@ -54,6 +54,9 @@ class QuizFinishedViewController: PageViewContent{
         realm.beginWrite()
         realm.add(stat)
         try! realm.commitWrite()
+        
+        //save to cloud
+        CloudLink.syncStatisticToCloud(stat)
     }
 
 }
