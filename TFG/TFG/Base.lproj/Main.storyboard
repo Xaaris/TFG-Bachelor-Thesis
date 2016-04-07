@@ -590,6 +590,7 @@ Time studied per topic in minutes</string>
                         <outlet property="barChartView" destination="mPV-OI-wli" id="MSo-3V-UT9"/>
                         <outlet property="currentTopicLabel" destination="SBa-iO-J8A" id="bt7-zD-lOB"/>
                         <outlet property="pieChartView" destination="beQ-OL-thJ" id="dAf-Ft-KE5"/>
+                        <outlet property="scrollView" destination="oG5-ru-jSv" id="XZh-Xx-ZUV"/>
                         <outlet property="topicPickerStackView" destination="AEE-h6-RNO" id="Kcb-5l-3Jc"/>
                         <outlet property="topicPickerView" destination="nBb-SG-Ybn" id="Pto-iH-F0A"/>
                     </connections>

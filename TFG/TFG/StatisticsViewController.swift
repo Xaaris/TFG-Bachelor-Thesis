@@ -8,6 +8,7 @@
 
 import UIKit
 import Charts
+import Parse
 
 class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, ChartViewDelegate {
     
@@ -19,11 +20,13 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet weak var barChartDateLabel: UILabel!
     @IBOutlet weak var barChartScoreLabel: UILabel!
     @IBOutlet weak var pieChartView: PieChartView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var pickerValues:[String] = []
     var timer = NSTimer()
     var displayedStatistics: [Statistic] = []
     var overviewWasSelected = true
+    var refresher: UIRefreshControl!
     
     
     override func viewDidLoad() {
@@ -33,6 +36,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
         setupTopicPicker()
         //Highlights last value in bar chart view
         barChartView.highlightValue(xIndex: displayedStatistics.count-1, dataSetIndex: 0, callDelegate: true)
+        addRefresher()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -41,6 +45,47 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
         updatePickerSelection()
         setupCharts()
         reloadCharts()
+    }
+    
+    func addRefresher(){
+        refresher = UIRefreshControl()
+        refresher.addTarget(self, action: #selector(StatisticsViewController.refreshStatistics), forControlEvents: .ValueChanged)
+        refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        scrollView.addSubview(refresher)
+    }
+    
+    func refreshStatistics(){
+        //Delete old statistics
+        Util.deleteAllStatistics()
+        //Load new Statistics
+        let query = PFQuery(className: "Statistic")
+        query.whereKey("userID", equalTo: (PFUser.currentUser()?.objectId)!)
+        query.findObjectsInBackgroundWithBlock { (objects, error) in
+            if error == nil {
+                if let stats = objects{
+                    for cloudStat in stats{
+                        if let topic = Util.getTopicWithTitle(cloudStat["topic"] as! String){
+                            realm.beginWrite()
+                            let localStat = Statistic()
+                            localStat.topic = topic
+                            localStat.date = cloudStat["date"] as! NSDate
+                            localStat.score = cloudStat["score"] as! Double
+                            localStat.startTime = cloudStat["startTime"] as! NSDate
+                            localStat.endTime = cloudStat["endTime"] as! NSDate
+                            realm.add(localStat)
+                            try! realm.commitWrite()
+                        }else{
+                            print("Error: Topic does not exist")
+                        }
+                    }
+                    print("Successfully downloaded Statistics")
+                    self.reloadCharts()
+                    self.refresher.endRefreshing()
+                }
+            }else{
+                print("Error: \(error!.userInfo["error"])")
+            }
+        }
     }
     
     func setupCharts(){
