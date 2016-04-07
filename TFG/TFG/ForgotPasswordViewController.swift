@@ -13,6 +13,8 @@ class ForgotPasswordViewController: UIViewController {
     
     @IBOutlet weak var emailField: UITextField!
     
+    var activityIndicator = UIActivityIndicatorView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
@@ -25,10 +27,30 @@ class ForgotPasswordViewController: UIViewController {
         if finalEmail.characters.count < 5 {
             showAlert("Invalid", message: "Please enter a valid email address")
         } else {
-            // Send a request to reset a password
-            PFUser.requestPasswordResetForEmailInBackground(finalEmail)
             
-            showAlert("Password Reset", message: "An email containing information on how to reset your password has been sent to " + finalEmail + ".")
+            // Run a spinner to show a task in progress
+            activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0,100,100))
+            activityIndicator.center = self.view.center
+            activityIndicator.hidesWhenStopped = true
+            activityIndicator.activityIndicatorViewStyle = .Gray
+            view.addSubview(activityIndicator)
+            activityIndicator.startAnimating()
+            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+            
+            // Send a request to reset a password
+            PFUser.requestPasswordResetForEmailInBackground(finalEmail, block: { (succeed, error) in
+                
+                // Stop the spinner
+                self.activityIndicator.stopAnimating()
+                UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                
+                if ((error) != nil) {
+                    self.showAlert("Error", message: "\(error!.userInfo["error"] as! String)")
+                    
+                } else {
+                    self.showAlert("Password Reset", message: "An email containing information on how to reset your password has been sent to " + finalEmail + ".")
+                }
+            })
         }
     }
     
