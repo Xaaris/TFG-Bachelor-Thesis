@@ -58,6 +58,7 @@ class ChooseTopicViewController: UITableViewController {
     
     
     // Override to support editing the table view.
+    /* //Disabled because it can cause inconsistency issues
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
@@ -68,6 +69,7 @@ class ChooseTopicViewController: UITableViewController {
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
     }
+    */
     
     @IBAction func addTopicButtonPressed(sender: AnyObject) {
         loadExampleData()
