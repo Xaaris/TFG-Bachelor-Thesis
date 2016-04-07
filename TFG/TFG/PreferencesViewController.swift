@@ -42,6 +42,7 @@ class PreferencesViewController: UIViewController {
         realm.add(pref)
         try! realm.commitWrite()
         enableLockSecondsSlider(pref.immediateFeedback)
+        savePreferencesToCloud()
     }
     
     @IBAction func lockSecondsSliderValueDidChange(sender: AnyObject) {
@@ -51,6 +52,7 @@ class PreferencesViewController: UIViewController {
         pref.lockSeconds = Int(lockSecondsSlider.value)
         realm.add(pref)
         try! realm.commitWrite()
+        savePreferencesToCloud()
     }
     
     func enableLockSecondsSlider(enable: Bool){
@@ -112,5 +114,28 @@ class PreferencesViewController: UIViewController {
             self.presentViewController(homeVC, animated: true, completion: nil)
         }
     }
+    
+    func savePreferencesToCloud(){
+        let query = PFQuery(className: "Preferences")
+        query.whereKey("userID", equalTo: (PFUser.currentUser()?.objectId)!)
+        query.findObjectsInBackgroundWithBlock { (objects, error) in
+            if error == nil {
+                if let preferenceArr = objects{
+                    var cloudPref = PFObject(className: "Preferences")
+                    if preferenceArr.count > 0{
+                        cloudPref = preferenceArr.first!
+                    }
+                    cloudPref["userID"] = PFUser.currentUser()?.objectId
+                    cloudPref["immediateFeedback"] = self.pref.immediateFeedback
+                    cloudPref["lockSeconds"] = self.pref.lockSeconds
+                    cloudPref.saveEventually()
+                    print("Saving preferences to cloud")
+                }
+            }else{
+                print("Error: \(error!.userInfo["error"])")
+            }
+        }
+    }
+    
 }
 
