@@ -64,9 +64,9 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
                 cell.AnswerSelectImage.image = UIImage(named: singleChoiceStr + lockedStr)
             }
             if answer.isCorrect{
-                cell.AnswerTextLabel.textColor = Util().myGreenColor
+                cell.AnswerTextLabel.textColor = Util.myGreenColor
             }else{
-                cell.AnswerTextLabel.textColor = Util().myRedColor
+                cell.AnswerTextLabel.textColor = Util.myRedColor
             }
         }else{
             if question.isLocked{
@@ -91,7 +91,7 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
         let question = currentQuestionDataSet[pageIndex]
         if !question.isLocked{
             let answer = question.answers[indexPath.row]
-            if Util().getPreferences()!.immediateFeedback{
+            if Util.getPreferences()!.immediateFeedback{
                 if lastSelectedCell != nil {
                     lastSelectedCell!.progressView.progress = 0
                 }
@@ -172,7 +172,7 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
     
     func updateLockProgress(){
         let progView = lastSelectedCell!.progressView
-        lockProgress += 0.05 / Double(Util().getPreferences()!.lockSeconds)
+        lockProgress += 0.05 / Double(Util.getPreferences()!.lockSeconds)
         progView.progress = lockProgress
         if lockProgress >= 1 {
             lockQuestion(true)

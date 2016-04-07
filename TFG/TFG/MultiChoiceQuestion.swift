@@ -37,7 +37,7 @@ class MultiChoiceQuestion: QuestionContentViewController, UITableViewDelegate, U
     func updateLockedButton(){
         //enable the lock button if answer is not locked
         //due to problems with realm multithreading
-        if Util().getPreferences()!.immediateFeedback{
+        if Util.getPreferences()!.immediateFeedback{
             lockButton.hidden = false
             if currentQuestionDataSet[pageIndex].isLocked{
                 lockButton.enabled = false
@@ -83,9 +83,9 @@ class MultiChoiceQuestion: QuestionContentViewController, UITableViewDelegate, U
                 cell.AnswerSelectImage.image = UIImage(named: multiChoiceStr + lockedStr)
             }
             if answer.isCorrect{
-                cell.AnswerTextLabel.textColor = Util().myGreenColor
+                cell.AnswerTextLabel.textColor = Util.myGreenColor
             }else{
-                cell.AnswerTextLabel.textColor = Util().myRedColor
+                cell.AnswerTextLabel.textColor = Util.myRedColor
             }
         }else{
             if question.isLocked{

@@ -50,7 +50,7 @@ class PresentQuestionPageViewController: UIPageViewController, UIPageViewControl
         pageControl.pageIndicatorTintColor = UIColor.grayColor()
         pageControl.currentPageIndicatorTintColor = UIColor.darkGrayColor()
         pageControl.backgroundColor = UIColor.clearColor()
-        pageControl.numberOfPages = Util().getCurrentTopic()!.questions.count + 1
+        pageControl.numberOfPages = Util.getCurrentTopic()!.questions.count + 1
         pageControl.currentPage = 0
     }
     
@@ -73,7 +73,7 @@ class PresentQuestionPageViewController: UIPageViewController, UIPageViewControl
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         
         let vc = viewController as! PageViewContent
-            if vc.pageIndex + 1 <= Util().getCurrentTopic()!.questions.count {
+            if vc.pageIndex + 1 <= Util.getCurrentTopic()!.questions.count {
                 return getPageController(vc.pageIndex + 1)
             }
         return nil
@@ -82,17 +82,17 @@ class PresentQuestionPageViewController: UIPageViewController, UIPageViewControl
     private func getPageController(pageIndex: Int) -> UIViewController? {
         var vc:PageViewContent = PageViewContent()
         
-        if pageIndex < Util().getCurrentTopic()!.questions.count {
-            if Util().getCurrentTopic()!.questions[pageIndex].type == "SingleChoice"{
+        if pageIndex < Util.getCurrentTopic()!.questions.count {
+            if Util.getCurrentTopic()!.questions[pageIndex].type == "SingleChoice"{
                 vc = self.storyboard!.instantiateViewControllerWithIdentifier("SingleChoice") as! SingleChoiceQuestion
-            }else if Util().getCurrentTopic()!.questions[pageIndex].type == "MultipleChoice"{
+            }else if Util.getCurrentTopic()!.questions[pageIndex].type == "MultipleChoice"{
                 vc = self.storyboard!.instantiateViewControllerWithIdentifier("MultiChoice") as! MultiChoiceQuestion
             }else{
                 //TODO: Implement other question types
                 vc = self.storyboard!.instantiateViewControllerWithIdentifier("SingleChoice") as! SingleChoiceQuestion
             }
             
-        } else if pageIndex == Util().getCurrentTopic()!.questions.count {
+        } else if pageIndex == Util.getCurrentTopic()!.questions.count {
             vc = self.storyboard!.instantiateViewControllerWithIdentifier("QuizFinished") as! QuizFinishedViewController
         }else{
             print("Error: Out of bounds (PageviewController)")
@@ -105,7 +105,7 @@ class PresentQuestionPageViewController: UIPageViewController, UIPageViewControl
     //resets the questiondata so no question is answered and no answer is seleted
     func resetDataSet() {
         realm.beginWrite()
-        for question in Util().getCurrentTopic()!.questions{
+        for question in Util.getCurrentTopic()!.questions{
             question.isLocked = false
             question.revealAnswers = false
             realm.add(question)
@@ -149,7 +149,7 @@ class PageViewContent: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentQuestionDataSet = Util().getCurrentTopic()!.questions
+        currentQuestionDataSet = Util.getCurrentTopic()!.questions
     }
     
     override func viewDidAppear(animated: Bool) {

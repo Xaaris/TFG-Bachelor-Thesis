@@ -34,7 +34,7 @@ class QuizResultsViewController: UIViewController{
     }
     
     func loadStackViews(){
-        let numberOfQuestions = Util().getCurrentTopic()!.questions.count
+        let numberOfQuestions = Util.getCurrentTopic()!.questions.count
         for row in Range(0 ..< numberOfQuestions){
             let newView = createAnswerView(row)
             stackView.addArrangedSubview(newView)
@@ -42,7 +42,7 @@ class QuizResultsViewController: UIViewController{
     }
     
     func createAnswerView(row: Int)-> UIView{
-        let question = Util().getCurrentTopic()!.questions[row]
+        let question = Util.getCurrentTopic()!.questions[row]
         
         let stack = UIStackView()
         stack.axis = .Vertical
@@ -68,11 +68,11 @@ class QuizResultsViewController: UIViewController{
         titleView.heightAnchor.constraintEqualToConstant(50).active = true
         titleView.widthAnchor.constraintEqualToConstant(280).active = true
         if question.answerScore == 0{
-            titleView.backgroundColor = Util().myLightRedColor
+            titleView.backgroundColor = Util.myLightRedColor
         }else if question.answerScore < 1{
-            titleView.backgroundColor = Util().myLightYellowColor
+            titleView.backgroundColor = Util.myLightYellowColor
         }else{
-            titleView.backgroundColor = Util().myLightGreenColor
+            titleView.backgroundColor = Util.myLightGreenColor
         }
         
         titleView.translatesAutoresizingMaskIntoConstraints = false
@@ -143,9 +143,9 @@ class QuizResultsViewController: UIViewController{
             answerLabel.text = answer.answerText
             answerLabel.numberOfLines = 0
             if answer.isCorrect{
-                answerLabel.textColor = Util().myGreenColor
+                answerLabel.textColor = Util.myGreenColor
             }else{
-                answerLabel.textColor = Util().myRedColor
+                answerLabel.textColor = Util.myRedColor
             }
                 
             subStack.addArrangedSubview(imageView)
@@ -195,7 +195,7 @@ class QuizResultsViewController: UIViewController{
     }
     
     func prepareTitleView() {
-        let score = Util().getLatestStatistic()!.percentageScore
+        let score = Util.getLatestStatistic()!.percentageScore
         
         if score < 50 {
             titleLabel.text = "That needs more work!"

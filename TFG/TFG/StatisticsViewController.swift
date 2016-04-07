@@ -68,7 +68,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }
         var rowToSelect = 0
         if !overviewWasSelected {
-            if let currentTopic = Util().getCurrentTopic() {
+            if let currentTopic = Util.getCurrentTopic() {
                 rowToSelect = pickerValues.indexOf(currentTopic.title)!
             }
         }
@@ -171,7 +171,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     func reloadBarChartData(overview: Bool) {
-        if Util().getCurrentTopic() == nil {
+        if Util.getCurrentTopic() == nil {
             barChartView.noDataText = "No topic selected"
         }else{
             barChartView.noDataText = "No data yet"
@@ -183,7 +183,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 }
                 displayedStatistics = displayedStatistics.reverse()
             }else{
-                displayedStatistics = Util().getNLatestStatistics(7, topic: Util().getCurrentTopic()!)
+                displayedStatistics = Util.getNLatestStatistics(7, topic: Util.getCurrentTopic()!)
             }
             if !displayedStatistics.isEmpty {
                 var dates:[String] = []
@@ -243,7 +243,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     func reloadPieChartData(overview: Bool) {
         
-        if Util().getCurrentTopic() == nil {
+        if Util.getCurrentTopic() == nil {
             pieChartView.noDataText = "No topic selected"
         }else{
             pieChartView.noDataText = "No data yet"
@@ -289,9 +289,9 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
 //                let dataEntry = ChartDataEntry(value: answerScores[i] , xIndex: i)
 //                dataEntries.append(dataEntry)
 //            }
-//            colors.append(Util().myLightRedColor)
-//            colors.append(Util().myLightYellowColor)
-//            colors.append(Util().myLightGreenColor)
+//            colors.append(Util.myLightRedColor)
+//            colors.append(Util.myLightYellowColor)
+//            colors.append(Util.myLightGreenColor)
 //            let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "")
 //            pieChartDataSet.colors = colors
 //            let pieChartData = PieChartData(xVals: ["Wrong answers", "Partly correct answers", "Correct answers"], dataSet: pieChartDataSet)

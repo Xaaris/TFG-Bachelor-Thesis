@@ -24,7 +24,7 @@ class PreferencesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Preferences View")
-        pref = Util().getPreferences()!
+        pref = Util.getPreferences()!
         immediateFeedbackSwitch.on = pref.immediateFeedback
         enableLockSecondsSlider(pref.immediateFeedback)
         lockSecondsSlider.value = Float(pref.lockSeconds)

@@ -44,7 +44,7 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func startButtonPressed(sender: AnyObject) {
-        if Util().getCurrentTopic() != nil{
+        if Util.getCurrentTopic() != nil{
             let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PageController") as! PresentQuestionPageViewController
             self.navigationController?.pushViewController(vc, animated: true)
         }else{
