@@ -42,17 +42,21 @@ class PreferencesViewController: UIViewController {
         realm.add(pref)
         try! realm.commitWrite()
         enableLockSecondsSlider(pref.immediateFeedback)
-        savePreferencesToCloud()
+        CloudLink.syncPreferencesFromRealmToCloud()
     }
     
     @IBAction func lockSecondsSliderValueDidChange(sender: AnyObject) {
+        let oldValue = pref.lockSeconds
+        let newValue = Int(lroundf(lockSecondsSlider.value))
         sender.setValue(Float(lroundf(lockSecondsSlider.value)), animated: true)
-        secondsLabel.text = String(Int(lockSecondsSlider.value))
-        realm.beginWrite()
-        pref.lockSeconds = Int(lockSecondsSlider.value)
-        realm.add(pref)
-        try! realm.commitWrite()
-        savePreferencesToCloud()
+        if oldValue != newValue{
+            secondsLabel.text = String(Int(lockSecondsSlider.value))
+            realm.beginWrite()
+            pref.lockSeconds = Int(lockSecondsSlider.value)
+            realm.add(pref)
+            try! realm.commitWrite()
+            CloudLink.syncPreferencesFromRealmToCloud()
+        }
     }
     
     func enableLockSecondsSlider(enable: Bool){
@@ -107,28 +111,6 @@ class PreferencesViewController: UIViewController {
             let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("Home") as! UITabBarController
             homeVC.selectedIndex = 0 // Home View
             self.presentViewController(homeVC, animated: true, completion: nil)
-        }
-    }
-    
-    func savePreferencesToCloud(){
-        let query = PFQuery(className: "Preferences")
-        query.whereKey("userID", equalTo: (PFUser.currentUser()?.objectId)!)
-        query.findObjectsInBackgroundWithBlock { (objects, error) in
-            if error == nil {
-                if let preferenceArr = objects{
-                    var cloudPref = PFObject(className: "Preferences")
-                    if preferenceArr.count > 0{
-                        cloudPref = preferenceArr.first!
-                    }
-                    cloudPref["userID"] = PFUser.currentUser()?.objectId
-                    cloudPref["immediateFeedback"] = self.pref.immediateFeedback
-                    cloudPref["lockSeconds"] = self.pref.lockSeconds
-                    cloudPref.saveEventually()
-                    print("Saving preferences to cloud")
-                }
-            }else{
-                print("Error: \(error!.userInfo["error"])")
-            }
         }
     }
     

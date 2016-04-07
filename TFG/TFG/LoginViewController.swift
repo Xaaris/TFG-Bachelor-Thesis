@@ -50,7 +50,9 @@ class LoginViewController: UIViewController {
                 UIApplication.sharedApplication().endIgnoringInteractionEvents()
                 
                 if ((user) != nil) {
+                    //User logged in successfully!
                     self.dismissKeyboard()
+                    self.loadDataFromCloud()
                     self.dismissViewControllerAnimated(true, completion: nil)
                 } else {
                     self.showAlert("Error", message: "\(error!.userInfo["error"] as! String)")
@@ -67,6 +69,11 @@ class LoginViewController: UIViewController {
     
     @IBAction func unwindToLogInScreen(segue:UIStoryboardSegue) {
     }
+    
+    func loadDataFromCloud(){
+        CloudLink.syncPreferencesFromCloudToRealm()
+    }
+    
     
 }
 
