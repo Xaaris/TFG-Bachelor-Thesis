@@ -664,12 +664,17 @@ Time studied per topic in minutes</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                             </textField>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="iAj-21-mB4">
+                                <rect key="frame" x="290" y="142" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="iAj-21-mB4" firstAttribute="centerX" secondItem="RFk-UD-xYw" secondAttribute="centerX" id="0cq-Pq-txr"/>
                             <constraint firstItem="yJc-q9-oFG" firstAttribute="centerX" secondItem="3fg-eu-rVj" secondAttribute="centerX" id="86i-4V-gQ8"/>
                             <constraint firstItem="yJc-q9-oFG" firstAttribute="top" secondItem="3fg-eu-rVj" secondAttribute="bottom" constant="10" id="8S8-Nd-ukO"/>
                             <constraint firstItem="N23-5M-BwD" firstAttribute="width" secondItem="yJc-q9-oFG" secondAttribute="width" id="EQ9-tf-RsE"/>
+                            <constraint firstItem="iAj-21-mB4" firstAttribute="top" secondItem="RFk-UD-xYw" secondAttribute="bottom" constant="-13" id="M1P-QU-uZR"/>
                             <constraint firstItem="RFk-UD-xYw" firstAttribute="centerX" secondItem="yaA-ck-74V" secondAttribute="centerX" id="Nvm-DR-a2a"/>
                             <constraint firstItem="N23-5M-BwD" firstAttribute="centerX" secondItem="yJc-q9-oFG" secondAttribute="centerX" id="QD2-t7-zzB"/>
                             <constraint firstItem="eD3-Ft-hZO" firstAttribute="top" secondItem="3Ii-Nh-cup" secondAttribute="bottom" constant="10" id="VZM-cY-m4a"/>
@@ -683,6 +688,7 @@ Time studied per topic in minutes</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="iAj-21-mB4" id="lMe-zc-Ci4"/>
                         <outlet property="emailField" destination="yJc-q9-oFG" id="Wok-AP-fGP"/>
                         <outlet property="passwordField" destination="N23-5M-BwD" id="4RL-PV-AVM"/>
                         <outlet property="usernameField" destination="3fg-eu-rVj" id="0uK-wz-Cmh"/>
@@ -758,17 +764,22 @@ Time studied per topic in minutes</string>
                                             <constraint firstAttribute="width" constant="120" id="p11-zx-WKQ"/>
                                         </constraints>
                                     </imageView>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="7s8-Y0-AyA">
+                                        <rect key="frame" x="270" y="135" width="20" height="20"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="cjN-oz-oTX" firstAttribute="top" secondItem="pNK-O3-T0W" secondAttribute="bottom" constant="26" id="6hl-8I-0Uj"/>
                                     <constraint firstItem="gwv-2n-L6b" firstAttribute="top" secondItem="8Yz-Ze-3lJ" secondAttribute="bottom" constant="27" id="8EQ-ut-ljx"/>
                                     <constraint firstItem="pNK-O3-T0W" firstAttribute="width" secondItem="gwv-2n-L6b" secondAttribute="width" id="8Xc-tR-WWc"/>
+                                    <constraint firstItem="7s8-Y0-AyA" firstAttribute="top" secondItem="8Yz-Ze-3lJ" secondAttribute="bottom" constant="-8" id="CTg-Wx-wcZ"/>
                                     <constraint firstItem="pNK-O3-T0W" firstAttribute="top" secondItem="gwv-2n-L6b" secondAttribute="bottom" constant="20" id="IyI-pL-gEm"/>
                                     <constraint firstItem="nHp-L4-iyU" firstAttribute="top" secondItem="mS7-rl-WWG" secondAttribute="bottom" constant="34" id="LDM-TT-37E"/>
                                     <constraint firstItem="gwv-2n-L6b" firstAttribute="centerX" secondItem="pyS-Vy-awI" secondAttribute="centerX" id="Wvv-FA-SaN"/>
                                     <constraint firstItem="nHp-L4-iyU" firstAttribute="centerX" secondItem="mS7-rl-WWG" secondAttribute="centerX" id="Y5D-bA-MKU"/>
                                     <constraint firstItem="gwv-2n-L6b" firstAttribute="top" secondItem="pyS-Vy-awI" secondAttribute="top" constant="170" id="ZSm-TI-6jV"/>
                                     <constraint firstItem="mS7-rl-WWG" firstAttribute="top" secondItem="cjN-oz-oTX" secondAttribute="bottom" constant="37" id="Zjh-uT-Jw0"/>
+                                    <constraint firstItem="7s8-Y0-AyA" firstAttribute="centerX" secondItem="8Yz-Ze-3lJ" secondAttribute="centerX" id="a7Z-Gh-7n4"/>
                                     <constraint firstItem="mS7-rl-WWG" firstAttribute="centerX" secondItem="cjN-oz-oTX" secondAttribute="centerX" id="g4u-i4-CYg"/>
                                     <constraint firstItem="pNK-O3-T0W" firstAttribute="centerX" secondItem="gwv-2n-L6b" secondAttribute="centerX" id="ja7-ab-hG6"/>
                                     <constraint firstItem="8Yz-Ze-3lJ" firstAttribute="centerX" secondItem="pyS-Vy-awI" secondAttribute="centerX" id="lJ4-mt-2vj"/>
@@ -785,6 +796,7 @@ Time studied per topic in minutes</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="7s8-Y0-AyA" id="vKD-jk-F3h"/>
                         <outlet property="passwordField" destination="pNK-O3-T0W" id="OcS-VP-iKO"/>
                         <outlet property="usernameField" destination="gwv-2n-L6b" id="BLC-ew-oqe"/>
                     </connections>
@@ -863,6 +875,9 @@ Time studied per topic in minutes</string>
                                     <segue destination="5Yh-gt-1PR" kind="unwind" unwindAction="unwindToLogInScreen:" id="fQ7-bS-Oi7"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="kUg-pZ-SUM">
+                                <rect key="frame" x="290" y="157" width="20" height="20"/>
+                            </activityIndicatorView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DLl-X6-v9k">
                                 <rect key="frame" x="178" y="190" width="245" height="30"/>
                                 <constraints>
@@ -881,10 +896,13 @@ Time studied per topic in minutes</string>
                             <constraint firstItem="hoq-Jd-bDN" firstAttribute="centerX" secondItem="QWx-cr-UDd" secondAttribute="centerX" id="Qpc-Wx-oCB"/>
                             <constraint firstItem="aB1-38-MbH" firstAttribute="top" secondItem="5hP-j9-zMd" secondAttribute="bottom" constant="10" id="SWu-2P-JDa"/>
                             <constraint firstItem="VQT-Qv-wFu" firstAttribute="top" secondItem="DLl-X6-v9k" secondAttribute="bottom" constant="20" id="Vv3-OH-Wuj"/>
+                            <constraint firstItem="kUg-pZ-SUM" firstAttribute="centerX" secondItem="hoq-Jd-bDN" secondAttribute="centerX" id="Z3v-Lp-yCA"/>
+                            <constraint firstItem="kUg-pZ-SUM" firstAttribute="top" secondItem="hoq-Jd-bDN" secondAttribute="bottom" constant="-8" id="ZQH-ff-VPb"/>
                             <constraint firstItem="VQT-Qv-wFu" firstAttribute="centerX" secondItem="DLl-X6-v9k" secondAttribute="centerX" id="sJ8-G9-acy"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="kUg-pZ-SUM" id="1aR-Kh-2e9"/>
                         <outlet property="emailField" destination="DLl-X6-v9k" id="b0m-ZN-2jD"/>
                     </connections>
                 </viewController>

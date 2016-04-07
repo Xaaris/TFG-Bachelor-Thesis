@@ -13,8 +13,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    
-    var activityIndicator = UIActivityIndicatorView()
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +38,6 @@ class LoginViewController: UIViewController {
             showAlert("Invalid", message: "Password must be greater than 8 characters")
         } else {
             // Run a spinner to show a task in progress
-            activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0,100,100))
-            activityIndicator.center = self.view.center
-            activityIndicator.hidesWhenStopped = true
-            activityIndicator.activityIndicatorViewStyle = .Gray
-            view.addSubview(activityIndicator)
             activityIndicator.startAnimating()
             UIApplication.sharedApplication().beginIgnoringInteractionEvents()
             

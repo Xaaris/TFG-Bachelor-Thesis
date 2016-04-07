@@ -14,8 +14,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    
-    var activityIndicator = UIActivityIndicatorView()
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,11 +37,6 @@ class SignUpViewController: UIViewController {
             showAlert("Invalid", message: "Please enter a valid email address")
         } else {
             // Run a spinner to show a task in progress
-            activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0,100,100))
-            activityIndicator.center = self.view.center
-            activityIndicator.hidesWhenStopped = true
-            activityIndicator.activityIndicatorViewStyle = .Gray
-            view.addSubview(activityIndicator)
             activityIndicator.startAnimating()
             UIApplication.sharedApplication().beginIgnoringInteractionEvents()
             

@@ -12,8 +12,7 @@ import Parse
 class ForgotPasswordViewController: UIViewController {
     
     @IBOutlet weak var emailField: UITextField!
-    
-    var activityIndicator = UIActivityIndicatorView()
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +28,6 @@ class ForgotPasswordViewController: UIViewController {
         } else {
             
             // Run a spinner to show a task in progress
-            activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0,100,100))
-            activityIndicator.center = self.view.center
-            activityIndicator.hidesWhenStopped = true
-            activityIndicator.activityIndicatorViewStyle = .Gray
-            view.addSubview(activityIndicator)
             activityIndicator.startAnimating()
             UIApplication.sharedApplication().beginIgnoringInteractionEvents()
             
