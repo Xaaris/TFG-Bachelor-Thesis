@@ -66,7 +66,12 @@ class QuizResultsViewController: UIViewController{
         titleView.addSubview(expansionButton)
         titleView.addSubview(questionNumberLabel)
         titleView.heightAnchor.constraintEqualToConstant(50).active = true
-        titleView.widthAnchor.constraintEqualToConstant(stackView.frame.width - 40).active = true
+        let screenwidth = UIScreen.mainScreen().bounds.width
+        if screenwidth > 700{
+            titleView.widthAnchor.constraintEqualToConstant(screenwidth - 300).active = true
+        }else{
+            titleView.widthAnchor.constraintEqualToConstant(screenwidth - 40).active = true
+        }
         if question.answerScore == 0{
             titleView.backgroundColor = Util.myLightRedColor
         }else if question.answerScore < 1{
@@ -107,9 +112,13 @@ class QuizResultsViewController: UIViewController{
         let questionTextLabel = UILabel()
         questionTextLabel.adjustsFontSizeToFitWidth = true
         questionTextLabel.font = UIFont.boldSystemFontOfSize(17.0)
-        questionTextLabel.preferredMaxLayoutWidth = stackView.frame.width - 40
+        if screenwidth > 700{
+            questionTextLabel.preferredMaxLayoutWidth = screenwidth - 300
+        }else{
+            questionTextLabel.preferredMaxLayoutWidth = screenwidth - 40
+        }
         questionTextLabel.hidden = true
-        questionTextLabel.numberOfLines = 3
+        questionTextLabel.numberOfLines = 0
         questionTextLabel.text = question.questionText
         stack.addArrangedSubview(questionTextLabel)
         
