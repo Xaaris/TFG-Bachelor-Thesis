@@ -37,6 +37,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
         //Highlights last value in bar chart view
         barChartView.highlightValue(xIndex: displayedStatistics.count-1, dataSetIndex: 0, callDelegate: true)
         addRefresher()
+        refreshStatistics()
     }
     
     override func viewWillAppear(animated: Bool) {
