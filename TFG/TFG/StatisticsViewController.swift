@@ -221,14 +221,9 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }else{
             barChartView.noDataText = "No data yet"
             if overview{
-                let stats = realm.objects(Statistic).sorted("date", ascending: false)
-                displayedStatistics = []
-                for i in 0 ..< stats.count{
-                    displayedStatistics.append(stats[i])
-                }
-                displayedStatistics = displayedStatistics.reverse()
+                displayedStatistics = Util.getNLatestStatistics(14)
             }else{
-                displayedStatistics = Util.getNLatestStatistics(7, topic: Util.getCurrentTopic()!)
+                displayedStatistics = Util.getNLatestStatisticsOfTopic(7, topic: Util.getCurrentTopic()!)
             }
             if !displayedStatistics.isEmpty {
                 var dates:[String] = []

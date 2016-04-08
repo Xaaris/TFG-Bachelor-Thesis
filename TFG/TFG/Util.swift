@@ -58,7 +58,17 @@ struct Util {
         }
     }
 
-    static func getNLatestStatistics(numberOfStats: Int, topic: Topic) -> [Statistic] {
+    static func getNLatestStatistics(numberOfStats: Int) -> [Statistic] {
+        let stats = realm.objects(Statistic).sorted("date", ascending: false)
+        let numberOfInstances = min(stats.count, numberOfStats)
+        var retArray:[Statistic] = []
+        for i in 0 ..< numberOfInstances{
+            retArray.append(stats[i])
+        }
+        return retArray.reverse()
+    }
+    
+    static func getNLatestStatisticsOfTopic(numberOfStats: Int, topic: Topic) -> [Statistic] {
         let predicate = NSPredicate(format: "topic.title = %@ ", topic.title)
         let stats = realm.objects(Statistic).filter(predicate).sorted("date", ascending: false)
         let numberOfInstances = min(stats.count, numberOfStats)
