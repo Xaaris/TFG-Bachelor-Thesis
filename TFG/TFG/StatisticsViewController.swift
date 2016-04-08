@@ -56,14 +56,19 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     func refreshStatistics(){
-        //Delete old statistics
-        Util.deleteAllStatistics()
+        
+        refresher.beginRefreshing()
+        
         //Load new Statistics
         let query = PFQuery(className: "Statistic")
         query.whereKey("userID", equalTo: (PFUser.currentUser()?.objectId)!)
         query.findObjectsInBackgroundWithBlock { (objects, error) in
             if error == nil {
                 if let stats = objects{
+                    
+                    //Delete old statistics
+                    Util.deleteAllStatistics()
+                    
                     for cloudStat in stats{
                         if let topic = Util.getTopicWithTitle(cloudStat["topic"] as! String){
                             realm.beginWrite()
