@@ -35,6 +35,9 @@
                                                         <variation key="heightClass=regular-widthClass=regular" constant="240"/>
                                                     </constraint>
                                                 </constraints>
+                                                <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
+                                                </variation>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1L-WK-8sK">
                                                 <rect key="frame" x="7" y="154" width="137" height="37"/>
@@ -43,6 +46,9 @@
                                                 <nil key="highlightedColor"/>
                                                 <variation key="widthClass=regular">
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="41"/>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
+                                                    <rect key="frame" x="30" y="244" width="181" height="49"/>
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqh-AO-gPO">
@@ -53,8 +59,14 @@
                                                 <variation key="widthClass=regular">
                                                     <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                                 </variation>
+                                                <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
+                                                    <rect key="frame" x="55" y="297" width="130" height="33"/>
+                                                </variation>
                                             </label>
                                         </subviews>
+                                        <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
+                                            <rect key="frame" x="30" y="0.0" width="240" height="330"/>
+                                        </variation>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vDZ-Yb-YcA">
                                         <rect key="frame" x="71" y="255" width="158" height="60"/>
@@ -65,6 +77,9 @@
                                                 <state key="normal" title="Choose a topic"/>
                                                 <variation key="widthClass=regular">
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
+                                                    <rect key="frame" x="0.0" y="0.0" width="178" height="42"/>
                                                 </variation>
                                                 <connections>
                                                     <segue destination="iVf-Qn-9xN" kind="show" identifier="showTopicChooser" id="MrU-j0-6YK"/>
@@ -78,8 +93,14 @@
                                                 <variation key="widthClass=regular">
                                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 </variation>
+                                                <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
+                                                    <rect key="frame" x="63" y="42" width="52" height="26"/>
+                                                </variation>
                                             </label>
                                         </subviews>
+                                        <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
+                                            <rect key="frame" x="61" y="391" width="178" height="68"/>
+                                        </variation>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pvn-qv-cic">
                                         <rect key="frame" x="90" y="350" width="120" height="50"/>
@@ -99,6 +120,9 @@
                                         <variation key="widthClass=regular">
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                         </variation>
+                                        <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
+                                            <rect key="frame" x="60" y="520" width="180" height="80"/>
+                                        </variation>
                                         <connections>
                                             <action selector="startButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="rLD-sE-wZJ"/>
                                         </connections>
@@ -110,6 +134,9 @@
                                         <variation key="widthClass=regular" constant="600"/>
                                     </constraint>
                                 </constraints>
+                                <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
+                                    <rect key="frame" x="250" y="18" width="300" height="600"/>
+                                </variation>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1124,7 +1151,7 @@ Time studied per topic in minutes</string>
                                                         <constraint firstAttribute="height" constant="80" id="goz-rW-oT0"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOz-xL-sZI">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOz-xL-sZI">
                                                     <rect key="frame" x="96" y="-8" width="496" height="80"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

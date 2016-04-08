@@ -55,7 +55,7 @@ class QuizResultsViewController: UIViewController{
         expansionButton.tag = row
         
         let questionNumberLabel = UILabel()
-        questionNumberLabel.text = "Question \(row)"
+        questionNumberLabel.text = "Question \(row + 1)"
         questionNumberLabel.font = UIFont.boldSystemFontOfSize(17.0)
         
         let arrowImageView = UIImageView()
@@ -66,7 +66,7 @@ class QuizResultsViewController: UIViewController{
         titleView.addSubview(expansionButton)
         titleView.addSubview(questionNumberLabel)
         titleView.heightAnchor.constraintEqualToConstant(50).active = true
-        titleView.widthAnchor.constraintEqualToConstant(280).active = true
+        titleView.widthAnchor.constraintEqualToConstant(stackView.frame.width - 40).active = true
         if question.answerScore == 0{
             titleView.backgroundColor = Util.myLightRedColor
         }else if question.answerScore < 1{
@@ -105,10 +105,12 @@ class QuizResultsViewController: UIViewController{
         stack.addArrangedSubview(titleView)
         
         let questionTextLabel = UILabel()
-        questionTextLabel.text = question.questionText
-        questionTextLabel.numberOfLines = 0
+        questionTextLabel.adjustsFontSizeToFitWidth = true
         questionTextLabel.font = UIFont.boldSystemFontOfSize(17.0)
+        questionTextLabel.preferredMaxLayoutWidth = stackView.frame.width - 40
         questionTextLabel.hidden = true
+        questionTextLabel.numberOfLines = 3
+        questionTextLabel.text = question.questionText
         stack.addArrangedSubview(questionTextLabel)
         
         for answer in question.answers{
