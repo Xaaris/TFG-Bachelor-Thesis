@@ -149,7 +149,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5K-tA-U4Z">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5K-tA-U4Z">
                                 <rect key="frame" x="20" y="20" width="560" height="107"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="107" id="1Rw-lu-rj7">
@@ -178,7 +178,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ud-fV-xkn">
-                                                    <rect key="frame" x="96" y="-8" width="496" height="80"/>
+                                                    <rect key="frame" x="88" y="-8" width="504" height="80"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -218,7 +218,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="6Ud-fV-xkn" firstAttribute="centerY" secondItem="lay-PX-HuQ" secondAttribute="centerY" id="Lsc-Vt-deC"/>
-                                                <constraint firstItem="6Ud-fV-xkn" firstAttribute="leading" secondItem="tRh-TO-aOV" secondAttribute="trailing" constant="8" id="Lwc-6G-vxb"/>
+                                                <constraint firstItem="6Ud-fV-xkn" firstAttribute="leading" secondItem="tRh-TO-aOV" secondAttribute="trailing" id="Lwc-6G-vxb"/>
                                                 <constraint firstItem="6Ud-fV-xkn" firstAttribute="trailing" secondItem="lay-PX-HuQ" secondAttribute="trailingMargin" id="Rr7-aB-vME"/>
                                                 <constraint firstItem="deg-Hn-dfY" firstAttribute="centerX" secondItem="tRh-TO-aOV" secondAttribute="centerX" id="U97-5d-2s2"/>
                                                 <constraint firstItem="tRh-TO-aOV" firstAttribute="leading" secondItem="lay-PX-HuQ" secondAttribute="leadingMargin" id="cZP-s8-Mgg"/>
@@ -245,11 +245,19 @@
                             <constraint firstItem="tFn-65-nga" firstAttribute="top" secondItem="p5K-tA-U4Z" secondAttribute="bottom" constant="45" id="2n3-wp-25m">
                                 <variation key="widthClass=compact" constant="25"/>
                             </constraint>
-                            <constraint firstAttribute="trailing" secondItem="tFn-65-nga" secondAttribute="trailing" id="CaG-kd-ZEB"/>
+                            <constraint firstAttribute="trailing" secondItem="tFn-65-nga" secondAttribute="trailing" id="CaG-kd-ZEB">
+                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                            </constraint>
                             <constraint firstItem="nbg-Rh-OfN" firstAttribute="top" secondItem="tFn-65-nga" secondAttribute="bottom" id="GBm-10-sNK"/>
-                            <constraint firstItem="tFn-65-nga" firstAttribute="leading" secondItem="02u-L1-dNQ" secondAttribute="leading" id="Kum-5J-Qzs"/>
-                            <constraint firstItem="p5K-tA-U4Z" firstAttribute="trailing" secondItem="02u-L1-dNQ" secondAttribute="trailingMargin" id="Mos-IN-J5x"/>
-                            <constraint firstItem="p5K-tA-U4Z" firstAttribute="leading" secondItem="02u-L1-dNQ" secondAttribute="leadingMargin" id="ThW-Zw-Dih"/>
+                            <constraint firstItem="tFn-65-nga" firstAttribute="leading" secondItem="02u-L1-dNQ" secondAttribute="leading" id="Kum-5J-Qzs">
+                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                            </constraint>
+                            <constraint firstItem="p5K-tA-U4Z" firstAttribute="trailing" secondItem="02u-L1-dNQ" secondAttribute="trailingMargin" id="Mos-IN-J5x">
+                                <variation key="heightClass=regular-widthClass=regular" constant="-100"/>
+                            </constraint>
+                            <constraint firstItem="p5K-tA-U4Z" firstAttribute="leading" secondItem="02u-L1-dNQ" secondAttribute="leadingMargin" id="ThW-Zw-Dih">
+                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                            </constraint>
                             <constraint firstItem="p5K-tA-U4Z" firstAttribute="top" secondItem="XNe-T3-pki" secondAttribute="bottom" id="rpl-pq-HeI">
                                 <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
@@ -1088,7 +1096,7 @@ Time studied per topic in minutes</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iij-lN-I1k">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iij-lN-I1k">
                                 <rect key="frame" x="20" y="20" width="560" height="107"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="107" id="VX2-U1-N87">
@@ -1126,7 +1134,7 @@ Time studied per topic in minutes</string>
                                             <constraints>
                                                 <constraint firstItem="UOz-xL-sZI" firstAttribute="centerY" secondItem="3nq-uS-tHj" secondAttribute="centerY" id="3rX-m3-ekj"/>
                                                 <constraint firstItem="F6R-y8-EPK" firstAttribute="leading" secondItem="3nq-uS-tHj" secondAttribute="leadingMargin" id="UFE-Ek-VaF"/>
-                                                <constraint firstItem="UOz-xL-sZI" firstAttribute="leading" secondItem="F6R-y8-EPK" secondAttribute="trailing" constant="8" id="Y4R-fh-a47"/>
+                                                <constraint firstItem="UOz-xL-sZI" firstAttribute="leading" secondItem="F6R-y8-EPK" secondAttribute="trailing" id="Y4R-fh-a47"/>
                                                 <constraint firstItem="UOz-xL-sZI" firstAttribute="trailing" secondItem="3nq-uS-tHj" secondAttribute="trailingMargin" id="ZvO-HG-1EJ"/>
                                                 <constraint firstItem="F6R-y8-EPK" firstAttribute="centerY" secondItem="3nq-uS-tHj" secondAttribute="centerY" id="hCC-CE-tNM"/>
                                                 <constraint firstItem="UOz-xL-sZI" firstAttribute="height" secondItem="F6R-y8-EPK" secondAttribute="height" id="kd6-bR-10z"/>
@@ -1166,11 +1174,19 @@ Time studied per topic in minutes</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="uiy-C1-akv" firstAttribute="leading" secondItem="aSO-AC-crw" secondAttribute="leading" id="3c8-R9-aLo"/>
-                            <constraint firstItem="iij-lN-I1k" firstAttribute="leading" secondItem="aSO-AC-crw" secondAttribute="leadingMargin" id="9Jq-ZA-BYI"/>
+                            <constraint firstItem="uiy-C1-akv" firstAttribute="leading" secondItem="aSO-AC-crw" secondAttribute="leading" id="3c8-R9-aLo">
+                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                            </constraint>
+                            <constraint firstItem="iij-lN-I1k" firstAttribute="leading" secondItem="aSO-AC-crw" secondAttribute="leadingMargin" id="9Jq-ZA-BYI">
+                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                            </constraint>
                             <constraint firstItem="dsB-sS-gOt" firstAttribute="centerX" secondItem="aSO-AC-crw" secondAttribute="centerX" id="KBf-wt-tTX"/>
-                            <constraint firstItem="iij-lN-I1k" firstAttribute="trailing" secondItem="aSO-AC-crw" secondAttribute="trailingMargin" id="KR4-Kd-9XF"/>
-                            <constraint firstAttribute="trailing" secondItem="uiy-C1-akv" secondAttribute="trailing" id="OZX-wO-fkK"/>
+                            <constraint firstItem="iij-lN-I1k" firstAttribute="trailing" secondItem="aSO-AC-crw" secondAttribute="trailingMargin" id="KR4-Kd-9XF">
+                                <variation key="heightClass=regular-widthClass=regular" constant="-100"/>
+                            </constraint>
+                            <constraint firstAttribute="trailing" secondItem="uiy-C1-akv" secondAttribute="trailing" id="OZX-wO-fkK">
+                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                            </constraint>
                             <constraint firstItem="uiy-C1-akv" firstAttribute="top" secondItem="dsB-sS-gOt" secondAttribute="bottom" constant="22" id="VVa-tk-oTS">
                                 <variation key="widthClass=compact" constant="5"/>
                             </constraint>
