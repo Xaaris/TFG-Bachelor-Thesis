@@ -186,7 +186,7 @@ struct Util {
     
     static func deleteUserData(){
         //TODO: add topics
-        deleteAllStatistics()
+        deleteStatisticsLocally()
         deletePreferences()
     }
     
