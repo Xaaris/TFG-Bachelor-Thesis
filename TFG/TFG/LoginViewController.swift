@@ -33,38 +33,34 @@ class LoginViewController: UIViewController {
         let password = self.passwordField.text!
         
         //Check online connectivity
-        let status = Reach().connectionStatus()
-        switch status{
-        case .Unknown, .Offline:
+        if !Util.isConnected(){
             showAlert("No connection", message: "You need an internet connection to be able to log in")
-        default:
-            // Validate the text fields
-            if username.characters.count < 5 {
-                showAlert("Invalid", message: "Username must be greater than 5 characters")
-            } else if password.characters.count < 8 {
-                showAlert("Invalid", message: "Password must be greater than 8 characters")
-            } else {
-                // Run a spinner to show a task in progress
-                activityIndicator.startAnimating()
-                UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+        // Validate the text fields
+        } else if username.characters.count < 5 {
+            showAlert("Invalid", message: "Username must be greater than 5 characters")
+        } else if password.characters.count < 8 {
+            showAlert("Invalid", message: "Password must be greater than 8 characters")
+        } else {
+            // Run a spinner to show a task in progress
+            activityIndicator.startAnimating()
+            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+            
+            // Send a request to login
+            PFUser.logInWithUsernameInBackground(username, password: password, block: { (user, error) -> Void in
                 
-                // Send a request to login
-                PFUser.logInWithUsernameInBackground(username, password: password, block: { (user, error) -> Void in
-                    
-                    // Stop the spinner
-                    self.activityIndicator.stopAnimating()
-                    UIApplication.sharedApplication().endIgnoringInteractionEvents()
-                    
-                    if ((user) != nil) {
-                        //User logged in successfully!
-                        self.dismissKeyboard()
-                        self.loadDataFromCloud()
-                        self.dismissViewControllerAnimated(true, completion: nil)
-                    } else {
-                        self.showAlert("Error", message: "\(error!.userInfo["error"] as! String)")
-                    }
-                })
-            }
+                // Stop the spinner
+                self.activityIndicator.stopAnimating()
+                UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                
+                if ((user) != nil) {
+                    //User logged in successfully!
+                    self.dismissKeyboard()
+                    self.loadDataFromCloud()
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                } else {
+                    self.showAlert("Error", message: "\(error!.userInfo["error"] as! String)")
+                }
+            })
         }
     }
     

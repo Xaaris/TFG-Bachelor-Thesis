@@ -94,11 +94,9 @@ class PreferencesViewController: UIViewController {
     
     func logOut(){
         //Check online connectivity
-        let status = Reach().connectionStatus()
-        switch status{
-        case .Unknown, .Offline:
+        if !Util.isConnected(){
             showAlert("No connection", message: "You need an internet connection to be able to safely log out")
-        default:
+        }else{
             
             // Run a spinner to show a task in progress
             activityIndicator.startAnimating()

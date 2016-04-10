@@ -24,35 +24,30 @@ class ForgotPasswordViewController: UIViewController {
         let finalEmail = email.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         
         //Check online connectivity
-        let status = Reach().connectionStatus()
-        switch status{
-        case .Unknown, .Offline:
+        if !Util.isConnected(){
             showAlert("No connection", message: "You need an internet connection to be able to reset your password")
-        default:
+        }else if finalEmail.characters.count < 5 {
+            showAlert("Invalid", message: "Please enter a valid email address")
+        } else {
             
-            if finalEmail.characters.count < 5 {
-                showAlert("Invalid", message: "Please enter a valid email address")
-            } else {
+            // Run a spinner to show a task in progress
+            activityIndicator.startAnimating()
+            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+            
+            // Send a request to reset a password
+            PFUser.requestPasswordResetForEmailInBackground(finalEmail, block: { (succeed, error) in
                 
-                // Run a spinner to show a task in progress
-                activityIndicator.startAnimating()
-                UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+                // Stop the spinner
+                self.activityIndicator.stopAnimating()
+                UIApplication.sharedApplication().endIgnoringInteractionEvents()
                 
-                // Send a request to reset a password
-                PFUser.requestPasswordResetForEmailInBackground(finalEmail, block: { (succeed, error) in
+                if ((error) != nil) {
+                    self.showAlert("Error", message: "\(error!.userInfo["error"] as! String)")
                     
-                    // Stop the spinner
-                    self.activityIndicator.stopAnimating()
-                    UIApplication.sharedApplication().endIgnoringInteractionEvents()
-                    
-                    if ((error) != nil) {
-                        self.showAlert("Error", message: "\(error!.userInfo["error"] as! String)")
-                        
-                    } else {
-                        self.showAlert("Password Reset", message: "An email containing information on how to reset your password has been sent to " + finalEmail + ".")
-                    }
-                })
-            }
+                } else {
+                    self.showAlert("Password Reset", message: "An email containing information on how to reset your password has been sent to " + finalEmail + ".")
+                }
+            })
         }
     }
     

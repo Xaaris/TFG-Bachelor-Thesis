@@ -38,7 +38,7 @@ struct Util {
         }
         return nil
     }
-
+    
     
     static func getPreferences() -> Preference? {
         return realm.objects(Preference.self).first
@@ -58,7 +58,7 @@ struct Util {
             return nil
         }
     }
-
+    
     static func getNLatestStatistics(numberOfStats: Int) -> [Statistic] {
         let stats = realm.objects(Statistic).sorted("date", ascending: false)
         let numberOfInstances = min(stats.count, numberOfStats)
@@ -104,7 +104,7 @@ struct Util {
             realm.delete(allStatistics)
         }
     }
-
+    
     static func deleteAllStatistics(){
         let query = PFQuery(className: "Statistic")
         query.whereKey("userID", equalTo: (PFUser.currentUser()?.objectId)!)
@@ -190,7 +190,16 @@ struct Util {
         deletePreferences()
     }
     
-    
+    static func isConnected() -> Bool {
+        //Check online connectivity
+        let status = Reach().connectionStatus()
+        switch status{
+        case .Unknown, .Offline:
+            return false
+        default:
+            return true
+        }
+    }
     
     
     

@@ -29,50 +29,45 @@ class SignUpViewController: UIViewController {
         let finalEmail = email.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         
         //Check online connectivity
-        let status = Reach().connectionStatus()
-        switch status{
-        case .Unknown, .Offline:
+        if !Util.isConnected(){
             showAlert("No connection", message: "You need an internet connection to be able to sign up")
-        default:
-            
             // Validate the text fields
-            if username.characters.count < 5 {
-                showAlert("Invalid", message: "Username must be greater than 5 characters")
-            } else if password.characters.count < 8 {
-                showAlert("Invalid", message: "Password must be greater than 8 characters")
-            } else if email.characters.count < 8 {
-                showAlert("Invalid", message: "Please enter a valid email address")
-            } else {
-                // Run a spinner to show a task in progress
-                activityIndicator.startAnimating()
-                UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+        } else if username.characters.count < 5 {
+            showAlert("Invalid", message: "Username must be greater than 5 characters")
+        } else if password.characters.count < 8 {
+            showAlert("Invalid", message: "Password must be greater than 8 characters")
+        } else if email.characters.count < 8 {
+            showAlert("Invalid", message: "Please enter a valid email address")
+        } else {
+            // Run a spinner to show a task in progress
+            activityIndicator.startAnimating()
+            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+            
+            let newUser = PFUser()
+            newUser.username = username
+            newUser.password = password
+            newUser.email = finalEmail
+            
+            // Sign up the user asynchronously
+            newUser.signUpInBackgroundWithBlock({ (succeed, error) -> Void in
                 
-                let newUser = PFUser()
-                newUser.username = username
-                newUser.password = password
-                newUser.email = finalEmail
+                // Stop the spinner
+                self.activityIndicator.stopAnimating()
+                UIApplication.sharedApplication().endIgnoringInteractionEvents()
                 
-                // Sign up the user asynchronously
-                newUser.signUpInBackgroundWithBlock({ (succeed, error) -> Void in
+                if ((error) != nil) {
+                    self.showAlert("Error", message: "\(error!.userInfo["error"] as! String)")
                     
-                    // Stop the spinner
-                    self.activityIndicator.stopAnimating()
-                    UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                } else {
                     
-                    if ((error) != nil) {
-                        self.showAlert("Error", message: "\(error!.userInfo["error"] as! String)")
-                        
-                    } else {
-                        
-                        let alertController = UIAlertController(title: "Success", message: "You are signed up!", preferredStyle: UIAlertControllerStyle.Alert)
-                        let dismissVCAction = UIAlertAction(title: "Great!", style: .Default) { (action) in
-                            self.goBackToLogin()
-                        }
-                        alertController.addAction(dismissVCAction)
-                        self.presentViewController(alertController, animated: true, completion: nil)
+                    let alertController = UIAlertController(title: "Success", message: "You are signed up!", preferredStyle: UIAlertControllerStyle.Alert)
+                    let dismissVCAction = UIAlertAction(title: "Great!", style: .Default) { (action) in
+                        self.goBackToLogin()
                     }
-                })
-            }
+                    alertController.addAction(dismissVCAction)
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                }
+            })
         }
     }
     
