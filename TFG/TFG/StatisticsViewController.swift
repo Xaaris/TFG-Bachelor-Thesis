@@ -67,7 +67,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 if let stats = objects{
                     
                     //Delete old statistics
-                    Util.deleteAllStatistics()
+                    Util.deleteStatisticsLocally()
                     
                     for cloudStat in stats{
                         if let topic = Util.getTopicWithTitle(cloudStat["topic"] as! String){

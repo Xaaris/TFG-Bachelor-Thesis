@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Parse
 
 struct Util {
     
@@ -97,7 +98,30 @@ struct Util {
         return newColor
     }
     
+    static func deleteStatisticsLocally(){
+        let allStatistics = realm.objects(Statistic)
+        try! realm.write {
+            realm.delete(allStatistics)
+        }
+    }
+
     static func deleteAllStatistics(){
+        let query = PFQuery(className: "Statistic")
+        query.whereKey("userID", equalTo: (PFUser.currentUser()?.objectId)!)
+        query.findObjectsInBackgroundWithBlock { (objects, error) in
+            if error == nil {
+                if let statisticsArr = objects{
+                    for stat in statisticsArr{
+                        stat.deleteEventually()
+                    }
+                    print("Statistics successfully deleted")
+                }else{
+                    print("Error: Statistic is nil")
+                }
+            }else{
+                print("Error: \(error!.userInfo["error"])")
+            }
+        }
         let allStatistics = realm.objects(Statistic)
         try! realm.write {
             realm.delete(allStatistics)
