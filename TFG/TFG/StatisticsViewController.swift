@@ -207,8 +207,8 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
         barChartView.xAxis.setLabelsToSkip(0)
         barChartView.drawValueAboveBarEnabled = false
         barChartView.setScaleEnabled(false)
-        barChartView.leftAxis.customAxisMin = 0
-        barChartView.leftAxis.customAxisMax = 100
+        barChartView.leftAxis.axisMinValue = 0
+        barChartView.leftAxis.axisMaxValue = 100
         barChartView.rightAxis.enabled = false
         barChartView.leftAxis.enabled = false
         barChartView.legend.enabled = false
