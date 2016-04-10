@@ -85,9 +85,15 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-TFG/Bolts.framework"
+  install_framework "Pods-TFG/Charts.framework"
   install_framework "Pods-TFG/Parse.framework"
+  install_framework "Pods-TFG/Realm.framework"
+  install_framework "Pods-TFG/RealmSwift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-TFG/Bolts.framework"
+  install_framework "Pods-TFG/Charts.framework"
   install_framework "Pods-TFG/Parse.framework"
+  install_framework "Pods-TFG/Realm.framework"
+  install_framework "Pods-TFG/RealmSwift.framework"
 fi
