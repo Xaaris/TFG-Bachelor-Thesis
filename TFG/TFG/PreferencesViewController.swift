@@ -93,26 +93,39 @@ class PreferencesViewController: UIViewController {
     }
     
     func logOut(){
-        // Run a spinner to show a task in progress
-        activityIndicator.startAnimating()
-        UIApplication.sharedApplication().beginIgnoringInteractionEvents()
-        // Send a request to log out a user
-        PFUser.logOutInBackgroundWithBlock { (error) in
-            if error == nil{
-                Util.deleteUserData()
-                // Stop the spinner
-                self.activityIndicator.stopAnimating()
-                UIApplication.sharedApplication().endIgnoringInteractionEvents()
-                
-                //show home view
-                let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("Home") as! UITabBarController
-                homeVC.selectedIndex = 0 // Home View
-                self.presentViewController(homeVC, animated: true, completion: nil)
-            }else{
-                print("Error: \(error!.userInfo["error"])")
+        //Check online connectivity
+        let status = Reach().connectionStatus()
+        switch status{
+        case .Unknown, .Offline:
+            showAlert("No connection", message: "You need an internet connection to be able to safely log out")
+        default:
+            
+            // Run a spinner to show a task in progress
+            activityIndicator.startAnimating()
+            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+            // Send a request to log out a user
+            PFUser.logOutInBackgroundWithBlock { (error) in
+                if error == nil{
+                    Util.deleteUserData()
+                    // Stop the spinner
+                    self.activityIndicator.stopAnimating()
+                    UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                    
+                    //show home view
+                    let homeVC = self.storyboard?.instantiateViewControllerWithIdentifier("Home") as! UITabBarController
+                    homeVC.selectedIndex = 0 // Home View
+                    self.presentViewController(homeVC, animated: true, completion: nil)
+                }else{
+                    print("Error: \(error!.userInfo["error"])")
+                }
             }
         }
     }
     
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
 }
 

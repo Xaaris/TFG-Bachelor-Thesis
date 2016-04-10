@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround() 
+        self.hideKeyboardWhenTappedAround()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -32,32 +32,39 @@ class LoginViewController: UIViewController {
         let username = self.usernameField.text!
         let password = self.passwordField.text!
         
-        // Validate the text fields
-        if username.characters.count < 5 {
-            showAlert("Invalid", message: "Username must be greater than 5 characters")
-        } else if password.characters.count < 8 {
-            showAlert("Invalid", message: "Password must be greater than 8 characters")
-        } else {
-            // Run a spinner to show a task in progress
-            activityIndicator.startAnimating()
-            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
-            
-            // Send a request to login
-            PFUser.logInWithUsernameInBackground(username, password: password, block: { (user, error) -> Void in
+        //Check online connectivity
+        let status = Reach().connectionStatus()
+        switch status{
+        case .Unknown, .Offline:
+            showAlert("No connection", message: "You need an internet connection to be able to log in")
+        default:
+            // Validate the text fields
+            if username.characters.count < 5 {
+                showAlert("Invalid", message: "Username must be greater than 5 characters")
+            } else if password.characters.count < 8 {
+                showAlert("Invalid", message: "Password must be greater than 8 characters")
+            } else {
+                // Run a spinner to show a task in progress
+                activityIndicator.startAnimating()
+                UIApplication.sharedApplication().beginIgnoringInteractionEvents()
                 
-                // Stop the spinner
-                self.activityIndicator.stopAnimating()
-                UIApplication.sharedApplication().endIgnoringInteractionEvents()
-                
-                if ((user) != nil) {
-                    //User logged in successfully!
-                    self.dismissKeyboard()
-                    self.loadDataFromCloud()
-                    self.dismissViewControllerAnimated(true, completion: nil)
-                } else {
-                    self.showAlert("Error", message: "\(error!.userInfo["error"] as! String)")
-                }
-            })
+                // Send a request to login
+                PFUser.logInWithUsernameInBackground(username, password: password, block: { (user, error) -> Void in
+                    
+                    // Stop the spinner
+                    self.activityIndicator.stopAnimating()
+                    UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                    
+                    if ((user) != nil) {
+                        //User logged in successfully!
+                        self.dismissKeyboard()
+                        self.loadDataFromCloud()
+                        self.dismissViewControllerAnimated(true, completion: nil)
+                    } else {
+                        self.showAlert("Error", message: "\(error!.userInfo["error"] as! String)")
+                    }
+                })
+            }
         }
     }
     

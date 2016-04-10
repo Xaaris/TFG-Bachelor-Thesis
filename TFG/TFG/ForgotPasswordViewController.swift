@@ -23,28 +23,36 @@ class ForgotPasswordViewController: UIViewController {
         let email = self.emailField.text!
         let finalEmail = email.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         
-        if finalEmail.characters.count < 5 {
-            showAlert("Invalid", message: "Please enter a valid email address")
-        } else {
+        //Check online connectivity
+        let status = Reach().connectionStatus()
+        switch status{
+        case .Unknown, .Offline:
+            showAlert("No connection", message: "You need an internet connection to be able to reset your password")
+        default:
             
-            // Run a spinner to show a task in progress
-            activityIndicator.startAnimating()
-            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
-            
-            // Send a request to reset a password
-            PFUser.requestPasswordResetForEmailInBackground(finalEmail, block: { (succeed, error) in
+            if finalEmail.characters.count < 5 {
+                showAlert("Invalid", message: "Please enter a valid email address")
+            } else {
                 
-                // Stop the spinner
-                self.activityIndicator.stopAnimating()
-                UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                // Run a spinner to show a task in progress
+                activityIndicator.startAnimating()
+                UIApplication.sharedApplication().beginIgnoringInteractionEvents()
                 
-                if ((error) != nil) {
-                    self.showAlert("Error", message: "\(error!.userInfo["error"] as! String)")
+                // Send a request to reset a password
+                PFUser.requestPasswordResetForEmailInBackground(finalEmail, block: { (succeed, error) in
                     
-                } else {
-                    self.showAlert("Password Reset", message: "An email containing information on how to reset your password has been sent to " + finalEmail + ".")
-                }
-            })
+                    // Stop the spinner
+                    self.activityIndicator.stopAnimating()
+                    UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                    
+                    if ((error) != nil) {
+                        self.showAlert("Error", message: "\(error!.userInfo["error"] as! String)")
+                        
+                    } else {
+                        self.showAlert("Password Reset", message: "An email containing information on how to reset your password has been sent to " + finalEmail + ".")
+                    }
+                })
+            }
         }
     }
     
