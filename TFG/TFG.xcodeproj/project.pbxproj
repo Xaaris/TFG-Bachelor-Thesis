@@ -29,6 +29,7 @@
 		3BC8B4201C70F251000FD25D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BC8B41F1C70F251000FD25D /* Assets.xcassets */; };
 		3BC8B4231C70F251000FD25D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BC8B4211C70F251000FD25D /* LaunchScreen.storyboard */; };
 		3BC8B42B1C723581000FD25D /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC8B42A1C723581000FD25D /* PreferencesViewController.swift */; };
+		3BD4A1C61CBA844D00E52A0C /* Reach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD4A1C51CBA844D00E52A0C /* Reach.swift */; };
 		3BE4BA2E1C7FCB940053EC96 /* PresentQuestionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4BA2D1C7FCB940053EC96 /* PresentQuestionPageViewController.swift */; };
 		3BE4BA301C7FD9A60053EC96 /* QuestionContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4BA2F1C7FD9A60053EC96 /* QuestionContentViewController.swift */; };
 		3BE4BA321C7FDBE30053EC96 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4BA311C7FDBE30053EC96 /* Util.swift */; };
@@ -121,6 +122,7 @@
 		3BC8B4221C70F251000FD25D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3BC8B4241C70F251000FD25D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BC8B42A1C723581000FD25D /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		3BD4A1C51CBA844D00E52A0C /* Reach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reach.swift; sourceTree = "<group>"; };
 		3BE4BA2D1C7FCB940053EC96 /* PresentQuestionPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = PresentQuestionPageViewController.swift; path = ../PresentQuestionPageViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3BE4BA2F1C7FD9A60053EC96 /* QuestionContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionContentViewController.swift; sourceTree = "<group>"; };
 		3BE4BA311C7FDBE30053EC96 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				3BF72CAB1CB5C8850079F71D /* Extensions.swift */,
 				3BE4BA311C7FDBE30053EC96 /* Util.swift */,
 				3B6CC8261C9A34B3001A1FE3 /* CircleProgressView.swift */,
+				3BD4A1C51CBA844D00E52A0C /* Reach.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 				3BC8B4191C70F251000FD25D /* MainViewController.swift in Sources */,
 				3BF72CB21CB6D4A80079F71D /* CloudLink.swift in Sources */,
 				3BBD15A01C7A18C500672569 /* QuestionData.swift in Sources */,
+				3BD4A1C61CBA844D00E52A0C /* Reach.swift in Sources */,
 				3BE4BA2E1C7FCB940053EC96 /* PresentQuestionPageViewController.swift in Sources */,
 				3BF72CAC1CB5C8850079F71D /* Extensions.swift in Sources */,
 				3BE4BA321C7FDBE30053EC96 /* Util.swift in Sources */,
