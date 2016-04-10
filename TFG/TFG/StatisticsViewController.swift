@@ -58,38 +58,42 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
     func refreshStatistics(){
         
         refresher.beginRefreshing()
-        
-        //Load new Statistics
-        let query = PFQuery(className: "Statistic")
-        query.whereKey("userID", equalTo: (PFUser.currentUser()?.objectId)!)
-        query.findObjectsInBackgroundWithBlock { (objects, error) in
-            if error == nil {
-                if let stats = objects{
-                    
-                    //Delete old statistics
-                    Util.deleteStatisticsLocally()
-                    
-                    for cloudStat in stats{
-                        if let topic = Util.getTopicWithTitle(cloudStat["topic"] as! String){
-                            realm.beginWrite()
-                            let localStat = Statistic()
-                            localStat.topic = topic
-                            localStat.date = cloudStat["date"] as! NSDate
-                            localStat.score = cloudStat["score"] as! Double
-                            localStat.startTime = cloudStat["startTime"] as! NSDate
-                            localStat.endTime = cloudStat["endTime"] as! NSDate
-                            realm.add(localStat)
-                            try! realm.commitWrite()
-                        }else{
-                            print("Error: Topic does not exist")
+        if !Util.isConnected(){
+            refresher.endRefreshing()
+        }else{
+            
+            //Load new Statistics
+            let query = PFQuery(className: "Statistic")
+            query.whereKey("userID", equalTo: (PFUser.currentUser()?.objectId)!)
+            query.findObjectsInBackgroundWithBlock { (objects, error) in
+                if error == nil {
+                    if let stats = objects{
+                        
+                        //Delete old statistics
+                        Util.deleteStatisticsLocally()
+                        
+                        for cloudStat in stats{
+                            if let topic = Util.getTopicWithTitle(cloudStat["topic"] as! String){
+                                realm.beginWrite()
+                                let localStat = Statistic()
+                                localStat.topic = topic
+                                localStat.date = cloudStat["date"] as! NSDate
+                                localStat.score = cloudStat["score"] as! Double
+                                localStat.startTime = cloudStat["startTime"] as! NSDate
+                                localStat.endTime = cloudStat["endTime"] as! NSDate
+                                realm.add(localStat)
+                                try! realm.commitWrite()
+                            }else{
+                                print("Error: Topic does not exist")
+                            }
                         }
+                        print("Successfully downloaded Statistics")
+                        self.reloadCharts()
+                        self.refresher.endRefreshing()
                     }
-                    print("Successfully downloaded Statistics")
-                    self.reloadCharts()
-                    self.refresher.endRefreshing()
+                }else{
+                    print("Error: \(error!.userInfo["error"])")
                 }
-            }else{
-                print("Error: \(error!.userInfo["error"])")
             }
         }
     }
@@ -218,7 +222,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         //        let ll = ChartLimitLine(limit: 50)
         //        barChartView.rightAxis.addLimitLine(ll)
-
+        
     }
     
     func reloadBarChartData(overview: Bool) {
@@ -283,7 +287,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
     func setupPieChartView() {
         pieChartView.descriptionText = ""
         pieChartView.animate(yAxisDuration: 2.0, easingOption: .EaseInOutCubic)
-//        pieChartView.drawHoleEnabled = false
+        //        pieChartView.drawHoleEnabled = false
         pieChartView.drawSliceTextEnabled = false
     }
     
@@ -321,30 +325,30 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
             
         }else{
             //does not work yet because the data gets not saved yet
-//            var answerScores: [Double] = [0,0,0] //[wrongAnswers][partlyCorrectAnswers][correctAnswers]
-//            for stat in displayedStatistics{
-//                if stat.percentageScore == 0 {
-//                    answerScores[0] += 1
-//                }else if stat.percentageScore < 100 {
-//                    answerScores[1] += 1
-//                }else{
-//                    answerScores[2] += 1
-//                }
-//            }
-//            for i in 0 ..< answerScores.count{
-//                let dataEntry = ChartDataEntry(value: answerScores[i] , xIndex: i)
-//                dataEntries.append(dataEntry)
-//            }
-//            colors.append(Util.myLightRedColor)
-//            colors.append(Util.myLightYellowColor)
-//            colors.append(Util.myLightGreenColor)
-//            let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "")
-//            pieChartDataSet.colors = colors
-//            let pieChartData = PieChartData(xVals: ["Wrong answers", "Partly correct answers", "Correct answers"], dataSet: pieChartDataSet)
-//            pieChartView.data = pieChartData
+            //            var answerScores: [Double] = [0,0,0] //[wrongAnswers][partlyCorrectAnswers][correctAnswers]
+            //            for stat in displayedStatistics{
+            //                if stat.percentageScore == 0 {
+            //                    answerScores[0] += 1
+            //                }else if stat.percentageScore < 100 {
+            //                    answerScores[1] += 1
+            //                }else{
+            //                    answerScores[2] += 1
+            //                }
+            //            }
+            //            for i in 0 ..< answerScores.count{
+            //                let dataEntry = ChartDataEntry(value: answerScores[i] , xIndex: i)
+            //                dataEntries.append(dataEntry)
+            //            }
+            //            colors.append(Util.myLightRedColor)
+            //            colors.append(Util.myLightYellowColor)
+            //            colors.append(Util.myLightGreenColor)
+            //            let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "")
+            //            pieChartDataSet.colors = colors
+            //            let pieChartData = PieChartData(xVals: ["Wrong answers", "Partly correct answers", "Correct answers"], dataSet: pieChartDataSet)
+            //            pieChartView.data = pieChartData
         }
     }
-
+    
     func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: ChartHighlight) {
         let statistic = displayedStatistics[entry.xIndex]
         let dateFormatter = NSDateFormatter()
