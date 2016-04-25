@@ -59,17 +59,22 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate  {
         UIApplication.sharedApplication().beginIgnoringInteractionEvents()
         
         // Send a request to reset a password
-        PFUser.requestPasswordResetForEmailInBackground(email, block: { (succeed, error) in
+        PFUser.requestPasswordResetForEmailInBackground(email, block: { (succeeded: Bool, error: NSError?) in
             
             // Stop the spinner
             self.activityIndicator.stopAnimating()
             UIApplication.sharedApplication().endIgnoringInteractionEvents()
             
-            if ((error) != nil) {
+            if error == nil {
+                if succeeded { // SUCCESSFULLY SENT TO EMAIL
+                    self.showAlert("Password Reset", message: "An email containing information on how to reset your password has been sent to " + email + ".")
+                }
+                else { // SOME PROBLEM OCCURED
+                    self.showAlert("Unknown Error", message: "An unknown error occured")
+                }
+            }
+            else { //ERROR OCCURED, DISPLAY ERROR MESSAGE
                 self.showAlert("Error", message: "\(error!.userInfo["error"] as! String)")
-                
-            } else {
-                self.showAlert("Password Reset", message: "An email containing information on how to reset your password has been sent to " + email + ".")
             }
         })
     }
