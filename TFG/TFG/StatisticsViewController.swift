@@ -35,7 +35,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
         barChartView.delegate = self
         setupTopicPicker()
         //Highlights last value in bar chart view
-        barChartView.highlightValue(xIndex: displayedStatistics.count-1, dataSetIndex: 0, callDelegate: true)
+        barChartView.highlightValue(xIndex: displayedStatistics.count - 1, dataSetIndex: 0, callDelegate: true)
         addRefresher()
         refreshStatistics()
     }
@@ -230,55 +230,56 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
             barChartView.noDataText = "No topic selected"
         }else{
             barChartView.noDataText = "No data yet"
+            let oldStatistics = displayedStatistics
             if overview{
                 displayedStatistics = Util.getNLatestStatistics(14)
             }else{
-                displayedStatistics = Util.getNLatestStatisticsOfTopic(7, topic: Util.getCurrentTopic()!)
+                displayedStatistics = Util.getNLatestStatisticsOfTopic(10, topic: Util.getCurrentTopic()!)
             }
-            if !displayedStatistics.isEmpty {
-                var dates:[String] = []
-                var scores:[Double] = []
-                
-                let dayDateFormatter = NSDateFormatter()
-                let hourDateFormatter = NSDateFormatter()
-                dayDateFormatter.dateFormat = "dd.MM" //"yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-                hourDateFormatter.dateFormat = "HH:mm"
-                
-                for i in 0..<displayedStatistics.count {
-                    if displayedStatistics[i].date.timeIntervalSinceNow > NSTimeInterval(-86400) { //86.400 seconds = one day
-                        dates.append(hourDateFormatter.stringFromDate(displayedStatistics[i].date))
-                    }else{
-                        dates.append(dayDateFormatter.stringFromDate(displayedStatistics[i].date))
+            if oldStatistics != displayedStatistics{
+                if !displayedStatistics.isEmpty {
+                    var dates:[String] = []
+                    var scores:[Double] = []
+                    
+                    let dayDateFormatter = NSDateFormatter()
+                    let hourDateFormatter = NSDateFormatter()
+                    dayDateFormatter.dateFormat = "dd.MM" //"yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+                    hourDateFormatter.dateFormat = "HH:mm"
+                    
+                    for i in 0..<displayedStatistics.count {
+                        if displayedStatistics[i].date.timeIntervalSinceNow > NSTimeInterval(-86400) { //86.400 seconds = one day
+                            dates.append(hourDateFormatter.stringFromDate(displayedStatistics[i].date))
+                        }else{
+                            dates.append(dayDateFormatter.stringFromDate(displayedStatistics[i].date))
+                        }
+                        scores.append(displayedStatistics[i].percentageScore)
                     }
-                    scores.append(displayedStatistics[i].percentageScore)
+                    var dataEntries: [BarChartDataEntry] = []
+                    
+                    for i in 0..<dates.count {
+                        let dataEntry = BarChartDataEntry(value: scores[i], xIndex: i)
+                        dataEntries.append(dataEntry)
+                    }
+                    let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "Prozent")
+                    let chartData = BarChartData(xVals: dates, dataSet: chartDataSet)
+                    let numberFormatter = NSNumberFormatter()
+                    numberFormatter.minimumIntegerDigits = 1
+                    numberFormatter.maximumFractionDigits = 1
+                    chartData.setValueFormatter(numberFormatter)
+                    barChartView.data = chartData
+                    
+                    chartDataSet.highlightAlpha = 0.3
+                    chartDataSet.highlightColor = UIColor.whiteColor()
+                    var chartColors: [UIColor] = []
+                    for i in 0 ..< displayedStatistics.count {
+                        let topicColor = displayedStatistics[i].topic!.color!
+                        let topicUIColor = UIColor(red: CGFloat(topicColor.red)/255, green: CGFloat(topicColor.green)/255, blue: CGFloat(topicColor.blue)/255, alpha: 1)
+                        chartColors.append(topicUIColor)
+                    }
+                    chartDataSet.colors = chartColors
+                }else{
+                    barChartView.clear()
                 }
-                var dataEntries: [BarChartDataEntry] = []
-                
-                for i in 0..<dates.count {
-                    let dataEntry = BarChartDataEntry(value: scores[i], xIndex: i)
-                    dataEntries.append(dataEntry)
-                }
-                let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "Prozent")
-                let chartData = BarChartData(xVals: dates, dataSet: chartDataSet)
-                let numberFormatter = NSNumberFormatter()
-                numberFormatter.minimumIntegerDigits = 1
-                numberFormatter.maximumFractionDigits = 1
-                chartData.setValueFormatter(numberFormatter)
-                barChartView.data = chartData
-                
-                chartDataSet.highlightAlpha = 0.3
-                chartDataSet.highlightColor = UIColor.whiteColor()
-                var chartColors: [UIColor] = []
-                for i in 0 ..< displayedStatistics.count {
-                    let topicColor = displayedStatistics[i].topic!.color!
-                    let topicUIColor = UIColor(red: CGFloat(topicColor.red)/255, green: CGFloat(topicColor.green)/255, blue: CGFloat(topicColor.blue)/255, alpha: 1)
-                    chartColors.append(topicUIColor)
-                }
-                chartDataSet.colors = chartColors
-                //                chartDataSet.colors = [UIColor(red: 230/255, green: 126/255, blue: 34/255, alpha: 1)] //orange
-                barChartView.animate(yAxisDuration: 2.0, easingOption: .EaseInOutCubic)
-            }else{
-                barChartView.clear()
             }
         }
         barChartView.setNeedsDisplay()
