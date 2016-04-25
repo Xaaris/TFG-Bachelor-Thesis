@@ -112,6 +112,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3B158D1E1CCE956500D3A94F /* Sample Data */ = {
+			isa = PBXGroup;
+			children = (
+				3BBD159B1C79E68F00672569 /* Sample1.csv */,
+				3BF5B7131C8366D2007C88B2 /* Sample2.csv */,
+			);
+			name = "Sample Data";
+			sourceTree = "<group>";
+		};
 		3B238D931C890BDD00E71EA3 /* Preferences View */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,8 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				3BC8B4161C70F251000FD25D /* AppDelegate.swift */,
-				3BBD159B1C79E68F00672569 /* Sample1.csv */,
-				3BF5B7131C8366D2007C88B2 /* Sample2.csv */,
+				3B158D1E1CCE956500D3A94F /* Sample Data */,
 				3BB3610A1CB4AF9D00356004 /* Import */,
 				3BB361081CB4AF7300356004 /* Home */,
 				3B2520041CA5DBC0008B6CA7 /* Statistics */,
