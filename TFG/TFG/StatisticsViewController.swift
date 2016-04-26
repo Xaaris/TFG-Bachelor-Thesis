@@ -266,6 +266,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
                     numberFormatter.minimumIntegerDigits = 1
                     numberFormatter.maximumFractionDigits = 1
                     chartData.setValueFormatter(numberFormatter)
+                    chartData.setValueTextColor(UIColor.whiteColor())
                     barChartView.data = chartData
                     
                     chartDataSet.highlightAlpha = 0.3
