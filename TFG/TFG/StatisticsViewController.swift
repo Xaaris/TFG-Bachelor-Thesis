@@ -46,7 +46,6 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
         updatePickerSelection()
         setupCharts()
         reloadCharts()
-        print("GlobalAverage: \(Util.getGlobalAverageOf(Util.getCurrentTopic()!))")
     }
     
     func addRefresher(){
@@ -278,6 +277,21 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
                         chartColors.append(topicUIColor)
                     }
                     chartDataSet.colors = chartColors
+                    
+                    barChartView.leftAxis.removeAllLimitLines()
+                    if !overview{
+                        if let globalAverage = Util.getGlobalAverageOf(Util.getCurrentTopic()!)?.currentAverage{
+                            let limitLine = ChartLimitLine(limit: globalAverage * 100, label: "Global Average")
+                            let greyColor = UIColor(red: 50/255, green: 50/255, blue: 50/255, alpha: 0.7)
+                            limitLine.lineColor = greyColor
+                            limitLine.valueTextColor = greyColor
+                            limitLine.labelPosition = .LeftTop
+                            limitLine.valueFont = NSUIFont.systemFontOfSize(10.0)
+                            limitLine.lineDashLengths = [7,5]
+                            limitLine.lineWidth = 0.5
+                            barChartView.leftAxis.addLimitLine(limitLine)
+                        }
+                    }
                 }else{
                     barChartView.clear()
                 }
