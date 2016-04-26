@@ -46,6 +46,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
         updatePickerSelection()
         setupCharts()
         reloadCharts()
+        print("GlobalAverage: \(Util.getGlobalAverageOf(Util.getCurrentTopic()!))")
     }
     
     func addRefresher(){

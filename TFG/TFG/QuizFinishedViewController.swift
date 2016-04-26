@@ -57,6 +57,7 @@ class QuizFinishedViewController: PageViewContent{
         
         //save to cloud
         CloudLink.syncStatisticToCloud(stat)
+        CloudLink.updateGlobalAverage(stat.percentageScore / 100)
     }
 
 }

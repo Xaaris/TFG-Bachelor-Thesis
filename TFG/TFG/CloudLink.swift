@@ -105,5 +105,41 @@ struct CloudLink {
         }
     }
     
+    static func updateGlobalAverage(latestValue: Double) {
+        if let currentTopic = Util.getCurrentTopic(){
+            let query = PFQuery(className: "GlobalAverage")
+            query.whereKey("topic", equalTo: currentTopic.title)
+            query.findObjectsInBackgroundWithBlock { (objects, error) in
+                if error == nil {
+                    if let globalAverageArr = objects{
+                        var newGlobalAverage = PFObject(className: "GlobalAverage")
+                        var newValue = -1.0
+                        if globalAverageArr.count == 0{
+                            newGlobalAverage["topic"] = currentTopic.title
+                            newValue = 0.5 * 0.99 + latestValue * 0.01
+                            newGlobalAverage["currentAverage"] = newValue
+                        }else if globalAverageArr.count == 1{
+                            newGlobalAverage = globalAverageArr.first!
+                            newValue = (newGlobalAverage["currentAverage"] as! Double) * 0.99 + latestValue * 0.01
+                            newGlobalAverage["currentAverage"] = newValue
+                        }else{
+                            print("Error: globalAverageArr.count for topic \(currentTopic.title) was \(globalAverageArr.count)")
+                        }
+                        newGlobalAverage["lastUpdated"] = NSDate()
+                        newGlobalAverage.saveEventually()
+                        print("Saving new global average to cloud")
+                        Util.setGlobalAverageOf(currentTopic, newValue: newValue)
+                    }
+                }else{
+                    print("Error: \(error!.userInfo["error"])")
+                }
+            }
+        }else{
+            print("Error: current topic was nil!")
+        }
+    }
     
+        
+        
+        
 }

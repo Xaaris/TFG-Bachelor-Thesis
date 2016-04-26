@@ -34,6 +34,11 @@ class Statistic: Object{
         return endTime.timeIntervalSinceDate(startTime)
     }
     
-    
+}
+
+class GlobalAverage: Object {
+    dynamic var topic: Topic? // to-one relationships must be optional
+    dynamic var lastUpdated = NSDate()
+    dynamic var currentAverage = 0.5
 }
 
