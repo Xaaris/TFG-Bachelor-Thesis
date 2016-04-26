@@ -25,7 +25,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var pickerValues:[String] = []
     var timer = NSTimer()
     var displayedStatistics: [Statistic] = []
-    var overviewWasSelected = true
+    var overviewWasSelected = false
     var refresher: UIRefreshControl!
     
     
@@ -319,7 +319,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
         var dataEntries: [ChartDataEntry] = []
         var colors: [UIColor] = []
         
-        if overview {
+        //if overview {
             let topics = realm.objects(Topic)
             var topicTitles: [String] = []
             var counter = 0
@@ -340,7 +340,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
             pieChartData.setValueFormatter(numberFormatter)
             pieChartView.data = pieChartData
             
-        }else{
+        //}else{
             //does not work yet because the data gets not saved yet
             //            var answerScores: [Double] = [0,0,0] //[wrongAnswers][partlyCorrectAnswers][correctAnswers]
             //            for stat in displayedStatistics{
@@ -363,7 +363,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
             //            pieChartDataSet.colors = colors
             //            let pieChartData = PieChartData(xVals: ["Wrong answers", "Partly correct answers", "Correct answers"], dataSet: pieChartDataSet)
             //            pieChartView.data = pieChartData
-        }
+        //}
     }
     
     func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: ChartHighlight) {
