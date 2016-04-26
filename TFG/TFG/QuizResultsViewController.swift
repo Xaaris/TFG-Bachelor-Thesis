@@ -219,8 +219,10 @@ class QuizResultsViewController: UIViewController{
         }else{
             titleLabel.text = "Perfect!"
         }
-        
-        xOutOfxLabel.text = "You got a score of \(Int(score))%"
+        let numberFormatter = NSNumberFormatter()
+        numberFormatter.minimumIntegerDigits = 1
+        numberFormatter.maximumFractionDigits = 1
+        xOutOfxLabel.text = "You got a score of \(numberFormatter.stringFromNumber(score)!)%"
     }
     
     
