@@ -213,7 +213,7 @@ struct Util {
         return nil
     }
     
-    static func setGlobalAverageOf(topic: Topic, newValue: Double){
+    static func setGlobalAverageOf(topic: Topic, date: NSDate, newValue: Double){
         let predicate = NSPredicate(format: "topic.title = %@ ", topic.title)
         let globalAverageArr = realm.objects(GlobalAverage).filter(predicate)
         var newGA = GlobalAverage()
@@ -224,7 +224,7 @@ struct Util {
             print("Error: globalAverageArr.count for \(topic.title) was \(globalAverageArr.count)")
         }
         newGA.topic = topic
-        newGA.lastUpdated = NSDate()
+        newGA.lastUpdated = date
         newGA.currentAverage = newValue
         realm.add(newGA)
         try! realm.commitWrite()

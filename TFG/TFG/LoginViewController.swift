@@ -105,6 +105,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func loadDataFromCloud(){
         CloudLink.syncPreferencesToRealm()
         CloudLink.syncStatisticsToRealm()
+        CloudLink.syncGlobalAverageToRealm()
     }
     
     

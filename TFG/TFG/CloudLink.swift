@@ -128,7 +128,7 @@ struct CloudLink {
                         newGlobalAverage["lastUpdated"] = NSDate()
                         newGlobalAverage.saveEventually()
                         print("Saving new global average to cloud")
-                        Util.setGlobalAverageOf(currentTopic, newValue: newValue)
+                        Util.setGlobalAverageOf(currentTopic, date: NSDate(), newValue: newValue)
                     }
                 }else{
                     print("Error: \(error!.userInfo["error"])")
@@ -139,7 +139,27 @@ struct CloudLink {
         }
     }
     
-        
-        
-        
+    static func syncGlobalAverageToRealm() {
+        let query = PFQuery(className: "GlobalAverage")
+        query.findObjectsInBackgroundWithBlock { (objects, error) in
+            if error == nil {
+                if let globalAverageArr = objects{
+                    for ga in globalAverageArr{
+                        let topicStr = ga["topic"] as! String
+                        if let topic = Util.getTopicWithTitle(topicStr){
+                            let date = ga["lastUpdated"] as! NSDate
+                            let score = ga["currentAverage"] as! Double
+                            Util.setGlobalAverageOf(topic, date: date, newValue: score)
+                        }
+                    }
+                }
+            }else{
+                print("Error: \(error!.userInfo["error"])")
+            }
+        }
+    }
+    
+    
+    
+    
 }
