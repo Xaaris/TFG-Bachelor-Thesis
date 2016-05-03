@@ -241,7 +241,6 @@ class ImportAndSaveHelper {
                     tmpAnswer.answerText = answer.0
                     tmpAnswer.isCorrect = answer.1
                     tmpAnswer.associatedQuestion = tmpQuestion
-                    //tmpQuestion.answers.append(tmpAnswer)
                 }
                 
                 //Creating the tags

@@ -188,8 +188,6 @@ struct CloudLink {
                                                     localAnswer.answerText = answer["answerText"] as! String
                                                     localAnswer.isCorrect = answer["isCorrect"] as! Bool
                                                     
-                                                    //localQuestion.answers.append(localAnswer)
-                                                    
                                                     realm.beginWrite()
                                                     realm.add(localAnswer)
                                                     try! realm.commitWrite()

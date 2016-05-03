@@ -1,8 +1,0 @@
-QuestionType;Question;Hint;Feedback;Difficulty;CorrectAnswers;Answer1;Answer2;Answer3;Answer4;Answer5;Tag1;Tag2;Tag3;Tag4;Tag5
-Info;This is the Title;Johannes Berger;20.02.16;Java;bla;Programming;Test;;;;;;;;
-MultipleChoice;This is my first question;This is a hint;And this is feedback;4;1,3;This is the first answer. It is correct;This is the second answer. It is false;This answer is correct as well;This is false;;first;testing;DoesItWork?;;
-SingleChoice;This is my second question;It is a single choise question;And this is feedback;2;2;This is the first answer. ;This is the second answer. It is true;This answer is false;This is false;;second;testing;SingleChoice;;
-MultipleChoice;This is my third question;This is a hint;And this is feedback;3;1,2;This is the first answer. It is correct;This is the second answer. It is correct as well;This answer is false;;;third;bla;testing;ManyTags;
-SingleChoice;This is another;This is a hint;And this is feedback;3;1;This is the first answer. It is correct;This is the second answer. It is false;This answer is false as well;This is false;;bla;;;;
-TrueFalse;This is another;This is a hint;And this is feedback;1;1;True;False;;;;;;;;
-TrueFalse;This is another;This is a hint;And this is feedback;2;2;Correct;Incorrect;;;;TrueFalse;;;;

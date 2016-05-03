@@ -13,7 +13,6 @@
 		3B6CC8271C9A34B3001A1FE3 /* CircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CC8261C9A34B3001A1FE3 /* CircleProgressView.swift */; };
 		3B7F65171C78F97F00BE0812 /* CSVImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7F65161C78F97F00BE0812 /* CSVImporter.swift */; };
 		3BB361041CB49DD300356004 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB361031CB49DD300356004 /* LoginViewController.swift */; };
-		3BBD159C1C79E69000672569 /* Sample1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3BBD159B1C79E68F00672569 /* Sample1.csv */; };
 		3BBD159E1C7A081C00672569 /* ChooseTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBD159D1C7A081C00672569 /* ChooseTopicViewController.swift */; };
 		3BBD15A01C7A18C500672569 /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBD159F1C7A18C500672569 /* QuestionData.swift */; };
 		3BC8B4171C70F251000FD25D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC8B4161C70F251000FD25D /* AppDelegate.swift */; };
@@ -29,7 +28,6 @@
 		3BE4BA321C7FDBE30053EC96 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4BA311C7FDBE30053EC96 /* Util.swift */; };
 		3BE4BA361C80CB6C0053EC96 /* AnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4BA351C80CB6C0053EC96 /* AnswerCell.swift */; };
 		3BE4BA391C80E5970053EC96 /* QuizFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4BA371C80E5970053EC96 /* QuizFinishedViewController.swift */; };
-		3BF5B7141C8366D2007C88B2 /* Sample2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3BF5B7131C8366D2007C88B2 /* Sample2.csv */; };
 		3BF5B7211C862D9C007C88B2 /* SingleChoiceQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5B7201C862D9C007C88B2 /* SingleChoiceQuestion.swift */; };
 		3BF5B7231C863282007C88B2 /* MultiChoiceQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5B7221C863282007C88B2 /* MultiChoiceQuestion.swift */; };
 		3BF5B7251C86711F007C88B2 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 3BF5B7241C86711F007C88B2 /* .gitignore */; };
@@ -60,7 +58,6 @@
 		3B6CC8261C9A34B3001A1FE3 /* CircleProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleProgressView.swift; sourceTree = "<group>"; };
 		3B7F65161C78F97F00BE0812 /* CSVImporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CSVImporter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3BB361031CB49DD300356004 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		3BBD159B1C79E68F00672569 /* Sample1.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample1.csv; sourceTree = "<group>"; };
 		3BBD159D1C7A081C00672569 /* ChooseTopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseTopicViewController.swift; sourceTree = "<group>"; };
 		3BBD159F1C7A18C500672569 /* QuestionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
 		3BC8B4131C70F251000FD25D /* TFG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TFG.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,7 +75,6 @@
 		3BE4BA311C7FDBE30053EC96 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		3BE4BA351C80CB6C0053EC96 /* AnswerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerCell.swift; sourceTree = "<group>"; };
 		3BE4BA371C80E5970053EC96 /* QuizFinishedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = QuizFinishedViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		3BF5B7131C8366D2007C88B2 /* Sample2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample2.csv; sourceTree = "<group>"; };
 		3BF5B7201C862D9C007C88B2 /* SingleChoiceQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SingleChoiceQuestion.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3BF5B7221C863282007C88B2 /* MultiChoiceQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MultiChoiceQuestion.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3BF5B7241C86711F007C88B2 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
@@ -110,15 +106,6 @@
 				CC516EB9D753112F05F79500 /* Pods_TFG.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		3B158D1E1CCE956500D3A94F /* Sample Data */ = {
-			isa = PBXGroup;
-			children = (
-				3BBD159B1C79E68F00672569 /* Sample1.csv */,
-				3BF5B7131C8366D2007C88B2 /* Sample2.csv */,
-			);
-			name = "Sample Data";
 			sourceTree = "<group>";
 		};
 		3B238D931C890BDD00E71EA3 /* Preferences View */ = {
@@ -194,7 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				3BC8B4161C70F251000FD25D /* AppDelegate.swift */,
-				3B158D1E1CCE956500D3A94F /* Sample Data */,
 				3BB3610A1CB4AF9D00356004 /* Import */,
 				3BB361081CB4AF7300356004 /* Home */,
 				3B2520041CA5DBC0008B6CA7 /* Statistics */,
@@ -297,8 +283,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BF5B7141C8366D2007C88B2 /* Sample2.csv in Resources */,
-				3BBD159C1C79E69000672569 /* Sample1.csv in Resources */,
 				3BC8B4231C70F251000FD25D /* LaunchScreen.storyboard in Resources */,
 				3BC8B4201C70F251000FD25D /* Assets.xcassets in Resources */,
 				3BF5B7251C86711F007C88B2 /* .gitignore in Resources */,
