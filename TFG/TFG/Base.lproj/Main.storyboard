@@ -299,12 +299,12 @@ You made it to the end</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oky-n7-cbt">
-                                <rect key="frame" x="240" y="163" width="120" height="50"/>
+                                <rect key="frame" x="230" y="163" width="140" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="OoW-NF-dSf"/>
-                                    <constraint firstAttribute="width" constant="120" id="gOi-s9-6My"/>
+                                    <constraint firstAttribute="width" constant="140" id="gOi-s9-6My"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <state key="normal" title="Finish Quiz" backgroundImage="ButtonBackground">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>

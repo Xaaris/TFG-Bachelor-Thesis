@@ -55,6 +55,7 @@
 		3B238D911C890AEB00E71EA3 /* PreferencesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesData.swift; sourceTree = "<group>"; };
 		3B2520051CA5DBF1008B6CA7 /* StatisticsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsData.swift; sourceTree = "<group>"; };
 		3B3FAFAE1CD8ECB3004E5A53 /* PresentQuestionPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentQuestionPageViewController.swift; sourceTree = "<group>"; };
+		3B3FAFB01CD922D7004E5A53 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		3B5BCE521C8CCEBB00108989 /* QuizResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = QuizResultsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3B6CC8261C9A34B3001A1FE3 /* CircleProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleProgressView.swift; sourceTree = "<group>"; };
 		3B7F65161C78F97F00BE0812 /* CSVImporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CSVImporter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -393,6 +394,7 @@
 			children = (
 				3BC8B41D1C70F251000FD25D /* Base */,
 				3BF5B72D1C8678FC007C88B2 /* en */,
+				3B3FAFB01CD922D7004E5A53 /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
