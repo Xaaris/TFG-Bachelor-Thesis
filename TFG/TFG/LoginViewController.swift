@@ -84,7 +84,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             if ((user) != nil) {
                 //User logged in successfully!
                 self.dismissKeyboard()
-                self.loadDataFromCloud()
+                CloudLink.syncAllDataToRealm()
                 self.dismissViewControllerAnimated(true, completion: nil)
             } else {
                 self.showAlert("Error", message: "\(error!.userInfo["error"] as! String)")
@@ -100,12 +100,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func unwindToLogInScreen(segue:UIStoryboardSegue) {
-    }
-    
-    func loadDataFromCloud(){
-        CloudLink.syncPreferencesToRealm()
-        CloudLink.syncStatisticsToRealm()
-        CloudLink.syncGlobalAverageToRealm()
     }
     
     

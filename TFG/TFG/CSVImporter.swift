@@ -184,7 +184,7 @@ class ImportAndSaveHelper {
         saveToRealm(topic)
     }
     
-    private func getTopicAndUniversalTags(row: [String:String]) -> (topic: Topic,universalTags: Set<String>){
+    private func getTopicAndUniversalTags(row: [String:String]) -> (topic: Topic, universalTags: Set<String>){
         let topic = Topic()
         topic.title = row["Question"]!.isEmpty ? "No title" : row["Question"]!
         topic.author = row["Hint"]!.isEmpty ? "No author" : row["Hint"]!
@@ -241,7 +241,7 @@ class ImportAndSaveHelper {
                     tmpAnswer.answerText = answer.0
                     tmpAnswer.isCorrect = answer.1
                     tmpAnswer.associatedQuestion = tmpQuestion
-                    tmpQuestion.answers.append(tmpAnswer)
+                    //tmpQuestion.answers.append(tmpAnswer)
                 }
                 
                 //Creating the tags

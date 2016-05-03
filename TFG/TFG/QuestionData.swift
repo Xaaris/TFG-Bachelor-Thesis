@@ -59,7 +59,11 @@ class Question: Object {
             return tmpScore / Double(answers.count)
         }
     }
-    let answers = List<Answer>()
+    var answers: [Answer] {
+        // Realm doesn't persist this property because it only has a getter defined
+        // Define "associatedQuestions" as the inverse relationship to Question.tags
+        return linkingObjects(Answer.self, forProperty: "associatedQuestion")
+    }
     let tags = List<Tag>()
     
     override class func primaryKey() -> String {

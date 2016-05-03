@@ -159,7 +159,131 @@ struct CloudLink {
         }
     }
     
+    static func syncTopicsToRealm(){
+        let topicQuery = PFQuery(className: "Topic")
+        do{
+            let topicsArr = try topicQuery.findObjects()
+            
+            if topicsArr.count < 1{
+                print("Error: No topics available")
+            }else{
+                Util.deleteAllTopics()
+                for topic in topicsArr{
+                    let localTopic = Topic()
+                    localTopic.title = topic["title"] as! String
+                    localTopic.author = topic["author"] as! String
+                    localTopic.date = topic["date"] as! String
+                    let newColor = MyColor()
+                    newColor.red = topic["colorR"] as! Int
+                    newColor.green = topic["colorG"] as! Int
+                    newColor.blue = topic["colorB"] as! Int
+                    localTopic.color = newColor
+                    
+                    realm.beginWrite()
+                    realm.add(localTopic)
+                    try! realm.commitWrite()
+                }
+            }
+            
+        }catch _ {
+            print("Error: could not retrieve data from cloud")
+        }
+        
+        
+        
+    }
     
+    static func syncQuestionsAndAnswersToRealm(){
+        
+        let questionQuery = PFQuery(className: "Question")
+        questionQuery.findObjectsInBackgroundWithBlock { (objectsQ, error) in
+            if error == nil {
+                if let questionArr = objectsQ{
+                    if questionArr.count > 0{
+                        
+                        let answerQuery = PFQuery(className: "Answer")
+                        answerQuery.findObjectsInBackgroundWithBlock { (objectsA, error) in
+                            if error == nil {
+                                if let answerArr = objectsA{
+                                    print(questionArr)
+                                    print(answerArr)
+                                    for question in questionArr{
+                                        let localQuestion = Question()
+                                        localQuestion.topic = Util.getTopicWithTitle(question["topic"] as! String)!
+                                        localQuestion.type = question["type"] as! String
+                                        localQuestion.questionText = question["questionText"] as! String
+                                        localQuestion.hint = question["hint"] as! String
+                                        localQuestion.feedback = question["feedback"] as! String
+                                        localQuestion.difficulty = question["difficulty"] as! Int
+                                        
+                                        if answerArr.count > 0{
+                                            for answer in answerArr{
+                                                if answer["questionID"] as! String == question.objectId!{
+                                                    let localAnswer = Answer()
+                                                    localAnswer.associatedQuestion = localQuestion
+                                                    localAnswer.answerText = answer["answerText"] as! String
+                                                    localAnswer.isCorrect = answer["isCorrect"] as! Bool
+                                                    
+                                                    //localQuestion.answers.append(localAnswer)
+                                                    
+                                                    realm.beginWrite()
+                                                    realm.add(localAnswer)
+                                                    try! realm.commitWrite()
+                                                }
+                                            }
+                                        }else{
+                                            print("Error: No answers available")
+                                        }
+                                        
+                                        realm.beginWrite()
+                                        realm.add(localQuestion)
+                                        try! realm.commitWrite()
+                                    }
+                                }
+                            }else{
+                                print("Error: No questions available")
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
     
+    static func syncAllDataToRealm(){
+        let topicQuery = PFQuery(className: "Topic")
+        topicQuery.findObjectsInBackgroundWithBlock { (objects, error) in
+            if error == nil {
+                if let topicsArr = objects{
+                    if topicsArr.count < 1{
+                        print("Error: No topics available")
+                    }else{
+                        Util.deleteAllTopics()
+                        for topic in topicsArr{
+                            let localTopic = Topic()
+                            localTopic.title = topic["title"] as! String
+                            localTopic.author = topic["author"] as! String
+                            localTopic.date = topic["date"] as! String
+                            let newColor = MyColor()
+                            newColor.red = topic["colorR"] as! Int
+                            newColor.green = topic["colorG"] as! Int
+                            newColor.blue = topic["colorB"] as! Int
+                            localTopic.color = newColor
+                            
+                            realm.beginWrite()
+                            realm.add(localTopic)
+                            try! realm.commitWrite()
+                        }
+                    
+                        CloudLink.syncQuestionsAndAnswersToRealm()
+                        CloudLink.syncPreferencesToRealm()
+                        CloudLink.syncStatisticsToRealm()
+                        CloudLink.syncGlobalAverageToRealm()
+                    }
+                }
+            }
+        }
+    }
     
+            
 }
