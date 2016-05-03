@@ -46,18 +46,22 @@ class QuizFinishedViewController: PageViewContent{
         let score = numberOfCorrectAnswers
         let vc = parentViewController as! PresentQuestionPageViewController
         let stat = Statistic()
-        stat.topic = Util.getCurrentTopic()
-        stat.date = NSDate()
-        stat.score = score
-        stat.startTime = vc.startTime
-        stat.endTime = vc.endTime
-        realm.beginWrite()
-        realm.add(stat)
-        try! realm.commitWrite()
-        
-        //save to cloud
-        CloudLink.syncStatisticToCloud(stat)
-        CloudLink.updateGlobalAverage(stat.percentageScore / 100)
+        if let currentTopic = Util.getCurrentTopic(){
+            stat.topic = currentTopic
+            stat.date = NSDate()
+            stat.score = score
+            stat.startTime = vc.startTime
+            stat.endTime = vc.endTime
+            realm.beginWrite()
+            realm.add(stat)
+            try! realm.commitWrite()
+            
+            //save to cloud
+            CloudLink.syncStatisticToCloud(stat)
+            CloudLink.updateGlobalAverage(stat.percentageScore / 100)
+        }else{
+            print("Error: Current Topic was nil")
+        }
     }
 
 }

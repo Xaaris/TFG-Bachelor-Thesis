@@ -16,10 +16,10 @@ class Topic: Object{
     dynamic var isSelected = false
     dynamic var color: MyColor? // to-one relationships must be optional
     dynamic var globalAverage = 0.5
-    var questions = LinkingObjects(fromType: Question.self, property: "topic")
+    let questions = LinkingObjects(fromType: Question.self, property: "topic")
+    let stats = LinkingObjects(fromType: Statistic.self, property: "topic")
     dynamic var timeStudied: Double { //Saved in seconds
         var totalTime = 0.0
-        let stats = LinkingObjects(fromType: Statistic.self, property: "topic")
         for stat in stats {
             totalTime += stat.timeTaken
         }
@@ -58,7 +58,7 @@ class Question: Object {
             return tmpScore / Double(answers.count)
         }
     }
-    var answers = LinkingObjects(fromType: Answer.self, property: "associatedQuestion")
+    let answers = LinkingObjects(fromType: Answer.self, property: "associatedQuestion")
     let tags = List<Tag>()
     
     override class func primaryKey() -> String {
@@ -76,7 +76,7 @@ class Answer: Object {
 class Tag: Object {
     
     dynamic var tagText = ""
-    var associatedQuestions = LinkingObjects(fromType: Question.self, property: "tags")
+    let associatedQuestions = LinkingObjects(fromType: Question.self, property: "tags")
     
     override class func primaryKey() -> String {
         return "tagText"
