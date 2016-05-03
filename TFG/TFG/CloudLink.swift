@@ -159,40 +159,6 @@ struct CloudLink {
         }
     }
     
-    static func syncTopicsToRealm(){
-        let topicQuery = PFQuery(className: "Topic")
-        do{
-            let topicsArr = try topicQuery.findObjects()
-            
-            if topicsArr.count < 1{
-                print("Error: No topics available")
-            }else{
-                Util.deleteAllTopics()
-                for topic in topicsArr{
-                    let localTopic = Topic()
-                    localTopic.title = topic["title"] as! String
-                    localTopic.author = topic["author"] as! String
-                    localTopic.date = topic["date"] as! String
-                    let newColor = MyColor()
-                    newColor.red = topic["colorR"] as! Int
-                    newColor.green = topic["colorG"] as! Int
-                    newColor.blue = topic["colorB"] as! Int
-                    localTopic.color = newColor
-                    
-                    realm.beginWrite()
-                    realm.add(localTopic)
-                    try! realm.commitWrite()
-                }
-            }
-            
-        }catch _ {
-            print("Error: could not retrieve data from cloud")
-        }
-        
-        
-        
-    }
-    
     static func syncQuestionsAndAnswersToRealm(){
         
         let questionQuery = PFQuery(className: "Question")
@@ -205,8 +171,6 @@ struct CloudLink {
                         answerQuery.findObjectsInBackgroundWithBlock { (objectsA, error) in
                             if error == nil {
                                 if let answerArr = objectsA{
-                                    print(questionArr)
-                                    print(answerArr)
                                     for question in questionArr{
                                         let localQuestion = Question()
                                         localQuestion.topic = Util.getTopicWithTitle(question["topic"] as! String)!
