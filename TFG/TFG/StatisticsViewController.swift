@@ -281,17 +281,17 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
                     
                     barChartView.leftAxis.removeAllLimitLines()
                     if !overview{
-                        if let globalAverage = Util.getGlobalAverageOf(Util.getCurrentTopic()!)?.currentAverage{
-                            let limitLine = ChartLimitLine(limit: globalAverage * 100, label: "Global Average")
-                            let greyColor = UIColor(red: 50/255, green: 50/255, blue: 50/255, alpha: 0.7)
-                            limitLine.lineColor = greyColor
-                            limitLine.valueTextColor = greyColor
-                            limitLine.labelPosition = .LeftTop
-                            limitLine.valueFont = NSUIFont.systemFontOfSize(10.0)
-                            limitLine.lineDashLengths = [7,5]
-                            limitLine.lineWidth = 0.5
-                            barChartView.leftAxis.addLimitLine(limitLine)
-                        }
+                        let globalAverage = Util.getCurrentTopic()!.globalAverage * 100
+                        let limitLine = ChartLimitLine(limit: globalAverage, label: "Global Average")
+                        let greyColor = UIColor(red: 50/255, green: 50/255, blue: 50/255, alpha: 0.7)
+                        limitLine.lineColor = greyColor
+                        limitLine.valueTextColor = greyColor
+                        limitLine.labelPosition = .LeftTop
+                        limitLine.valueFont = NSUIFont.systemFontOfSize(10.0)
+                        limitLine.lineDashLengths = [7,5]
+                        limitLine.lineWidth = 0.5
+                        barChartView.leftAxis.addLimitLine(limitLine)
+                        
                     }
                 }else{
                     barChartView.clear()
@@ -320,49 +320,49 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
         var colors: [UIColor] = []
         
         //if overview {
-            let topics = realm.objects(Topic)
-            var topicTitles: [String] = []
-            var counter = 0
-            for topic in topics{
-                let dataEntry = ChartDataEntry(value: topic.timeStudied / 60 , xIndex: counter) // in minutes
-                counter += 1
-                dataEntries.append(dataEntry)
-                topicTitles.append(topic.title)
-                let color = UIColor(red: CGFloat(topic.color!.red)/255, green: CGFloat(topic.color!.green)/255, blue: CGFloat(topic.color!.blue)/255, alpha: 1)
-                colors.append(color)
-            }
-            let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "")
-            pieChartDataSet.colors = colors
-            let pieChartData = PieChartData(xVals: topicTitles, dataSet: pieChartDataSet)
-            let numberFormatter = NSNumberFormatter()
-            numberFormatter.minimumIntegerDigits = 1
-            numberFormatter.maximumFractionDigits = 1
-            pieChartData.setValueFormatter(numberFormatter)
-            pieChartView.data = pieChartData
-            
+        let topics = realm.objects(Topic)
+        var topicTitles: [String] = []
+        var counter = 0
+        for topic in topics{
+            let dataEntry = ChartDataEntry(value: topic.timeStudied / 60 , xIndex: counter) // in minutes
+            counter += 1
+            dataEntries.append(dataEntry)
+            topicTitles.append(topic.title)
+            let color = UIColor(red: CGFloat(topic.color!.red)/255, green: CGFloat(topic.color!.green)/255, blue: CGFloat(topic.color!.blue)/255, alpha: 1)
+            colors.append(color)
+        }
+        let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "")
+        pieChartDataSet.colors = colors
+        let pieChartData = PieChartData(xVals: topicTitles, dataSet: pieChartDataSet)
+        let numberFormatter = NSNumberFormatter()
+        numberFormatter.minimumIntegerDigits = 1
+        numberFormatter.maximumFractionDigits = 1
+        pieChartData.setValueFormatter(numberFormatter)
+        pieChartView.data = pieChartData
+        
         //}else{
-            //does not work yet because the data gets not saved yet
-            //            var answerScores: [Double] = [0,0,0] //[wrongAnswers][partlyCorrectAnswers][correctAnswers]
-            //            for stat in displayedStatistics{
-            //                if stat.percentageScore == 0 {
-            //                    answerScores[0] += 1
-            //                }else if stat.percentageScore < 100 {
-            //                    answerScores[1] += 1
-            //                }else{
-            //                    answerScores[2] += 1
-            //                }
-            //            }
-            //            for i in 0 ..< answerScores.count{
-            //                let dataEntry = ChartDataEntry(value: answerScores[i] , xIndex: i)
-            //                dataEntries.append(dataEntry)
-            //            }
-            //            colors.append(Util.myLightRedColor)
-            //            colors.append(Util.myLightYellowColor)
-            //            colors.append(Util.myLightGreenColor)
-            //            let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "")
-            //            pieChartDataSet.colors = colors
-            //            let pieChartData = PieChartData(xVals: ["Wrong answers", "Partly correct answers", "Correct answers"], dataSet: pieChartDataSet)
-            //            pieChartView.data = pieChartData
+        //does not work yet because the data gets not saved yet
+        //            var answerScores: [Double] = [0,0,0] //[wrongAnswers][partlyCorrectAnswers][correctAnswers]
+        //            for stat in displayedStatistics{
+        //                if stat.percentageScore == 0 {
+        //                    answerScores[0] += 1
+        //                }else if stat.percentageScore < 100 {
+        //                    answerScores[1] += 1
+        //                }else{
+        //                    answerScores[2] += 1
+        //                }
+        //            }
+        //            for i in 0 ..< answerScores.count{
+        //                let dataEntry = ChartDataEntry(value: answerScores[i] , xIndex: i)
+        //                dataEntries.append(dataEntry)
+        //            }
+        //            colors.append(Util.myLightRedColor)
+        //            colors.append(Util.myLightYellowColor)
+        //            colors.append(Util.myLightGreenColor)
+        //            let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "")
+        //            pieChartDataSet.colors = colors
+        //            let pieChartData = PieChartData(xVals: ["Wrong answers", "Partly correct answers", "Correct answers"], dataSet: pieChartDataSet)
+        //            pieChartView.data = pieChartData
         //}
     }
     

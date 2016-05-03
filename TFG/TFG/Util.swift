@@ -202,31 +202,10 @@ struct Util {
         }
     }
     
-    static func getGlobalAverageOf(topic: Topic) -> GlobalAverage?{
-        let predicate = NSPredicate(format: "topic.title = %@ ", topic.title)
-        let globalAverageArr = realm.objects(GlobalAverage).filter(predicate)
-        if globalAverageArr.count == 1{
-            return globalAverageArr.first
-        }else{
-            print("Error: globalAverageArr.count for \(topic.title) was \(globalAverageArr.count)")
-        }
-        return nil
-    }
-    
-    static func setGlobalAverageOf(topic: Topic, date: NSDate, newValue: Double){
-        let predicate = NSPredicate(format: "topic.title = %@ ", topic.title)
-        let globalAverageArr = realm.objects(GlobalAverage).filter(predicate)
-        var newGA = GlobalAverage()
+    static func setGlobalAverageOf(topic: Topic, newValue: Double){
         realm.beginWrite()
-        if globalAverageArr.count == 1{
-            newGA = globalAverageArr.first!
-        }else if globalAverageArr.count > 1{
-            print("Error: globalAverageArr.count for \(topic.title) was \(globalAverageArr.count)")
-        }
-        newGA.topic = topic
-        newGA.lastUpdated = date
-        newGA.currentAverage = newValue
-        realm.add(newGA)
+        topic.globalAverage = newValue
+        realm.add(topic)
         try! realm.commitWrite()
     }
     

@@ -107,28 +107,22 @@ struct CloudLink {
     
     static func updateGlobalAverage(latestValue: Double) {
         if let currentTopic = Util.getCurrentTopic(){
-            let query = PFQuery(className: "GlobalAverage")
-            query.whereKey("topic", equalTo: currentTopic.title)
+            let query = PFQuery(className: "Topic")
+            query.whereKey("title", equalTo: currentTopic.title)
             query.findObjectsInBackgroundWithBlock { (objects, error) in
                 if error == nil {
-                    if let globalAverageArr = objects{
-                        var newGlobalAverage = PFObject(className: "GlobalAverage")
+                    if let topicArr = objects{
                         var newValue = -1.0
-                        if globalAverageArr.count == 0{
-                            newGlobalAverage["topic"] = currentTopic.title
-                            newValue = 0.5 * 0.99 + latestValue * 0.01
-                            newGlobalAverage["currentAverage"] = newValue
-                        }else if globalAverageArr.count == 1{
-                            newGlobalAverage = globalAverageArr.first!
-                            newValue = (newGlobalAverage["currentAverage"] as! Double) * 0.99 + latestValue * 0.01
-                            newGlobalAverage["currentAverage"] = newValue
+                        if topicArr.count == 1{
+                            let topic = topicArr.first!
+                            newValue = (topic["globalAverage"] as! Double) * 0.99 + latestValue * 0.01
+                            topic["globalAverage"] = newValue
+                            topic.saveEventually()
+                            print("Saving new global average to cloud")
                         }else{
-                            print("Error: globalAverageArr.count for topic \(currentTopic.title) was \(globalAverageArr.count)")
+                            print("Error: topicArr.count for topic \(currentTopic.title) was \(topicArr.count)")
                         }
-                        newGlobalAverage["lastUpdated"] = NSDate()
-                        newGlobalAverage.saveEventually()
-                        print("Saving new global average to cloud")
-                        Util.setGlobalAverageOf(currentTopic, date: NSDate(), newValue: newValue)
+                        Util.setGlobalAverageOf(currentTopic, newValue: newValue)
                     }
                 }else{
                     print("Error: \(error!.userInfo["error"])")
@@ -140,16 +134,15 @@ struct CloudLink {
     }
     
     static func syncGlobalAverageToRealm() {
-        let query = PFQuery(className: "GlobalAverage")
+        let query = PFQuery(className: "Topic")
         query.findObjectsInBackgroundWithBlock { (objects, error) in
             if error == nil {
-                if let globalAverageArr = objects{
-                    for ga in globalAverageArr{
-                        let topicStr = ga["topic"] as! String
-                        if let topic = Util.getTopicWithTitle(topicStr){
-                            let date = ga["lastUpdated"] as! NSDate
-                            let score = ga["currentAverage"] as! Double
-                            Util.setGlobalAverageOf(topic, date: date, newValue: score)
+                if let topicArr = objects{
+                    for topic in topicArr{
+                        if let localTopic = Util.getTopicWithTitle(topic["title"] as! String){
+                        Util.setGlobalAverageOf(localTopic, newValue: topic["globalAverage"] as! Double)
+                        }else{
+                            print("Error: Topic with title: \(topic["title"] as! String) does not exist")
                         }
                     }
                 }
@@ -226,6 +219,7 @@ struct CloudLink {
                             localTopic.title = topic["title"] as! String
                             localTopic.author = topic["author"] as! String
                             localTopic.date = topic["date"] as! String
+                            localTopic.globalAverage = topic["globalAverage"] as! Double
                             let newColor = MyColor()
                             newColor.red = topic["colorR"] as! Int
                             newColor.green = topic["colorG"] as! Int

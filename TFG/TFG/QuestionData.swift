@@ -15,6 +15,7 @@ class Topic: Object{
     dynamic var date = ""
     dynamic var isSelected = false
     dynamic var color: MyColor? // to-one relationships must be optional
+    dynamic var globalAverage = 0.5
     var questions: [Question] {
         return linkingObjects(Question.self, forProperty: "topic")
     }
