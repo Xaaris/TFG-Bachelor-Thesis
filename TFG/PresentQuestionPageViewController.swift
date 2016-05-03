@@ -149,7 +149,10 @@ class PageViewContent: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentQuestionDataSet = Util.getCurrentTopic()!.questions
+        currentQuestionDataSet.removeAll()
+        for question in Util.getCurrentTopic()!.questions{
+            currentQuestionDataSet.append(question)
+        }
     }
     
     override func viewDidAppear(animated: Bool) {

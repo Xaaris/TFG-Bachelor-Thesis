@@ -16,12 +16,10 @@ class Topic: Object{
     dynamic var isSelected = false
     dynamic var color: MyColor? // to-one relationships must be optional
     dynamic var globalAverage = 0.5
-    var questions: [Question] {
-        return linkingObjects(Question.self, forProperty: "topic")
-    }
+    var questions = LinkingObjects(fromType: Question.self, property: "topic")
     dynamic var timeStudied: Double { //Saved in seconds
         var totalTime = 0.0
-        let stats = linkingObjects(Statistic.self, forProperty: "topic")
+        let stats = LinkingObjects(fromType: Statistic.self, property: "topic")
         for stat in stats {
             totalTime += stat.timeTaken
         }
@@ -60,11 +58,7 @@ class Question: Object {
             return tmpScore / Double(answers.count)
         }
     }
-    var answers: [Answer] {
-        // Realm doesn't persist this property because it only has a getter defined
-        // Define "associatedQuestions" as the inverse relationship to Question.tags
-        return linkingObjects(Answer.self, forProperty: "associatedQuestion")
-    }
+    var answers = LinkingObjects(fromType: Answer.self, property: "associatedQuestion")
     let tags = List<Tag>()
     
     override class func primaryKey() -> String {
@@ -82,11 +76,7 @@ class Answer: Object {
 class Tag: Object {
     
     dynamic var tagText = ""
-    var associatedQuestions: [Question] {
-        // Realm doesn't persist this property because it only has a getter defined
-        // Define "associatedQuestions" as the inverse relationship to Question.tags
-        return linkingObjects(Question.self, forProperty: "tags")
-    }
+    var associatedQuestions = LinkingObjects(fromType: Question.self, property: "tags")
     
     override class func primaryKey() -> String {
         return "tagText"
