@@ -468,11 +468,6 @@ You made it to the end</string>
                     </tableView>
                     <navigationItem key="navigationItem" title="Choose a Topic" id="z6F-mR-JPR">
                         <barButtonItem key="backBarButtonItem" title="Back" id="oDG-kH-qDN"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="AGh-OY-WFM">
-                            <connections>
-                                <action selector="addTopicButtonPressed:" destination="iVf-Qn-9xN" id="gSf-dR-AJ4"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="04c-Tj-9UN" userLabel="First Responder" sceneMemberID="firstResponder"/>

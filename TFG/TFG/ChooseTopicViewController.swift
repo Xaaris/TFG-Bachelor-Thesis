@@ -71,9 +71,10 @@ class ChooseTopicViewController: UITableViewController {
     }
     */
     
-    @IBAction func addTopicButtonPressed(sender: AnyObject) {
-        loadExampleData()
-    }
+    //Disabled because topics are in the cloud now
+//    @IBAction func addTopicButtonPressed(sender: AnyObject) {
+//        loadExampleData()
+//    }
     
     func loadExampleData() {
         let importer = ImportAndSaveHelper()
