@@ -1,0 +1,21 @@
+PODS:
+  - Bolts/Tasks (1.7.0)
+  - Parse (1.13.0):
+    - Bolts/Tasks (~> 1.6)
+  - Realm (0.99.1):
+    - Realm/Headers (= 0.99.1)
+  - Realm/Headers (0.99.1)
+  - RealmSwift (0.99.1):
+    - Realm (= 0.99.1)
+
+DEPENDENCIES:
+  - Parse (~> 1.13)
+  - RealmSwift (~> 0.99)
+
+SPEC CHECKSUMS:
+  Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
+  Parse: f51c24d2feb412e4b2d6cc73d37cb24e8d0089bc
+  Realm: 522a0cc8e1f8755ee56d7dc16ca0fc380d045766
+  RealmSwift: 1d9c4299ef5dbf575c5da09fc706ed726327cfa0
+
+COCOAPODS: 0.39.0
