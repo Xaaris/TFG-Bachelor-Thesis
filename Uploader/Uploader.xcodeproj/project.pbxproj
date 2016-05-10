@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B0392061CE008D100970772 /* Sample3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B0392051CE008D100970772 /* Sample3.csv */; };
 		3B41F2491CD7DDE700A70AD8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41F2481CD7DDE700A70AD8 /* MainViewController.swift */; };
 		3B90DD8F1CD273B900BCD85A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B90DD8E1CD273B900BCD85A /* AppDelegate.swift */; };
 		3B90DD911CD273B900BCD85A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B90DD901CD273B900BCD85A /* ViewController.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B0392051CE008D100970772 /* Sample3.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample3.csv; sourceTree = "<group>"; };
 		3B41F2481CD7DDE700A70AD8 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3B90DD8B1CD273B900BCD85A /* Uploader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uploader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B90DD8E1CD273B900BCD85A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			children = (
 				3B90DDAC1CD277DA00BCD85A /* Sample1.csv */,
 				3B90DDAD1CD277DA00BCD85A /* Sample2.csv */,
+				3B0392051CE008D100970772 /* Sample3.csv */,
 				3B90DDA81CD2773200BCD85A /* PreferencesData.swift */,
 				3B90DDA01CD275C800BCD85A /* CSVImporter.swift */,
 				3B90DD8E1CD273B900BCD85A /* AppDelegate.swift */,
@@ -179,6 +182,7 @@
 			files = (
 				3B90DDAF1CD277DA00BCD85A /* Sample2.csv in Resources */,
 				3B90DDAE1CD277DA00BCD85A /* Sample1.csv in Resources */,
+				3B0392061CE008D100970772 /* Sample3.csv in Resources */,
 				3B90DD991CD273B900BCD85A /* LaunchScreen.storyboard in Resources */,
 				3B90DD961CD273B900BCD85A /* Assets.xcassets in Resources */,
 				3B90DD941CD273B900BCD85A /* Main.storyboard in Resources */,

@@ -284,16 +284,21 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 //Build limitline
                 barChartView.leftAxis.removeAllLimitLines()
                 if !overview{
-                    let globalAverage = Util.getCurrentTopic()!.globalAverage * 100
-                    let limitLine = ChartLimitLine(limit: globalAverage, label: "Global Average")
-                    let greyColor = UIColor(red: 50/255, green: 50/255, blue: 50/255, alpha: 0.7)
-                    limitLine.lineColor = greyColor
-                    limitLine.valueTextColor = greyColor
-                    limitLine.labelPosition = .LeftTop
-                    limitLine.valueFont = NSUIFont.systemFontOfSize(10.0)
-                    limitLine.lineDashLengths = [7,5]
-                    limitLine.lineWidth = 0.5
-                    barChartView.leftAxis.addLimitLine(limitLine)
+                    if let currentTopic = Util.getCurrentTopic(){
+                        let globalAverage = currentTopic.globalAverage * 100
+                        let limitLine = ChartLimitLine(limit: globalAverage, label: "Global Average")
+                        let greyColor = UIColor(red: 50/255, green: 50/255, blue: 50/255, alpha: 0.7)
+                        limitLine.lineColor = greyColor
+                        limitLine.valueTextColor = greyColor
+                        limitLine.labelPosition = .LeftTop
+                        limitLine.valueFont = NSUIFont.systemFontOfSize(10.0)
+                        limitLine.lineDashLengths = [7,5]
+                        limitLine.lineWidth = 0.5
+                        barChartView.leftAxis.addLimitLine(limitLine)
+                    }
+                    else{
+                        print("Error: current topic was nil")
+                    }
                 }
             }else{
                 barChartView.clear()
