@@ -155,12 +155,14 @@ struct CloudLink {
     static func syncQuestionsAndAnswersToRealm(){
         
         let questionQuery = PFQuery(className: "Question")
+        questionQuery.limit = 1000
         questionQuery.findObjectsInBackgroundWithBlock { (objectsQ, error) in
             if error == nil {
                 if let questionArr = objectsQ{
                     if questionArr.count > 0{
                         
                         let answerQuery = PFQuery(className: "Answer")
+                        answerQuery.limit = 1000
                         answerQuery.findObjectsInBackgroundWithBlock { (objectsA, error) in
                             if error == nil {
                                 if let answerArr = objectsA{

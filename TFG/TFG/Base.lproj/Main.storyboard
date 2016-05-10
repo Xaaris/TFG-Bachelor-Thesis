@@ -149,18 +149,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5K-tA-U4Z">
-                                <rect key="frame" x="20" y="30" width="560" height="107"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p5K-tA-U4Z">
+                                <rect key="frame" x="20" y="50" width="560" height="130"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="107" id="1Rw-lu-rj7">
-                                        <variation key="widthClass=compact" constant="150"/>
-                                    </constraint>
+                                    <constraint firstAttribute="height" constant="130" id="1Rw-lu-rj7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="64" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tFn-65-nga">
-                                <rect key="frame" x="0.0" y="182" width="600" height="418"/>
+                                <rect key="frame" x="0.0" y="210" width="600" height="390"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AnswerCell" id="H5d-ne-yql" customClass="AnswerCell" customModule="TFG" customModuleProvider="target">
@@ -242,9 +240,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tFn-65-nga" firstAttribute="top" secondItem="p5K-tA-U4Z" secondAttribute="bottom" constant="45" id="2n3-wp-25m">
-                                <variation key="widthClass=compact" constant="25"/>
-                            </constraint>
+                            <constraint firstItem="tFn-65-nga" firstAttribute="top" secondItem="p5K-tA-U4Z" secondAttribute="bottom" constant="30" id="2n3-wp-25m"/>
                             <constraint firstAttribute="trailing" secondItem="tFn-65-nga" secondAttribute="trailing" id="CaG-kd-ZEB">
                                 <variation key="heightClass=regular-widthClass=regular" constant="100"/>
                             </constraint>
@@ -258,9 +254,7 @@
                             <constraint firstItem="p5K-tA-U4Z" firstAttribute="leading" secondItem="02u-L1-dNQ" secondAttribute="leadingMargin" id="ThW-Zw-Dih">
                                 <variation key="heightClass=regular-widthClass=regular" constant="100"/>
                             </constraint>
-                            <constraint firstItem="p5K-tA-U4Z" firstAttribute="top" secondItem="XNe-T3-pki" secondAttribute="bottom" constant="10" id="rpl-pq-HeI">
-                                <variation key="widthClass=compact" constant="0.0"/>
-                            </constraint>
+                            <constraint firstItem="p5K-tA-U4Z" firstAttribute="top" secondItem="XNe-T3-pki" secondAttribute="bottom" constant="30" id="rpl-pq-HeI"/>
                         </constraints>
                     </view>
                     <keyCommands>
@@ -1104,18 +1098,16 @@ Time studied per topic in minutes</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iij-lN-I1k">
-                                <rect key="frame" x="20" y="30" width="560" height="107"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iij-lN-I1k">
+                                <rect key="frame" x="20" y="50" width="560" height="130"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="107" id="VX2-U1-N87">
-                                        <variation key="widthClass=compact" constant="150"/>
-                                    </constraint>
+                                    <constraint firstAttribute="height" constant="130" id="VX2-U1-N87"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="64" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uiy-C1-akv">
-                                <rect key="frame" x="0.0" y="192" width="600" height="408"/>
+                                <rect key="frame" x="0.0" y="235" width="600" height="365"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AnswerCell" id="iSF-BG-Pxz" customClass="AnswerCell" customModule="TFG" customModuleProvider="target">
@@ -1160,7 +1152,7 @@ Time studied per topic in minutes</string>
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dsB-sS-gOt">
-                                <rect key="frame" x="270" y="145" width="60" height="25"/>
+                                <rect key="frame" x="270" y="188" width="60" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="7Yb-Vg-bpA"/>
                                     <constraint firstAttribute="height" constant="25" id="oPf-bp-qvu"/>
@@ -1201,9 +1193,7 @@ Time studied per topic in minutes</string>
                             <constraint firstItem="dsB-sS-gOt" firstAttribute="top" secondItem="iij-lN-I1k" secondAttribute="bottom" constant="8" id="jip-Ku-1fJ">
                                 <variation key="widthClass=compact" constant="5"/>
                             </constraint>
-                            <constraint firstItem="iij-lN-I1k" firstAttribute="top" secondItem="wPa-ja-oEJ" secondAttribute="bottom" constant="10" id="rUg-HX-Ac9">
-                                <variation key="widthClass=compact" constant="0.0"/>
-                            </constraint>
+                            <constraint firstItem="iij-lN-I1k" firstAttribute="top" secondItem="wPa-ja-oEJ" secondAttribute="bottom" constant="30" id="rUg-HX-Ac9"/>
                             <constraint firstItem="imi-z1-W4F" firstAttribute="top" secondItem="uiy-C1-akv" secondAttribute="bottom" id="tko-b1-kL8"/>
                         </constraints>
                     </view>
