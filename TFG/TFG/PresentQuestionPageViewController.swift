@@ -11,7 +11,9 @@ import UIKit
 class PresentQuestionPageViewController: UIPageViewController, UIPageViewControllerDataSource {
     
     var pageControl:UIPageControl! = UIPageControl()
+    var pageNumberLabel: UILabel! = UILabel()
     
+    var numberOfPages = 0
     var startTime = NSDate()
     var endTime = NSDate()
     
@@ -44,18 +46,31 @@ class PresentQuestionPageViewController: UIPageViewController, UIPageViewControl
     }
     
     private func setupPageControl() {
-        pageControl = UIPageControl()
-        pageControl.frame = CGRectMake(0,0,self.view.frame.width,37)
-        self.view.addSubview(pageControl)
-        pageControl.pageIndicatorTintColor = UIColor.grayColor()
-        pageControl.currentPageIndicatorTintColor = UIColor.darkGrayColor()
-        pageControl.backgroundColor = UIColor.clearColor()
-        pageControl.numberOfPages = Util.getCurrentTopic()!.questions.count + 1
-        pageControl.currentPage = 0
+        numberOfPages = Util.getCurrentTopic()!.questions.count
+        if numberOfPages < 20{
+            pageControl = UIPageControl()
+            pageControl.frame = CGRectMake(0,0,self.view.frame.width,37)
+            self.view.addSubview(pageControl)
+            pageControl.pageIndicatorTintColor = UIColor.grayColor()
+            pageControl.currentPageIndicatorTintColor = UIColor.darkGrayColor()
+            pageControl.backgroundColor = UIColor.clearColor()
+            pageControl.numberOfPages = numberOfPages + 1
+            pageControl.currentPage = 0
+        }else{
+            pageNumberLabel = UILabel(frame: CGRectMake(0,0,self.view.frame.width,35))
+            pageNumberLabel.text = "1/\(numberOfPages + 1)"
+            pageNumberLabel.textColor = UIColor.grayColor()
+            pageNumberLabel.textAlignment = .Center
+            self.view.addSubview(pageNumberLabel)
+        }
     }
     
     func updatePageController(pageIndex: Int){
-        pageControl.currentPage = pageIndex
+        if numberOfPages < 20{
+            pageControl.currentPage = pageIndex
+        }else{
+            pageNumberLabel.text = "\(pageIndex + 1)/\(numberOfPages + 1)"
+        }
     }
     
     
