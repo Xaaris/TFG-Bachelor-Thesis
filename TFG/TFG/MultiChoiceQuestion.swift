@@ -142,10 +142,12 @@ class MultiChoiceQuestion: QuestionContentViewController, UITableViewDelegate, U
     
     func showFeedback(){
         let FeedbackStr = currentQuestionDataSet[pageIndex].feedback
-        let alertController = UIAlertController(title: "Feedback", message: FeedbackStr, preferredStyle: .Alert)
-        alertController.addAction(UIAlertAction(title: "Got it", style: .Default,handler: nil))
-        
-        self.presentViewController(alertController, animated: true, completion: nil)
+        if !FeedbackStr.isEmpty {
+            let alertController = UIAlertController(title: "Feedback", message: FeedbackStr, preferredStyle: .Alert)
+            alertController.addAction(UIAlertAction(title: "Got it", style: .Default,handler: nil))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
     }
 
 }
