@@ -19,11 +19,6 @@ class MainViewController: UIViewController {
         print("Main View")
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     override func viewDidAppear(animated: Bool) {
         //Show Login view
         if (PFUser.currentUser() == nil) {
@@ -37,31 +32,38 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        if let currentTopic = realm.objects(Topic).filter("isSelected == true").first{
+        //displaying current topic
+        if let currentTopic = Util.getCurrentTopic(){
             topicLabel.text = currentTopic.title
         }else{
             topicLabel.text = NSLocalizedString("No topic selected", comment: "Message when no topic has been selected")
         }
-        if let pUserName = PFUser.currentUser()?["username"] as? String {
+        //displaying current user name
+        if let pUserName = Util.getCurrentUserName() {
             self.userNameLabel.text = pUserName
         }
     }
     
+    /**
+     This method starts the quiz part of the app. It is invoked by the press of the center "Start" button on the main screen, hence the parameter sender.
+     */
     @IBAction func startButtonPressed(sender: AnyObject) {
+        
         if Util.getCurrentTopic() != nil{
             let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PageController") as! PresentQuestionPageViewController
             self.navigationController?.pushViewController(vc, animated: true)
         }else{
+            //if no topic is selected show alert message
             let title = NSLocalizedString("No topic selected", comment: "Message when no topic has been selected")
             let message = NSLocalizedString("Please choose a topic first", comment: "Message when no topic has been selected (Message body)")
-            let alertController = UIAlertController(title: title, message:
-                message, preferredStyle: UIAlertControllerStyle.Alert)
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
             alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
             
             self.presentViewController(alertController, animated: true, completion: nil)
         }
     }
     
+    ///Creates a Preferences object with default values
     func createDefaultPreferences(){
         realm.beginWrite()
         let pref = Preference()

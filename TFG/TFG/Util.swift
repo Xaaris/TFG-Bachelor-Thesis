@@ -39,6 +39,9 @@ struct Util {
         return nil
     }
     
+    static func getCurrentUserName() -> String? {
+        return PFUser.currentUser()?["username"] as? String
+    }
     
     static func getPreferences() -> Preference? {
         return realm.objects(Preference.self).first

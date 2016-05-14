@@ -16,6 +16,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate  {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    ///Sets delegates and initializes hideKeyboardWhenTappedAround
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
@@ -24,6 +25,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate  {
         passwordField.delegate = self
     }
     
+    /** Method that ensures cursor is jumping to next text field when the enter key was tapped
+     Parameter textField: the current textfield the cursor is in
+     Returns: always true
+     */
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if textField == usernameField{
             emailField.becomeFirstResponder()
@@ -35,10 +40,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate  {
         return true
     }
     
+    /// Invoked when the Signup button was pressed or the return key was hit on the last text field
     @IBAction func signUpButtonPressed(sender: AnyObject) {
        validateAndSignUp()
     }
     
+    ///Starts validation process and if successful starts Signup process
     func validateAndSignUp(){
         if validateTextFieldValues(){
             let username = self.usernameField.text!
@@ -48,6 +55,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate  {
         }
     }
     
+    /**
+     Checks if data in the textfields is correct. If not it shows an alert
+     - returns: true if all textfields contain valid data, else false
+     */
     func validateTextFieldValues() -> Bool{
         let username = self.usernameField.text!
         let password = self.passwordField.text!
@@ -82,6 +93,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate  {
         return false
     }
     
+    /**
+     Starts Signup process. If successful it will also log the user in
+     - parameters:
+        - username: Username as String
+        - email: Email as String
+        - password: Password as String
+     */
     func signUp(username:String, email:String, password:String){
         // Run a spinner to show a task in progress
         activityIndicator.startAnimating()
@@ -118,10 +136,17 @@ class SignUpViewController: UIViewController, UITextFieldDelegate  {
 
     }
     
+    ///dismisses the view controller when the little "X" is tapped
     func goBackToLogin(){
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    /**
+     Shows an overlay alert with an "OK" button to dimiss it
+     - parameters:
+        - title: Title of the alert
+        - message: body of the alert
+     */
     func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))

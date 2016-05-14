@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 
+///View Controller for the topic choosing scene (tableView based)
 class ChooseTopicViewController: UITableViewController {
     
     override func viewDidLoad() {
@@ -76,6 +77,7 @@ class ChooseTopicViewController: UITableViewController {
 //        loadExampleData()
 //    }
     
+    ///Method that loads example data. Only used for development
     func loadExampleData() {
         let importer = ImportAndSaveHelper()
         importer.loadAndSave("Sample1")

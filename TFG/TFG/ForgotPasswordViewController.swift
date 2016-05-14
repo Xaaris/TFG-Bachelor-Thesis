@@ -9,17 +9,23 @@
 import UIKit
 import Parse
 
+///This class is not active as of now because Parse disabled this functionality in its API
 class ForgotPasswordViewController: UIViewController, UITextFieldDelegate  {
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    ///Sets delegates and initializes hideKeyboardWhenTappedAround
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         emailField.delegate = self
     }
     
+    /** Method that ensures cursor is jumping to next text field when the enter key was tapped
+     Parameter textField: the current textfield the cursor is in
+     Returns: always true
+     */
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if textField == emailField{
             validateAndReset()
@@ -27,10 +33,12 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate  {
         return true
     }
     
+    /// Invoked when the Reset button was pressed or the return key was hit on the last text field
     @IBAction func passwordResetButtonPressed(sender: AnyObject) {
         validateAndReset()
     }
     
+    ///Starts validation process and if successful starts reset process
     func validateAndReset(){
         if validateTextFieldValues(){
             let email = self.emailField.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
@@ -38,6 +46,10 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate  {
         }
     }
     
+    /**
+     Checks if data in the textfields is correct. If not it shows an alert
+     - returns: true if all textfields contain valid data, else false
+     */
     func validateTextFieldValues() -> Bool{
         let email = self.emailField.text!
         let finalEmail = email.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
@@ -59,6 +71,11 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate  {
         return false
     }
     
+    /**
+     Starts Reset process.
+     - parameters:
+        - email: Email as String
+     */
     func resetPassword(email: String){
         // Run a spinner to show a task in progress
         activityIndicator.startAnimating()
@@ -87,6 +104,12 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate  {
         })
     }
     
+    /**
+     Shows an overlay alert with an "OK" button to dimiss it
+     - parameters:
+        - title: Title of the alert
+        - message: body of the alert
+     */
     func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
