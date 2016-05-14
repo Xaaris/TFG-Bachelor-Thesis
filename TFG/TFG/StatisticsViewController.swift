@@ -55,7 +55,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
     func addRefresher(){
         refresher = UIRefreshControl()
         refresher.addTarget(self, action: #selector(StatisticsViewController.refreshStatistics), forControlEvents: .ValueChanged)
-        refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refresher.attributedTitle = NSAttributedString(string: NSLocalizedString("Pull to refresh", comment: "message for the refresher"))
         scrollView.addSubview(refresher)
     }
     
@@ -121,7 +121,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     func updatePicker(){
         let topics = realm.objects(Topic.self)
-        pickerValues = ["Overview"]
+        pickerValues = [NSLocalizedString("Overview", comment: "Name for overview in topic picker")]
         for topic in topics{
             pickerValues.append(topic.title)
         }
@@ -233,10 +233,10 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
         let oldStatistics = displayedStatistics
         if overview || Util.getCurrentTopic() == nil{
             displayedStatistics = Util.getNLatestStatistics(14)
-            barChartView.noDataText = "No topic selected"
+            barChartView.noDataText = NSLocalizedString("No topic selected", comment: "")
         }else{
             displayedStatistics = Util.getNLatestStatisticsOfTopic(10, topic: Util.getCurrentTopic()!)
-            barChartView.noDataText = "No data yet"
+            barChartView.noDataText = NSLocalizedString("No data yet", comment: "")
         }
         if oldStatistics != displayedStatistics{
             if !displayedStatistics.isEmpty {
@@ -286,7 +286,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 if !overview{
                     if let currentTopic = Util.getCurrentTopic(){
                         let globalAverage = currentTopic.globalAverage * 100
-                        let limitLine = ChartLimitLine(limit: globalAverage, label: "Global Average")
+                        let limitLine = ChartLimitLine(limit: globalAverage, label: NSLocalizedString("Global Average", comment: "for limit line"))
                         let greyColor = UIColor(red: 50/255, green: 50/255, blue: 50/255, alpha: 0.7)
                         limitLine.lineColor = greyColor
                         limitLine.valueTextColor = greyColor
@@ -317,9 +317,9 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
     func reloadPieChartData(overview: Bool) {
         
         if Util.getCurrentTopic() == nil {
-            pieChartView.noDataText = "No topic selected"
+            pieChartView.noDataText = NSLocalizedString("No topic selected", comment: "")
         }else{
-            pieChartView.noDataText = "No data yet"
+            pieChartView.noDataText = NSLocalizedString("No data yet", comment: "")
         }
         
         var dataEntries: [ChartDataEntry] = []
@@ -350,9 +350,9 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
         let statistic = displayedStatistics[entry.xIndex]
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd.MM.yy 'at' HH:mm" //"yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-        barChartTopicLabel.text = "Topic: \(statistic.topic!.title)"
-        barChartDateLabel.text = "Date: " + dateFormatter.stringFromDate(statistic.date)
-        barChartScoreLabel.text = "Score: \(NSString(format: "%.2f", statistic.score)) out of \(statistic.numberOfQuestions)"
+        barChartTopicLabel.text = NSLocalizedString("Topic: ", comment: "") + statistic.topic!.title
+        barChartDateLabel.text = NSLocalizedString("Date: ", comment: "") + dateFormatter.stringFromDate(statistic.date)
+        barChartScoreLabel.text = NSLocalizedString("Score: ", comment: "") + (NSString(format: "%.2f", statistic.score) as String) + NSLocalizedString(" out of ", comment: "For Score x out of x") + String(statistic.numberOfQuestions)
     }
     
     

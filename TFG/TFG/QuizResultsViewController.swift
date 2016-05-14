@@ -55,7 +55,7 @@ class QuizResultsViewController: UIViewController{
         expansionButton.tag = row
         
         let questionNumberLabel = UILabel()
-        questionNumberLabel.text = "Question \(row + 1)"
+        questionNumberLabel.text = NSLocalizedString("Question ", comment: "") + String(row + 1)
         questionNumberLabel.font = UIFont.boldSystemFontOfSize(17.0)
         
         let arrowImageView = UIImageView()
@@ -209,20 +209,20 @@ class QuizResultsViewController: UIViewController{
         let score = Util.getLatestStatistic()!.percentageScore
         
         if score < 50 {
-            titleLabel.text = "That needs more work!"
+            titleLabel.text = NSLocalizedString("That needs more work!", comment: "At the end of a quiz")
         }else if score < 75 {
-            titleLabel.text = "You did okay.."
+            titleLabel.text = NSLocalizedString("You did okay..", comment: "At the end of a quiz")
         }else if score < 90 {
-            titleLabel.text = "That was good"
+            titleLabel.text = NSLocalizedString("That was good", comment: "At the end of a quiz")
         }else if score < 100 {
-            titleLabel.text = "That was great!"
+            titleLabel.text = NSLocalizedString("That was great!", comment: "At the end of a quiz")
         }else{
-            titleLabel.text = "Perfect!"
+            titleLabel.text = NSLocalizedString("Perfect!", comment: "At the end of a quiz")
         }
         let numberFormatter = NSNumberFormatter()
         numberFormatter.minimumIntegerDigits = 1
         numberFormatter.maximumFractionDigits = 1
-        xOutOfxLabel.text = "You got a score of \(numberFormatter.stringFromNumber(score)!)%"
+        xOutOfxLabel.text = NSLocalizedString("You got a score of ", comment: "At the end of a quiz") + String(numberFormatter.stringFromNumber(score)!) + "%"
     }
     
     

@@ -67,13 +67,17 @@ class PreferencesViewController: UIViewController {
     
     @IBAction func deleteStatisticsButtonPressed(sender: AnyObject) {
         
-        let alertController = UIAlertController(title: "Delete Statistics?", message:
-            "Are you sure you want to delete all statistics? This can not be undone!", preferredStyle: UIAlertControllerStyle.Alert)
-        let deleteAction = UIAlertAction(title: "Delete", style: .Destructive) { (action) in
+        let title = NSLocalizedString("Delete Statistics?", comment: "")
+        let message = NSLocalizedString("Are you sure you want to delete all statistics? This can not be undone!", comment: "")
+        let delete = NSLocalizedString("Delete", comment: "")
+        let cancel = NSLocalizedString("Cancel", comment: "")
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let deleteAction = UIAlertAction(title: delete, style: .Destructive) { (action) in
             Util.deleteAllStatistics()
         }
         alertController.addAction(deleteAction)
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: cancel, style: .Cancel, handler: nil))
         
         self.presentViewController(alertController, animated: true, completion: nil)
     }
@@ -81,13 +85,19 @@ class PreferencesViewController: UIViewController {
 
     
     @IBAction func logOutButtonPressed(sender: AnyObject) {
-        let alertController = UIAlertController(title: "Log Out?", message:
-            "Are you sure you want to log out?", preferredStyle: UIAlertControllerStyle.Alert)
-        let deleteAction = UIAlertAction(title: "Log Out", style: .Destructive) { (action) in
+        
+        let title = NSLocalizedString("Log Out?", comment: "")
+        let message = NSLocalizedString("Are you sure you want to log out?", comment: "")
+        let logOut = NSLocalizedString("Log Out", comment: "")
+        let cancel = NSLocalizedString("Cancel", comment: "")
+        
+        let alertController = UIAlertController(title: title, message:
+            message, preferredStyle: UIAlertControllerStyle.Alert)
+        let deleteAction = UIAlertAction(title: logOut, style: .Destructive) { (action) in
             self.logOut()
         }
         alertController.addAction(deleteAction)
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: cancel, style: .Cancel, handler: nil))
         
         self.presentViewController(alertController, animated: true, completion: nil)
     }
@@ -95,7 +105,7 @@ class PreferencesViewController: UIViewController {
     func logOut(){
         //Check online connectivity
         if !Util.isConnected(){
-            showAlert("No connection", message: "You need an internet connection to be able to safely log out")
+            showAlert(NSLocalizedString("No connection", comment: ""), message: NSLocalizedString("You need an internet connection to be able to safely log out", comment: ""))
         }else{
             
             // Run a spinner to show a task in progress

@@ -1152,9 +1152,9 @@ Time studied per topic in minutes</string>
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dsB-sS-gOt">
-                                <rect key="frame" x="270" y="188" width="60" height="25"/>
+                                <rect key="frame" x="265" y="188" width="70" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="7Yb-Vg-bpA"/>
+                                    <constraint firstAttribute="width" constant="70" id="7Yb-Vg-bpA"/>
                                     <constraint firstAttribute="height" constant="25" id="oPf-bp-qvu"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
