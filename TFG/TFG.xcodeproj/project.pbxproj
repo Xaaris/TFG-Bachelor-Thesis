@@ -21,9 +21,9 @@
 		3BC8B41B1C70F251000FD25D /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC8B41A1C70F251000FD25D /* StatisticsViewController.swift */; };
 		3BC8B41E1C70F251000FD25D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BC8B41C1C70F251000FD25D /* Main.storyboard */; };
 		3BC8B4201C70F251000FD25D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BC8B41F1C70F251000FD25D /* Assets.xcassets */; };
-		3BC8B4231C70F251000FD25D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BC8B4211C70F251000FD25D /* LaunchScreen.storyboard */; };
 		3BC8B42B1C723581000FD25D /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC8B42A1C723581000FD25D /* PreferencesViewController.swift */; };
 		3BD4A1C61CBA844D00E52A0C /* Reach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD4A1C51CBA844D00E52A0C /* Reach.swift */; };
+		3BDC793E1CE7581A00D3B659 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BC8B4211C70F251000FD25D /* LaunchScreen.storyboard */; };
 		3BE4BA301C7FD9A60053EC96 /* QuestionContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4BA2F1C7FD9A60053EC96 /* QuestionContentViewController.swift */; };
 		3BE4BA321C7FDBE30053EC96 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4BA311C7FDBE30053EC96 /* Util.swift */; };
 		3BE4BA361C80CB6C0053EC96 /* AnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4BA351C80CB6C0053EC96 /* AnswerCell.swift */; };
@@ -57,8 +57,11 @@
 		3B3FAFAE1CD8ECB3004E5A53 /* PresentQuestionPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentQuestionPageViewController.swift; sourceTree = "<group>"; };
 		3B5BCE521C8CCEBB00108989 /* QuizResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = QuizResultsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3B6CC8261C9A34B3001A1FE3 /* CircleProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleProgressView.swift; sourceTree = "<group>"; };
+		3B79CFDC1CE7594E008677F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
+		3B79CFDD1CE7594F008677F0 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de; path = de.lproj/Info.plist; sourceTree = "<group>"; };
+		3B79CFDE1CE75951008677F0 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = es; path = es.lproj/Info.plist; sourceTree = "<group>"; };
 		3B7F65161C78F97F00BE0812 /* CSVImporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CSVImporter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		3B81C5CA1CE69F3B00449AC5 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		3BB352E71CE6BB08000D790B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		3BB361031CB49DD300356004 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3BBD159D1C7A081C00672569 /* ChooseTopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseTopicViewController.swift; sourceTree = "<group>"; };
 		3BBD159F1C7A18C500672569 /* QuestionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
@@ -69,9 +72,10 @@
 		3BC8B41D1C70F251000FD25D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3BC8B41F1C70F251000FD25D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3BC8B4221C70F251000FD25D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		3BC8B4241C70F251000FD25D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BC8B42A1C723581000FD25D /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		3BD4A1C51CBA844D00E52A0C /* Reach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reach.swift; sourceTree = "<group>"; };
+		3BD63D031CE75AC50093338A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
+		3BDC793D1CE757F500D3B659 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		3BE4BA2F1C7FD9A60053EC96 /* QuestionContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionContentViewController.swift; sourceTree = "<group>"; };
 		3BE4BA311C7FDBE30053EC96 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		3BE4BA351C80CB6C0053EC96 /* AnswerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerCell.swift; sourceTree = "<group>"; };
@@ -191,7 +195,7 @@
 				3BC8B41C1C70F251000FD25D /* Main.storyboard */,
 				3BC8B41F1C70F251000FD25D /* Assets.xcassets */,
 				3BC8B4211C70F251000FD25D /* LaunchScreen.storyboard */,
-				3BC8B4241C70F251000FD25D /* Info.plist */,
+				3B79CFDB1CE75949008677F0 /* Info.plist */,
 			);
 			path = TFG;
 			sourceTree = "<group>";
@@ -268,6 +272,8 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
+				es,
 			);
 			mainGroup = 3BC8B40A1C70F251000FD25D;
 			productRefGroup = 3BC8B4141C70F251000FD25D /* Products */;
@@ -284,8 +290,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BC8B4231C70F251000FD25D /* LaunchScreen.storyboard in Resources */,
 				3BC8B4201C70F251000FD25D /* Assets.xcassets in Resources */,
+				3BDC793E1CE7581A00D3B659 /* LaunchScreen.storyboard in Resources */,
 				3BF5B7251C86711F007C88B2 /* .gitignore in Resources */,
 				3BC8B41E1C70F251000FD25D /* Main.storyboard in Resources */,
 			);
@@ -389,12 +395,24 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		3B79CFDB1CE75949008677F0 /* Info.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3B79CFDC1CE7594E008677F0 /* en */,
+				3B79CFDD1CE7594F008677F0 /* de */,
+				3B79CFDE1CE75951008677F0 /* es */,
+				3BD63D031CE75AC50093338A /* Base */,
+			);
+			name = Info.plist;
+			sourceTree = "<group>";
+		};
 		3BC8B41C1C70F251000FD25D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3BC8B41D1C70F251000FD25D /* Base */,
 				3BF5B72D1C8678FC007C88B2 /* en */,
-				3B81C5CA1CE69F3B00449AC5 /* de */,
+				3BB352E71CE6BB08000D790B /* de */,
+				3BDC793D1CE757F500D3B659 /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -505,7 +523,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = TFG/Info.plist;
+				INFOPLIST_FILE = TFG/Base.lproj/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = test.Xaaris.TFG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -525,7 +543,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = TFG/Info.plist;
+				INFOPLIST_FILE = TFG/Base.lproj/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = test.Xaaris.TFG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
