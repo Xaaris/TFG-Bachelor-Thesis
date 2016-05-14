@@ -32,7 +32,7 @@
 "DLl-X6-v9k.placeholder" = "Email";
 
 /* Class = "UILabel"; text = "Date: No data"; ObjectID = "ExB-wX-pEd"; */
-"ExB-wX-pEd.text" = "Date: No data";
+"ExB-wX-pEd.text" = "Datum: Noch keine Daten";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "FdE-BZ-ZxB"; */
 "FdE-BZ-ZxB.text" = "Titel";
@@ -49,9 +49,8 @@
 /* Class = "UILabel"; text = "Welcome"; ObjectID = "O1L-WK-8sK"; */
 "O1L-WK-8sK.text" = "Willkommen";
 
-/* Class = "UILabel"; text = "\nTime studied per topic in minutes"; ObjectID = "Oez-lY-uDA"; */
-"Oez-lY-uDA.text" = "
-Zeit pro Thema in minuten";
+/* Class = "UILabel"; text = "Time studied per topic in minutes"; ObjectID = "Oez-lY-uDA"; */
+"Oez-lY-uDA.text" = "Zeit pro Thema in minuten";
 
 /* Class = "UIButton"; normalTitle = "Finish Quiz"; ObjectID = "Oky-n7-cbt"; */
 "Oky-n7-cbt.normalTitle" = "Quiz beenden";
@@ -128,9 +127,8 @@ Zeit pro Thema in minuten";
 /* Class = "UITextField"; placeholder = "Password"; ObjectID = "pNK-O3-T0W"; */
 "pNK-O3-T0W.placeholder" = "Passwort";
 
-/* Class = "UILabel"; text = "Congratulations!\nYou made it to the end"; ObjectID = "ppm-Tg-8fz"; */
-"ppm-Tg-8fz.text" = "Glückwunsch!
-Du hast es geschafft";
+/* Class = "UILabel"; text = "Congratulations!                       You made it to the end"; ObjectID = "ppm-Tg-8fz"; */
+"ppm-Tg-8fz.text" = "Glückwunsch!                           Du hast es geschafft  ";
 
 /* Class = "UITextField"; placeholder = "Email"; ObjectID = "yJc-q9-oFG"; */
 "yJc-q9-oFG.placeholder" = "Email";

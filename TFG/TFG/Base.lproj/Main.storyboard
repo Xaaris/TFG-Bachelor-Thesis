@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -281,13 +281,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppm-Tg-8fz">
-                                <rect key="frame" x="20" y="89" width="560" height="53"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations!                       You made it to the end" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppm-Tg-8fz">
+                                <rect key="frame" x="179" y="89" width="242" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="6Cv-6A-Pht"/>
+                                    <constraint firstAttribute="width" constant="242" id="DR6-HP-z5T"/>
                                 </constraints>
-                                <string key="text">Congratulations!
-You made it to the end</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -315,8 +314,15 @@ You made it to the end</string>
                             <constraint firstAttribute="trailingMargin" secondItem="ppm-Tg-8fz" secondAttribute="trailing" id="NLK-hd-kI4"/>
                             <constraint firstItem="Oky-n7-cbt" firstAttribute="centerX" secondItem="rI3-mB-EAr" secondAttribute="centerX" id="kRM-Qc-0WG"/>
                             <constraint firstItem="Oky-n7-cbt" firstAttribute="top" secondItem="ppm-Tg-8fz" secondAttribute="bottom" constant="21" id="rTm-u8-AM9"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="ppm-Tg-8fz" secondAttribute="leading" id="y6A-ub-hrj"/>
+                            <constraint firstItem="ppm-Tg-8fz" firstAttribute="centerX" secondItem="rI3-mB-EAr" secondAttribute="centerX" id="vym-dA-8qz"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="ppm-Tg-8fz" secondAttribute="leading" constant="50" id="y6A-ub-hrj"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="NLK-hd-kI4"/>
+                                <exclude reference="y6A-ub-hrj"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="finishQuizButton" destination="Oky-n7-cbt" id="DD1-aB-kaZ"/>
@@ -567,7 +573,7 @@ You made it to the end</string>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="pYQ-Ky-xpa">
-                                                <rect key="frame" x="77" y="260" width="166" height="60"/>
+                                                <rect key="frame" x="77" y="266" width="166" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Topic: No topic selected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A02-YA-7tn">
                                                         <rect key="frame" x="0.0" y="0.0" width="166" height="20"/>
@@ -592,10 +598,8 @@ You made it to the end</string>
                                                     <constraint firstAttribute="height" constant="60" id="xIQ-5p-pa4"/>
                                                 </constraints>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oez-lY-uDA" userLabel="Time studied per topic in minutes">
-                                                <rect key="frame" x="27" y="329" width="266" height="41"/>
-                                                <string key="text">
-Time studied per topic in minutes</string>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time studied per topic in minutes" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oez-lY-uDA" userLabel="Time studied per topic in minutes">
+                                                <rect key="frame" x="27" y="343" width="266" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
