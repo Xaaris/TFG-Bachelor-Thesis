@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //realm path for debugging purposes
         //print(Realm.Configuration.defaultConfiguration.fileURL!)
         
+        //TODO: change schema version
         let config = Realm.Configuration(
             // Set the new schema version. This must be greater than the previously used
             // version (if you've never set a schema version before, the version is 0).
@@ -45,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Override point for customization after application launch.
         
-        
+        //TODO: delete and test
         if realm.objects(MyColor.self).isEmpty{
             realm.beginWrite()
             let blue = MyColor(value: [64,89,129])
@@ -61,14 +62,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             try! realm.commitWrite()
         }
         
+        //Initializing Parse
         Parse.enableLocalDatastore()
-        
         let parseConfiguration = ParseClientConfiguration(block: { (ParseMutableClientConfiguration) -> Void in
             ParseMutableClientConfiguration.applicationId = "instragra3456789yxcvbnm"
             ParseMutableClientConfiguration.clientKey = "instragra3456789yxcvbnmdfghjkl45678cvbn"
             ParseMutableClientConfiguration.server = "https://instragra.herokuapp.com/parse"
         })
-        
         Parse.initializeWithConfiguration(parseConfiguration)
         
         return true

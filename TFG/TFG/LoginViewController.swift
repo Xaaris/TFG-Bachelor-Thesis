@@ -55,17 +55,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let username = self.usernameField.text!
         let password = self.passwordField.text!
         
+        var title = ""
+        var message = ""
+        
         //Check online connectivity
         if !Util.isConnected(){
-            showAlert("No connection", message: "You need an internet connection to be able to log in")
+            title = NSLocalizedString("No connection", comment: "")
+            message = NSLocalizedString("You need an internet connection to be able to log in", comment: "")
             // Validate the text fields
         } else if username.characters.count < 4 {
-            showAlert("Invalid", message: "Username must be greater than 4 characters")
+            title = NSLocalizedString("Invalid", comment: "")
+            message = NSLocalizedString("Username must be greater than 4 characters", comment: "")
         } else if password.characters.count < 6 {
-            showAlert("Invalid", message: "Password must be greater than 6 characters")
+            title = NSLocalizedString("Invalid", comment: "")
+            message = NSLocalizedString("Password must be greater than 6 characters", comment: "")
         } else {
             return true
         }
+        showAlert(title, message: message)
         return false
     }
     

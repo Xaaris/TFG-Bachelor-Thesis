@@ -40,7 +40,7 @@ class MainViewController: UIViewController {
         if let currentTopic = realm.objects(Topic).filter("isSelected == true").first{
             topicLabel.text = currentTopic.title
         }else{
-            topicLabel.text = "No topic selected"
+            topicLabel.text = NSLocalizedString("No topic selected", comment: "Message when no topic has been selected")
         }
         if let pUserName = PFUser.currentUser()?["username"] as? String {
             self.userNameLabel.text = pUserName
@@ -52,8 +52,10 @@ class MainViewController: UIViewController {
             let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PageController") as! PresentQuestionPageViewController
             self.navigationController?.pushViewController(vc, animated: true)
         }else{
-            let alertController = UIAlertController(title: "No Topic Selected", message:
-                "Please choose a topic first", preferredStyle: UIAlertControllerStyle.Alert)
+            let title = NSLocalizedString("No topic selected", comment: "Message when no topic has been selected")
+            let message = NSLocalizedString("Please choose a topic first", comment: "Message when no topic has been selected (Message body)")
+            let alertController = UIAlertController(title: title, message:
+                message, preferredStyle: UIAlertControllerStyle.Alert)
             alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
             
             self.presentViewController(alertController, animated: true, completion: nil)

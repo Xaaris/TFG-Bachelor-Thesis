@@ -42,14 +42,20 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate  {
         let email = self.emailField.text!
         let finalEmail = email.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         
+        var title = ""
+        var message = ""
+        
         //Check online connectivity
         if !Util.isConnected(){
-            showAlert("No connection", message: "You need an internet connection to be able to reset your password")
+            title = NSLocalizedString("No connection", comment: "")
+            message = NSLocalizedString("You need an internet connection to be able to log in", comment: "")
         }else if finalEmail.characters.count < 5 {
-            showAlert("Invalid", message: "Please enter a valid email address")
+            title = NSLocalizedString("Invalid", comment: "")
+            message = NSLocalizedString("Please enter a valid email address", comment: "")
         } else {
             return true
         }
+        showAlert(title, message: message)
         return false
     }
     
@@ -67,7 +73,9 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate  {
             
             if error == nil {
                 if succeeded { // SUCCESSFULLY SENT TO EMAIL
-                    self.showAlert("Password Reset", message: "An email containing information on how to reset your password has been sent to " + email + ".")
+                    let title = NSLocalizedString("Password Reset", comment: "")
+                    let message = NSLocalizedString("An email containing information on how to reset your password has been sent to: ", comment: "")
+                    self.showAlert(title, message: message + email)
                 }
                 else { // SOME PROBLEM OCCURED
                     self.showAlert("Unknown Error", message: "An unknown error occured")

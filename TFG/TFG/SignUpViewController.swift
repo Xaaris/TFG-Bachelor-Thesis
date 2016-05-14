@@ -55,21 +55,30 @@ class SignUpViewController: UIViewController, UITextFieldDelegate  {
         let finalEmail = email.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         let trimedPassword = password.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         
+        var title = ""
+        var message = ""
+        
         //Check online connectivity
         if !Util.isConnected(){
-            showAlert("No connection", message: "You need an internet connection to be able to sign up")
+            title = NSLocalizedString("No connection", comment: "")
+            message = NSLocalizedString("You need an internet connection to be able to log in", comment: "")
             // Validate the text fields
         } else if username.characters.count < 4 {
-            showAlert("Invalid", message: "Username must be greater than 4 characters")
+            title = NSLocalizedString("Invalid", comment: "")
+            message = NSLocalizedString("Username must be greater than 4 characters", comment: "")
         } else if password.characters.count < 6 {
-            showAlert("Invalid", message: "Password must be greater than 6 characters")
+            title = NSLocalizedString("Invalid", comment: "")
+            message = NSLocalizedString("Password must be greater than 6 characters", comment: "")
         } else if password != trimedPassword {
-            showAlert("Invalid", message: "Password can not contain whitespace characters")
+            title = NSLocalizedString("Invalid", comment: "")
+            message = NSLocalizedString("Password can not contain whitespace characters", comment: "")
         } else if finalEmail.characters.count < 5 {
-            showAlert("Invalid", message: "Please enter a valid email address")
+            title = NSLocalizedString("Invalid", comment: "")
+            message = NSLocalizedString("Please enter a valid email address", comment: "")
         } else {
             return true
         }
+        showAlert(title, message: message)
         return false
     }
     
@@ -95,8 +104,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate  {
                 
             } else {
                 
-                let alertController = UIAlertController(title: "Success", message: "You are signed up!", preferredStyle: UIAlertControllerStyle.Alert)
-                let dismissVCAction = UIAlertAction(title: "Great!", style: .Default) { (action) in
+                let title = NSLocalizedString("Success", comment: "")
+                let message = NSLocalizedString("You are signed up!", comment: "")
+                let response = NSLocalizedString("Great!", comment: "this is the okay button")
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+                let dismissVCAction = UIAlertAction(title: response, style: .Default) { (action) in
                     self.goBackToLogin()
                 }
                 alertController.addAction(dismissVCAction)
