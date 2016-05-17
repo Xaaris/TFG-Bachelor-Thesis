@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ Parent class for the question cards
+ */
 class QuestionContentViewController: PageViewContent{
 
     @IBOutlet weak var questionTextLabel: UILabel?
@@ -25,17 +28,11 @@ class QuestionContentViewController: PageViewContent{
         updateContent()
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
+    ///Updates the question text
     override func updateContent() {
         if let label = questionTextLabel{
             label.text = currentQuestionDataSet[pageIndex].questionText
         }
     }
+    
 }

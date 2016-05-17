@@ -99,5 +99,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+///Global Realm variable to be able to access the database from everywhere
 let realm = try! Realm()
 

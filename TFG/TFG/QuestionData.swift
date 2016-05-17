@@ -9,6 +9,11 @@
 import Foundation
 import RealmSwift
 
+/**
+ Class which is used to store the topics locally in Realm. 
+ A topic has associated questions, answers, tags and statistics.
+ Some values are lazyly computed
+ */
 class Topic: Object{
     dynamic var title = ""
     dynamic var author = ""
@@ -31,6 +36,11 @@ class Topic: Object{
     }
 }
 
+/**
+ Class which is used to store the questions locally in Realm. 
+ A question has associated answers and tags.
+ Some values are lazyly computed
+ */
 class Question: Object {
     dynamic var topic: Topic? // to-one relationships must be optional
     dynamic var type = ""
@@ -66,6 +76,9 @@ class Question: Object {
     }
 }
 
+/**
+ Class which is used to store the answers locally in Realm.
+ */
 class Answer: Object {
     dynamic var answerText = ""
     dynamic var isCorrect = false
@@ -73,6 +86,10 @@ class Answer: Object {
     dynamic var associatedQuestion: Question? // to-one relationships must be optional
 }
 
+/**
+ Class which is used to store the tags locally in Realm.
+ In the current implementation tags are not used.
+ */
 class Tag: Object {
     
     dynamic var tagText = ""

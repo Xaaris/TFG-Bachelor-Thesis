@@ -9,6 +9,9 @@
 import Foundation
 import RealmSwift
 
+/**
+ Class which is used to store the statistics locally in Realm. Some values are lazyly computed
+ */
 class Statistic: Object{
     dynamic var topic: Topic? // to-one relationships must be optional
     dynamic var date = NSDate()

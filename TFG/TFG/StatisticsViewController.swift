@@ -391,7 +391,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
     func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: ChartHighlight) {
         let statistic = displayedStatistics[entry.xIndex]
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yy '  ' HH:mm" //"yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        dateFormatter.dateFormat = "dd.MM.yy ' ' HH:mm" //"yyyy-MM-dd'T'HH:mm:ssZZZZZ"
         barChartTopicLabel.text = NSLocalizedString("Topic: ", comment: "") + statistic.topic!.title
         barChartDateLabel.text = NSLocalizedString("Date: ", comment: "") + dateFormatter.stringFromDate(statistic.date)
         barChartScoreLabel.text = NSLocalizedString("Score: ", comment: "") + (NSString(format: "%.2f", statistic.score) as String) + NSLocalizedString(" out of ", comment: "For Score x out of x") + String(statistic.numberOfQuestions)
