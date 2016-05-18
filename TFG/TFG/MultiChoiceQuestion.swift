@@ -8,12 +8,16 @@
 
 import UIKit
 
+/**
+ Class for displaying a question where multiple answers can be correct
+ */
 class MultiChoiceQuestion: QuestionContentViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var answerTableView: UITableView!
     @IBOutlet weak var lockButton: UIButton!
 
     
+    ///Initializing tableView
     override func viewDidLoad() {
         super.viewDidLoad()
         answerTableView.delegate = self
@@ -21,8 +25,10 @@ class MultiChoiceQuestion: QuestionContentViewController, UITableViewDelegate, U
         updateLockedButton()
     }
     
+    ///Shows or hides "hint" button depending on wether there is a hint
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        //workaround weird realm bug
         startTimer()
         let aSelector : Selector = #selector(MultiChoiceQuestion.showHint)
         if !currentQuestionDataSet[pageIndex].hint.isEmpty{
@@ -50,6 +56,7 @@ class MultiChoiceQuestion: QuestionContentViewController, UITableViewDelegate, U
         
     }
     
+    //workaround weird realm bug
     func startTimer(){
         var timer = NSTimer()
         let aSelector : Selector = #selector(MultiChoiceQuestion.updateLockedButton)
@@ -57,18 +64,23 @@ class MultiChoiceQuestion: QuestionContentViewController, UITableViewDelegate, U
         timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: aSelector, userInfo: nil, repeats: false)
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
+    //MARK: TableView
+    ///We want just one section
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
+    ///Returns the number of answers for the tableView
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currentQuestionDataSet[pageIndex].answers.count
     }
     
+    /**
+     Specifies which which cell content gets shown depending on the status of the question:
+     locked? revealt? answerd? correct/false?
+     chooses image, text and text color to display
+     - returns: a new cell
+     */
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("AnswerCell", forIndexPath: indexPath) as! AnswerCell
         // Configure the cell...
@@ -106,6 +118,7 @@ class MultiChoiceQuestion: QuestionContentViewController, UITableViewDelegate, U
         return cell
     }
     
+    ///Logic for what happens when a cell gets tapped
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let question = currentQuestionDataSet[pageIndex]
         if !question.isLocked{
@@ -118,6 +131,7 @@ class MultiChoiceQuestion: QuestionContentViewController, UITableViewDelegate, U
         }
     }
     
+    ///Locks question and saves that to realm
     @IBAction func lockButtonPressed(sender: AnyObject) {
         lockButton.enabled = false
         let question = currentQuestionDataSet[pageIndex]
@@ -132,6 +146,7 @@ class MultiChoiceQuestion: QuestionContentViewController, UITableViewDelegate, U
         }
     }
     
+    ///Shows a hint as an alert
     func showHint(){
         let hintStr = currentQuestionDataSet[pageIndex].hint
         let alertController = UIAlertController(title: "Hint", message: hintStr, preferredStyle: UIAlertControllerStyle.Alert)
@@ -140,6 +155,7 @@ class MultiChoiceQuestion: QuestionContentViewController, UITableViewDelegate, U
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
+    ///Shows feedback as an alert.
     func showFeedback(){
         let FeedbackStr = currentQuestionDataSet[pageIndex].feedback
         if !FeedbackStr.isEmpty {
