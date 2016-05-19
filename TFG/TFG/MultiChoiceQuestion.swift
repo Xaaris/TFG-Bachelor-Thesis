@@ -149,7 +149,7 @@ class MultiChoiceQuestion: QuestionContentViewController, UITableViewDelegate, U
     ///Shows a hint as an alert
     func showHint(){
         let hintStr = currentQuestionDataSet[pageIndex].hint
-        let alertController = UIAlertController(title: "Hint", message: hintStr, preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: NSLocalizedString("Hint", comment: "hint button"), message: hintStr, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
         
         self.presentViewController(alertController, animated: true, completion: nil)
@@ -159,8 +159,8 @@ class MultiChoiceQuestion: QuestionContentViewController, UITableViewDelegate, U
     func showFeedback(){
         let FeedbackStr = currentQuestionDataSet[pageIndex].feedback
         if !FeedbackStr.isEmpty {
-            let alertController = UIAlertController(title: "Feedback", message: FeedbackStr, preferredStyle: .Alert)
-            alertController.addAction(UIAlertAction(title: "Got it", style: .Default,handler: nil))
+            let alertController = UIAlertController(title: NSLocalizedString("Feedback", comment: "Feedback title"), message: FeedbackStr, preferredStyle: .Alert)
+            alertController.addAction(UIAlertAction(title: NSLocalizedString("Got it", comment: "ok button for feedback"), style: .Default,handler: nil))
             
             self.presentViewController(alertController, animated: true, completion: nil)
         }

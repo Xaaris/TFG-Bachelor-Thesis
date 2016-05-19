@@ -22,11 +22,20 @@
 /* No comment provided by engineer. */
 "Delete Statistics?" = "Statistiken Löschen?";
 
+/* Feedback title */
+"Feedback" = "Feedback";
+
 /* for limit line */
 "Global Average" = "Globaler Durchschnitt";
 
+/* ok button for feedback */
+"Got it" = "Alles klar!";
+
 /* this is the okay button */
 "Great!" = "Super!";
+
+/* hint button */
+"Hint" = "Tip";
 
 /* No comment provided by engineer. */
 "Invalid" = "Ungültig";

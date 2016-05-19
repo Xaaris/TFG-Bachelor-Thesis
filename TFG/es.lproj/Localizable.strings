@@ -1,0 +1,120 @@
+/* For Score x out of x */
+" out of " = " de ";
+
+/* No comment provided by engineer. */
+"An email containing information on how to reset your password has been sent to: " = "Se ha enviado un correo electrónico con instrucciones como reiniciar la contraseña a la siguiente dirección: ";
+
+/* No comment provided by engineer. */
+"Are you sure you want to delete all statistics? This can not be undone!" = "¿Estás segur@ que quieras borrar todas las estadísticas? No se puede deshacerlo!";
+
+/* No comment provided by engineer. */
+"Are you sure you want to log out?" = "¿Estás segur@ que quieras cerrar la sesión?";
+
+/* No comment provided by engineer. */
+"Cancel" = "Cancelar";
+
+/* No comment provided by engineer. */
+"Date: " = "Fecha: ";
+
+/* No comment provided by engineer. */
+"Delete" = "Borrar";
+
+/* No comment provided by engineer. */
+"Delete Statistics?" = "¿Borrar Estadísticas?";
+
+/* Feedback title */
+"Feedback" = "Realimentación";
+
+/* for limit line */
+"Global Average" = "Promedio global";
+
+/* ok button for feedback */
+"Got it" = "Vale";
+
+/* this is the okay button */
+"Great!" = "¡Fantástico!";
+
+/* hint button */
+"Hint" = "Aviso";
+
+/* No comment provided by engineer. */
+"Invalid" = "No Válido";
+
+/* No comment provided by engineer. */
+"Log Out" = "Cerrar sesión";
+
+/* No comment provided by engineer. */
+"Log Out?" = "¿Cerrar Sesión?";
+
+/* No comment provided by engineer. */
+"No connection" = "No Conexión";
+
+/* No comment provided by engineer. */
+"No data yet" = "Ya no hay datos";
+
+/* Message when no topic has been selected */
+"No topic selected" = "No has elegido un tema";
+
+/* Name for overview in topic picker */
+"Overview" = "Perspectiva General";
+
+/* No comment provided by engineer. */
+"Password Reset" = "Contraseña reiniciado";
+
+/* No comment provided by engineer. */
+"Password can not contain whitespace characters" = "La contraseña no debe contener caracteres blancos";
+
+/* No comment provided by engineer. */
+"Password must be greater than 6 characters" = "La longitud minimal para la contraseña es 6 caracteres";
+
+/* At the end of a quiz */
+"Perfect!" = "¡Perfecto!";
+
+/* Message when no topic has been selected (Message body) */
+"Please choose a topic first" = "Por favor elije un tema";
+
+/* No comment provided by engineer. */
+"Please enter a valid email address" = "Por favor introduce una dirección de correo eletrónico válida";
+
+/* message for the refresher */
+"Pull to refresh" = "Tirar para refrescar";
+
+/* No comment provided by engineer. */
+"Question " = "Cuestión ";
+
+/* No comment provided by engineer. */
+"Score: " = "Puntuación: ";
+
+/* No comment provided by engineer. */
+"Success" = "Éxito";
+
+/* At the end of a quiz */
+"That needs more work!" = "¡Tienes que trabajar más!";
+
+/* At the end of a quiz */
+"That was good" = "Estaba bien";
+
+/* At the end of a quiz */
+"That was great!" = "Estaba fantástico!";
+
+/* No comment provided by engineer. */
+"Topic: " = "Tema: ";
+
+/* No comment provided by engineer. */
+"Username must be greater than 4 characters" = "La longitud minimal para el nombre del usuario es 4 caracteres";
+
+/* No comment provided by engineer. */
+"You are signed up!" = "¡Estás participando!";
+
+/* At the end of a quiz */
+"You did okay.." = "Esto era ni fu ni fa..";
+
+/* At the end of a quiz */
+"You got a score of " = "Tu puntuación es  ";
+
+/* No comment provided by engineer. */
+"You need an internet connection to be able to log in" = "Necesitas conexión a Internet para iniciar la sesión ";
+
+/* No comment provided by engineer. */
+"You need an internet connection to be able to safely log out" = "Necesitas conexión a Internet para cerrar la sesión";
+

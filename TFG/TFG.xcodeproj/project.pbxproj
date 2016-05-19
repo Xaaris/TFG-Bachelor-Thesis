@@ -62,6 +62,9 @@
 		3B5BCE521C8CCEBB00108989 /* QuizResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = QuizResultsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3B6CC8261C9A34B3001A1FE3 /* CircleProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleProgressView.swift; sourceTree = "<group>"; };
 		3B7F65161C78F97F00BE0812 /* CSVImporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CSVImporter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		3BA45EE41CEDD87400FD80B5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		3BA45EE51CEDD87400FD80B5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3BB04C681CEDEE70002C5395 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3BB361031CB49DD300356004 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3BBD159D1C7A081C00672569 /* ChooseTopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseTopicViewController.swift; sourceTree = "<group>"; };
 		3BBD159F1C7A18C500672569 /* QuestionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
@@ -260,7 +263,7 @@
 				TargetAttributes = {
 					3BC8B4121C70F251000FD25D = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 8VQSK4NTQK;
+						DevelopmentTeam = E89U7RTGW4;
 					};
 				};
 			};
@@ -271,6 +274,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = 3BC8B40A1C70F251000FD25D;
 			productRefGroup = 3BC8B4141C70F251000FD25D /* Products */;
@@ -397,6 +401,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				3B0630421CE7811D0082F4F3 /* de */,
+				3BA45EE51CEDD87400FD80B5 /* es */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -414,6 +419,7 @@
 			children = (
 				3BC8B41D1C70F251000FD25D /* Base */,
 				3B06303E1CE7811C0082F4F3 /* de */,
+				3BA45EE41CEDD87400FD80B5 /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -423,6 +429,7 @@
 			children = (
 				3BC8B4221C70F251000FD25D /* Base */,
 				3B0630441CE7811E0082F4F3 /* de */,
+				3BB04C681CEDEE70002C5395 /* es */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
