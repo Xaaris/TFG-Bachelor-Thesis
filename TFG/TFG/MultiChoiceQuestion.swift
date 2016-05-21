@@ -32,9 +32,9 @@ class MultiChoiceQuestion: QuestionContentViewController, UITableViewDelegate, U
         startTimer()
         let aSelector : Selector = #selector(MultiChoiceQuestion.showHint)
         if !currentQuestionDataSet[pageIndex].hint.isEmpty{
-            parentViewController!.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Hint", style: .Plain, target: self, action: aSelector)
+            parentViewController!.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "hint_button"), style: .Plain, target: self, action: aSelector)
         }else{
-            let disabledButton = UIBarButtonItem(title: "Hint", style: .Plain, target: self, action: aSelector)
+            let disabledButton = UIBarButtonItem(image: UIImage(named: "hint_button_inactive"), style: .Plain, target: self, action: aSelector)
             disabledButton.enabled = false
             parentViewController!.navigationItem.rightBarButtonItem = disabledButton
         }
