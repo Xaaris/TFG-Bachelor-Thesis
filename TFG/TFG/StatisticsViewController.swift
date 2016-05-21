@@ -88,7 +88,6 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
                                 realm.beginWrite()
                                 let localStat = Statistic()
                                 localStat.topic = topic
-                                localStat.date = cloudStat["date"] as! NSDate
                                 localStat.score = cloudStat["score"] as! Double
                                 localStat.startTime = cloudStat["startTime"] as! NSDate
                                 localStat.endTime = cloudStat["endTime"] as! NSDate
@@ -276,10 +275,10 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 
                 //Preparing data labels
                 for i in 0..<displayedStatistics.count {
-                    if displayedStatistics[i].date.timeIntervalSinceNow > NSTimeInterval(-86400) { //86.400 seconds = one day
-                        dates.append(hourDateFormatter.stringFromDate(displayedStatistics[i].date))
+                    if displayedStatistics[i].startTime.timeIntervalSinceNow > NSTimeInterval(-86400) { //86.400 seconds = one day
+                        dates.append(hourDateFormatter.stringFromDate(displayedStatistics[i].startTime))
                     }else{
-                        dates.append(dayDateFormatter.stringFromDate(displayedStatistics[i].date))
+                        dates.append(dayDateFormatter.stringFromDate(displayedStatistics[i].startTime))
                     }
                     scores.append(displayedStatistics[i].percentageScore)
                 }
@@ -393,7 +392,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd.MM.yy ' ' HH:mm" //"yyyy-MM-dd'T'HH:mm:ssZZZZZ"
         barChartTopicLabel.text = NSLocalizedString("Topic: ", comment: "") + statistic.topic!.title
-        barChartDateLabel.text = NSLocalizedString("Date: ", comment: "") + dateFormatter.stringFromDate(statistic.date)
+        barChartDateLabel.text = NSLocalizedString("Date: ", comment: "") + dateFormatter.stringFromDate(statistic.startTime)
         barChartScoreLabel.text = NSLocalizedString("Score: ", comment: "") + (NSString(format: "%.2f", statistic.score) as String) + NSLocalizedString(" out of ", comment: "For Score x out of x") + String(statistic.numberOfQuestions)
     }
     

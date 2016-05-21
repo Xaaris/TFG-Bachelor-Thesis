@@ -52,7 +52,7 @@ struct Util {
         if !stats.isEmpty {
             var latestStat = stats[0]
             for stat in stats{
-                if stat.date.compare(latestStat.date) == NSComparisonResult.OrderedDescending {
+                if stat.startTime.compare(latestStat.startTime) == NSComparisonResult.OrderedDescending {
                     latestStat = stat
                 }
             }
@@ -63,7 +63,7 @@ struct Util {
     }
     
     static func getNLatestStatistics(numberOfStats: Int) -> [Statistic] {
-        let stats = realm.objects(Statistic).sorted("date", ascending: false)
+        let stats = realm.objects(Statistic).sorted("startTime", ascending: false)
         let numberOfInstances = min(stats.count, numberOfStats)
         var retArray:[Statistic] = []
         for i in 0 ..< numberOfInstances{
@@ -74,7 +74,7 @@ struct Util {
     
     static func getNLatestStatisticsOfTopic(numberOfStats: Int, topic: Topic) -> [Statistic] {
         let predicate = NSPredicate(format: "topic.title = %@ ", topic.title)
-        let stats = realm.objects(Statistic).filter(predicate).sorted("date", ascending: false)
+        let stats = realm.objects(Statistic).filter(predicate).sorted("startTime", ascending: false)
         let numberOfInstances = min(stats.count, numberOfStats)
         var retArray:[Statistic] = []
         for i in 0 ..< numberOfInstances{

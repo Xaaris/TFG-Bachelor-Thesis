@@ -14,7 +14,6 @@ import RealmSwift
  */
 class Statistic: Object{
     dynamic var topic: Topic? // to-one relationships must be optional
-    dynamic var date = NSDate()
     dynamic var numberOfQuestions: Int {
         if topic != nil {
             return topic!.questions.count
