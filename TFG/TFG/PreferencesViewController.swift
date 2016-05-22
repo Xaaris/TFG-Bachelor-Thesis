@@ -121,7 +121,7 @@ class PreferencesViewController: UIViewController {
     ///Logs the current user out provided that there is a internet connection
     func logOut(){
         //Check online connectivity
-        if !Util.isConnected(){
+        if !CloudLink.isConnected(){
             showAlert(NSLocalizedString("No connection", comment: ""), message: NSLocalizedString("You need an internet connection to be able to safely log out", comment: ""))
         }else{
             

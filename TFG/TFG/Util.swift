@@ -10,15 +10,20 @@ import Foundation
 import UIKit
 import Parse
 
+///Utility class
 struct Util {
     
+    //Predefined colors
     static let myGreenColor: UIColor = UIColor(red: 33/255, green: 127/255, blue: 0/255, alpha: 1)
     static let myRedColor: UIColor = UIColor(red: 127/255, green: 0/255, blue: 0/255, alpha: 1)
     static let myLightRedColor: UIColor = UIColor(red: 127/255, green: 0/255, blue: 0/255, alpha: 0.6)
     static let myLightYellowColor: UIColor = UIColor(red: 255/255, green: 236/255, blue: 28/255, alpha: 0.6)
     static let myLightGreenColor: UIColor = UIColor(red: 33/255, green: 127/255, blue: 0/255, alpha: 0.6)
     
-    
+    /**
+     Returns currently selected topic or nil if none is selected
+     - returns: the selected topic or nil
+     */
     static func getCurrentTopic() -> Topic? {
         let topics = realm.objects(Topic.self)
         for topic in topics{
@@ -29,6 +34,11 @@ struct Util {
         return nil
     }
     
+    /**
+     Returns the topic with the specified name or nil if no topic exists with taht name
+     - parameter title: title of the topic to be found
+     - returns: the topic or nil
+     */
     static func getTopicWithTitle(title: String) -> Topic? {
         let topics = realm.objects(Topic.self)
         for topic in topics{
@@ -39,14 +49,26 @@ struct Util {
         return nil
     }
     
+    /**
+     Returns the current user name or nil if no user is logged in
+     - returns: the user name or nil
+     */
     static func getCurrentUserName() -> String? {
         return PFUser.currentUser()?["username"] as? String
     }
     
+    /**
+     Returns the current users preferences or nil if they dont exist
+     - returns: the preferences or nil
+     */
     static func getPreferences() -> Preference? {
         return realm.objects(Preference.self).first
     }
     
+    /**
+     Returns the latest statistic (newest date) or nil if none exists
+     - returns: a statistic or nil
+     */
     static func getLatestStatistic() -> Statistic? {
         let stats = realm.objects(Statistic)
         if !stats.isEmpty {
@@ -188,21 +210,9 @@ struct Util {
     }
     
     static func deleteUserData(){
-        //TODO: add topics
+        //TODO: add topics?
         deleteStatisticsLocally()
         deletePreferences()
-    }
-    
-    //TODO: put in cloud link
-    static func isConnected() -> Bool {
-        //Check online connectivity
-        let status = Reach().connectionStatus()
-        switch status{
-        case .Unknown, .Offline:
-            return false
-        default:
-            return true
-        }
     }
     
     static func setGlobalAverageOf(topic: Topic, newValue: Double){

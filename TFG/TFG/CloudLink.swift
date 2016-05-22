@@ -270,5 +270,19 @@ struct CloudLink {
         }
     }
     
+    /**
+    Checks online connectivity
+     - returns: Boolean that indicates wether the device is connected to the internet or not
+    */
+    static func isConnected() -> Bool {
+        let status = Reach().connectionStatus()
+        switch status{
+        case .Unknown, .Offline:
+            return false
+        default:
+            return true
+        }
+    }
+    
             
 }

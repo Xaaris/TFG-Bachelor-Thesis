@@ -69,7 +69,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         refresher.beginRefreshing()
         //Stop if there is no internet connection
-        if !Util.isConnected(){
+        if !CloudLink.isConnected(){
             refresher.endRefreshing()
         }else{
             

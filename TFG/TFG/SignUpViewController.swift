@@ -70,7 +70,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate  {
         var message = ""
         
         //Check online connectivity
-        if !Util.isConnected(){
+        if !CloudLink.isConnected(){
             title = NSLocalizedString("No connection", comment: "")
             message = NSLocalizedString("You need an internet connection to be able to log in", comment: "")
             // Validate the text fields

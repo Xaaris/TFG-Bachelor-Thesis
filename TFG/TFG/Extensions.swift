@@ -8,6 +8,7 @@
 
 import UIKit
 
+///Extensions to the UIViewController 
 extension UIViewController {
     ///Extension that hides the keyboard when a user tapps somewhere outside the textfield
     func hideKeyboardWhenTappedAround() {
@@ -15,6 +16,7 @@ extension UIViewController {
         view.addGestureRecognizer(tap)
     }
     
+    ///Dismisses the kexboard
     func dismissKeyboard() {
         view.endEditing(true)
     }
