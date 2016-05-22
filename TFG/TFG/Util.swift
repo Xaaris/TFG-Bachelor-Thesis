@@ -84,6 +84,11 @@ struct Util {
         }
     }
     
+    /**
+     Returns the n latest (or as many as there are) statistics as an array
+     - parameter numberOfStats: the maximum number of statistics you want to retrieve
+     - returns: statistics array in chronological order
+     */
     static func getNLatestStatistics(numberOfStats: Int) -> [Statistic] {
         let stats = realm.objects(Statistic).sorted("startTime", ascending: false)
         let numberOfInstances = min(stats.count, numberOfStats)
@@ -94,6 +99,12 @@ struct Util {
         return retArray.reverse()
     }
     
+    /**
+     Returns the n latest (or as many as there are) statistics of a given topic as an array
+     - parameter numberOfStats: the maximum number of statistics you want to retrieve
+     - parameter topic: topic for which to return the statistics
+     - returns: statistics array in chronological order
+     */
     static func getNLatestStatisticsOfTopic(numberOfStats: Int, topic: Topic) -> [Statistic] {
         let predicate = NSPredicate(format: "topic.title = %@ ", topic.title)
         let stats = realm.objects(Statistic).filter(predicate).sorted("startTime", ascending: false)
@@ -105,6 +116,11 @@ struct Util {
         return retArray.reverse()
     }
     
+    /**
+     Returns a new MyColor which is not yet assigned to a topic.
+     It chooses from a pool of predefined, not yet assigned colors before it generates random new ones
+     - returns: a new color
+     */
     static func getUnassignedColor() -> MyColor{
         let colors = realm.objects(MyColor)
         for color in colors {
@@ -123,6 +139,7 @@ struct Util {
         return newColor
     }
     
+    ///Delets all statistics locally
     static func deleteStatisticsLocally(){
         let allStatistics = realm.objects(Statistic)
         try! realm.write {
@@ -130,6 +147,7 @@ struct Util {
         }
     }
     
+    ///Delets all statistics locally and in the cloud (for the current user)
     static func deleteAllStatistics(){
         let query = PFQuery(className: "Statistic")
         query.whereKey("userID", equalTo: (PFUser.currentUser()?.objectId)!)
@@ -153,6 +171,7 @@ struct Util {
         }
     }
     
+    ///Delets the preferences locally
     static func deletePreferences(){
         let pref = realm.objects(Preference)
         try! realm.write {
@@ -160,6 +179,10 @@ struct Util {
         }
     }
     
+    /**
+    Delets the the specified topic and all its questions and answers locally
+    - parameter topic: the topic which should be deleted
+    */
     static func deleteTopic(topic: Topic){
         try! realm.write {
             realm.delete(topic)
@@ -202,6 +225,7 @@ struct Util {
         }
     }
     
+    ///Delets all topics locally
     static func deleteAllTopics(){
         let topics = realm.objects(Topic.self)
         for topic in topics{
@@ -209,12 +233,19 @@ struct Util {
         }
     }
     
+    ///Delets the preferences and statistics locally
     static func deleteUserData(){
         //TODO: add topics?
         deleteStatisticsLocally()
         deletePreferences()
     }
     
+    /**
+    Updates the current global average
+    - parameters:
+        - topic: the topic of which the GA should be updated
+        - newValue: the value to which it should be updated
+     */
     static func setGlobalAverageOf(topic: Topic, newValue: Double){
         realm.beginWrite()
         topic.globalAverage = newValue
