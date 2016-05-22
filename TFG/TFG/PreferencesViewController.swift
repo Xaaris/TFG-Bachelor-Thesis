@@ -20,7 +20,7 @@ class PreferencesViewController: UIViewController {
     
     var pref: Preference!
     
-    
+    ///Prepare the view with the current preference settings
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Preferences View")
@@ -31,11 +31,10 @@ class PreferencesViewController: UIViewController {
         secondsLabel.text = String(pref.lockSeconds)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+    /**
+    Toggle immediate feedback switch and save result locally and to cloud (async)
+     - parameter sender: user interaction
+    */
     @IBAction func immediateFeedbackSwitchPressed(sender: AnyObject) {
         realm.beginWrite()
         pref.immediateFeedback = !pref.immediateFeedback
@@ -45,9 +44,15 @@ class PreferencesViewController: UIViewController {
         CloudLink.syncPreferencesToCloud()
     }
     
+    /**
+     Fires when slider was moved. Fixes slider to whole integer position and only saves
+     the value if it differs from the old one.
+     - parameter sender: user interaction
+     */
     @IBAction func lockSecondsSliderValueDidChange(sender: AnyObject) {
         let oldValue = pref.lockSeconds
         let newValue = Int(lroundf(lockSecondsSlider.value))
+        //Fix slider to integer position
         sender.setValue(Float(lroundf(lockSecondsSlider.value)), animated: true)
         if oldValue != newValue{
             secondsLabel.text = String(Int(lockSecondsSlider.value))
@@ -59,12 +64,20 @@ class PreferencesViewController: UIViewController {
         }
     }
     
+    /**
+     Enables/disables the slider and its labels
+     - parameter enable: Bool to determine if it should be enabled or disabled
+     */
     func enableLockSecondsSlider(enable: Bool){
         secondsBeforeLockLabel.enabled = enable
         secondsLabel.enabled = enable
         lockSecondsSlider.enabled = enable
     }
     
+    /**
+     Brings up an alertview asking the user if he/she wants to delete the statistics
+     - parameter sender: user interaction
+     */
     @IBAction func deleteStatisticsButtonPressed(sender: AnyObject) {
         
         let title = NSLocalizedString("Delete Statistics?", comment: "")
@@ -83,7 +96,10 @@ class PreferencesViewController: UIViewController {
     }
     
 
-    
+    /**
+     Brings up an alertview asking the user if he/she wants to log out
+     - parameter sender: user interaction
+     */
     @IBAction func logOutButtonPressed(sender: AnyObject) {
         
         let title = NSLocalizedString("Log Out?", comment: "")
@@ -102,6 +118,7 @@ class PreferencesViewController: UIViewController {
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
+    ///Logs the current user out provided that there is a internet connection
     func logOut(){
         //Check online connectivity
         if !Util.isConnected(){
@@ -130,6 +147,12 @@ class PreferencesViewController: UIViewController {
         }
     }
     
+    /**
+     Shows an overlay alert with an "OK" button to dimiss it
+     - parameters:
+        - title: Title of the alert
+        - message: body of the alert
+     */
     func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))

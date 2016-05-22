@@ -9,11 +9,17 @@
 import Foundation
 import RealmSwift
 
+/**
+ Class which is used to store the preferences locally in Realm.
+ */
 class Preference: Object{
     dynamic var immediateFeedback = false
     dynamic var lockSeconds = 2
 }
 
+/**
+ Class which is used to store a custom color locally in Realm.
+ */
 class MyColor: Object {
     dynamic var red = 0
     dynamic var green = 0
