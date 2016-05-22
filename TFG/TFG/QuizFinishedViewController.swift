@@ -21,7 +21,7 @@ class QuizFinishedViewController: PageViewContent{
     override func viewWillAppear(animated: Bool) {
         parentViewController!.navigationItem.rightBarButtonItem = nil
     }
-
+    
     ///Initiates the saving process and starts a segue to the results view
     @IBAction func finishQuizButtonPressed(sender: AnyObject) {
         finishQuizButton.enabled = false
@@ -44,15 +44,16 @@ class QuizFinishedViewController: PageViewContent{
     
     ///Prepares and saves locally the new statistic. Also initiates the process of saving it to the cloud (async)
     func saveStatisticsToRealmAndCloud(){
-        let questions = Util.getCurrentTopic()!.questions
-        //Claculate score
-        var numberOfCorrectAnswers:Double = 0.0
-        for question in questions{
-            numberOfCorrectAnswers += question.answerScore
-        }
-        let vc = parentViewController as! PresentQuestionPageViewController
-        let stat = Statistic()
         if let currentTopic = Util.getCurrentTopic(){
+            let questions = currentTopic.questions
+            //Claculate score
+            var numberOfCorrectAnswers:Double = 0.0
+            for question in questions{
+                numberOfCorrectAnswers += question.answerScore
+            }
+            let vc = parentViewController as! PresentQuestionPageViewController
+            //create new statistic
+            let stat = Statistic()
             stat.topic = currentTopic
             stat.score = numberOfCorrectAnswers
             stat.startTime = vc.startTime
@@ -63,10 +64,10 @@ class QuizFinishedViewController: PageViewContent{
             
             //save to cloud
             CloudLink.syncStatisticToCloud(stat)
-            CloudLink.updateGlobalAverage(stat.percentageScore / 100)
+            CloudLink.updateGlobalAverage(currentTopic, latestValue: stat.percentageScore / 100)
         }else{
             print("Error: Current Topic was nil")
         }
     }
-
+    
 }
