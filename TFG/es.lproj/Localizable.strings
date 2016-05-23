@@ -5,7 +5,7 @@
 "An email containing information on how to reset your password has been sent to: " = "Se ha enviado un correo electrónico con instrucciones como reiniciar la contraseña a la siguiente dirección: ";
 
 /* No comment provided by engineer. */
-"Are you sure you want to delete all statistics? This can not be undone!" = "¿Estás segur@ que quieras borrar todas las estadísticas? No se puede deshacerlo!";
+"Are you sure you want to delete all statistics? This cannot be undone!" = "¿Estás segur@ que quieras borrar todas las estadísticas? No se puede deshacerlo!";
 
 /* No comment provided by engineer. */
 "Are you sure you want to log out?" = "¿Estás segur@ que quieras cerrar la sesión?";
