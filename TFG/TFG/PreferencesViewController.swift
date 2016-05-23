@@ -81,7 +81,7 @@ class PreferencesViewController: UIViewController {
     @IBAction func deleteStatisticsButtonPressed(sender: AnyObject) {
         
         let title = NSLocalizedString("Delete Statistics?", comment: "")
-        let message = NSLocalizedString("Are you sure you want to delete all statistics? This can not be undone!", comment: "")
+        let message = NSLocalizedString("Are you sure you want to delete all statistics? This cannot be undone!", comment: "")
         let delete = NSLocalizedString("Delete", comment: "")
         let cancel = NSLocalizedString("Cancel", comment: "")
         
