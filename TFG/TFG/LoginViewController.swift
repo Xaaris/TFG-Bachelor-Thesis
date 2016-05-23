@@ -27,6 +27,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidAppear(animated: Bool) {
         //Dismiss Login view if sign up successful
         if (PFUser.currentUser() != nil) {
+            CloudLink.syncAllDataToRealm()
             dismissKeyboard()
             self.dismissViewControllerAnimated(true, completion: nil)
         }
