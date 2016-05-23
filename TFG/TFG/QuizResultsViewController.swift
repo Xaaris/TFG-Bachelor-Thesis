@@ -212,7 +212,7 @@ class QuizResultsViewController: UIViewController{
         answerLabel.text = answer.answerText
         answerLabel.numberOfLines = 0
         if answer.isCorrect{
-            answerLabel.font = UIFont.bold
+            answerLabel.font = UIFont.boldSystemFontOfSize(17.0)
             answerLabel.textColor = Util.myGreenColor
         }else{
             answerLabel.textColor = Util.myRedColor
