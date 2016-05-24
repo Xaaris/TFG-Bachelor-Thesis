@@ -14,6 +14,7 @@ import UIKit
 class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var answerTableView: UITableView!
+    @IBOutlet weak var lockButton: UIButton!
     
     var timer = NSTimer()
     var lockProgress = 0.0
@@ -28,6 +29,8 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
     
     ///Reloads data and shows or hides "hint" button depending on wether there is a hint
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        updateLockedButton()
         answerTableView.reloadData()
         let aSelector : Selector = #selector(SingleChoiceQuestion.showHint)
         if !currentQuestionDataSet[pageIndex].hint.isEmpty{
@@ -42,9 +45,25 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
     
     ///Locks the question if a user swipes further
     override func viewDidDisappear(animated: Bool) {
-        if lastSelectedCell != nil{
+        if lastSelectedCell != nil && Util.getPreferences()!.showLockButton{
             stopTimer()
             lockQuestion(false)
+        }
+    }
+    
+    ///Enables/Disables/shows or hide the lock button depending on the context
+    func updateLockedButton(){
+        //enable the lock button if answer is not locked
+        let pref = Util.getPreferences()!
+        if pref.feedback && !pref.showLockButton{
+            lockButton.hidden = false
+            if currentQuestionDataSet[pageIndex].isLocked{
+                lockButton.enabled = false
+            }else{
+                lockButton.enabled = true
+            }
+        }else{
+            lockButton.hidden = true
         }
     }
     
@@ -107,7 +126,8 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
         //do nothing when question is locked
         if !question.isLocked{
             let answer = question.answers[indexPath.row]
-            if Util.getPreferences()!.immediateFeedback{
+            let pref = Util.getPreferences()!
+            if pref.feedback && pref.showLockButton{
                 if lastSelectedCell != nil {
                     lastSelectedCell!.progressView.progress = 0
                 }
@@ -138,6 +158,7 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
                     for ans in question.answers{
                         ans.isSelected = false
                     }
+                    //select new answer
                     answer.isSelected = true
                 }
                 realm.add(answer)
@@ -148,13 +169,37 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
         }
     }
     
+    ///Locks question and saves that to realm
+    @IBAction func lockButtonPressed(sender: AnyObject) {
+        let question = currentQuestionDataSet[pageIndex]
+        //check if an answer was selected
+        var answerWasSelected = false
+        for answer in question.answers{
+            if answer.isSelected{
+                answerWasSelected = true
+            }
+        }
+        if answerWasSelected{
+            lockButton.enabled = false
+            realm.beginWrite()
+            question.isLocked = true
+            question.revealAnswers = true
+            realm.add(question)
+            try! realm.commitWrite()
+            answerTableView.reloadData()
+            if question.answerScore < 1{
+                showFeedback()
+            }
+        }else{ //No answer was selected
+            showAlert(NSLocalizedString("No anser selected", comment: "Single choice question"), message: NSLocalizedString("This is a single choice question. Please select one answer.", comment: "Single choice question"))
+        }
+        
+    }
+    
     ///Shows a hint as an alert
     func showHint(){
         let hintStr = currentQuestionDataSet[pageIndex].hint
-        let alertController = UIAlertController(title: NSLocalizedString("Hint", comment: "hint button"), message: hintStr, preferredStyle: .Alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
-        
-        self.presentViewController(alertController, animated: true, completion: nil)
+        showAlert("Hint", message: hintStr)
     }
     
     ///Shows feedback as an alert.
@@ -218,6 +263,20 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
         }
     }
     
+    /**
+     Shows an overlay alert with an "OK" button to dimiss it
+     - parameters:
+     - title: Title of the alert
+     - message: body of the alert
+     */
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    @IBAction func unwindToLogInScreen(segue:UIStoryboardSegue) {
+    }
 
 }
 

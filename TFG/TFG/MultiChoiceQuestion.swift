@@ -40,10 +40,11 @@ class MultiChoiceQuestion: QuestionContentViewController, UITableViewDelegate, U
         }
     }
     
+    ///Enables/Disables/shows or hide the lock button depending on the context
     func updateLockedButton(){
         //enable the lock button if answer is not locked
         //due to problems with realm multithreading
-        if Util.getPreferences()!.immediateFeedback{
+        if Util.getPreferences()!.feedback{
             lockButton.hidden = false
             if currentQuestionDataSet[pageIndex].isLocked{
                 lockButton.enabled = false
@@ -53,7 +54,6 @@ class MultiChoiceQuestion: QuestionContentViewController, UITableViewDelegate, U
         }else{
             lockButton.hidden = true
         }
-        
     }
     
     //workaround weird realm bug

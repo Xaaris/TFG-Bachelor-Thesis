@@ -158,7 +158,7 @@
                                 <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="64" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tFn-65-nga">
-                                <rect key="frame" x="0.0" y="210" width="600" height="390"/>
+                                <rect key="frame" x="0.0" y="240" width="600" height="360"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AnswerCell" id="H5d-ne-yql" customClass="AnswerCell" customModule="TFG" customModuleProvider="target">
@@ -237,10 +237,30 @@
                                     <outlet property="delegate" destination="TUZ-ET-CIg" id="OGL-GX-4kS"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zo-GY-ari">
+                                <rect key="frame" x="260" y="188" width="80" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="KSQ-w4-vKD"/>
+                                    <constraint firstAttribute="height" constant="30" id="Psh-ZG-OoY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Lock" backgroundImage="ButtonBackground">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" backgroundImage="ButtonBackgroundSelected">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                </variation>
+                                <connections>
+                                    <action selector="lockButtonPressed:" destination="ZSB-DW-ygf" eventType="touchUpInside" id="7Fc-oz-94d"/>
+                                    <action selector="lockButtonPressed:" destination="TUZ-ET-CIg" eventType="touchUpInside" id="UoH-Ee-vFB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tFn-65-nga" firstAttribute="top" secondItem="p5K-tA-U4Z" secondAttribute="bottom" constant="30" id="2n3-wp-25m"/>
                             <constraint firstAttribute="trailing" secondItem="tFn-65-nga" secondAttribute="trailing" id="CaG-kd-ZEB">
                                 <variation key="heightClass=regular-widthClass=regular" constant="100"/>
                             </constraint>
@@ -254,7 +274,10 @@
                             <constraint firstItem="p5K-tA-U4Z" firstAttribute="leading" secondItem="02u-L1-dNQ" secondAttribute="leadingMargin" id="ThW-Zw-Dih">
                                 <variation key="heightClass=regular-widthClass=regular" constant="100"/>
                             </constraint>
+                            <constraint firstItem="0zo-GY-ari" firstAttribute="top" secondItem="p5K-tA-U4Z" secondAttribute="bottom" constant="8" id="bp9-xa-CRr"/>
                             <constraint firstItem="p5K-tA-U4Z" firstAttribute="top" secondItem="XNe-T3-pki" secondAttribute="bottom" constant="30" id="rpl-pq-HeI"/>
+                            <constraint firstItem="tFn-65-nga" firstAttribute="top" secondItem="0zo-GY-ari" secondAttribute="bottom" constant="22" id="rru-oy-x4i"/>
+                            <constraint firstItem="0zo-GY-ari" firstAttribute="centerX" secondItem="02u-L1-dNQ" secondAttribute="centerX" id="t43-Qg-sm3"/>
                         </constraints>
                     </view>
                     <keyCommands>
@@ -262,6 +285,7 @@
                     </keyCommands>
                     <connections>
                         <outlet property="answerTableView" destination="tFn-65-nga" id="MAC-Ji-bfo"/>
+                        <outlet property="lockButton" destination="0zo-GY-ari" id="Hnx-h5-fgC"/>
                         <outlet property="questionTextLabel" destination="p5K-tA-U4Z" id="MLK-yQ-sn2"/>
                     </connections>
                 </viewController>
@@ -1156,9 +1180,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GJB-Ov-pC2">
-                                                    <rect key="frame" x="18" y="7" width="121" height="30"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GJB-Ov-pC2">
+                                                    <rect key="frame" x="18" y="5" width="564" height="33"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <state key="normal" title="Delete Statistics"/>
                                                     <connections>
                                                         <action selector="deleteStatisticsButtonPressed:" destination="y2Y-wK-tGQ" eventType="touchUpInside" id="dSK-Cr-zOx"/>
@@ -1167,6 +1191,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="GJB-Ov-pC2" firstAttribute="leading" secondItem="sxh-yW-Q5K" secondAttribute="leadingMargin" constant="10" id="KOj-FY-0It"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="GJB-Ov-pC2" secondAttribute="trailing" constant="10" id="MEA-Lv-YZB"/>
                                                 <constraint firstItem="GJB-Ov-pC2" firstAttribute="centerY" secondItem="sxh-yW-Q5K" secondAttribute="centerY" id="V37-tO-f42"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1178,22 +1203,23 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gpp-Uw-j2u">
-                                                    <rect key="frame" x="18" y="7" width="58" height="30"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gpp-Uw-j2u">
+                                                    <rect key="frame" x="18" y="5" width="564" height="33"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <state key="normal" title="Log Out"/>
                                                     <connections>
                                                         <action selector="LogOutButtonPressed:" destination="y2Y-wK-tGQ" eventType="touchUpInside" id="LgW-Ja-l0K"/>
                                                     </connections>
                                                 </button>
                                                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="UNh-ZW-Gvp">
-                                                    <rect key="frame" x="100" y="12" width="20" height="20"/>
+                                                    <rect key="frame" x="552" y="11" width="20" height="20"/>
                                                 </activityIndicatorView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="gpp-Uw-j2u" secondAttribute="trailing" constant="10" id="EUq-0S-4dK"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="UNh-ZW-Gvp" secondAttribute="trailing" constant="20" id="LNW-FK-VSU"/>
                                                 <constraint firstItem="UNh-ZW-Gvp" firstAttribute="centerY" secondItem="gpp-Uw-j2u" secondAttribute="centerY" id="TMw-xa-oyH"/>
                                                 <constraint firstItem="gpp-Uw-j2u" firstAttribute="centerY" secondItem="DuY-Ru-aDk" secondAttribute="centerY" id="U20-0s-3DU"/>
-                                                <constraint firstItem="UNh-ZW-Gvp" firstAttribute="leading" secondItem="gpp-Uw-j2u" secondAttribute="trailing" constant="24" id="VST-YY-6dq"/>
                                                 <constraint firstItem="gpp-Uw-j2u" firstAttribute="leading" secondItem="DuY-Ru-aDk" secondAttribute="leadingMargin" constant="10" id="jnt-q6-Ske"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1210,11 +1236,10 @@
                     <connections>
                         <outlet property="activityIndicator" destination="UNh-ZW-Gvp" id="XH2-hG-ySS"/>
                         <outlet property="feedbackSwitch" destination="4ge-SB-m1u" id="Mut-DD-neM"/>
+                        <outlet property="lockSecondsValueStack" destination="toF-KB-ca3" id="Nll-sK-ffs"/>
                         <outlet property="lockSwitch" destination="qwn-tv-C9C" id="7ES-wT-Oou"/>
-                        <outlet property="lockTimerCell" destination="2bb-X1-RDy" id="2NH-DQ-ENH"/>
                         <outlet property="prefTableView" destination="cX0-ED-bhq" id="mmJ-RD-5cc"/>
                         <outlet property="secondsSlider" destination="Za2-6H-5Rf" id="29o-Lz-5pe"/>
-                        <outlet property="sliderCell" destination="vDa-Ya-vib" id="v1C-9V-MqL"/>
                         <outlet property="userNameLabel" destination="n3G-Wj-iot" id="FY5-8m-D29"/>
                     </connections>
                 </tableViewController>
@@ -1243,7 +1268,7 @@
                                 <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="64" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uiy-C1-akv">
-                                <rect key="frame" x="0.0" y="235" width="600" height="365"/>
+                                <rect key="frame" x="0.0" y="240" width="600" height="360"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AnswerCell" id="iSF-BG-Pxz" customClass="AnswerCell" customModule="TFG" customModuleProvider="target">
@@ -1288,10 +1313,10 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dsB-sS-gOt">
-                                <rect key="frame" x="265" y="188" width="70" height="25"/>
+                                <rect key="frame" x="260" y="188" width="80" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="7Yb-Vg-bpA"/>
-                                    <constraint firstAttribute="height" constant="25" id="oPf-bp-qvu"/>
+                                    <constraint firstAttribute="width" constant="80" id="7Yb-Vg-bpA"/>
+                                    <constraint firstAttribute="height" constant="30" id="oPf-bp-qvu"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Lock" backgroundImage="ButtonBackground">

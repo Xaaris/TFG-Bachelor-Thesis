@@ -31,7 +31,7 @@ struct CloudLink {
     }
     
     /**
-     Downloads all (max 100) statistics with the current user ID from the server 
+     Downloads all (max 100) statistics with the current user ID from the server
      and saves them locally in Realm
      */
     static func syncStatisticsToRealm(){
@@ -64,7 +64,7 @@ struct CloudLink {
     }
     
     /**
-     Checks if there already is a prefernce file by the current user on the server. If so it overrides that file. 
+     Checks if there already is a prefernce file by the current user on the server. If so it overrides that file.
      If not it creates a new one.
      */
     static func syncPreferencesToCloud(){
@@ -77,10 +77,15 @@ struct CloudLink {
                     if preferenceArr.count > 0{
                         cloudPref = preferenceArr.first!
                     }
-                    cloudPref["userID"] = PFUser.currentUser()?.objectId
-                    cloudPref["immediateFeedback"] = Util.getPreferences()!.immediateFeedback
-                    cloudPref["lockSeconds"] = Util.getPreferences()!.lockSeconds
-                    cloudPref.saveEventually()
+                    if let localPref = Util.getPreferences(){
+                        cloudPref["userID"] = PFUser.currentUser()?.objectId
+                        cloudPref["feedback"] = localPref.feedback
+                        cloudPref["showLockButton"] = localPref.showLockButton
+                        cloudPref["lockSeconds"] = localPref.lockSeconds
+                        cloudPref.saveEventually()
+                    }else{
+                        print("Error: Localpref is nil")
+                    }
                     print("Saving preferences to cloud")
                 }
             }else{
@@ -101,12 +106,16 @@ struct CloudLink {
                     if preferenceArr.count > 0{
                         let cloudPref = preferenceArr.first!
                         realm.beginWrite()
-                        let localPref = Util.getPreferences()!
-                        localPref.immediateFeedback = cloudPref["immediateFeedback"] as! Bool
-                        localPref.lockSeconds = cloudPref["lockSeconds"] as! Int
-                        realm.add(localPref)
-                        try! realm.commitWrite()
-                        print("Successfully downloaded Preferences")
+                        if let localPref = Util.getPreferences(){
+                            localPref.feedback = cloudPref["feedback"] as! Bool
+                            localPref.showLockButton = cloudPref["showLockButton"] as! Bool
+                            localPref.lockSeconds = cloudPref["lockSeconds"] as! Int
+                            realm.add(localPref)
+                            try! realm.commitWrite()
+                            print("Successfully downloaded Preferences")
+                        }else{
+                            print("Error: Localpref is nil")
+                        }
                     }else{
                         print("Error: Preferences count is 0")
                     }
@@ -125,27 +134,27 @@ struct CloudLink {
      - parameter latestValue: the new value that is added to the GA
      */
     static func updateGlobalAverage(topic: Topic, latestValue: Double) {
-            let query = PFQuery(className: "Topic")
-            query.whereKey("title", equalTo: topic.title)
-            query.findObjectsInBackgroundWithBlock { (objects, error) in
-                if error == nil {
-                    if let topicArr = objects{
-                        var newValue = -1.0
-                        if topicArr.count == 1{
-                            let topic = topicArr.first!
-                            newValue = (topic["globalAverage"] as! Double) * 0.99 + latestValue * 0.01
-                            topic["globalAverage"] = newValue
-                            topic.saveEventually()
-                            print("Saving new global average to cloud")
-                        }else{
-                            print("Error: topicArr.count for topic \(topic.title) was \(topicArr.count)")
-                        }
-                        Util.setGlobalAverageOf(topic, newValue: newValue)
+        let query = PFQuery(className: "Topic")
+        query.whereKey("title", equalTo: topic.title)
+        query.findObjectsInBackgroundWithBlock { (objects, error) in
+            if error == nil {
+                if let topicArr = objects{
+                    var newValue = -1.0
+                    if topicArr.count == 1{
+                        let topic = topicArr.first!
+                        newValue = (topic["globalAverage"] as! Double) * 0.99 + latestValue * 0.01
+                        topic["globalAverage"] = newValue
+                        topic.saveEventually()
+                        print("Saving new global average to cloud")
+                    }else{
+                        print("Error: topicArr.count for topic \(topic.title) was \(topicArr.count)")
                     }
-                }else{
-                    print("Error: \(error!.userInfo["error"])")
+                    Util.setGlobalAverageOf(topic, newValue: newValue)
                 }
+            }else{
+                print("Error: \(error!.userInfo["error"])")
             }
+        }
     }
     
     //TODO: fix this
@@ -156,7 +165,7 @@ struct CloudLink {
                 if let topicArr = objects{
                     for topic in topicArr{
                         if let localTopic = Util.getTopicWithTitle(topic["title"] as! String){
-                        Util.setGlobalAverageOf(localTopic, newValue: topic["globalAverage"] as! Double)
+                            Util.setGlobalAverageOf(localTopic, newValue: topic["globalAverage"] as! Double)
                         }else{
                             print("Error: Topic with title: \(topic["title"] as! String) does not exist")
                         }
@@ -229,8 +238,8 @@ struct CloudLink {
     }
     
     /**
-     Syncs topics with questions and answers, preferences and statistics from the server to Realm. 
-     Starts with topics and only syncs the rest of the data once they are finished because much of 
+     Syncs topics with questions and answers, preferences and statistics from the server to Realm.
+     Starts with topics and only syncs the rest of the data once they are finished because much of
      the data depends on the topics.
      */
     static func syncAllDataToRealm(){
@@ -271,9 +280,9 @@ struct CloudLink {
     }
     
     /**
-    Checks online connectivity
+     Checks online connectivity
      - returns: Boolean that indicates wether the device is connected to the internet or not
-    */
+     */
     static func isConnected() -> Bool {
         let status = Reach().connectionStatus()
         switch status{
@@ -284,5 +293,5 @@ struct CloudLink {
         }
     }
     
-            
+    
 }

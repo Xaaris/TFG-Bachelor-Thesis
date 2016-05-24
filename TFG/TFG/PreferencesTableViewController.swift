@@ -16,9 +16,8 @@ class PreferencesTableViewController: UITableViewController {
     @IBOutlet weak var feedbackSwitch: UISwitch!
     @IBOutlet weak var lockSwitch: UISwitch!
     @IBOutlet weak var secondsSlider: UISlider!
+    @IBOutlet weak var lockSecondsValueStack: UIStackView!
     
-    @IBOutlet weak var lockTimerCell: UITableViewCell!
-    @IBOutlet weak var sliderCell: UITableViewCell!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -32,10 +31,17 @@ class PreferencesTableViewController: UITableViewController {
         prepareView()
     }
 
-    
+    ///Prepares the view according to the current preferences
     func prepareView(){
         userNameLabel.text = Util.getCurrentUserName()
-        feedbackSwitch.on = pref.immediateFeedback
+        feedbackSwitch.on = pref.feedback
+        lockSwitch.on = pref.showLockButton
+        secondsSlider.enabled = pref.showLockButton
+        //Enable/Disable all the values under the slider
+        for label in lockSecondsValueStack.arrangedSubviews{
+            let tmpLabel = label as! UILabel
+            tmpLabel.enabled = pref.showLockButton
+        }
         secondsSlider.value = Float(pref.lockSeconds)
         prefTableView.reloadData()
     }
@@ -48,7 +54,7 @@ class PreferencesTableViewController: UITableViewController {
         case 0:
             return 1
         case 1:
-            if pref.immediateFeedback{
+            if pref.feedback{
                 return 3
             }else{
                 return 1
@@ -64,7 +70,7 @@ class PreferencesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         switch section {
         case 1:
-            if pref.immediateFeedback{
+            if pref.feedback{
                 return NSLocalizedString("Seconds before a question automatically locks", comment: "Footer that gets displayed under the slider for the lock seconds")
             }else{
                 return nil
@@ -80,14 +86,20 @@ class PreferencesTableViewController: UITableViewController {
      */
     @IBAction func feedbackSwitchtoggled(sender: AnyObject) {
         realm.beginWrite()
-        pref.immediateFeedback = !pref.immediateFeedback
+        pref.feedback = !pref.feedback
         realm.add(pref)
         try! realm.commitWrite()
-        prefTableView.reloadData()
+        prepareView()
         CloudLink.syncPreferencesToCloud()
     }
     
     @IBAction func lockSwitchToggled(sender: AnyObject) {
+        realm.beginWrite()
+        pref.showLockButton = !pref.showLockButton
+        realm.add(pref)
+        try! realm.commitWrite()
+        prepareView()
+        CloudLink.syncPreferencesToCloud()
     }
     
     /**

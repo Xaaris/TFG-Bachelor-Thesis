@@ -67,7 +67,7 @@ class MainViewController: UIViewController {
     func createDefaultPreferences(){
         realm.beginWrite()
         let pref = Preference()
-        pref.immediateFeedback = false
+        pref.feedback = false
         pref.lockSeconds = 2
         realm.add(pref)
         try! realm.commitWrite()
