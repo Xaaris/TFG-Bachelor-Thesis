@@ -60,6 +60,7 @@ class PresentQuestionPageViewController: UIPageViewController, UIPageViewControl
         numberOfPages = Util.getCurrentTopic()!.questions.count
         if numberOfPages < 20{
             pageControl = UIPageControl()
+            pageControl.userInteractionEnabled = false
             pageControl.frame = CGRectMake(0,0,self.view.frame.width,37)
             self.view.addSubview(pageControl)
             pageControl.pageIndicatorTintColor = UIColor.grayColor()
