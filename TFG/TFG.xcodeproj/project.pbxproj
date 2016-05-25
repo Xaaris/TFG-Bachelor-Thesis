@@ -11,6 +11,7 @@
 		3B238D921C890AEB00E71EA3 /* PreferencesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B238D911C890AEB00E71EA3 /* PreferencesData.swift */; };
 		3B2520061CA5DBF1008B6CA7 /* StatisticsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2520051CA5DBF1008B6CA7 /* StatisticsData.swift */; };
 		3B3FAFAF1CD8ECB3004E5A53 /* PresentQuestionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3FAFAE1CD8ECB3004E5A53 /* PresentQuestionPageViewController.swift */; };
+		3B5639F31CF523AE001B524F /* TFGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5639F21CF523AE001B524F /* TFGUITests.swift */; };
 		3B5BCE531C8CCEBB00108989 /* QuizResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BCE521C8CCEBB00108989 /* QuizResultsViewController.swift */; };
 		3B6CC8271C9A34B3001A1FE3 /* CircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CC8261C9A34B3001A1FE3 /* CircleProgressView.swift */; };
 		3B7F65171C78F97F00BE0812 /* CSVImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7F65161C78F97F00BE0812 /* CSVImporter.swift */; };
@@ -39,6 +40,16 @@
 		EF1E47AA7922AE71ED63107C /* Pods_TFG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC516EB9D753112F05F79500 /* Pods_TFG.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3B5639F51CF523AE001B524F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BC8B40B1C70F251000FD25D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3BC8B4121C70F251000FD25D;
+			remoteInfo = TFG;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		3B31DF051C78F5AC00651B3F /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -59,6 +70,9 @@
 		3B238D911C890AEB00E71EA3 /* PreferencesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesData.swift; sourceTree = "<group>"; };
 		3B2520051CA5DBF1008B6CA7 /* StatisticsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsData.swift; sourceTree = "<group>"; };
 		3B3FAFAE1CD8ECB3004E5A53 /* PresentQuestionPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentQuestionPageViewController.swift; sourceTree = "<group>"; };
+		3B5639F01CF523AE001B524F /* TFGUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TFGUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B5639F21CF523AE001B524F /* TFGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFGUITests.swift; sourceTree = "<group>"; };
+		3B5639F41CF523AE001B524F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B5BCE521C8CCEBB00108989 /* QuizResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = QuizResultsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3B6CC8261C9A34B3001A1FE3 /* CircleProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleProgressView.swift; sourceTree = "<group>"; };
 		3B7F65161C78F97F00BE0812 /* CSVImporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CSVImporter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -95,6 +109,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3B5639ED1CF523AE001B524F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3BC8B4101C70F251000FD25D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -130,6 +151,15 @@
 				3B2520051CA5DBF1008B6CA7 /* StatisticsData.swift */,
 			);
 			name = Statistics;
+			sourceTree = "<group>";
+		};
+		3B5639F11CF523AE001B524F /* TFGUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3B5639F21CF523AE001B524F /* TFGUITests.swift */,
+				3B5639F41CF523AE001B524F /* Info.plist */,
+			);
+			path = TFGUITests;
 			sourceTree = "<group>";
 		};
 		3BB361081CB4AF7300356004 /* Home */ = {
@@ -170,6 +200,7 @@
 				3B0630431CE7811D0082F4F3 /* Localizable.strings */,
 				3BF5B7241C86711F007C88B2 /* .gitignore */,
 				3BC8B4151C70F251000FD25D /* TFG */,
+				3B5639F11CF523AE001B524F /* TFGUITests */,
 				3BC8B4141C70F251000FD25D /* Products */,
 				699D128A6E79EB66181BFFF8 /* Pods */,
 				2FC271336A9F6551C5ED24A0 /* Frameworks */,
@@ -180,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				3BC8B4131C70F251000FD25D /* TFG.app */,
+				3B5639F01CF523AE001B524F /* TFGUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -229,6 +261,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3B5639EF1CF523AE001B524F /* TFGUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B5639F91CF523AE001B524F /* Build configuration list for PBXNativeTarget "TFGUITests" */;
+			buildPhases = (
+				3B5639EC1CF523AE001B524F /* Sources */,
+				3B5639ED1CF523AE001B524F /* Frameworks */,
+				3B5639EE1CF523AE001B524F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3B5639F61CF523AE001B524F /* PBXTargetDependency */,
+			);
+			name = TFGUITests;
+			productName = TFGUITests;
+			productReference = 3B5639F01CF523AE001B524F /* TFGUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		3BC8B4121C70F251000FD25D /* TFG */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3BC8B4271C70F251000FD25D /* Build configuration list for PBXNativeTarget "TFG" */;
@@ -261,6 +311,11 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Johannes Berger";
 				TargetAttributes = {
+					3B5639EF1CF523AE001B524F = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 8VQSK4NTQK;
+						TestTargetID = 3BC8B4121C70F251000FD25D;
+					};
 					3BC8B4121C70F251000FD25D = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = E89U7RTGW4;
@@ -282,11 +337,19 @@
 			projectRoot = "";
 			targets = (
 				3BC8B4121C70F251000FD25D /* TFG */,
+				3B5639EF1CF523AE001B524F /* TFGUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3B5639EE1CF523AE001B524F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3BC8B4111C70F251000FD25D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -363,6 +426,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3B5639EC1CF523AE001B524F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B5639F31CF523AE001B524F /* TFGUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3BC8B40F1C70F251000FD25D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -395,6 +466,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3B5639F61CF523AE001B524F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3BC8B4121C70F251000FD25D /* TFG */;
+			targetProxy = 3B5639F51CF523AE001B524F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3B0630431CE7811D0082F4F3 /* Localizable.strings */ = {
@@ -437,6 +516,30 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3B5639F71CF523AE001B524F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = TFGUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = test.Xaaris.TFGUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = TFG;
+			};
+			name = Debug;
+		};
+		3B5639F81CF523AE001B524F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = TFGUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = test.Xaaris.TFGUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = TFG;
+			};
+			name = Release;
+		};
 		3BC8B4251C70F251000FD25D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -563,6 +666,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3B5639F91CF523AE001B524F /* Build configuration list for PBXNativeTarget "TFGUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B5639F71CF523AE001B524F /* Debug */,
+				3B5639F81CF523AE001B524F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		3BC8B40E1C70F251000FD25D /* Build configuration list for PBXProject "TFG" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
