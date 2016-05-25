@@ -46,6 +46,9 @@
 /* No comment provided by engineer. */
 "Log Out?" = "Ausloggen?";
 
+/* Single choice question */
+"No anser selected" = "Keine Antwort ausgewählt";
+
 /* No comment provided by engineer. */
 "No connection" = "Keine Verbindung";
 
@@ -85,6 +88,9 @@
 /* No comment provided by engineer. */
 "Score: " = "Score: ";
 
+/* Footer that gets displayed under the slider for the lock seconds */
+"Seconds before a question automatically locks" = "Sekunden bevor eine Frage automatisch gesperrt wird";
+
 /* No comment provided by engineer. */
 "Success" = "Erfolgreich";
 
@@ -96,6 +102,9 @@
 
 /* At the end of a quiz */
 "That was great!" = "Das war super!";
+
+/* Single choice question */
+"This is a single choice question. Please select one answer." = "Dieser Typ Frage erfordert genau eine Antwort.";
 
 /* No comment provided by engineer. */
 "Topic: " = "Thema: ";

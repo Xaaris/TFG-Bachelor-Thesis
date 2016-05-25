@@ -1049,7 +1049,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Toggle feedback directly after each question" footerTitle="Seconds before a question automatically locks" id="EbW-I1-vVS">
+                            <tableViewSection headerTitle="Feedback directly after each question" footerTitle="Seconds before a question automatically locks" id="EbW-I1-vVS">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="feedbackSwitchCell" id="loK-nt-7y5">
                                         <rect key="frame" x="0.0" y="130" width="600" height="44"/>
@@ -1092,7 +1092,7 @@
                                                         <action selector="lockSwitchToggled:" destination="y2Y-wK-tGQ" eventType="valueChanged" id="XAx-fm-C4w"/>
                                                     </connections>
                                                 </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lock question with timer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRk-XS-0lc">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lock question with timer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VRk-XS-0lc">
                                                     <rect key="frame" x="18" y="11" width="188" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1100,11 +1100,27 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="qwn-tv-C9C" firstAttribute="leading" secondItem="VRk-XS-0lc" secondAttribute="trailing" constant="10" id="Gfv-g7-3Tf"/>
                                                 <constraint firstItem="VRk-XS-0lc" firstAttribute="centerY" secondItem="y2L-Hq-RjF" secondAttribute="centerY" id="HiZ-vy-TK8"/>
+                                                <constraint firstItem="qwn-tv-C9C" firstAttribute="leading" secondItem="VRk-XS-0lc" secondAttribute="trailing" constant="127" id="RPL-HO-ABG">
+                                                    <variation key="widthClass=compact" constant="0.0"/>
+                                                </constraint>
                                                 <constraint firstAttribute="trailingMargin" secondItem="qwn-tv-C9C" secondAttribute="trailing" constant="10" id="jue-TS-pFT"/>
                                                 <constraint firstItem="qwn-tv-C9C" firstAttribute="centerY" secondItem="y2L-Hq-RjF" secondAttribute="centerY" id="sq7-vi-2Z6"/>
                                                 <constraint firstItem="VRk-XS-0lc" firstAttribute="leading" secondItem="y2L-Hq-RjF" secondAttribute="leadingMargin" constant="10" id="xn3-Id-uII"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Gfv-g7-3Tf"/>
+                                                    <exclude reference="RPL-HO-ABG"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="Gfv-g7-3Tf"/>
+                                                    <exclude reference="RPL-HO-ABG"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sliderCell" rowHeight="74" id="vDa-Ya-vib">

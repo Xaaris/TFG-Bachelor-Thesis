@@ -2,10 +2,10 @@
 " out of " = " de ";
 
 /* No comment provided by engineer. */
-"An email containing information on how to reset your password has been sent to: " = "Se ha enviado un correo electrónico con instrucciones como reiniciar la contraseña a la siguiente dirección: ";
+"An email containing information on how to reset your password has been sent to: " = "Se ha enviado un correo electrónico con instrucciones sobre cómo reiniciar la contraseña a la siguiente dirección: ";
 
 /* No comment provided by engineer. */
-"Are you sure you want to delete all statistics? This cannot be undone!" = "¿Estás segur@ que quieras borrar todas las estadísticas? No se puede deshacerlo!";
+"Are you sure you want to delete all statistics? This cannot be undone!" = "¿Estás segur@ de que quieres borrar todas las estadísticas? Esta operación no se puede revertir!";
 
 /* No comment provided by engineer. */
 "Are you sure you want to log out?" = "¿Estás segur@ que quieras cerrar la sesión?";
@@ -23,7 +23,7 @@
 "Delete Statistics?" = "¿Borrar Estadísticas?";
 
 /* Feedback title */
-"Feedback" = "Realimentación";
+"Feedback" = "Comentario";
 
 /* for limit line */
 "Global Average" = "Promedio global";
@@ -35,7 +35,7 @@
 "Great!" = "¡Fantástico!";
 
 /* hint button */
-"Hint" = "Aviso";
+"Hint" = "Pista";
 
 /* No comment provided by engineer. */
 "Invalid" = "No Válido";
@@ -46,8 +46,11 @@
 /* No comment provided by engineer. */
 "Log Out?" = "¿Cerrar Sesión?";
 
+/* Single choice question */
+"No anser selected" = "No has elegido una repuesta";
+
 /* No comment provided by engineer. */
-"No connection" = "No Conexión";
+"No connection" = "No hay conexión a red";
 
 /* No comment provided by engineer. */
 "No data yet" = "Ya no hay datos";
@@ -56,16 +59,16 @@
 "No topic selected" = "No has elegido un tema";
 
 /* Name for overview in topic picker */
-"Overview" = "Perspectiva General";
+"Overview" = "Visión General";
 
 /* No comment provided by engineer. */
-"Password Reset" = "Contraseña reiniciado";
+"Password Reset" = "Restablecer contraseña";
 
 /* No comment provided by engineer. */
-"Password can not contain whitespace characters" = "La contraseña no debe contener caracteres blancos";
+"Password can not contain whitespace characters" = "La contraseña no puede contener espacios en blanco";
 
 /* No comment provided by engineer. */
-"Password must be greater than 6 characters" = "La longitud minimal para la contraseña es 6 caracteres";
+"Password must be greater than 6 characters" = "La contraseña debe tener 6 caracteres como mínimo";
 
 /* At the end of a quiz */
 "Perfect!" = "¡Perfecto!";
@@ -77,13 +80,16 @@
 "Please enter a valid email address" = "Por favor introduce una dirección de correo eletrónico válida";
 
 /* message for the refresher */
-"Pull to refresh" = "Tirar para refrescar";
+"Pull to refresh" = "Deslizar hacia abajo para refrescar";
 
 /* No comment provided by engineer. */
-"Question " = "Cuestión ";
+"Question " = "Pregunta ";
 
 /* No comment provided by engineer. */
 "Score: " = "Puntuación: ";
+
+/* Footer that gets displayed under the slider for the lock seconds */
+"Seconds before a question automatically locks" = "Segundos antes de que la pregunta se cierra";
 
 /* No comment provided by engineer. */
 "Success" = "Éxito";
@@ -92,22 +98,25 @@
 "That needs more work!" = "¡Tienes que trabajar más!";
 
 /* At the end of a quiz */
-"That was good" = "Estaba bien";
+"That was good" = "Bastante bien";
 
 /* At the end of a quiz */
-"That was great!" = "Estaba fantástico!";
+"That was great!" = "¡Fantástico!";
+
+/* Single choice question */
+"This is a single choice question. Please select one answer." = "Por favor elijes una repuesta";
 
 /* No comment provided by engineer. */
 "Topic: " = "Tema: ";
 
 /* No comment provided by engineer. */
-"Username must be greater than 4 characters" = "La longitud minimal para el nombre del usuario es 4 caracteres";
+"Username must be greater than 4 characters" = "El nombre de usuario debe tener 4 caracteres como mínimo";
 
 /* No comment provided by engineer. */
 "You are signed up!" = "¡Estás participando!";
 
 /* At the end of a quiz */
-"You did okay.." = "Esto era ni fu ni fa..";
+"You did okay.." = "Un resultado normalillo";
 
 /* At the end of a quiz */
 "You got a score of " = "Tu puntuación es  ";

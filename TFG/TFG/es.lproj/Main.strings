@@ -1,3 +1,6 @@
+/* Class = "UIButton"; normalTitle = "Lock"; ObjectID = "0zo-GY-ari"; */
+"0zo-GY-ari.normalTitle" = "Cerrar";
+
 /* Class = "UINavigationController"; title = "Home"; ObjectID = "2cG-Q1-qRl"; */
 "2cG-Q1-qRl.title" = "Inicio";
 
@@ -10,6 +13,9 @@
 /* Class = "UILabel"; text = "Label"; ObjectID = "6Ud-fV-xkn"; */
 "6Ud-fV-xkn.text" = "Label";
 
+/* Class = "UITabBarItem"; title = "Preferences"; ObjectID = "7hO-eV-h1T"; */
+"7hO-eV-h1T.title" = "Ajustes";
+
 /* Class = "UIViewController"; title = "Home"; ObjectID = "9pv-A4-QxB"; */
 "9pv-A4-QxB.title" = "Inicio";
 
@@ -19,17 +25,17 @@
 /* Class = "UILabel"; text = "Topic: No topic selected"; ObjectID = "A02-YA-7tn"; */
 "A02-YA-7tn.text" = "Tema: No tema elejido";
 
-/* Class = "UIButton"; normalTitle = "Delete statistics"; ObjectID = "AlP-t4-dNU"; */
-"AlP-t4-dNU.normalTitle" = "Borrar Estadísticas";
-
-/* Class = "UITabBarItem"; title = "Preferences"; ObjectID = "C2o-C0-ttc"; */
-"C2o-C0-ttc.title" = "Ajustes";
-
 /* Class = "UILabel"; text = "x out of x"; ObjectID = "D5s-gv-L3X"; */
 "D5s-gv-L3X.text" = "x out of x";
 
 /* Class = "UITextField"; placeholder = "Email"; ObjectID = "DLl-X6-v9k"; */
 "DLl-X6-v9k.placeholder" = "Correo electrónico";
+
+/* Class = "UITableViewSection"; footerTitle = "Seconds before a question automatically locks"; ObjectID = "EbW-I1-vVS"; */
+"EbW-I1-vVS.footerTitle" = "Segundos antes de que la pregunta se cierre automáticamente";
+
+/* Class = "UITableViewSection"; headerTitle = "Feedback directly after each question"; ObjectID = "EbW-I1-vVS"; */
+"EbW-I1-vVS.headerTitle" = "Realimentación directamente depues de una pregunta";
 
 /* Class = "UILabel"; text = "Date: No data"; ObjectID = "ExB-wX-pEd"; */
 "ExB-wX-pEd.text" = "Fecha: No datos";
@@ -37,11 +43,11 @@
 /* Class = "UILabel"; text = "Title"; ObjectID = "FdE-BZ-ZxB"; */
 "FdE-BZ-ZxB.text" = "Title";
 
+/* Class = "UIButton"; normalTitle = "Delete Statistics"; ObjectID = "GJB-Ov-pC2"; */
+"GJB-Ov-pC2.normalTitle" = "¿Borrar Estadísticas?";
+
 /* Class = "UILabel"; text = "Subtitle"; ObjectID = "Lc7-uJ-Y2y"; */
 "Lc7-uJ-Y2y.text" = "Subtitle";
-
-/* Class = "UIButton"; normalTitle = "Log Out"; ObjectID = "MXl-Ot-mM4"; */
-"MXl-Ot-mM4.normalTitle" = "Cerrar Sesión";
 
 /* Class = "UITextField"; placeholder = "Password"; ObjectID = "N23-5M-BwD"; */
 "N23-5M-BwD.placeholder" = "Contrasña";
@@ -61,14 +67,14 @@
 /* Class = "UILabel"; text = "No topic selected"; ObjectID = "SBa-iO-J8A"; */
 "SBa-iO-J8A.text" = "No tema elejido";
 
-/* Class = "UILabel"; text = "Immediate feedback"; ObjectID = "SXB-Fh-LB8"; */
-"SXB-Fh-LB8.text" = "Realimentación inmediata";
-
 /* Class = "UILabel"; text = "Label"; ObjectID = "UOz-xL-sZI"; */
 "UOz-xL-sZI.text" = "Label";
 
 /* Class = "UIButton"; normalTitle = "Reset Password"; ObjectID = "VQT-Qv-wFu"; */
 "VQT-Qv-wFu.normalTitle" = "Reiniciar Contraseña";
+
+/* Class = "UILabel"; text = "Lock question with timer"; ObjectID = "VRk-XS-0lc"; */
+"VRk-XS-0lc.text" = "Cerrar preguntas con un temporizador";
 
 /* Class = "UIButton"; normalTitle = "Exit"; ObjectID = "Zqx-wQ-Hcv"; */
 "Zqx-wQ-Hcv.normalTitle" = "Salir";
@@ -78,6 +84,9 @@
 
 /* Class = "UITabBarItem"; title = "Home"; ObjectID = "acW-dT-cKf"; */
 "acW-dT-cKf.title" = "Inicio";
+
+/* Class = "UILabel"; text = "Feedback"; ObjectID = "c52-sK-JlS"; */
+"c52-sK-JlS.text" = "Comentario";
 
 /* Class = "UITabBarItem"; title = "Statistics"; ObjectID = "cPa-gy-q4n"; */
 "cPa-gy-q4n.title" = "Estadísticas";
@@ -91,17 +100,14 @@
 /* Class = "UILabel"; text = "Label"; ObjectID = "djF-di-2pe"; */
 "djF-di-2pe.text" = "Label";
 
-/* Class = "UILabel"; text = "Seconds before question locks:"; ObjectID = "dqs-80-6rt"; */
-"dqs-80-6rt.text" = "Segundos antes de cerrar la cuestión:";
-
 /* Class = "UIButton"; normalTitle = "Lock"; ObjectID = "dsB-sS-gOt"; */
 "dsB-sS-gOt.normalTitle" = "Cerrar";
 
-/* Class = "UILabel"; text = "2"; ObjectID = "fer-bn-9XD"; */
-"fer-bn-9XD.text" = "2";
-
 /* Class = "UITabBarItem"; title = "Home"; ObjectID = "fu1-Il-8ok"; */
 "fu1-Il-8ok.title" = "Inicio";
+
+/* Class = "UIButton"; normalTitle = "Log Out"; ObjectID = "gpp-Uw-j2u"; */
+"gpp-Uw-j2u.normalTitle" = "Cerrar Sesión";
 
 /* Class = "UITextField"; placeholder = "Username"; ObjectID = "gwv-2n-L6b"; */
 "gwv-2n-L6b.placeholder" = "Nombre del usuario";
@@ -129,6 +135,9 @@
 
 /* Class = "UILabel"; text = "Congratulations!                       You made it to the end"; ObjectID = "ppm-Tg-8fz"; */
 "ppm-Tg-8fz.text" = "Felicidades!                           ¡Ya es tuyo!";
+
+/* Class = "UILabel"; text = "Username"; ObjectID = "tWQ-u9-bGE"; */
+"tWQ-u9-bGE.text" = "Nombre del usuario";
 
 /* Class = "UITextField"; placeholder = "Email"; ObjectID = "yJc-q9-oFG"; */
 "yJc-q9-oFG.placeholder" = "Correo electrónico";
