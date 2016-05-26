@@ -25,9 +25,9 @@ class PresentQuestionPageViewController: UIPageViewController, UIPageViewControl
     ///Initializes a basic card and resets the data set
     override func viewDidLoad() {
         super.viewDidLoad()
+        resetDataSet()
         createPageViewController()
         setupPageControl()
-        resetDataSet()
         self.view.backgroundColor = UIColor.whiteColor()
     }
     
