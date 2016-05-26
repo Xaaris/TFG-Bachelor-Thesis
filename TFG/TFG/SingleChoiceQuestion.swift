@@ -199,7 +199,7 @@ class SingleChoiceQuestion: QuestionContentViewController, UITableViewDelegate, 
     ///Shows a hint as an alert
     func showHint(){
         let hintStr = currentQuestionDataSet[pageIndex].hint
-        showAlert("Hint", message: hintStr)
+        showAlert(NSLocalizedString("Hint", comment: "hint button"), message: hintStr)
     }
     
     ///Shows feedback as an alert.
