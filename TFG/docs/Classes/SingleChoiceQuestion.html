@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SingleChoiceQuestion Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/SingleChoiceQuestion" class="dashAnchor"></a>
+    <a title="SingleChoiceQuestion Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (13% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        SingleChoiceQuestion Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Answer.html">Answer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AnswerCell.html">AnswerCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CSVImporter.html">CSVImporter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ChooseTopicViewController.html">ChooseTopicViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CircleProgressView.html">CircleProgressView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ForgotPasswordViewController.html">ForgotPasswordViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ImportAndSaveHelper.html">ImportAndSaveHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LoginViewController.html">LoginViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MainViewController.html">MainViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MultiChoiceQuestion.html">MultiChoiceQuestion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MyColor.html">MyColor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PageViewContent.html">PageViewContent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Preference.html">Preference</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PreferencesViewController.html">PreferencesViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PresentQuestionPageViewController.html">PresentQuestionPageViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Question.html">Question</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/QuestionContentViewController.html">QuestionContentViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/QuizFinishedViewController.html">QuizFinishedViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/QuizResultsViewController.html">QuizResultsViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Reach.html">Reach</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SignUpViewController.html">SignUpViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SingleChoiceQuestion.html">SingleChoiceQuestion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Statistic.html">Statistic</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StatisticsViewController.html">StatisticsViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Tag.html">Tag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Topic.html">Topic</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v3TFG37ReachabilityStatusChangedNotificationSS">ReachabilityStatusChangedNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v3TFG5realmERR">realm</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/ReachabilityStatus.html">ReachabilityStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ReachabilityType.html">ReachabilityType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIViewController.html">UIViewController</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F3TFG27includeQuotedStringInFieldsFT6FieldsGSaSS_12quotedStringSS_GSaSS_">includeQuotedStringInFields(Fields:quotedString:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F3TFG18sanitizedStringMapFT6StringSS_SS">sanitizedStringMap(String:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/CloudLink.html">CloudLink</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Util.html">Util</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>SingleChoiceQuestion</h1>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC3TFG20SingleChoiceQuestion15answerTableViewXwGSQCSo11UITableView_"></a>
+                    <a name="//apple_ref/swift/Property/answerTableView" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC3TFG20SingleChoiceQuestion15answerTableViewXwGSQCSo11UITableView_">answerTableView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC3TFG20SingleChoiceQuestion5timerCSo7NSTimer"></a>
+                    <a name="//apple_ref/swift/Property/timer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC3TFG20SingleChoiceQuestion5timerCSo7NSTimer">timer</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC3TFG20SingleChoiceQuestion12lockProgressSd"></a>
+                    <a name="//apple_ref/swift/Property/lockProgress" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC3TFG20SingleChoiceQuestion12lockProgressSd">lockProgress</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC3TFG20SingleChoiceQuestion16lastSelectedCellGSqCS_10AnswerCell_"></a>
+                    <a name="//apple_ref/swift/Property/lastSelectedCell" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC3TFG20SingleChoiceQuestion16lastSelectedCellGSqCS_10AnswerCell_">lastSelectedCell</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3TFG20SingleChoiceQuestion11viewDidLoadFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/viewDidLoad()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3TFG20SingleChoiceQuestion11viewDidLoadFT_T_">viewDidLoad()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3TFG20SingleChoiceQuestion14viewWillAppearFSbT_"></a>
+                    <a name="//apple_ref/swift/Method/viewWillAppear(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3TFG20SingleChoiceQuestion14viewWillAppearFSbT_">viewWillAppear(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3TFG20SingleChoiceQuestion16viewDidDisappearFSbT_"></a>
+                    <a name="//apple_ref/swift/Method/viewDidDisappear(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3TFG20SingleChoiceQuestion16viewDidDisappearFSbT_">viewDidDisappear(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3TFG20SingleChoiceQuestion27numberOfSectionsInTableViewFCSo11UITableViewSi"></a>
+                    <a name="//apple_ref/swift/Method/numberOfSectionsInTableView(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3TFG20SingleChoiceQuestion27numberOfSectionsInTableViewFCSo11UITableViewSi">numberOfSectionsInTableView(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3TFG20SingleChoiceQuestion9tableViewFTCSo11UITableView21numberOfRowsInSectionSi_Si"></a>
+                    <a name="//apple_ref/swift/Method/tableView(_:numberOfRowsInSection:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3TFG20SingleChoiceQuestion9tableViewFTCSo11UITableView21numberOfRowsInSectionSi_Si">tableView(_:numberOfRowsInSection:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3TFG20SingleChoiceQuestion9tableViewFTCSo11UITableView21cellForRowAtIndexPathCSo11NSIndexPath_CSo15UITableViewCell"></a>
+                    <a name="//apple_ref/swift/Method/tableView(_:cellForRowAtIndexPath:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3TFG20SingleChoiceQuestion9tableViewFTCSo11UITableView21cellForRowAtIndexPathCSo11NSIndexPath_CSo15UITableViewCell">tableView(_:cellForRowAtIndexPath:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3TFG20SingleChoiceQuestion9tableViewFTCSo11UITableView23didSelectRowAtIndexPathCSo11NSIndexPath_T_"></a>
+                    <a name="//apple_ref/swift/Method/tableView(_:didSelectRowAtIndexPath:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3TFG20SingleChoiceQuestion9tableViewFTCSo11UITableView23didSelectRowAtIndexPathCSo11NSIndexPath_T_">tableView(_:didSelectRowAtIndexPath:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3TFG20SingleChoiceQuestion8showHintFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/showHint()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3TFG20SingleChoiceQuestion8showHintFT_T_">showHint()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3TFG20SingleChoiceQuestion12showFeedbackFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/showFeedback()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3TFG20SingleChoiceQuestion12showFeedbackFT_T_">showFeedback()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3TFG20SingleChoiceQuestion10startTimerFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/startTimer()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3TFG20SingleChoiceQuestion10startTimerFT_T_">startTimer()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3TFG20SingleChoiceQuestion12lockQuestionFSbT_"></a>
+                    <a name="//apple_ref/swift/Method/lockQuestion(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3TFG20SingleChoiceQuestion12lockQuestionFSbT_">lockQuestion(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3TFG20SingleChoiceQuestion18updateLockProgressFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/updateLockProgress()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3TFG20SingleChoiceQuestion18updateLockProgressFT_T_">updateLockProgress()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3TFG20SingleChoiceQuestion9stopTimerFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/stopTimer()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3TFG20SingleChoiceQuestion9stopTimerFT_T_">stopTimer()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-05-15)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.6.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
