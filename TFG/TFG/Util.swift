@@ -21,6 +21,15 @@ struct Util {
     static let myLightGreenColor: UIColor = UIColor(red: 33/255, green: 127/255, blue: 0/255, alpha: 0.6)
     
     /**
+     Returns the number of topics currently present in the app
+     - returns: number of topics as Int
+     */
+    static func getNumberOfTopics() -> Int{
+        let topics = realm.objects(Topic.self)
+        return topics.count
+    }
+    
+    /**
      Returns currently selected topic or nil if none is selected
      - returns: the selected topic or nil
      */
@@ -149,6 +158,7 @@ struct Util {
     
     ///Delets all statistics locally and in the cloud (for the current user)
     static func deleteAllStatistics(){
+        //delete in cloud
         let query = PFQuery(className: "Statistic")
         query.whereKey("userID", equalTo: (PFUser.currentUser()?.objectId)!)
         query.findObjectsInBackgroundWithBlock { (objects, error) in
@@ -165,9 +175,41 @@ struct Util {
                 print("Error: \(error!.userInfo["error"])")
             }
         }
+        //delete locally
         let allStatistics = realm.objects(Statistic)
         try! realm.write {
             realm.delete(allStatistics)
+        }
+    }
+    
+    /**
+    Delets all statistics of the topic locally and in the cloud (for the current user)
+     - parameter topic: topic of which to delete the statistics
+    */
+    static func deleteStatisticsof(topic: Topic){
+        //delete in cloud
+        let query = PFQuery(className: "Statistic")
+        query.whereKey("userID", equalTo: (PFUser.currentUser()?.objectId)!)
+        query.whereKey("topic", equalTo: topic.title)
+        query.findObjectsInBackgroundWithBlock { (objects, error) in
+            if error == nil {
+                if let statisticsArr = objects{
+                    for stat in statisticsArr{
+                        stat.deleteEventually()
+                    }
+                    print("Statistics successfully deleted")
+                }else{
+                    print("Error: Statistic is nil")
+                }
+            }else{
+                print("Error: \(error!.userInfo["error"])")
+            }
+        }
+        //delete locally
+        let predicate = NSPredicate(format: "topic.title = %@ ", topic.title)
+        let allStatisticsOfTopic = realm.objects(Statistic).filter(predicate)
+        try! realm.write {
+            realm.delete(allStatisticsOfTopic)
         }
     }
     

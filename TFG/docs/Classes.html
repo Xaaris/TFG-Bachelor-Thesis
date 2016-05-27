@@ -13,7 +13,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html"> Docs</a> (13% documented)</p>
+        <p><a href="index.html"> Docs</a> (42% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -72,7 +72,7 @@
                 <a href="Classes/Preference.html">Preference</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/PreferencesViewController.html">PreferencesViewController</a>
+                <a href="Classes/PreferencesTableViewController.html">PreferencesTableViewController</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/PresentQuestionPageViewController.html">PresentQuestionPageViewController</a>
@@ -192,9 +192,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Class for displaying a question where multiple answers can be correct</p>
 
                         <a href="Classes/MultiChoiceQuestion.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">MultiChoiceQuestion</span><span class="p">:</span> <span class="kt">QuestionContentViewController</span><span class="p">,</span> <span class="kt">UITableViewDelegate</span><span class="p">,</span> <span class="kt">UITableViewDataSource</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -398,9 +406,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Class that displays the quiz&rsquo;s results</p>
 
                         <a href="Classes/QuizResultsViewController.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">QuizResultsViewController</span><span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -422,9 +438,18 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Class that represents a cell filled with a picture and the answer text.
+It also incorporates the progressView to show the user when the question will lock.</p>
 
                         <a href="Classes/AnswerCell.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">AnswerCell</span><span class="p">:</span> <span class="kt">UITableViewCell</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -446,9 +471,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Class which is used to store the statistics locally in Realm. Some values are lazyly computed</p>
 
                         <a href="Classes/Statistic.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">Statistic</span><span class="p">:</span> <span class="kt">Object</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -518,9 +551,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Parent class that houses all <q>cards</q> that are displayed during a quiz</p>
 
                         <a href="Classes/PresentQuestionPageViewController.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">PresentQuestionPageViewController</span><span class="p">:</span> <span class="kt">UIPageViewController</span><span class="p">,</span> <span class="kt">UIPageViewControllerDataSource</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -538,9 +579,41 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Parent class that for all <q>cards</q> that are displayed during a quiz</p>
 
                         <a href="Classes/PageViewContent.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">PageViewContent</span><span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C3TFG30PreferencesTableViewController"></a>
+                    <a name="//apple_ref/swift/Class/PreferencesTableViewController" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C3TFG30PreferencesTableViewController">PreferencesTableViewController</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Classes/PreferencesTableViewController.html" class="slightly-smaller">See more</a>
                       </div>
                     </section>
                   </div>
@@ -586,9 +659,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Class which is used to store the topics locally in Realm. 
+A topic has associated questions, answers, tags and statistics.
+Some values are lazyly computed</p>
 
                         <a href="Classes/Topic.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">Topic</span><span class="p">:</span> <span class="kt">Object</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -606,9 +689,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Class which is used to store the questions locally in Realm. 
+A question has associated answers and tags.
+Some values are lazyly computed</p>
 
                         <a href="Classes/Question.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">Question</span><span class="p">:</span> <span class="kt">Object</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -626,9 +719,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Class which is used to store the answers locally in Realm.</p>
 
                         <a href="Classes/Answer.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">Answer</span><span class="p">:</span> <span class="kt">Object</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -646,9 +747,18 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Class which is used to store the tags locally in Realm.
+In the current implementation tags are not used.</p>
 
                         <a href="Classes/Tag.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">Tag</span><span class="p">:</span> <span class="kt">Object</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -718,33 +828,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Class for displaying a question where exactly one answer is correct</p>
 
                         <a href="Classes/SingleChoiceQuestion.html" class="slightly-smaller">See more</a>
                       </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:C3TFG25PreferencesViewController"></a>
-                    <a name="//apple_ref/swift/Class/PreferencesViewController" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C3TFG25PreferencesViewController">PreferencesViewController</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">SingleChoiceQuestion</span><span class="p">:</span> <span class="kt">QuestionContentViewController</span><span class="p">,</span> <span class="kt">UITableViewDelegate</span><span class="p">,</span> <span class="kt">UITableViewDataSource</span></code></pre>
 
-                        <a href="Classes/PreferencesViewController.html" class="slightly-smaller">See more</a>
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -766,9 +860,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The last (right most) of the <q>cards</q> displayed by the pageViewController.
+It displays a simple prompt telling the user that he/she has reached the end of the quiz.
+An Exit button is displayed that will bring the user to the results screen</p>
 
                         <a href="Classes/QuizFinishedViewController.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">QuizFinishedViewController</span><span class="p">:</span> <span class="kt">PageViewContent</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -790,9 +894,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Class which is used to store the preferences locally in Realm.</p>
 
                         <a href="Classes/Preference.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">Preference</span><span class="p">:</span> <span class="kt">Object</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -810,9 +922,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Class which is used to store a custom color locally in Realm.</p>
 
                         <a href="Classes/MyColor.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">MyColor</span><span class="p">:</span> <span class="kt">Object</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -834,9 +954,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Parent class for the question cards</p>
 
                         <a href="Classes/QuestionContentViewController.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">QuestionContentViewController</span><span class="p">:</span> <span class="kt">PageViewContent</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -846,7 +974,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-05-15)</p>
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-05-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.6.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

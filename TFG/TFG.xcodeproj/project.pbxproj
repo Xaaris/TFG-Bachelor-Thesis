@@ -26,6 +26,7 @@
 		3BD4A1C61CBA844D00E52A0C /* Reach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD4A1C51CBA844D00E52A0C /* Reach.swift */; };
 		3BDC793E1CE7581A00D3B659 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BC8B4211C70F251000FD25D /* LaunchScreen.storyboard */; };
 		3BDD07A61CF3500F00DB5FCC /* PreferencesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD07A51CF3500F00DB5FCC /* PreferencesTableViewController.swift */; };
+		3BDF7D371CF8960C002FC8E2 /* DeleteStatisticsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDF7D361CF8960C002FC8E2 /* DeleteStatisticsTableViewController.swift */; };
 		3BE2F26B1CF5C4BD00996F9E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3BE2F26D1CF5C4BD00996F9E /* InfoPlist.strings */; };
 		3BE4BA301C7FD9A60053EC96 /* QuestionContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4BA2F1C7FD9A60053EC96 /* QuestionContentViewController.swift */; };
 		3BE4BA321C7FDBE30053EC96 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4BA311C7FDBE30053EC96 /* Util.swift */; };
@@ -93,6 +94,7 @@
 		3BD4A1C51CBA844D00E52A0C /* Reach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reach.swift; sourceTree = "<group>"; };
 		3BD63D031CE75AC50093338A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
 		3BDD07A51CF3500F00DB5FCC /* PreferencesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewController.swift; sourceTree = "<group>"; };
+		3BDF7D361CF8960C002FC8E2 /* DeleteStatisticsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteStatisticsTableViewController.swift; sourceTree = "<group>"; };
 		3BE2F26C1CF5C4BD00996F9E /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3BE2F26E1CF5C70400996F9E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3BE4BA2F1C7FD9A60053EC96 /* QuestionContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionContentViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			children = (
 				3B238D911C890AEB00E71EA3 /* PreferencesData.swift */,
 				3BDD07A51CF3500F00DB5FCC /* PreferencesTableViewController.swift */,
+				3BDF7D361CF8960C002FC8E2 /* DeleteStatisticsTableViewController.swift */,
 			);
 			name = "Preferences View";
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BF5B7231C863282007C88B2 /* MultiChoiceQuestion.swift in Sources */,
+				3BDF7D371CF8960C002FC8E2 /* DeleteStatisticsTableViewController.swift in Sources */,
 				3B7F65171C78F97F00BE0812 /* CSVImporter.swift in Sources */,
 				3BF72CB01CB5D3D40079F71D /* ForgotPasswordViewController.swift in Sources */,
 				3BBD159E1C7A081C00672569 /* ChooseTopicViewController.swift in Sources */,

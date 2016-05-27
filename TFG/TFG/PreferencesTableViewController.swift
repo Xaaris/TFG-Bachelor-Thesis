@@ -122,26 +122,6 @@ class PreferencesTableViewController: UITableViewController {
     }
     
     /**
-     Brings up an alertview asking the user if he/she wants to delete the statistics
-     - parameter sender: user interaction
-     */
-    @IBAction func deleteStatisticsButtonPressed(sender: AnyObject) {
-        let title = NSLocalizedString("Delete Statistics?", comment: "")
-        let message = NSLocalizedString("Are you sure you want to delete all statistics? This cannot be undone!", comment: "")
-        let delete = NSLocalizedString("Delete", comment: "")
-        let cancel = NSLocalizedString("Cancel", comment: "")
-        
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        let deleteAction = UIAlertAction(title: delete, style: .Destructive) { (action) in
-            Util.deleteAllStatistics()
-        }
-        alertController.addAction(deleteAction)
-        alertController.addAction(UIAlertAction(title: cancel, style: .Cancel, handler: nil))
-        
-        self.presentViewController(alertController, animated: true, completion: nil)
-    }
-    
-    /**
      Brings up an alertview asking the user if he/she wants to log out
      - parameter sender: user interaction
      */

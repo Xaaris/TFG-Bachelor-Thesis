@@ -14,7 +14,7 @@
     <a title="CloudLink Struct Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (13% documented)</p>
+        <p><a href="../index.html"> Docs</a> (42% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -73,7 +73,7 @@
                 <a href="../Classes/Preference.html">Preference</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/PreferencesViewController.html">PreferencesViewController</a>
+                <a href="../Classes/PreferencesTableViewController.html">PreferencesTableViewController</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/PresentQuestionPageViewController.html">PresentQuestionPageViewController</a>
@@ -174,7 +174,13 @@
         <section>
           <section class="section">
             <h1>CloudLink</h1>
-            <p>Undocumented</p>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">struct</span> <span class="kt">CloudLink</span></code></pre>
+
+                </div>
+              </div>
+            <p>Functions to facilitate the up and downloading of data from and to the Parse server</p>
 
           </section>
           <section class="section task-group-section">
@@ -193,8 +199,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Takes a local statistic and saves it asynchronisly to the server
+- parameters stat: statistic to save</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">syncStatisticToCloud</span><span class="p">(</span><span class="nv">stat</span><span class="p">:</span> <span class="kt">Statistic</span><span class="p">)</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -212,8 +227,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Downloads all (max 100) statistics with the current user ID from the server
+and saves them locally in Realm</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">syncStatisticsToRealm</span><span class="p">()</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -231,8 +255,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Checks if there already is a prefernce file by the current user on the server. If so it overrides that file.
+If not it creates a new one.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">syncPreferencesToCloud</span><span class="p">()</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -250,8 +283,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Downloads the preference file of the current user and saves it to Realm.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">syncPreferencesToRealm</span><span class="p">()</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -259,9 +300,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFV3TFG9CloudLink19updateGlobalAverageFSdT_"></a>
-                    <a name="//apple_ref/swift/Method/updateGlobalAverage(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFV3TFG9CloudLink19updateGlobalAverageFSdT_">updateGlobalAverage(_:)</a>
+                    <a name="/s:ZFV3TFG9CloudLink19updateGlobalAverageFTCS_5Topic11latestValueSd_T_"></a>
+                    <a name="//apple_ref/swift/Method/updateGlobalAverage(_:latestValue:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFV3TFG9CloudLink19updateGlobalAverageFTCS_5Topic11latestValueSd_T_">updateGlobalAverage(_:latestValue:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -269,12 +310,66 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Updates the global average locally and on the server side
+- parameter topic: the topic for which to update the value
+- parameter latestValue: the new value that is added to the GA</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">updateGlobalAverage</span><span class="p">(</span><span class="nv">topic</span><span class="p">:</span> <span class="kt">Topic</span><span class="p">,</span> <span class="nv">latestValue</span><span class="p">:</span> <span class="kt">Double</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>topic</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the topic for which to update the value</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>latestValue</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the new value that is added to the GA</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/TODO:%20fix%20this"></a>
+                <a name="//apple_ref/swift/Section/TODO: fix this" class="dashAnchor"></a>
+                <a href="#/TODO:%20fix%20this">
+                  <h3 class="section-name">TODO: fix this</h3>
+                </a>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -290,6 +385,14 @@
                       <div class="abstract">
                         <p>Undocumented</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">struct</span> <span class="kt">CloudLink</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -307,8 +410,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Syncs all questions and all answers from the server to Realm (max 1000)</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">syncQuestionsAndAnswersToRealm</span><span class="p">()</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -326,7 +437,50 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Syncs topics with questions and answers, preferences and statistics from the server to Realm.
+Starts with topics and only syncs the rest of the data once they are finished because much of
+the data depends on the topics.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">syncAllDataToRealm</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFV3TFG9CloudLink11isConnectedFT_Sb"></a>
+                    <a name="//apple_ref/swift/Method/isConnected()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFV3TFG9CloudLink11isConnectedFT_Sb">isConnected()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Checks online connectivity
+- returns: Boolean that indicates wether the device is connected to the internet or not</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">isConnected</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Boolean that indicates wether the device is connected to the internet or not</p>
 
                       </div>
                     </section>
@@ -337,7 +491,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-05-15)</p>
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-05-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.6.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

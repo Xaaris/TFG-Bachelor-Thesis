@@ -14,7 +14,7 @@
     <a title="QuizFinishedViewController Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (13% documented)</p>
+        <p><a href="../index.html"> Docs</a> (42% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -73,7 +73,7 @@
                 <a href="../Classes/Preference.html">Preference</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/PreferencesViewController.html">PreferencesViewController</a>
+                <a href="../Classes/PreferencesTableViewController.html">PreferencesTableViewController</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/PresentQuestionPageViewController.html">PresentQuestionPageViewController</a>
@@ -174,7 +174,15 @@
         <section>
           <section class="section">
             <h1>QuizFinishedViewController</h1>
-            <p>Undocumented</p>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">QuizFinishedViewController</span><span class="p">:</span> <span class="kt">PageViewContent</span></code></pre>
+
+                </div>
+              </div>
+            <p>The last (right most) of the <q>cards</q> displayed by the pageViewController.
+It displays a simple prompt telling the user that he/she has reached the end of the quiz.
+An Exit button is displayed that will bring the user to the results screen</p>
 
           </section>
           <section class="section task-group-section">
@@ -196,6 +204,14 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">QuizFinishedViewController</span><span class="p">:</span> <span class="kt">PageViewContent</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -212,27 +228,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Delets the hint button in the top right corner</p>
 
                       </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC3TFG26QuizFinishedViewController13viewDidAppearFSbT_"></a>
-                    <a name="//apple_ref/swift/Method/viewDidAppear(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC3TFG26QuizFinishedViewController13viewDidAppearFSbT_">viewDidAppear(_:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillAppear</span><span class="p">(</span><span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -250,8 +255,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Initiates the saving process and starts a segue to the results view</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">finishQuizButtonPressed</span><span class="p">(</span><span class="nv">sender</span><span class="p">:</span> <span class="kt">AnyObject</span><span class="p">)</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -269,8 +282,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Lock all questions and set answers to be revealed</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">revealAnswers</span><span class="p">()</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -278,9 +299,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC3TFG26QuizFinishedViewController31saveToStatisticsToRealmAndCloudFT_T_"></a>
-                    <a name="//apple_ref/swift/Method/saveToStatisticsToRealmAndCloud()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC3TFG26QuizFinishedViewController31saveToStatisticsToRealmAndCloudFT_T_">saveToStatisticsToRealmAndCloud()</a>
+                    <a name="/s:FC3TFG26QuizFinishedViewController29saveStatisticsToRealmAndCloudFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/saveStatisticsToRealmAndCloud()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3TFG26QuizFinishedViewController29saveStatisticsToRealmAndCloudFT_T_">saveStatisticsToRealmAndCloud()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -288,8 +309,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Prepares and saves locally the new statistic. Also initiates the process of saving it to the cloud (async)</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">saveStatisticsToRealmAndCloud</span><span class="p">()</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -299,7 +328,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-05-15)</p>
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-05-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.6.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
