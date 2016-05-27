@@ -68,7 +68,7 @@ class DeleteStatisticsTableViewController: UITableViewController {
         switch section {
         case 1:
             if Util.getNumberOfTopics() > 0{
-                return NSLocalizedString("This will delete all the statistics of one topic that are associated with your account", comment: "Footer that gets displayed under the the section to delete individual topicstats")
+                return NSLocalizedString("This will delete all the statistics of a topic that are associated with your account", comment: "Footer that gets displayed under the the section to delete individual topicstats")
             }else{
                 return nil
             }
