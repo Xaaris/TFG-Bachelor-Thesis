@@ -14,7 +14,6 @@
 		3B5639F31CF523AE001B524F /* TFGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5639F21CF523AE001B524F /* TFGUITests.swift */; };
 		3B5BCE531C8CCEBB00108989 /* QuizResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BCE521C8CCEBB00108989 /* QuizResultsViewController.swift */; };
 		3B6CC8271C9A34B3001A1FE3 /* CircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CC8261C9A34B3001A1FE3 /* CircleProgressView.swift */; };
-		3B7F65171C78F97F00BE0812 /* CSVImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7F65161C78F97F00BE0812 /* CSVImporter.swift */; };
 		3BB361041CB49DD300356004 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB361031CB49DD300356004 /* LoginViewController.swift */; };
 		3BBD159E1C7A081C00672569 /* ChooseTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBD159D1C7A081C00672569 /* ChooseTopicViewController.swift */; };
 		3BBD15A01C7A18C500672569 /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBD159F1C7A18C500672569 /* QuestionData.swift */; };
@@ -77,7 +76,6 @@
 		3B5639F41CF523AE001B524F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B5BCE521C8CCEBB00108989 /* QuizResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = QuizResultsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3B6CC8261C9A34B3001A1FE3 /* CircleProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleProgressView.swift; sourceTree = "<group>"; };
-		3B7F65161C78F97F00BE0812 /* CSVImporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CSVImporter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3BA45EE41CEDD87400FD80B5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		3BA45EE51CEDD87400FD80B5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3BB04C681CEDEE70002C5395 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -173,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				3BC8B4181C70F251000FD25D /* MainViewController.swift */,
+				3BBD159D1C7A081C00672569 /* ChooseTopicViewController.swift */,
 				3BB361031CB49DD300356004 /* LoginViewController.swift */,
 				3BF72CA61CB5C58E0079F71D /* SignUpViewController.swift */,
 				3BF72CAF1CB5D3D40079F71D /* ForgotPasswordViewController.swift */,
@@ -190,15 +189,6 @@
 				3BD4A1C51CBA844D00E52A0C /* Reach.swift */,
 			);
 			name = Util;
-			sourceTree = "<group>";
-		};
-		3BB3610A1CB4AF9D00356004 /* Import */ = {
-			isa = PBXGroup;
-			children = (
-				3B7F65161C78F97F00BE0812 /* CSVImporter.swift */,
-				3BBD159D1C7A081C00672569 /* ChooseTopicViewController.swift */,
-			);
-			name = Import;
 			sourceTree = "<group>";
 		};
 		3BC8B40A1C70F251000FD25D = {
@@ -227,7 +217,6 @@
 			isa = PBXGroup;
 			children = (
 				3BC8B4161C70F251000FD25D /* AppDelegate.swift */,
-				3BB3610A1CB4AF9D00356004 /* Import */,
 				3BB361081CB4AF7300356004 /* Home */,
 				3B2520041CA5DBC0008B6CA7 /* Statistics */,
 				3BF5B71F1C85F79D007C88B2 /* Quiz View */,
@@ -448,7 +437,6 @@
 			files = (
 				3BF5B7231C863282007C88B2 /* MultiChoiceQuestion.swift in Sources */,
 				3BDF7D371CF8960C002FC8E2 /* DeleteStatisticsTableViewController.swift in Sources */,
-				3B7F65171C78F97F00BE0812 /* CSVImporter.swift in Sources */,
 				3BF72CB01CB5D3D40079F71D /* ForgotPasswordViewController.swift in Sources */,
 				3BBD159E1C7A081C00672569 /* ChooseTopicViewController.swift in Sources */,
 				3BC8B41B1C70F251000FD25D /* StatisticsViewController.swift in Sources */,

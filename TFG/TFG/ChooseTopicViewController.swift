@@ -73,12 +73,12 @@ class ChooseTopicViewController: UITableViewController {
 //    }
     
     ///Method that loads example data. Only used for development
-    func loadExampleData() {
-        let importer = ImportAndSaveHelper()
-        importer.loadAndSave("Sample1")
-        importer.loadAndSave("Sample2")
-        tableView.reloadData()
-    }
+//    func loadExampleData() {
+//        let importer = ImportAndSaveHelper()
+//        importer.loadAndSave("Sample1")
+//        importer.loadAndSave("Sample2")
+//        tableView.reloadData()
+//    }
     
 }
 
