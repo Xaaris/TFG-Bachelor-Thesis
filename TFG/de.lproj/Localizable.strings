@@ -5,6 +5,9 @@
 "An email containing information on how to reset your password has been sent to: " = "Eine Email mit Anweisungen zum Zurücksetzen des Passwortes wurde an folgende Adresse gesendet: ";
 
 /* No comment provided by engineer. */
+"Are you sure you want to delete all statistics of (topics[indexPath.row].title)? This cannot be undone!" = "Bist du sicher das du alle Statistiken von (topics[indexPath.row].title) löschen möchtest? Dies kann nicht rückgängig gemacht werden";
+
+/* No comment provided by engineer. */
 "Are you sure you want to delete all statistics? This cannot be undone!" = "Bist du sicher das du alle Statistiken löschen möchtest? Dies kann nicht rückgängig gemacht werden";
 
 /* No comment provided by engineer. */
@@ -21,6 +24,12 @@
 
 /* No comment provided by engineer. */
 "Delete Statistics?" = "Statistiken Löschen?";
+
+/* Delete all stats button in tableView */
+"Delete all statistics" = "Alle Statistiken löschen";
+
+/* Header that gets displayed above the the section to delete individual topicstats */
+"Delete statistics of a certain topic" = "Lösche Statistiken eines Themas";
 
 /* Feedback title */
 "Feedback" = "Feedback";
@@ -105,6 +114,9 @@
 
 /* Single choice question */
 "This is a single choice question. Please select one answer." = "Dieser Typ Frage erfordert genau eine Antwort.";
+
+/* Footer that gets displayed under the the section to delete individual topicstats */
+"This will delete all the statistics of a topic that are associated with your account" = "Dies löscht alle Statistiken eines Themas die mit deinem Account verknüpft sind";
 
 /* No comment provided by engineer. */
 "Topic: " = "Thema: ";

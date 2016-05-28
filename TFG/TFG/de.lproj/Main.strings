@@ -16,6 +16,9 @@
 /* Class = "UITabBarItem"; title = "Preferences"; ObjectID = "7hO-eV-h1T"; */
 "7hO-eV-h1T.title" = "Einstellungen";
 
+/* Class = "UITabBarItem"; title = "Preferences"; ObjectID = "8aj-Ye-pLG"; */
+"8aj-Ye-pLG.title" = "Einstellungen";
+
 /* Class = "UIViewController"; title = "Home"; ObjectID = "9pv-A4-QxB"; */
 "9pv-A4-QxB.title" = "Home";
 
@@ -46,6 +49,9 @@
 /* Class = "UIButton"; normalTitle = "Delete Statistics"; ObjectID = "GJB-Ov-pC2"; */
 "GJB-Ov-pC2.normalTitle" = "Statistiken Löschen";
 
+/* Class = "UINavigationItem"; title = "Preferences"; ObjectID = "LJF-8X-lqF"; */
+"LJF-8X-lqF.title" = "Einstellungen";
+
 /* Class = "UILabel"; text = "Subtitle"; ObjectID = "Lc7-uJ-Y2y"; */
 "Lc7-uJ-Y2y.text" = "Subtitle";
 
@@ -56,7 +62,7 @@
 "O1L-WK-8sK.text" = "Willkommen";
 
 /* Class = "UILabel"; text = "Time studied per topic in minutes"; ObjectID = "Oez-lY-uDA"; */
-"Oez-lY-uDA.text" = "Zeit pro Thema in minuten";
+"Oez-lY-uDA.text" = "Zeit pro Thema in Minuten";
 
 /* Class = "UIButton"; normalTitle = "Finish Quiz"; ObjectID = "Oky-n7-cbt"; */
 "Oky-n7-cbt.normalTitle" = "Quiz beenden";

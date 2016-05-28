@@ -37,15 +37,14 @@ class DeleteStatisticsTableViewController: UITableViewController {
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        var cell = UITableViewCell()
         if indexPath.section == 0{
-            let cell = tableView.dequeueReusableCellWithIdentifier("deleteAllCell", forIndexPath: indexPath)
-            return cell
+            cell = tableView.dequeueReusableCellWithIdentifier("deleteAllCell", forIndexPath: indexPath)
+            cell.textLabel?.text = NSLocalizedString("Delete all statistics", comment: "Delete all stats button in tableView")
         }else{
-            let cell = tableView.dequeueReusableCellWithIdentifier("topicNameCell", forIndexPath: indexPath)
+            cell = tableView.dequeueReusableCellWithIdentifier("topicNameCell", forIndexPath: indexPath)
             cell.textLabel?.text = topics[indexPath.row].title
         }
-        
         return cell
     }
     
