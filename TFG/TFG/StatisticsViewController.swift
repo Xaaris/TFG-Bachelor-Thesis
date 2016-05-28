@@ -52,6 +52,15 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
         updatePickerSelection()
         setupCharts()
         reloadCharts()
+        resetLabels()
+    }
+    
+    func resetLabels(){
+        if displayedStatistics.isEmpty{
+            barChartTopicLabel.text = NSLocalizedString("Topic: No topic selected", comment: "")
+            barChartDateLabel.text = NSLocalizedString("Date: No data", comment: "")
+            barChartScoreLabel.text = NSLocalizedString("Score: No data", comment: "")
+        }
     }
     
     ///Adds the "Pull to refresh" mechanism
@@ -248,7 +257,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
     /**
      Checks if data has changed and if so, reloads the bar chart view.
      - parameters:
-        - overview: boolean that determins if the overview bar chart view is presented or not
+     - overview: boolean that determins if the overview bar chart view is presented or not
      */
     func reloadBarChartData(overview: Bool) {
         let oldStatistics = displayedStatistics
@@ -384,10 +393,10 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
     /**
      Called when a bar in the barchartview is selected. It updates the description with the values of the currently selected statistic
      - parameters:
-        - chartView: sender chart view
-        - entry: selected entry
-        - dataSetIndex: index in dataset
-        - highlight: which highlight to apply
+     - chartView: sender chart view
+     - entry: selected entry
+     - dataSetIndex: index in dataset
+     - highlight: which highlight to apply
      */
     func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: ChartHighlight) {
         let statistic = displayedStatistics[entry.xIndex]
