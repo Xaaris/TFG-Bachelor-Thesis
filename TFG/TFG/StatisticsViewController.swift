@@ -144,14 +144,16 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
         topicPickerView.selectRow(rowToSelect, inComponent: 0, animated: false)
     }
     
+    ///Just one component is needed in the picker
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
-    
+    ///Number of topics plus one row for the overview
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerValues.count
     }
     
+    ///The picker displays the topics plus the overview
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerValues[row]
     }
