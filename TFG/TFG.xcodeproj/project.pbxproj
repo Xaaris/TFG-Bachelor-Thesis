@@ -8,15 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		3B0630411CE7811D0082F4F3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3B0630431CE7811D0082F4F3 /* Localizable.strings */; };
-		3B238D921C890AEB00E71EA3 /* PreferencesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B238D911C890AEB00E71EA3 /* PreferencesData.swift */; };
-		3B2520061CA5DBF1008B6CA7 /* StatisticsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2520051CA5DBF1008B6CA7 /* StatisticsData.swift */; };
+		3B2520061CA5DBF1008B6CA7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2520051CA5DBF1008B6CA7 /* Model.swift */; };
 		3B3FAFAF1CD8ECB3004E5A53 /* PresentQuestionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3FAFAE1CD8ECB3004E5A53 /* PresentQuestionPageViewController.swift */; };
 		3B5639F31CF523AE001B524F /* TFGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5639F21CF523AE001B524F /* TFGUITests.swift */; };
 		3B5BCE531C8CCEBB00108989 /* QuizResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BCE521C8CCEBB00108989 /* QuizResultsViewController.swift */; };
 		3B6CC8271C9A34B3001A1FE3 /* CircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CC8261C9A34B3001A1FE3 /* CircleProgressView.swift */; };
 		3BB361041CB49DD300356004 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB361031CB49DD300356004 /* LoginViewController.swift */; };
 		3BBD159E1C7A081C00672569 /* ChooseTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBD159D1C7A081C00672569 /* ChooseTopicViewController.swift */; };
-		3BBD15A01C7A18C500672569 /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBD159F1C7A18C500672569 /* QuestionData.swift */; };
 		3BC8B4171C70F251000FD25D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC8B4161C70F251000FD25D /* AppDelegate.swift */; };
 		3BC8B4191C70F251000FD25D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC8B4181C70F251000FD25D /* MainViewController.swift */; };
 		3BC8B41B1C70F251000FD25D /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC8B41A1C70F251000FD25D /* StatisticsViewController.swift */; };
@@ -68,8 +66,7 @@
 		3B06303E1CE7811C0082F4F3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		3B0630421CE7811D0082F4F3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3B0630441CE7811E0082F4F3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		3B238D911C890AEB00E71EA3 /* PreferencesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesData.swift; sourceTree = "<group>"; };
-		3B2520051CA5DBF1008B6CA7 /* StatisticsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsData.swift; sourceTree = "<group>"; };
+		3B2520051CA5DBF1008B6CA7 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		3B3FAFAE1CD8ECB3004E5A53 /* PresentQuestionPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentQuestionPageViewController.swift; sourceTree = "<group>"; };
 		3B5639F01CF523AE001B524F /* TFGUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TFGUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B5639F21CF523AE001B524F /* TFGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFGUITests.swift; sourceTree = "<group>"; };
@@ -81,7 +78,6 @@
 		3BB04C681CEDEE70002C5395 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3BB361031CB49DD300356004 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3BBD159D1C7A081C00672569 /* ChooseTopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseTopicViewController.swift; sourceTree = "<group>"; };
-		3BBD159F1C7A18C500672569 /* QuestionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
 		3BC8B4131C70F251000FD25D /* TFG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TFG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BC8B4161C70F251000FD25D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BC8B4181C70F251000FD25D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MainViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -141,7 +137,6 @@
 		3B238D931C890BDD00E71EA3 /* Preferences View */ = {
 			isa = PBXGroup;
 			children = (
-				3B238D911C890AEB00E71EA3 /* PreferencesData.swift */,
 				3BDD07A51CF3500F00DB5FCC /* PreferencesTableViewController.swift */,
 				3BDF7D361CF8960C002FC8E2 /* DeleteStatisticsTableViewController.swift */,
 			);
@@ -152,7 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				3BC8B41A1C70F251000FD25D /* StatisticsViewController.swift */,
-				3B2520051CA5DBF1008B6CA7 /* StatisticsData.swift */,
 			);
 			name = Statistics;
 			sourceTree = "<group>";
@@ -217,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				3BC8B4161C70F251000FD25D /* AppDelegate.swift */,
+				3B2520051CA5DBF1008B6CA7 /* Model.swift */,
 				3BB361081CB4AF7300356004 /* Home */,
 				3B2520041CA5DBC0008B6CA7 /* Statistics */,
 				3BF5B71F1C85F79D007C88B2 /* Quiz View */,
@@ -233,7 +228,6 @@
 		3BF5B71F1C85F79D007C88B2 /* Quiz View */ = {
 			isa = PBXGroup;
 			children = (
-				3BBD159F1C7A18C500672569 /* QuestionData.swift */,
 				3B3FAFAE1CD8ECB3004E5A53 /* PresentQuestionPageViewController.swift */,
 				3BE4BA2F1C7FD9A60053EC96 /* QuestionContentViewController.swift */,
 				3BF5B7201C862D9C007C88B2 /* SingleChoiceQuestion.swift */,
@@ -443,21 +437,19 @@
 				3BB361041CB49DD300356004 /* LoginViewController.swift in Sources */,
 				3B5BCE531C8CCEBB00108989 /* QuizResultsViewController.swift in Sources */,
 				3BE4BA361C80CB6C0053EC96 /* AnswerCell.swift in Sources */,
-				3B2520061CA5DBF1008B6CA7 /* StatisticsData.swift in Sources */,
+				3B2520061CA5DBF1008B6CA7 /* Model.swift in Sources */,
 				3B6CC8271C9A34B3001A1FE3 /* CircleProgressView.swift in Sources */,
 				3BC8B4171C70F251000FD25D /* AppDelegate.swift in Sources */,
 				3B3FAFAF1CD8ECB3004E5A53 /* PresentQuestionPageViewController.swift in Sources */,
 				3BDD07A61CF3500F00DB5FCC /* PreferencesTableViewController.swift in Sources */,
 				3BC8B4191C70F251000FD25D /* MainViewController.swift in Sources */,
 				3BF72CB21CB6D4A80079F71D /* CloudLink.swift in Sources */,
-				3BBD15A01C7A18C500672569 /* QuestionData.swift in Sources */,
 				3BD4A1C61CBA844D00E52A0C /* Reach.swift in Sources */,
 				3BF72CAC1CB5C8850079F71D /* Extensions.swift in Sources */,
 				3BE4BA321C7FDBE30053EC96 /* Util.swift in Sources */,
 				3BF72CA71CB5C58E0079F71D /* SignUpViewController.swift in Sources */,
 				3BF5B7211C862D9C007C88B2 /* SingleChoiceQuestion.swift in Sources */,
 				3BE4BA391C80E5970053EC96 /* QuizFinishedViewController.swift in Sources */,
-				3B238D921C890AEB00E71EA3 /* PreferencesData.swift in Sources */,
 				3BE4BA301C7FD9A60053EC96 /* QuestionContentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

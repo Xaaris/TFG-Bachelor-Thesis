@@ -1,8 +1,8 @@
 //
-//  Question.swift
+//  StatisticsData.swift
 //  TFG
 //
-//  Created by Johannes Berger on 21.02.16.
+//  Created by Johannes Berger on 25.03.16.
 //  Copyright © 2016 Johannes Berger. All rights reserved.
 //
 
@@ -10,7 +10,36 @@ import Foundation
 import RealmSwift
 
 /**
- Class which is used to store the topics locally in Realm. 
+ Class which is used to store the statistics locally in Realm. Some values are lazyly computed
+ */
+class Statistic: Object{
+    dynamic var topic: Topic? // to-one relationships must be optional
+    dynamic var numberOfQuestions: Int {
+        if topic != nil {
+            return topic!.questions.count
+        }else{
+            return 0
+        }
+    }
+    dynamic var score = 0.0
+    dynamic var percentageScore: Double {
+        if numberOfQuestions != 0 {
+            return (score / Double(numberOfQuestions)) * 100
+        }else{
+            return 0
+        }
+    }
+    dynamic var startTime = NSDate()
+    dynamic var endTime = NSDate()
+    
+    dynamic var timeTaken: Double {
+        return endTime.timeIntervalSinceDate(startTime)
+    }
+    
+}
+
+/**
+ Class which is used to store the topics locally in Realm.
  A topic has associated questions, answers, tags and statistics.
  Some values are lazyly computed
  */
@@ -37,7 +66,7 @@ class Topic: Object{
 }
 
 /**
- Class which is used to store the questions locally in Realm. 
+ Class which is used to store the questions locally in Realm.
  A question has associated answers and tags.
  Some values are lazyly computed
  */
@@ -99,3 +128,26 @@ class Tag: Object {
         return "tagText"
     }
 }
+
+
+
+/**
+ Class which is used to store the preferences locally in Realm.
+ */
+class Preference: Object{
+    dynamic var feedback = false
+    dynamic var showLockButton = false
+    dynamic var lockSeconds = 2
+}
+
+/**
+ Class which is used to store a custom color locally in Realm.
+ */
+class MyColor: Object {
+    dynamic var red = 0
+    dynamic var green = 0
+    dynamic var blue = 0
+    let isAssignedTo = LinkingObjects(fromType: Topic.self, property: "color")
+}
+
+
