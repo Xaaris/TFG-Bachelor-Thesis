@@ -16,6 +16,9 @@
 /* Class = "UITabBarItem"; title = "Preferences"; ObjectID = "7hO-eV-h1T"; */
 "7hO-eV-h1T.title" = "Ajustes";
 
+/* Class = "UITabBarItem"; title = "Preferences"; ObjectID = "8aj-Ye-pLG"; */
+"8aj-Ye-pLG.title" = "Ajustes";
+
 /* Class = "UIViewController"; title = "Home"; ObjectID = "9pv-A4-QxB"; */
 "9pv-A4-QxB.title" = "Inicio";
 
@@ -45,6 +48,9 @@
 
 /* Class = "UIButton"; normalTitle = "Delete Statistics"; ObjectID = "GJB-Ov-pC2"; */
 "GJB-Ov-pC2.normalTitle" = "¿Borrar Estadísticas?";
+
+/* Class = "UINavigationItem"; title = "Preferences"; ObjectID = "LJF-8X-lqF"; */
+"LJF-8X-lqF.title" = "Ajustes";
 
 /* Class = "UILabel"; text = "Subtitle"; ObjectID = "Lc7-uJ-Y2y"; */
 "Lc7-uJ-Y2y.text" = "Subtitle";
