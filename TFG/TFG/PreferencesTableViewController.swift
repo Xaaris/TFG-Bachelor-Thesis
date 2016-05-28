@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 
+///Class that displays the preferences scene
 class PreferencesTableViewController: UITableViewController {
     
     @IBOutlet var prefTableView: UITableView!
@@ -18,15 +19,14 @@ class PreferencesTableViewController: UITableViewController {
     @IBOutlet weak var secondsSlider: UISlider!
     @IBOutlet weak var lockSecondsValueStack: UIStackView!
     
-    
+    ///Activity indicator that get displayed during the logout process
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var pref: Preference!
     
-
+    ///Loads preferences for easy access and prepares the view
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         pref = Util.getPreferences()!
         prepareView()
     }

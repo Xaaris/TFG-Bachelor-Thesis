@@ -13,6 +13,8 @@ import Parse
 class ForgotPasswordViewController: UIViewController, UITextFieldDelegate  {
     
     @IBOutlet weak var emailField: UITextField!
+    
+    ///Activity indicator that get displayed during the reset process
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     ///Sets delegates and initializes hideKeyboardWhenTappedAround

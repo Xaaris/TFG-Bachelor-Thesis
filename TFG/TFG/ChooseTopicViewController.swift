@@ -12,21 +12,14 @@ import RealmSwift
 ///View Controller for the topic choosing scene (tableView based)
 class ChooseTopicViewController: UITableViewController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     // MARK: - Table view data source
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
+    ///Number of rows are the number of topics present
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return realm.objects(Topic).count
+        return Util.getNumberOfTopics()
     }
     
-    
+    ///Initializes the cells
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TopicCell", forIndexPath: indexPath)
         // Configure the cell...
@@ -39,6 +32,7 @@ class ChooseTopicViewController: UITableViewController {
         return cell
     }
     
+    ///saves selection of topic to Realm
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         

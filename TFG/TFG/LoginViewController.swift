@@ -13,6 +13,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    
+    ///Activity indicator that get displayed during the login process
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     ///Sets delegates and initializes hideKeyboardWhenTappedAround

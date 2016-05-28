@@ -8,10 +8,12 @@
 
 import UIKit
 
+///Class that displays the table view in which you can delete statistics
 class DeleteStatisticsTableViewController: UITableViewController {
     
     var topics = realm.objects(Topic)
     
+    ///load topics for easier access
     override func viewDidLoad() {
         super.viewDidLoad()
         topics = realm.objects(Topic)
@@ -19,6 +21,7 @@ class DeleteStatisticsTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     
+    ///The view is split into 2 sections
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
     }
@@ -35,9 +38,10 @@ class DeleteStatisticsTableViewController: UITableViewController {
         }
     }
     
-    
+    ///Initializes the cells
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = UITableViewCell()
+        //delete all cell
         if indexPath.section == 0{
             cell = tableView.dequeueReusableCellWithIdentifier("deleteAllCell", forIndexPath: indexPath)
             cell.textLabel?.text = NSLocalizedString("Delete all statistics", comment: "Delete all stats button in tableView")
