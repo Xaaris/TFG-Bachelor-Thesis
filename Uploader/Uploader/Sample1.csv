@@ -4,5 +4,3 @@ MultipleChoice;This is my first question;This is a hint;And this is feedback;1,3
 SingleChoice;This is my second question;It is a single choise question;And this is feedback;2;This is the first answer. ;This is the second answer. It is true;This answer is false;This is false;
 MultipleChoice;This is my third question;This is a hint;And this is feedback;1,2;This is the first answer. It is correct;This is the second answer. It is correct as well;This answer is false;;
 SingleChoice;This is another;This is a hint;And this is feedback;1;This is the first answer. It is correct;This is the second answer. It is false;This answer is false as well;This is false;
-TrueFalse;This is another;This is a hint;And this is feedback;1;True;False;;;
-TrueFalse;This is another;This is a hint;And this is feedback;2;Correct;Incorrect;;;

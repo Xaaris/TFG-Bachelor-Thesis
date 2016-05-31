@@ -165,13 +165,18 @@ class ImportAndSaveHelper {
     
     private func parseDataForValuesAndSaveToRealm(keyedRowsDic: [[String:String]]) {
         var topic = Topic()
+        var counter = 1
         for row in keyedRowsDic{
             //Info row
             if row["QuestionType"] == "Info"{
+                print("Parsing header")
                 topic = getTopic(row)
                 //Normal row
             }else if !row["QuestionType"]!.isEmpty {
+                print("Parsing question \(counter)")
+                counter += 1
                 if let question = buildQuestionFromRow(row, topic: topic){
+                    print(question)
                     saveToRealm(question)
                 }else{
                     print("could not build a question")
@@ -223,6 +228,10 @@ class ImportAndSaveHelper {
                 tmpAnswer.answerText = answer.0
                 tmpAnswer.isCorrect = answer.1
                 tmpAnswer.associatedQuestion = tmpQuestion
+                realm.beginWrite()
+                realm.add(tmpAnswer)
+                try! realm.commitWrite()
+                
             }
             
             return tmpQuestion
@@ -233,15 +242,15 @@ class ImportAndSaveHelper {
     }
     
     private func saveToRealm(question: Question){
-        // Save Question
-        realm.beginWrite()
         //check if it already exists
         if realm.objectForPrimaryKey(Question.self, key: question.questionText) == nil {
+            realm.beginWrite()
             realm.add(question)
+            try! realm.commitWrite()
         }else{
-            // print("Question with questionText: \(question.questionText) already exists")
+            //print("Question with questionText: \(question.questionText) already exists")
         }
-        try! realm.commitWrite()
+        
         
     }
     
