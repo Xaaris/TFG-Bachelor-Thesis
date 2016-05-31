@@ -12,6 +12,7 @@
 		3B3FAFAF1CD8ECB3004E5A53 /* PresentQuestionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3FAFAE1CD8ECB3004E5A53 /* PresentQuestionPageViewController.swift */; };
 		3B5639F31CF523AE001B524F /* TFGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5639F21CF523AE001B524F /* TFGUITests.swift */; };
 		3B5BCE531C8CCEBB00108989 /* QuizResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BCE521C8CCEBB00108989 /* QuizResultsViewController.swift */; };
+		3B6994821CFE480C008EB6EA /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6994811CFE480C008EB6EA /* QuestionViewController.swift */; };
 		3B6CC8271C9A34B3001A1FE3 /* CircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CC8261C9A34B3001A1FE3 /* CircleProgressView.swift */; };
 		3BB361041CB49DD300356004 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB361031CB49DD300356004 /* LoginViewController.swift */; };
 		3BBD159E1C7A081C00672569 /* ChooseTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBD159D1C7A081C00672569 /* ChooseTopicViewController.swift */; };
@@ -25,12 +26,9 @@
 		3BDD07A61CF3500F00DB5FCC /* PreferencesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD07A51CF3500F00DB5FCC /* PreferencesTableViewController.swift */; };
 		3BDF7D371CF8960C002FC8E2 /* DeleteStatisticsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDF7D361CF8960C002FC8E2 /* DeleteStatisticsTableViewController.swift */; };
 		3BE2F26B1CF5C4BD00996F9E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3BE2F26D1CF5C4BD00996F9E /* InfoPlist.strings */; };
-		3BE4BA301C7FD9A60053EC96 /* QuestionContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4BA2F1C7FD9A60053EC96 /* QuestionContentViewController.swift */; };
 		3BE4BA321C7FDBE30053EC96 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4BA311C7FDBE30053EC96 /* Util.swift */; };
 		3BE4BA361C80CB6C0053EC96 /* AnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4BA351C80CB6C0053EC96 /* AnswerCell.swift */; };
 		3BE4BA391C80E5970053EC96 /* QuizFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4BA371C80E5970053EC96 /* QuizFinishedViewController.swift */; };
-		3BF5B7211C862D9C007C88B2 /* SingleChoiceQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5B7201C862D9C007C88B2 /* SingleChoiceQuestion.swift */; };
-		3BF5B7231C863282007C88B2 /* MultiChoiceQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5B7221C863282007C88B2 /* MultiChoiceQuestion.swift */; };
 		3BF5B7251C86711F007C88B2 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 3BF5B7241C86711F007C88B2 /* .gitignore */; };
 		3BF72CA71CB5C58E0079F71D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF72CA61CB5C58E0079F71D /* SignUpViewController.swift */; };
 		3BF72CAC1CB5C8850079F71D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF72CAB1CB5C8850079F71D /* Extensions.swift */; };
@@ -72,6 +70,7 @@
 		3B5639F21CF523AE001B524F /* TFGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFGUITests.swift; sourceTree = "<group>"; };
 		3B5639F41CF523AE001B524F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B5BCE521C8CCEBB00108989 /* QuizResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = QuizResultsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		3B6994811CFE480C008EB6EA /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		3B6CC8261C9A34B3001A1FE3 /* CircleProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleProgressView.swift; sourceTree = "<group>"; };
 		3BA45EE41CEDD87400FD80B5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		3BA45EE51CEDD87400FD80B5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -91,12 +90,9 @@
 		3BDF7D361CF8960C002FC8E2 /* DeleteStatisticsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteStatisticsTableViewController.swift; sourceTree = "<group>"; };
 		3BE2F26C1CF5C4BD00996F9E /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3BE2F26E1CF5C70400996F9E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		3BE4BA2F1C7FD9A60053EC96 /* QuestionContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionContentViewController.swift; sourceTree = "<group>"; };
 		3BE4BA311C7FDBE30053EC96 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		3BE4BA351C80CB6C0053EC96 /* AnswerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerCell.swift; sourceTree = "<group>"; };
 		3BE4BA371C80E5970053EC96 /* QuizFinishedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = QuizFinishedViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		3BF5B7201C862D9C007C88B2 /* SingleChoiceQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SingleChoiceQuestion.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		3BF5B7221C863282007C88B2 /* MultiChoiceQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MultiChoiceQuestion.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3BF5B7241C86711F007C88B2 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
 		3BF72CA61CB5C58E0079F71D /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3BF72CAB1CB5C8850079F71D /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -229,9 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				3B3FAFAE1CD8ECB3004E5A53 /* PresentQuestionPageViewController.swift */,
-				3BE4BA2F1C7FD9A60053EC96 /* QuestionContentViewController.swift */,
-				3BF5B7201C862D9C007C88B2 /* SingleChoiceQuestion.swift */,
-				3BF5B7221C863282007C88B2 /* MultiChoiceQuestion.swift */,
+				3B6994811CFE480C008EB6EA /* QuestionViewController.swift */,
 				3BE4BA351C80CB6C0053EC96 /* AnswerCell.swift */,
 				3BE4BA371C80E5970053EC96 /* QuizFinishedViewController.swift */,
 				3B5BCE521C8CCEBB00108989 /* QuizResultsViewController.swift */,
@@ -429,12 +423,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BF5B7231C863282007C88B2 /* MultiChoiceQuestion.swift in Sources */,
 				3BDF7D371CF8960C002FC8E2 /* DeleteStatisticsTableViewController.swift in Sources */,
 				3BF72CB01CB5D3D40079F71D /* ForgotPasswordViewController.swift in Sources */,
 				3BBD159E1C7A081C00672569 /* ChooseTopicViewController.swift in Sources */,
 				3BC8B41B1C70F251000FD25D /* StatisticsViewController.swift in Sources */,
 				3BB361041CB49DD300356004 /* LoginViewController.swift in Sources */,
+				3B6994821CFE480C008EB6EA /* QuestionViewController.swift in Sources */,
 				3B5BCE531C8CCEBB00108989 /* QuizResultsViewController.swift in Sources */,
 				3BE4BA361C80CB6C0053EC96 /* AnswerCell.swift in Sources */,
 				3B2520061CA5DBF1008B6CA7 /* Model.swift in Sources */,
@@ -448,9 +442,7 @@
 				3BF72CAC1CB5C8850079F71D /* Extensions.swift in Sources */,
 				3BE4BA321C7FDBE30053EC96 /* Util.swift in Sources */,
 				3BF72CA71CB5C58E0079F71D /* SignUpViewController.swift in Sources */,
-				3BF5B7211C862D9C007C88B2 /* SingleChoiceQuestion.swift in Sources */,
 				3BE4BA391C80E5970053EC96 /* QuizFinishedViewController.swift in Sources */,
-				3BE4BA301C7FD9A60053EC96 /* QuestionContentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

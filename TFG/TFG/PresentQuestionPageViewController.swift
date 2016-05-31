@@ -124,15 +124,7 @@ class PresentQuestionPageViewController: UIPageViewController, UIPageViewControl
         var vc:PageViewContent = PageViewContent()
         
         if pageIndex < Util.getCurrentTopic()!.questions.count {
-            if Util.getCurrentTopic()!.questions[pageIndex].type == "SingleChoice"{
-                vc = self.storyboard!.instantiateViewControllerWithIdentifier("SingleChoice") as! SingleChoiceQuestion
-            }else if Util.getCurrentTopic()!.questions[pageIndex].type == "MultipleChoice"{
-                vc = self.storyboard!.instantiateViewControllerWithIdentifier("MultiChoice") as! MultiChoiceQuestion
-            }else{
-                //TODO: Implement other question types
-                vc = self.storyboard!.instantiateViewControllerWithIdentifier("SingleChoice") as! SingleChoiceQuestion
-            }
-            
+            vc = self.storyboard!.instantiateViewControllerWithIdentifier("QuestionVC") as! QuestionViewController
         } else if pageIndex == Util.getCurrentTopic()!.questions.count {
             vc = self.storyboard!.instantiateViewControllerWithIdentifier("QuizFinished") as! QuizFinishedViewController
         }else{
