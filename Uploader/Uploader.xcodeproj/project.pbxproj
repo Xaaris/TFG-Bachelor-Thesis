@@ -17,9 +17,7 @@
 		3B90DDA11CD275C800BCD85A /* CSVImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B90DDA01CD275C800BCD85A /* CSVImporter.swift */; };
 		3B90DDA41CD275E400BCD85A /* CloudLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B90DDA21CD275E400BCD85A /* CloudLink.swift */; };
 		3B90DDA51CD275E400BCD85A /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B90DDA31CD275E400BCD85A /* Util.swift */; };
-		3B90DDA71CD2761C00BCD85A /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B90DDA61CD2761C00BCD85A /* QuestionData.swift */; };
-		3B90DDA91CD2773200BCD85A /* PreferencesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B90DDA81CD2773200BCD85A /* PreferencesData.swift */; };
-		3B90DDAB1CD2776100BCD85A /* StatisticsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B90DDAA1CD2776100BCD85A /* StatisticsData.swift */; };
+		3B90DDA71CD2761C00BCD85A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B90DDA61CD2761C00BCD85A /* Model.swift */; };
 		3B90DDAE1CD277DA00BCD85A /* Sample1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B90DDAC1CD277DA00BCD85A /* Sample1.csv */; };
 		3B90DDAF1CD277DA00BCD85A /* Sample2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B90DDAD1CD277DA00BCD85A /* Sample2.csv */; };
 		F0C189E9E731ECD8B81BEFB8 /* Pods_Uploader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C0CC115AEA090F8F56FDEEE /* Pods_Uploader.framework */; };
@@ -38,9 +36,7 @@
 		3B90DDA01CD275C800BCD85A /* CSVImporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSVImporter.swift; sourceTree = "<group>"; };
 		3B90DDA21CD275E400BCD85A /* CloudLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudLink.swift; sourceTree = "<group>"; };
 		3B90DDA31CD275E400BCD85A /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
-		3B90DDA61CD2761C00BCD85A /* QuestionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
-		3B90DDA81CD2773200BCD85A /* PreferencesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesData.swift; sourceTree = "<group>"; };
-		3B90DDAA1CD2776100BCD85A /* StatisticsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsData.swift; sourceTree = "<group>"; };
+		3B90DDA61CD2761C00BCD85A /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		3B90DDAC1CD277DA00BCD85A /* Sample1.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample1.csv; sourceTree = "<group>"; };
 		3B90DDAD1CD277DA00BCD85A /* Sample2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample2.csv; sourceTree = "<group>"; };
 		9914020109095D3FF2CCA225 /* Pods-Uploader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uploader.release.xcconfig"; path = "Pods/Target Support Files/Pods-Uploader/Pods-Uploader.release.xcconfig"; sourceTree = "<group>"; };
@@ -93,11 +89,9 @@
 				3B90DDAC1CD277DA00BCD85A /* Sample1.csv */,
 				3B90DDAD1CD277DA00BCD85A /* Sample2.csv */,
 				3B0392051CE008D100970772 /* Sample3.csv */,
-				3B90DDA81CD2773200BCD85A /* PreferencesData.swift */,
 				3B90DDA01CD275C800BCD85A /* CSVImporter.swift */,
 				3B90DD8E1CD273B900BCD85A /* AppDelegate.swift */,
-				3B90DDAA1CD2776100BCD85A /* StatisticsData.swift */,
-				3B90DDA61CD2761C00BCD85A /* QuestionData.swift */,
+				3B90DDA61CD2761C00BCD85A /* Model.swift */,
 				3B90DDA21CD275E400BCD85A /* CloudLink.swift */,
 				3B90DDA31CD275E400BCD85A /* Util.swift */,
 				3B90DD901CD273B900BCD85A /* ViewController.swift */,
@@ -247,9 +241,7 @@
 				3B90DD911CD273B900BCD85A /* ViewController.swift in Sources */,
 				3B90DD8F1CD273B900BCD85A /* AppDelegate.swift in Sources */,
 				3B90DDA51CD275E400BCD85A /* Util.swift in Sources */,
-				3B90DDA91CD2773200BCD85A /* PreferencesData.swift in Sources */,
-				3B90DDAB1CD2776100BCD85A /* StatisticsData.swift in Sources */,
-				3B90DDA71CD2761C00BCD85A /* QuestionData.swift in Sources */,
+				3B90DDA71CD2761C00BCD85A /* Model.swift in Sources */,
 				3B41F2491CD7DDE700A70AD8 /* MainViewController.swift in Sources */,
 				3B90DDA11CD275C800BCD85A /* CSVImporter.swift in Sources */,
 				3B90DDA41CD275E400BCD85A /* CloudLink.swift in Sources */,

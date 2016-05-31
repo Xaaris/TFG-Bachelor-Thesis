@@ -87,17 +87,7 @@ struct Util {
                     realm.delete(answer)
                 }
             }
-        }
-        //delete tags without associated questions
-        let tags = realm.objects(Tag.self)
-        for tag in tags{
-            if tag.associatedQuestions.isEmpty {
-                try! realm.write {
-                    realm.delete(tag)
-                }
-            }
-        }
-        
+        }        
     }
     
     static func deleteAllTopics(){
