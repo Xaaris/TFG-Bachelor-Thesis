@@ -31,7 +31,7 @@ class QuestionContentViewController: PageViewContent{
     ///Updates the question text
     override func updateContent() {
         if let label = questionTextLabel{
-            label.text = currentQuestionDataSet[pageIndex].questionText
+            label.text = currentQuestionDataSet[pageIndex].questionText + currentQuestionDataSet[pageIndex].picURL
         }
     }
     

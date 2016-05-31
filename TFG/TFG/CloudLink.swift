@@ -202,6 +202,7 @@ struct CloudLink {
                                         localQuestion.questionText = question["questionText"] as! String
                                         localQuestion.hint = question["hint"] as! String
                                         localQuestion.feedback = question["feedback"] as! String
+                                        localQuestion.picURL = question["picURL"] as! String
                                         
                                         //Append associated answers
                                         if answerArr.count > 0{
