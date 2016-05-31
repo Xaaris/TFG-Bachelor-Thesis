@@ -1,8 +1,8 @@
-QuestionType;Question;Hint;Feedback;Difficulty;CorrectAnswers;Answer1;Answer2;Answer3;Answer4;Answer5;Tag1;Tag2;Tag3;Tag4;Tag5
-Info;Java Intro;Johannes Berger;25.02.16;Java;101;Programming;Test;Intro;;;;;;;
-SingleChoice;Java is a ____ language;It tries to model the real world;No, Java is object oriented;2;2;procedural;object oriented;functional;;;language;;;;
-SingleChoice;The first method of a Java program which gets called on startup is called:;;"It is called ""main""";2;2;start;main;begin;There is no such thing;;;;;;
-SingleChoice;The current version of Java is: ;We have come pretty far;Java 8 was released in 2014;3;3;2;4;8;XE;5;version;;;;
-SingleChoice;The first version of Java was released in:;;1996;3;4;1972;1998;2004;1996;2001;;;;;
-TrueFalse;"All data types have the base value ""Null""";Think of primitive types;The primitiv types can not be Null;2;2;True;False;;;;;;;;
-TrueFalse;A Java program runs directly on your operating system without the need for a virtual machine. This makes Java so efficient.;Ever heard of the JVM?;No, Java needs the JVM (Java Virtual Machine) to run on your system;2;2;Correct;Incorrect;;;;;;;;
+QuestionType;Question;Hint;Feedback;CorrectAnswers;Answer1;Answer2;Answer3;Answer4;Answer5
+Info;Java Intro;Johannes Berger;25.02.16;;;;;;
+SingleChoice;Java is a ____ language;It tries to model the real world;No, Java is object oriented;2;procedural;object oriented;functional;;
+SingleChoice;The first method of a Java program which gets called on startup is called:;;"It is called ""main""";2;start;main;begin;There is no such thing;
+SingleChoice;The current version of Java is: ;We have come pretty far;Java 8 was released in 2014;3;2;4;8;XE;5
+SingleChoice;The first version of Java was released in:;;1996;4;1972;1998;2004;1996;2001
+TrueFalse;"All data types have the base value ""Null""";Think of primitive types;The primitiv types can not be Null;2;True;False;;;
+TrueFalse;A Java program runs directly on your operating system without the need for a virtual machine. This makes Java so efficient.;Ever heard of the JVM?;No, Java needs the JVM (Java Virtual Machine) to run on your system;2;Correct;Incorrect;;;
