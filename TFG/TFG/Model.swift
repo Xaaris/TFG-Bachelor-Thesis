@@ -76,6 +76,7 @@ class Question: Object {
     dynamic var questionText = ""
     dynamic var hint = ""
     dynamic var feedback = ""
+    dynamic var picURL = ""
     dynamic var isLocked = false
     dynamic var revealAnswers = false
     dynamic var answerScore: Double {

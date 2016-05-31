@@ -196,7 +196,7 @@ class ImportAndSaveHelper {
     }
     
     private func buildQuestionFromRow(row: [String:String], topic: Topic) -> Question? {
-        if let type = row["QuestionType"], question = row["Question"], hint = row["Hint"], feedback = row["Feedback"], correctAnswers = row["CorrectAnswers"]?.componentsSeparatedByString(","){
+        if let type = row["QuestionType"], question = row["Question"], hint = row["Hint"], feedback = row["Feedback"], picURL = row["Pic-URL"], correctAnswers = row["CorrectAnswers"]?.componentsSeparatedByString(","){
             var tmpAnswerDic = [String:String]()
             var answers = [String: Bool]()
             //extracting answers
@@ -221,6 +221,7 @@ class ImportAndSaveHelper {
             tmpQuestion.questionText = question
             tmpQuestion.hint = hint
             tmpQuestion.feedback = feedback
+            tmpQuestion.picURL = picURL
             
             //Creating the answers
             for answer in answers {

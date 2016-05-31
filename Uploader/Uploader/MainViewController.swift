@@ -18,6 +18,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var questionsCounterLabel: UILabel!
     @IBOutlet weak var answersCounterLabel: UILabel!
     
+    @IBOutlet weak var uploadButton: UIButton!
+    
     var answersDeleted = false
     var questionsDeleted = false
     var topicsDeleted = false
@@ -31,10 +33,12 @@ class MainViewController: UIViewController {
         importer.loadAndSave("Sample1")
         importer.loadAndSave("Sample2")
         importer.loadAndSave("Sample3")
+        importer.loadAndSave("Sample4")
         dataLoadedLabel.hidden = false
     }
     
     @IBAction func startUpload(sender: AnyObject) {
+        uploadButton.enabled = false
         saveAllTopicsToCloud()
     }
     override func viewDidLoad() {
@@ -143,6 +147,7 @@ class MainViewController: UIViewController {
                                         cloudQuestion["questionText"] = question.questionText
                                         cloudQuestion["hint"] = question.hint
                                         cloudQuestion["feedback"] = question.feedback
+                                        cloudQuestion["picURL"] = question.picURL
                                         cloudQuestion.saveInBackgroundWithBlock({ (success, error) in
                                             if error == nil {
                                                 self.questionCounter += 1
