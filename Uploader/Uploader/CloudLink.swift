@@ -17,7 +17,6 @@ struct CloudLink {
         
         cloudStat["userID"] = PFUser.currentUser()?.objectId
         cloudStat["topic"] = stat.topic?.title
-        cloudStat["date"] = stat.date
         cloudStat["score"] = stat.score
         cloudStat["startTime"] = stat.startTime
         cloudStat["endTime"] = stat.endTime
@@ -37,7 +36,6 @@ struct CloudLink {
                             realm.beginWrite()
                             let localStat = Statistic()
                             localStat.topic = topic
-                            localStat.date = cloudStat["date"] as! NSDate
                             localStat.score = cloudStat["score"] as! Double
                             localStat.startTime = cloudStat["startTime"] as! NSDate
                             localStat.endTime = cloudStat["endTime"] as! NSDate

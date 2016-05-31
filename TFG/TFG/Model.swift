@@ -40,7 +40,7 @@ class Statistic: Object{
 
 /**
  Class which is used to store the topics locally in Realm.
- A topic has associated questions, answers, tags and statistics.
+ A topic has associated questions, answers and statistics.
  Some values are lazyly computed
  */
 class Topic: Object{
@@ -67,7 +67,7 @@ class Topic: Object{
 
 /**
  Class which is used to store the questions locally in Realm.
- A question has associated answers and tags.
+ A question has associated answers.
  Some values are lazyly computed
  */
 class Question: Object {
@@ -76,7 +76,6 @@ class Question: Object {
     dynamic var questionText = ""
     dynamic var hint = ""
     dynamic var feedback = ""
-    dynamic var difficulty = 0
     dynamic var isLocked = false
     dynamic var revealAnswers = false
     dynamic var answerScore: Double {
@@ -98,7 +97,6 @@ class Question: Object {
         }
     }
     let answers = LinkingObjects(fromType: Answer.self, property: "associatedQuestion")
-    let tags = List<Tag>()
     
     override class func primaryKey() -> String {
         return "questionText"
@@ -113,20 +111,6 @@ class Answer: Object {
     dynamic var isCorrect = false
     dynamic var isSelected = false
     dynamic var associatedQuestion: Question? // to-one relationships must be optional
-}
-
-/**
- Class which is used to store the tags locally in Realm.
- In the current implementation tags are not used.
- */
-class Tag: Object {
-    
-    dynamic var tagText = ""
-    let associatedQuestions = LinkingObjects(fromType: Question.self, property: "tags")
-    
-    override class func primaryKey() -> String {
-        return "tagText"
-    }
 }
 
 

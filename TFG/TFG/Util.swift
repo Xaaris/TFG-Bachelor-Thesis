@@ -247,15 +247,6 @@ struct Util {
                 }
             }
         }
-        //delete tags without associated questions
-        let tags = realm.objects(Tag.self)
-        for tag in tags{
-            if tag.associatedQuestions.isEmpty {
-                try! realm.write {
-                    realm.delete(tag)
-                }
-            }
-        }
         //delete Statistics without associated topic
         let stats = realm.objects(Statistic.self)
         for stat in stats{
