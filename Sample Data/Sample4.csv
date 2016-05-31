@@ -1,0 +1,4 @@
+QuestionType;Question;Hint;Feedback;CorrectAnswers;Answer1;Answer2;Answer3;Answer4;Answer5
+Info;Flags of the world;Johannes Berger;31.05.16;;;;;;
+MultipleChoice;Flags of the world;This is a hint;And this is feedback;1,3;This is the first answer. It is correct;This is the second answer. It is false;This answer is correct as well;This is false;
+SingleChoice;This is my second question;It is a single choise question;And this is feedback;2;This is the first answer. ;This is the second answer. It is true;This answer is false;This is false;

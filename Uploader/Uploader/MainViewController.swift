@@ -143,7 +143,6 @@ class MainViewController: UIViewController {
                                         cloudQuestion["questionText"] = question.questionText
                                         cloudQuestion["hint"] = question.hint
                                         cloudQuestion["feedback"] = question.feedback
-                                        cloudQuestion["difficulty"] = question.difficulty
                                         cloudQuestion.saveInBackgroundWithBlock({ (success, error) in
                                             if error == nil {
                                                 self.questionCounter += 1
