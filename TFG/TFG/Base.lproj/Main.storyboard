@@ -259,9 +259,9 @@
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x03-gP-YYW">
-                                <rect key="frame" x="180" y="50" width="240" height="128"/>
+                                <rect key="frame" x="150" y="50" width="300" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="NHr-sL-EFj"/>
+                                    <constraint firstAttribute="width" constant="300" id="NHr-sL-EFj"/>
                                     <constraint firstAttribute="height" constant="128" id="WO2-yl-y35"/>
                                 </constraints>
                             </imageView>

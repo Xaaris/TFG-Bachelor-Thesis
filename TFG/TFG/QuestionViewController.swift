@@ -69,7 +69,11 @@ class QuestionViewController: PageViewContent, UITableViewDelegate, UITableViewD
             
         //With picture
         }else{
-            imageHeight.constant = 128
+            if UIScreen.mainScreen().bounds.height > 700{
+                imageHeight.constant = 196
+            }else{
+                imageHeight.constant = 128
+            }
             textHeight.constant = label.requiredHeight()
             if let checkedUrl = NSURL(string: question.picURL) {
                 questionImage.contentMode = .ScaleAspectFit
