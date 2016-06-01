@@ -7,4 +7,8 @@ SingleChoice;Which country is this?;;It is Austria;http://hannes.izqui.org/flags
 SingleChoice;Which country is this?;;It is France;http://hannes.izqui.org/flags/fr.png;1;France;Honduras;Italy;Belgium;
 MultipleChoice;What are the colors of the German flag?;It's not yellow;Black, red and gold;;1,2,3;Black;Red;Gold;Yellow;
 MultipleChoice;What does the vietnamese flag prominently feature;It's yellow on a red background;It's a big yellow star;;3;A horse;A dragon;A star;Two dog heads;The sun
-SingleChoice;Which of these countries uses the colors blue and white on ist flag?;It has a border with Bulgaria;It's Greece;;2;Poland;Greece;Italy;Germany;Austria
+SingleChoice;Which of these countries uses the colors blue and white on its flag?;It has a border with Bulgaria;It's Greece;;2;Poland;Greece;Italy;Germany;Austria
+SingleChoice;Which country is this?;It's not a european country;It is Canada;http://hannes.izqui.org/flags/ca.png;1;Canada;Honduras;USA;Russia;
+SingleChoice;Which country is this?;It's a european country;It is Schwitzerland;http://hannes.izqui.org/flags/ch.png;4;Canada;England;Portugal;Switzerland;
+SingleChoice;Which color does the star have on the flag of Ghana;;It's pitch black;;3;Yellow;Green;Black;Red;Blue and red
+MultipleChoice;What symbols can be found on the flag of Turkey;;A crescent moon and a star;;1,2;A crescent moon;A star;A full moon;The sun;A cross

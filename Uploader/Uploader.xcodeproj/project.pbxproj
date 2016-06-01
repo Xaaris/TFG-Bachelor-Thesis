@@ -11,7 +11,7 @@
 		3B69947C1CFE03B9008EB6EA /* Sample3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B6994781CFE03B9008EB6EA /* Sample3.csv */; };
 		3B69947D1CFE03B9008EB6EA /* Sample1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B6994791CFE03B9008EB6EA /* Sample1.csv */; };
 		3B69947E1CFE03B9008EB6EA /* Sample2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B69947A1CFE03B9008EB6EA /* Sample2.csv */; };
-		3B6994841CFE6B35008EB6EA /* Sample4.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B6994831CFE6B35008EB6EA /* Sample4.csv */; };
+		3B6994861CFE7011008EB6EA /* Sample4.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B6994851CFE7011008EB6EA /* Sample4.csv */; };
 		3B90DD8F1CD273B900BCD85A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B90DD8E1CD273B900BCD85A /* AppDelegate.swift */; };
 		3B90DD911CD273B900BCD85A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B90DD901CD273B900BCD85A /* ViewController.swift */; };
 		3B90DD941CD273B900BCD85A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B90DD921CD273B900BCD85A /* Main.storyboard */; };
@@ -29,7 +29,7 @@
 		3B6994781CFE03B9008EB6EA /* Sample3.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample3.csv; sourceTree = "<group>"; };
 		3B6994791CFE03B9008EB6EA /* Sample1.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample1.csv; sourceTree = "<group>"; };
 		3B69947A1CFE03B9008EB6EA /* Sample2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample2.csv; sourceTree = "<group>"; };
-		3B6994831CFE6B35008EB6EA /* Sample4.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample4.csv; sourceTree = "<group>"; };
+		3B6994851CFE7011008EB6EA /* Sample4.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample4.csv; sourceTree = "<group>"; };
 		3B90DD8B1CD273B900BCD85A /* Uploader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uploader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B90DD8E1CD273B900BCD85A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B90DD901CD273B900BCD85A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 				3B6994791CFE03B9008EB6EA /* Sample1.csv */,
 				3B69947A1CFE03B9008EB6EA /* Sample2.csv */,
 				3B6994781CFE03B9008EB6EA /* Sample3.csv */,
-				3B6994831CFE6B35008EB6EA /* Sample4.csv */,
+				3B6994851CFE7011008EB6EA /* Sample4.csv */,
 				3B90DDA01CD275C800BCD85A /* CSVImporter.swift */,
 				3B90DD8E1CD273B900BCD85A /* AppDelegate.swift */,
 				3B90DDA61CD2761C00BCD85A /* Model.swift */,
@@ -182,7 +182,7 @@
 				3B69947D1CFE03B9008EB6EA /* Sample1.csv in Resources */,
 				3B90DD941CD273B900BCD85A /* Main.storyboard in Resources */,
 				3B69947C1CFE03B9008EB6EA /* Sample3.csv in Resources */,
-				3B6994841CFE6B35008EB6EA /* Sample4.csv in Resources */,
+				3B6994861CFE7011008EB6EA /* Sample4.csv in Resources */,
 				3B69947E1CFE03B9008EB6EA /* Sample2.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
