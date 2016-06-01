@@ -16,6 +16,11 @@ class QuestionViewController: PageViewContent, UITableViewDelegate, UITableViewD
     @IBOutlet weak var questionTextLabel: UILabel?
     @IBOutlet weak var lockButton: UIButton!
     @IBOutlet weak var answerTableView: UITableView!
+    @IBOutlet weak var questionImage: UIImageView!
+    
+    @IBOutlet weak var imageHeight: NSLayoutConstraint!
+    @IBOutlet weak var textHeight: NSLayoutConstraint!
+    
     
     var isMultiChoiceQuestion = false
     var question: Question!
@@ -38,12 +43,32 @@ class QuestionViewController: PageViewContent, UITableViewDelegate, UITableViewD
         answerTableView.delegate = self
         answerTableView.dataSource = self
         question = currentQuestionDataSet[pageIndex]
+        prepareView()
         if currentQuestionDataSet[pageIndex].type == "MultipleChoice"{
             isMultiChoiceQuestion = true
         }else{
             isMultiChoiceQuestion = false
         }
         updateContent()
+    }
+    
+    
+    func prepareView() {
+        //no picture
+        if question.picURL == ""{
+            imageHeight.constant = 0
+            textHeight.constant = 130
+            
+        //With picture
+        }else{
+            imageHeight.constant = 128
+            textHeight.constant = 50
+            if let checkedUrl = NSURL(string: question.picURL) {
+                questionImage.contentMode = .ScaleAspectFit
+                downloadImage(checkedUrl)
+            }
+        }
+        view.layoutIfNeeded()
     }
     
     ///Reloads data and shows or hides "hint" button depending on wether there is a hint
@@ -90,7 +115,7 @@ class QuestionViewController: PageViewContent, UITableViewDelegate, UITableViewD
     ///Updates the question text
     override func updateContent() {
         if let label = questionTextLabel{
-            label.text = currentQuestionDataSet[pageIndex].questionText + currentQuestionDataSet[pageIndex].picURL
+            label.text = currentQuestionDataSet[pageIndex].questionText
         }
     }
     
@@ -347,6 +372,25 @@ class QuestionViewController: PageViewContent, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func unwindToLogInScreen(segue:UIStoryboardSegue) {
+    }
+    
+    func getDataFromUrl(url:NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {
+        NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
+            completion(data: data, response: response, error: error)
+            }.resume()
+    }
+    
+    func downloadImage(url: NSURL){
+        print("Download Started")
+        print("lastPathComponent: " + (url.lastPathComponent ?? ""))
+        getDataFromUrl(url) { (data, response, error)  in
+            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                guard let data = data where error == nil else { return }
+                print(response?.suggestedFilename ?? "")
+                print("Download Finished")
+                self.questionImage.image = UIImage(data: data)
+            }
+        }
     }
     
     
