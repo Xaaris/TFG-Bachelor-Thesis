@@ -20,6 +20,7 @@ class QuestionViewController: PageViewContent, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var imageHeight: NSLayoutConstraint!
     @IBOutlet weak var textHeight: NSLayoutConstraint!
+    @IBOutlet weak var textWidth: NSLayoutConstraint!
     
     
     var isMultiChoiceQuestion = false
@@ -49,20 +50,27 @@ class QuestionViewController: PageViewContent, UITableViewDelegate, UITableViewD
         }else{
             isMultiChoiceQuestion = false
         }
-        updateContent()
     }
     
-    
     func prepareView() {
+        //Update question text
+        let label = questionTextLabel!
+        label.text = currentQuestionDataSet[pageIndex].questionText
+        textWidth.constant = UIScreen.mainScreen().bounds.width - 20
+        print(label.text)
+        print(label.frame.width)
+        print(UIScreen.mainScreen().bounds.width)
+        print(label.requiredHeight())
+        
         //no picture
         if question.picURL == ""{
             imageHeight.constant = 0
-            textHeight.constant = 130
+            textHeight.constant = label.requiredHeight()
             
         //With picture
         }else{
             imageHeight.constant = 128
-            textHeight.constant = 50
+            textHeight.constant = label.requiredHeight()
             if let checkedUrl = NSURL(string: question.picURL) {
                 questionImage.contentMode = .ScaleAspectFit
                 downloadImage(checkedUrl)
@@ -112,12 +120,6 @@ class QuestionViewController: PageViewContent, UITableViewDelegate, UITableViewD
         }
     }
     
-    ///Updates the question text
-    override func updateContent() {
-        if let label = questionTextLabel{
-            label.text = currentQuestionDataSet[pageIndex].questionText
-        }
-    }
     
     //MARK: TableView
     

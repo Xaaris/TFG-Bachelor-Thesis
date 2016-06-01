@@ -174,14 +174,8 @@ class PageViewContent: UIViewController{
     var currentQuestionDataSet:[Question] = []
     
     ///Current page number. Gets updated from pageviewcontroller
-    var pageIndex: Int = 0 {
-        didSet {
-            updateContent()
-        }
-    }
+    var pageIndex: Int = 0
     
-    ///Method stub for child classes
-    func updateContent(){}
     
     ///Loads current question data set
     override func viewDidLoad() {

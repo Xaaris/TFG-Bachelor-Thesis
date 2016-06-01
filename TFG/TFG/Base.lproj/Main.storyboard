@@ -149,10 +149,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p5K-tA-U4Z">
-                                <rect key="frame" x="20" y="183" width="560" height="130"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5K-tA-U4Z">
+                                <rect key="frame" x="150" y="183" width="300" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="1Rw-lu-rj7"/>
+                                    <constraint firstAttribute="width" constant="300" id="Eoz-S4-Dpv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -275,14 +276,9 @@
                             <constraint firstItem="tFn-65-nga" firstAttribute="leading" secondItem="02u-L1-dNQ" secondAttribute="leading" id="Kum-5J-Qzs">
                                 <variation key="heightClass=regular-widthClass=regular" constant="100"/>
                             </constraint>
-                            <constraint firstItem="p5K-tA-U4Z" firstAttribute="trailing" secondItem="02u-L1-dNQ" secondAttribute="trailingMargin" id="Mos-IN-J5x">
-                                <variation key="heightClass=regular-widthClass=regular" constant="-100"/>
-                            </constraint>
-                            <constraint firstItem="p5K-tA-U4Z" firstAttribute="leading" secondItem="02u-L1-dNQ" secondAttribute="leadingMargin" id="ThW-Zw-Dih">
-                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
-                            </constraint>
                             <constraint firstItem="x03-gP-YYW" firstAttribute="centerX" secondItem="02u-L1-dNQ" secondAttribute="centerX" id="WN9-cM-Ld0"/>
                             <constraint firstItem="0zo-GY-ari" firstAttribute="top" secondItem="p5K-tA-U4Z" secondAttribute="bottom" constant="8" id="bp9-xa-CRr"/>
+                            <constraint firstItem="p5K-tA-U4Z" firstAttribute="centerX" secondItem="02u-L1-dNQ" secondAttribute="centerX" id="ggH-UB-9RM"/>
                             <constraint firstItem="p5K-tA-U4Z" firstAttribute="top" secondItem="x03-gP-YYW" secondAttribute="bottom" constant="5" id="mla-AS-PGi"/>
                             <constraint firstItem="tFn-65-nga" firstAttribute="top" secondItem="0zo-GY-ari" secondAttribute="bottom" constant="22" id="rru-oy-x4i"/>
                             <constraint firstItem="0zo-GY-ari" firstAttribute="centerX" secondItem="02u-L1-dNQ" secondAttribute="centerX" id="t43-Qg-sm3"/>
@@ -298,6 +294,7 @@
                         <outlet property="questionImage" destination="x03-gP-YYW" id="nn7-8n-BfW"/>
                         <outlet property="questionTextLabel" destination="p5K-tA-U4Z" id="Bqx-UN-ldK"/>
                         <outlet property="textHeight" destination="1Rw-lu-rj7" id="Qeo-HZ-jnz"/>
+                        <outlet property="textWidth" destination="Eoz-S4-Dpv" id="Qxk-MW-8yI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xjo-ot-Z9c" userLabel="First Responder" sceneMemberID="firstResponder"/>
