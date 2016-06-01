@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B089CD51CFF7A70002ADC41 /* Sample4.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B089CD11CFF7A70002ADC41 /* Sample4.csv */; };
+		3B089CD61CFF7A70002ADC41 /* Sample3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B089CD21CFF7A70002ADC41 /* Sample3.csv */; };
+		3B089CD71CFF7A70002ADC41 /* Sample1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B089CD31CFF7A70002ADC41 /* Sample1.csv */; };
+		3B089CD81CFF7A70002ADC41 /* Sample2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B089CD41CFF7A70002ADC41 /* Sample2.csv */; };
 		3B41F2491CD7DDE700A70AD8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41F2481CD7DDE700A70AD8 /* MainViewController.swift */; };
-		3B69947C1CFE03B9008EB6EA /* Sample3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B6994781CFE03B9008EB6EA /* Sample3.csv */; };
-		3B69947D1CFE03B9008EB6EA /* Sample1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B6994791CFE03B9008EB6EA /* Sample1.csv */; };
-		3B69947E1CFE03B9008EB6EA /* Sample2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B69947A1CFE03B9008EB6EA /* Sample2.csv */; };
-		3B6994861CFE7011008EB6EA /* Sample4.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B6994851CFE7011008EB6EA /* Sample4.csv */; };
 		3B90DD8F1CD273B900BCD85A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B90DD8E1CD273B900BCD85A /* AppDelegate.swift */; };
 		3B90DD911CD273B900BCD85A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B90DD901CD273B900BCD85A /* ViewController.swift */; };
 		3B90DD941CD273B900BCD85A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B90DD921CD273B900BCD85A /* Main.storyboard */; };
@@ -25,11 +25,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B089CD11CFF7A70002ADC41 /* Sample4.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample4.csv; sourceTree = "<group>"; };
+		3B089CD21CFF7A70002ADC41 /* Sample3.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample3.csv; sourceTree = "<group>"; };
+		3B089CD31CFF7A70002ADC41 /* Sample1.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample1.csv; sourceTree = "<group>"; };
+		3B089CD41CFF7A70002ADC41 /* Sample2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample2.csv; sourceTree = "<group>"; };
 		3B41F2481CD7DDE700A70AD8 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		3B6994781CFE03B9008EB6EA /* Sample3.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample3.csv; sourceTree = "<group>"; };
-		3B6994791CFE03B9008EB6EA /* Sample1.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample1.csv; sourceTree = "<group>"; };
-		3B69947A1CFE03B9008EB6EA /* Sample2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample2.csv; sourceTree = "<group>"; };
-		3B6994851CFE7011008EB6EA /* Sample4.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample4.csv; sourceTree = "<group>"; };
 		3B90DD8B1CD273B900BCD85A /* Uploader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uploader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B90DD8E1CD273B900BCD85A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B90DD901CD273B900BCD85A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,10 +79,10 @@
 		3B90DD8D1CD273B900BCD85A /* Uploader */ = {
 			isa = PBXGroup;
 			children = (
-				3B6994791CFE03B9008EB6EA /* Sample1.csv */,
-				3B69947A1CFE03B9008EB6EA /* Sample2.csv */,
-				3B6994781CFE03B9008EB6EA /* Sample3.csv */,
-				3B6994851CFE7011008EB6EA /* Sample4.csv */,
+				3B089CD11CFF7A70002ADC41 /* Sample4.csv */,
+				3B089CD21CFF7A70002ADC41 /* Sample3.csv */,
+				3B089CD31CFF7A70002ADC41 /* Sample1.csv */,
+				3B089CD41CFF7A70002ADC41 /* Sample2.csv */,
 				3B90DDA01CD275C800BCD85A /* CSVImporter.swift */,
 				3B90DD8E1CD273B900BCD85A /* AppDelegate.swift */,
 				3B90DDA61CD2761C00BCD85A /* Model.swift */,
@@ -179,11 +179,11 @@
 			files = (
 				3B90DD991CD273B900BCD85A /* LaunchScreen.storyboard in Resources */,
 				3B90DD961CD273B900BCD85A /* Assets.xcassets in Resources */,
-				3B69947D1CFE03B9008EB6EA /* Sample1.csv in Resources */,
+				3B089CD71CFF7A70002ADC41 /* Sample1.csv in Resources */,
 				3B90DD941CD273B900BCD85A /* Main.storyboard in Resources */,
-				3B69947C1CFE03B9008EB6EA /* Sample3.csv in Resources */,
-				3B6994861CFE7011008EB6EA /* Sample4.csv in Resources */,
-				3B69947E1CFE03B9008EB6EA /* Sample2.csv in Resources */,
+				3B089CD51CFF7A70002ADC41 /* Sample4.csv in Resources */,
+				3B089CD61CFF7A70002ADC41 /* Sample3.csv in Resources */,
+				3B089CD81CFF7A70002ADC41 /* Sample2.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
