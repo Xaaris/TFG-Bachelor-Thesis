@@ -243,16 +243,9 @@ class ImportAndSaveHelper {
     }
     
     private func saveToRealm(question: Question){
-        //check if it already exists
-        if realm.objectForPrimaryKey(Question.self, key: question.questionText) == nil {
             realm.beginWrite()
             realm.add(question)
             try! realm.commitWrite()
-        }else{
-            //print("Question with questionText: \(question.questionText) already exists")
-        }
-        
-        
     }
     
     private func saveToRealm(topic: Topic){

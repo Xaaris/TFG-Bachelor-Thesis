@@ -98,10 +98,6 @@ class Question: Object {
         }
     }
     let answers = LinkingObjects(fromType: Answer.self, property: "associatedQuestion")
-    
-    override class func primaryKey() -> String {
-        return "questionText"
-    }
 }
 
 /**
