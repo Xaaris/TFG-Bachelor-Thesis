@@ -18,6 +18,7 @@ class QuestionViewController: PageViewContent, UITableViewDelegate, UITableViewD
     @IBOutlet weak var answerTableView: UITableView!
     @IBOutlet weak var questionImage: UIImageView!
     
+    @IBOutlet weak var imageLoadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var imageHeight: NSLayoutConstraint!
     @IBOutlet weak var textHeight: NSLayoutConstraint!
     @IBOutlet weak var textWidth: NSLayoutConstraint!
@@ -72,6 +73,7 @@ class QuestionViewController: PageViewContent, UITableViewDelegate, UITableViewD
             }
             textHeight.constant = label.requiredHeight()
             if let checkedUrl = NSURL(string: question.picURL) {
+                imageLoadingIndicator.startAnimating()
                 questionImage.contentMode = .ScaleAspectFit
                 downloadImage(checkedUrl)
             }
@@ -388,6 +390,7 @@ class QuestionViewController: PageViewContent, UITableViewDelegate, UITableViewD
             dispatch_async(dispatch_get_main_queue()) { () -> Void in
                 guard let data = data where error == nil else { return }
                 self.questionImage.image = UIImage(data: data)
+                self.imageLoadingIndicator.stopAnimating()
             }
         }
     }

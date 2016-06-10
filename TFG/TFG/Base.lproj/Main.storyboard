@@ -258,13 +258,16 @@
                                     <outlet property="delegate" destination="TUZ-ET-CIg" id="OGL-GX-4kS"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x03-gP-YYW">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty_image" translatesAutoresizingMaskIntoConstraints="NO" id="x03-gP-YYW">
                                 <rect key="frame" x="150" y="50" width="300" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="NHr-sL-EFj"/>
                                     <constraint firstAttribute="height" constant="128" id="WO2-yl-y35"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="9oR-rw-Frt">
+                                <rect key="frame" x="290" y="104" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -280,8 +283,10 @@
                             <constraint firstItem="0zo-GY-ari" firstAttribute="top" secondItem="p5K-tA-U4Z" secondAttribute="bottom" constant="8" id="bp9-xa-CRr"/>
                             <constraint firstItem="p5K-tA-U4Z" firstAttribute="centerX" secondItem="02u-L1-dNQ" secondAttribute="centerX" id="ggH-UB-9RM"/>
                             <constraint firstItem="p5K-tA-U4Z" firstAttribute="top" secondItem="x03-gP-YYW" secondAttribute="bottom" constant="5" id="mla-AS-PGi"/>
+                            <constraint firstItem="9oR-rw-Frt" firstAttribute="centerX" secondItem="x03-gP-YYW" secondAttribute="centerX" id="psU-x3-0K5"/>
                             <constraint firstItem="tFn-65-nga" firstAttribute="top" secondItem="0zo-GY-ari" secondAttribute="bottom" constant="22" id="rru-oy-x4i"/>
                             <constraint firstItem="0zo-GY-ari" firstAttribute="centerX" secondItem="02u-L1-dNQ" secondAttribute="centerX" id="t43-Qg-sm3"/>
+                            <constraint firstItem="9oR-rw-Frt" firstAttribute="centerY" secondItem="x03-gP-YYW" secondAttribute="centerY" id="uvh-Fs-eZp"/>
                         </constraints>
                     </view>
                     <keyCommands>
@@ -290,6 +295,7 @@
                     <connections>
                         <outlet property="answerTableView" destination="tFn-65-nga" id="3rt-NR-qZH"/>
                         <outlet property="imageHeight" destination="WO2-yl-y35" id="SvI-dE-Qee"/>
+                        <outlet property="imageLoadingIndicator" destination="9oR-rw-Frt" id="aIx-Sz-yGE"/>
                         <outlet property="lockButton" destination="0zo-GY-ari" id="2yo-SF-p1D"/>
                         <outlet property="questionImage" destination="x03-gP-YYW" id="nn7-8n-BfW"/>
                         <outlet property="questionTextLabel" destination="p5K-tA-U4Z" id="Bqx-UN-ldK"/>
@@ -1358,6 +1364,7 @@
         <image name="Logo_big" width="240" height="240"/>
         <image name="Preferences" width="25" height="25"/>
         <image name="Statistics" width="25" height="25"/>
+        <image name="empty_image" width="275" height="183"/>
     </resources>
     <color key="tintColor" red="0.054901960784313725" green="0.4392156862745098" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
 </document>
