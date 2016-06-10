@@ -13,6 +13,7 @@ import UIKit
  */
 class QuestionViewController: PageViewContent, UITableViewDelegate, UITableViewDataSource{
     
+    //UI elements
     @IBOutlet weak var questionTextLabel: UILabel?
     @IBOutlet weak var lockButton: UIButton!
     @IBOutlet weak var answerTableView: UITableView!
@@ -23,8 +24,9 @@ class QuestionViewController: PageViewContent, UITableViewDelegate, UITableViewD
     @IBOutlet weak var textHeight: NSLayoutConstraint!
     @IBOutlet weak var textWidth: NSLayoutConstraint!
     
-    
+    //current type of question
     var isMultiChoiceQuestion = false
+    //current question
     var question: Question!
     
     //Vars for single choice progress view
@@ -32,6 +34,7 @@ class QuestionViewController: PageViewContent, UITableViewDelegate, UITableViewD
     var lockProgress = 0.0
     var lastSelectedCell: AnswerCell?
     
+    //strings for the image names
     let multiChoiceStr = "AnswerChooserMultiChoice"
     let singleChoiceStr = "AnswerChooserSingelChoice"
     let selectedStr = "Selected"
@@ -40,6 +43,7 @@ class QuestionViewController: PageViewContent, UITableViewDelegate, UITableViewD
     let wrongStr = "Wrong"
     
     
+    ///initial start of view
     override func viewDidLoad() {
         super.viewDidLoad()
         answerTableView.delegate = self
@@ -53,6 +57,7 @@ class QuestionViewController: PageViewContent, UITableViewDelegate, UITableViewD
         }
     }
     
+    ///Prepares the view as in changing height of text label and image depending on the content. Also downloads the image if the question has one
     func prepareView() {
         //Update question text
         let label = questionTextLabel!
@@ -66,6 +71,7 @@ class QuestionViewController: PageViewContent, UITableViewDelegate, UITableViewD
             
         //With picture
         }else{
+            //set image size depending on device
             if UIScreen.mainScreen().bounds.height > 700{
                 imageHeight.constant = 196
             }else{
@@ -366,8 +372,8 @@ class QuestionViewController: PageViewContent, UITableViewDelegate, UITableViewD
     /**
      Shows an overlay alert with an "OK" button to dimiss it
      - parameters:
-     - title: Title of the alert
-     - message: body of the alert
+        - title: Title of the alert
+        - message: body of the alert
      */
     func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
@@ -375,15 +381,25 @@ class QuestionViewController: PageViewContent, UITableViewDelegate, UITableViewD
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
-    @IBAction func unwindToLogInScreen(segue:UIStoryboardSegue) {
-    }
     
+    //MARK: image download
+    /**
+     Opens a url session and starts the download process in a block
+     - parameters:
+        - url: url from which to download the content
+        - completion: response
+     */
     func getDataFromUrl(url:NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {
         NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
             completion(data: data, response: response, error: error)
             }.resume()
     }
     
+    /**
+     Downloads a picture asynchronisly and puts it in the image view. also stops the activity indicator
+     - parameters:
+        - url: url from which to download the image
+     */
     func downloadImage(url: NSURL){
         print("Downloading: " + (url.lastPathComponent ?? ""))
         getDataFromUrl(url) { (data, response, error)  in
