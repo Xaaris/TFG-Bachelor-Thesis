@@ -10,20 +10,22 @@ import UIKit
 
 ///Extensions to the UIViewController 
 extension UIViewController {
-    ///Extension that hides the keyboard when a user tapps somewhere outside the textfield
+    ///hides the keyboard when a user taps somewhere outside the text field
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     
-    ///Dismisses the kexboard
+    ///Dismisses the keyboard
     func dismissKeyboard() {
         view.endEditing(true)
     }
 }
 
+///Extensions to UILabel
 extension UILabel{
     
+    ///Calculates and returns the high of a given UILabel
     func requiredHeight() -> CGFloat{
         
         let label:UILabel = UILabel(frame: CGRectMake(0, 0, self.frame.width, CGFloat.max))
