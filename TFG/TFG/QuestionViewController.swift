@@ -384,27 +384,18 @@ class QuestionViewController: PageViewContent, UITableViewDelegate, UITableViewD
     
     //MARK: image download
     /**
-     Opens a url session and starts the download process in a block
-     - parameters:
-        - url: url from which to download the content
-        - completion: response
-     */
-    func getDataFromUrl(url:NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {
-        NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
-            completion(data: data, response: response, error: error)
-            }.resume()
-    }
-    
-    /**
      Downloads a picture asynchronisly and puts it in the image view. also stops the activity indicator
      - parameters:
         - url: url from which to download the image
      */
     func downloadImage(url: NSURL){
         print("Downloading: " + (url.lastPathComponent ?? ""))
-        getDataFromUrl(url) { (data, response, error)  in
+        CloudLink.getDataFromUrl(url) { (data, response, error)  in
             dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                guard let data = data where error == nil else { return }
+                guard let data = data where error == nil else {
+                    print("Error: Could not load the image")
+                    return
+                }
                 self.questionImage.image = UIImage(data: data)
                 self.imageLoadingIndicator.stopAnimating()
             }

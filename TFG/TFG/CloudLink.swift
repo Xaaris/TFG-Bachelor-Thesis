@@ -293,5 +293,17 @@ struct CloudLink {
         }
     }
     
+    /**
+     Opens a url session and starts the download process in a block
+     - parameters:
+        - url: url from which to download the content
+        - completion: response
+     */
+    static func getDataFromUrl(url:NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {
+        NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
+            completion(data: data, response: response, error: error)
+            }.resume()
+    }
+    
     
 }

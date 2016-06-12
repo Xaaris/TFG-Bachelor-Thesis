@@ -17,7 +17,8 @@ class QuizResultsViewController: UIViewController{
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var xOutOfxLabel: UILabel!
     
-    var screenwidth:CGFloat = 320
+    var screenWidth:CGFloat = 320
+    var contentWidth:CGFloat = 280
     var stackViewArray:[UIStackView] = [UIStackView]() //Array that encompasses all the stackviews
     var stackViewArrayHiddenStates:[Bool] = [Bool]() //Array that saves the states of the stackviews, wheter they are hidden or not
     
@@ -25,8 +26,14 @@ class QuizResultsViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //getting the screens width for later formatting
-        screenwidth = UIScreen.mainScreen().bounds.width
+        //getting the screens width
+        screenWidth = UIScreen.mainScreen().bounds.width
+        //foramt depending on device size
+        if screenWidth > 700{
+            contentWidth = screenWidth - 300
+        }else{
+            contentWidth = screenWidth - 40
+        }
         
         // setup scrollview
         let insets = UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0)
@@ -67,16 +74,29 @@ class QuizResultsViewController: UIViewController{
         let titleView = createQuestionTitleView(row)
         stack.addArrangedSubview(titleView)
         
+        //Add imageView
+        if question.picURL != "" {
+            let image = UIImageView()
+            image.contentMode = .ScaleAspectFit
+            if let checkedUrl = NSURL(string: question.picURL) {
+                downloadImage(checkedUrl, imageView: image)
+            }
+            
+            //Image Constraints
+            let widthConstraint = NSLayoutConstraint(item: image, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: contentWidth / 2)
+            let heightConstraint = NSLayoutConstraint(item: image, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: contentWidth / 2)
+            image.addConstraints([widthConstraint, heightConstraint])
+            
+            image.hidden = true
+            stack.addArrangedSubview(image)
+        }
+        
         //Add the question text
         let questionTextLabel = UILabel()
         questionTextLabel.adjustsFontSizeToFitWidth = true
         questionTextLabel.font = UIFont.boldSystemFontOfSize(17.0)
         //foramt depending on device size
-        if screenwidth > 700{
-            questionTextLabel.preferredMaxLayoutWidth = screenwidth - 300
-        }else{
-            questionTextLabel.preferredMaxLayoutWidth = screenwidth - 40
-        }
+        questionTextLabel.preferredMaxLayoutWidth = contentWidth
         questionTextLabel.hidden = true
         questionTextLabel.numberOfLines = 0
         questionTextLabel.text = question.questionText
@@ -124,11 +144,7 @@ class QuizResultsViewController: UIViewController{
         titleView.addSubview(questionNumberLabel)
         titleView.heightAnchor.constraintEqualToConstant(50).active = true
         //format depending on device size
-        if screenwidth > 700{
-            titleView.widthAnchor.constraintEqualToConstant(screenwidth - 300).active = true
-        }else{
-            titleView.widthAnchor.constraintEqualToConstant(screenwidth - 40).active = true
-        }
+        titleView.widthAnchor.constraintEqualToConstant(contentWidth).active = true
         if question.answerScore == 0{
             titleView.backgroundColor = Util.myLightRedColor
         }else if question.answerScore < 1{
@@ -204,8 +220,8 @@ class QuizResultsViewController: UIViewController{
         //Set the text for the answer
         let answerLabel = UILabel()
         //format depending on device size
-        if screenwidth > 700{
-            answerLabel.preferredMaxLayoutWidth = 500
+        if screenWidth > 700{
+            answerLabel.preferredMaxLayoutWidth = 380
         }else{
             answerLabel.preferredMaxLayoutWidth = 220
         }
@@ -288,6 +304,28 @@ class QuizResultsViewController: UIViewController{
             xOutOfxLabel.text = NSLocalizedString("You got a score of ", comment: "At the end of a quiz") + String(numberFormatter.stringFromNumber(score)!) + "%"
         }else{
             print("Error: no statistic found")
+        }
+    }
+    
+    
+    //MARK: image download
+    
+    /**
+     Downloads a picture asynchronisly and puts it in the image view. also stops the activity indicator
+     - parameters:
+        - url: url from which to download the image
+        - imageView: imageView to which to assign the downloaded image
+     */
+    func downloadImage(url: NSURL, imageView: UIImageView){
+        print("Downloading: " + (url.lastPathComponent ?? ""))
+        CloudLink.getDataFromUrl(url) { (data, response, error)  in
+            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                guard let data = data where error == nil else {
+                    print("Error: Could not load the image")
+                    return
+                }
+                imageView.image = UIImage(data: data)
+            }
         }
     }
     
