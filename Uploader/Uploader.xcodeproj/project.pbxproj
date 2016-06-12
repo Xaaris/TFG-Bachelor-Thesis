@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3B089CD51CFF7A70002ADC41 /* Sample4.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B089CD11CFF7A70002ADC41 /* Sample4.csv */; };
-		3B089CD61CFF7A70002ADC41 /* Sample3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B089CD21CFF7A70002ADC41 /* Sample3.csv */; };
 		3B089CD71CFF7A70002ADC41 /* Sample1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B089CD31CFF7A70002ADC41 /* Sample1.csv */; };
 		3B089CD81CFF7A70002ADC41 /* Sample2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B089CD41CFF7A70002ADC41 /* Sample2.csv */; };
 		3B41F2491CD7DDE700A70AD8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41F2481CD7DDE700A70AD8 /* MainViewController.swift */; };
@@ -21,12 +20,12 @@
 		3B90DDA41CD275E400BCD85A /* CloudLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B90DDA21CD275E400BCD85A /* CloudLink.swift */; };
 		3B90DDA51CD275E400BCD85A /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B90DDA31CD275E400BCD85A /* Util.swift */; };
 		3B90DDA71CD2761C00BCD85A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B90DDA61CD2761C00BCD85A /* Model.swift */; };
+		3BF7E0AF1D0DC207007FD67D /* Sample3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3BF7E0AE1D0DC207007FD67D /* Sample3.csv */; };
 		4F6CD98927038BF4B3B8E40D /* Pods_Uploader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8F9C637F3579A531282C054 /* Pods_Uploader.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3B089CD11CFF7A70002ADC41 /* Sample4.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample4.csv; sourceTree = "<group>"; };
-		3B089CD21CFF7A70002ADC41 /* Sample3.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample3.csv; sourceTree = "<group>"; };
 		3B089CD31CFF7A70002ADC41 /* Sample1.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample1.csv; sourceTree = "<group>"; };
 		3B089CD41CFF7A70002ADC41 /* Sample2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample2.csv; sourceTree = "<group>"; };
 		3B41F2481CD7DDE700A70AD8 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +40,7 @@
 		3B90DDA21CD275E400BCD85A /* CloudLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudLink.swift; sourceTree = "<group>"; };
 		3B90DDA31CD275E400BCD85A /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		3B90DDA61CD2761C00BCD85A /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		3BF7E0AE1D0DC207007FD67D /* Sample3.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample3.csv; sourceTree = "<group>"; };
 		C8F9C637F3579A531282C054 /* Pods_Uploader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Uploader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3818ACC16BC2E644FD07D8D /* Pods-Uploader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uploader.release.xcconfig"; path = "Pods/Target Support Files/Pods-Uploader/Pods-Uploader.release.xcconfig"; sourceTree = "<group>"; };
 		F17699453CDEE150518979DB /* Pods-Uploader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uploader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Uploader/Pods-Uploader.debug.xcconfig"; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				3B089CD11CFF7A70002ADC41 /* Sample4.csv */,
-				3B089CD21CFF7A70002ADC41 /* Sample3.csv */,
+				3BF7E0AE1D0DC207007FD67D /* Sample3.csv */,
 				3B089CD31CFF7A70002ADC41 /* Sample1.csv */,
 				3B089CD41CFF7A70002ADC41 /* Sample2.csv */,
 				3B90DDA01CD275C800BCD85A /* CSVImporter.swift */,
@@ -179,10 +179,10 @@
 			files = (
 				3B90DD991CD273B900BCD85A /* LaunchScreen.storyboard in Resources */,
 				3B90DD961CD273B900BCD85A /* Assets.xcassets in Resources */,
+				3BF7E0AF1D0DC207007FD67D /* Sample3.csv in Resources */,
 				3B089CD71CFF7A70002ADC41 /* Sample1.csv in Resources */,
 				3B90DD941CD273B900BCD85A /* Main.storyboard in Resources */,
 				3B089CD51CFF7A70002ADC41 /* Sample4.csv in Resources */,
-				3B089CD61CFF7A70002ADC41 /* Sample3.csv in Resources */,
 				3B089CD81CFF7A70002ADC41 /* Sample2.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
