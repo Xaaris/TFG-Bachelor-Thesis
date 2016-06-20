@@ -62,8 +62,12 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6GA-yP-0m5">
                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="200" id="A38-VX-BPU"/>
-                                                    <constraint firstAttribute="height" constant="35" id="Tmi-Cq-nGw"/>
+                                                    <constraint firstAttribute="width" constant="200" id="A38-VX-BPU">
+                                                        <variation key="widthClass=regular" constant="250"/>
+                                                    </constraint>
+                                                    <constraint firstAttribute="height" constant="35" id="Tmi-Cq-nGw">
+                                                        <variation key="widthClass=regular" constant="45"/>
+                                                    </constraint>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                 <state key="normal" title="Choose a topic" backgroundImage="ButtonBackgroundStroke"/>
