@@ -73,9 +73,6 @@
 /* Class = "UILabel"; text = "No topic selected"; ObjectID = "SBa-iO-J8A"; */
 "SBa-iO-J8A.text" = "Kein Thema ausgewählt";
 
-/* Class = "UILabel"; text = "Label"; ObjectID = "UOz-xL-sZI"; */
-"UOz-xL-sZI.text" = "Label";
-
 /* Class = "UIButton"; normalTitle = "Reset Password"; ObjectID = "VQT-Qv-wFu"; */
 "VQT-Qv-wFu.normalTitle" = "Passwort zurücksetzen";
 
@@ -106,9 +103,6 @@
 /* Class = "UILabel"; text = "Label"; ObjectID = "djF-di-2pe"; */
 "djF-di-2pe.text" = "Label";
 
-/* Class = "UIButton"; normalTitle = "Lock"; ObjectID = "dsB-sS-gOt"; */
-"dsB-sS-gOt.normalTitle" = "Sperren";
-
 /* Class = "UITabBarItem"; title = "Home"; ObjectID = "fu1-Il-8ok"; */
 "fu1-Il-8ok.title" = "Home";
 
@@ -120,9 +114,6 @@
 
 /* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "hE8-47-Q4d"; */
 "hE8-47-Q4d.normalTitle" = "Sign Up";
-
-/* Class = "UILabel"; text = "Error"; ObjectID = "iij-lN-I1k"; */
-"iij-lN-I1k.text" = "Fehler";
 
 /* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "mS7-rl-WWG"; */
 "mS7-rl-WWG.normalTitle" = "Sign Up";
@@ -144,6 +135,9 @@
 
 /* Class = "UILabel"; text = "Username"; ObjectID = "tWQ-u9-bGE"; */
 "tWQ-u9-bGE.text" = "Benutzername";
+
+/* Class = "UILabel"; text = "Delete all statistics"; ObjectID = "uNq-RT-Qlo"; */
+"uNq-RT-Qlo.text" = "Lösche alle Statistiken";
 
 /* Class = "UITextField"; placeholder = "Email"; ObjectID = "yJc-q9-oFG"; */
 "yJc-q9-oFG.placeholder" = "Email";

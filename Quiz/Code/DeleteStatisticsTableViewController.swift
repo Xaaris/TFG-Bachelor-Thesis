@@ -99,7 +99,10 @@ class DeleteStatisticsTableViewController: UITableViewController {
             }
         //Delete only of one topic
         }else{
-            message = NSLocalizedString("Are you sure you want to delete all statistics of \(topics[indexPath.row].title)? This cannot be undone!", comment: "")
+            let firstMessagePart = NSLocalizedString("Are you sure you want to delete all statistics of the following topic: ", comment: "First part of are you sure you want to delete the following topic followed by the topic name a ? and  a message that it can not be undone")
+            let topicName = topics[indexPath.row].title
+            let secondMessagePart = NSLocalizedString("? This cannot be undone!", comment: "Second part of are you sure you want to delete the following topic followed by the topic name a ? and  a message that it can not be undone")
+            message = firstMessagePart + topicName + secondMessagePart
             deleteAction = UIAlertAction(title: delete, style: .Destructive) { (action) in
                 Util.deleteStatisticsof(self.topics[indexPath.row])
             }

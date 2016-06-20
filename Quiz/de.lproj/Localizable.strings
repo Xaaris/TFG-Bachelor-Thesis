@@ -1,11 +1,14 @@
 /* For Score x out of x */
 " out of " = " von ";
 
+/* Second part of are you sure you want to delete the following topic followed by the topic name a ? and  a message that it can not be undone */
+"? This cannot be undone!" = "? Dies kann nicht rückgängig gemacht werden.";
+
 /* No comment provided by engineer. */
 "An email containing information on how to reset your password has been sent to: " = "Eine Email mit Anweisungen zum Zurücksetzen des Passwortes wurde an folgende Adresse gesendet: ";
 
-/* No comment provided by engineer. */
-"Are you sure you want to delete all statistics of (topics[indexPath.row].title)? This cannot be undone!" = "Bist du sicher das du alle Statistiken von (topics[indexPath.row].title) löschen möchtest? Dies kann nicht rückgängig gemacht werden";
+/* First part of are you sure you want to delete the following topic followed by the topic name a ? and  a message that it can not be undone */
+"Are you sure you want to delete all statistics of the following topic: " = "Bist du sicher das du alle Statistiken des folgenden Themas löschen möchtest: ";
 
 /* No comment provided by engineer. */
 "Are you sure you want to delete all statistics? This cannot be undone!" = "Bist du sicher das du alle Statistiken löschen möchtest? Dies kann nicht rückgängig gemacht werden";
@@ -18,6 +21,9 @@
 
 /* No comment provided by engineer. */
 "Date: " = "Datum: ";
+
+/* No comment provided by engineer. */
+"Date: No data" = "Datum: Keine Daten";
 
 /* No comment provided by engineer. */
 "Delete" = "Löschen";
@@ -97,6 +103,9 @@
 /* No comment provided by engineer. */
 "Score: " = "Score: ";
 
+/* No comment provided by engineer. */
+"Score: No data" = "Score: Keine Daten";
+
 /* Footer that gets displayed under the slider for the lock seconds */
 "Seconds before a question automatically locks" = "Sekunden bevor eine Frage automatisch gesperrt wird";
 
@@ -116,10 +125,13 @@
 "This is a single choice question. Please select one answer." = "Dieser Typ Frage erfordert genau eine Antwort.";
 
 /* Footer that gets displayed under the the section to delete individual topicstats */
-"This will delete all the statistics of a topic that are associated with your account" = "Dies löscht alle Statistiken eines Themas die mit deinem Account verknüpft sind";
+"This will delete all the statistics of a topic that are associated with your account" = "Dies löscht alle Statistiken eines Themas, die mit deinem Account verknüpft sind";
 
 /* No comment provided by engineer. */
 "Topic: " = "Thema: ";
+
+/* No comment provided by engineer. */
+"Topic: No topic selected" = "Thema: Kein Thema ausgewählt";
 
 /* No comment provided by engineer. */
 "Username must be greater than 4 characters" = "Der Benutzername muss mindestens 4 Zeichen lang sein";

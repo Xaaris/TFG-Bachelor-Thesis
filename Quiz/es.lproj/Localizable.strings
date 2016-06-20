@@ -1,11 +1,14 @@
 /* For Score x out of x */
 " out of " = " de ";
 
+/* Second part of are you sure you want to delete the following topic followed by the topic name a ? and  a message that it can not be undone */
+"? This cannot be undone!" = "? Esta operación no se puede revertir!";
+
 /* No comment provided by engineer. */
 "An email containing information on how to reset your password has been sent to: " = "Se ha enviado un correo electrónico con instrucciones sobre cómo reiniciar la contraseña a la siguiente dirección: ";
 
-/* No comment provided by engineer. */
-"Are you sure you want to delete all statistics of (topics[indexPath.row].title)? This cannot be undone!" = "¿Estás segur@ de que quieres borrar todas las estadísticas de (topics[indexPath.row].title)? Esta operación no se puede revertir!";
+/* First part of are you sure you want to delete the following topic followed by the topic name a ? and  a message that it can not be undone */
+"Are you sure you want to delete all statistics of the following topic: " = "¿Estás segur@ de que quieres borrar todas las estadísticas del seguiente tema: ";
 
 /* No comment provided by engineer. */
 "Are you sure you want to delete all statistics? This cannot be undone!" = "¿Estás segur@ de que quieres borrar todas las estadísticas? Esta operación no se puede revertir!";
@@ -18,6 +21,9 @@
 
 /* No comment provided by engineer. */
 "Date: " = "Fecha: ";
+
+/* No comment provided by engineer. */
+"Date: No data" = "Fecha: No datos";
 
 /* No comment provided by engineer. */
 "Delete" = "Borrar";
@@ -97,6 +103,9 @@
 /* No comment provided by engineer. */
 "Score: " = "Puntuación: ";
 
+/* No comment provided by engineer. */
+"Score: No data" = "Puntuación: No datos";
+
 /* Footer that gets displayed under the slider for the lock seconds */
 "Seconds before a question automatically locks" = "Segundos antes de que la pregunta se cierra";
 
@@ -120,6 +129,9 @@
 
 /* No comment provided by engineer. */
 "Topic: " = "Tema: ";
+
+/* No comment provided by engineer. */
+"Topic: No topic selected" = "Tema: No has elegido un tema";
 
 /* No comment provided by engineer. */
 "Username must be greater than 4 characters" = "El nombre de usuario debe tener 4 caracteres como mínimo";
