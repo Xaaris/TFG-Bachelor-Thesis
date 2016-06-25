@@ -1,144 +1,27 @@
 //
-//  CSVImporter.swift
-//  CSwiftV
+//  Importer.swift
+//  Uploader
 //
-//  Created by Daniel Haight on 30/08/2014.
-//  Copyright (c) 2014 ManyThings. All rights reserved.
-//
-//  Modified and extended by Johannes Berger
+//  Created by Johannes Berger on 24.06.16.
+//  Copyright © 2016 Johannes Berger. All rights reserved.
 //
 
 import Foundation
 
-//TODO: make these prettier and probably not extensions
-public extension String {
-    func splitOnNewLine () -> ([String]) {
-        return self.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
-    }
-}
-
-//MARK: Parser
-public class CSVImporter {
+class Importer {
     
-    public let columnCount: Int
-    public let headers: [String]
-    public let keyedRows: [[String: String]]?
-    public let rows: [[String]]
-    
-    public init(String string: String, headers: [String]?, separator: String) {
-        
-        let lines: [String] = includeQuotedStringInFields(Fields: string.splitOnNewLine().filter{(includeElement: String) -> Bool in
-            return !includeElement.isEmpty
-            }, quotedString: "\r\n")
-        
-        var parsedLines = lines.map{
-            (transform: String) -> [String] in
-            let commaSanitized = includeQuotedStringInFields(Fields: transform.componentsSeparatedByString(separator),quotedString: separator)
-                .map
-                {
-                    (input: String) -> String in
-                    return sanitizedStringMap(String: input)
-                }
-                .map
-                {
-                    (input: String) -> String in
-                    return input.stringByReplacingOccurrencesOfString("\"\"", withString: "\"", options: NSStringCompareOptions.LiteralSearch)
-            }
-            
-            return commaSanitized
+    func loadAndSave(filename: String, ext: String){
+        var optionalKeyedRows = [[String : String]]?()
+        switch ext {
+        case "csv":
+            optionalKeyedRows = loadDataFromFile(filename)
+        case "xml":
+            let xmlParser = XMLParser()
+            optionalKeyedRows = xmlParser.parseXML(filename)
+        default:
+            print("Error: unrecognized extension")
         }
-        
-        let tempHeaders: [String]
-        
-        if let unwrappedHeaders = headers {
-            tempHeaders = unwrappedHeaders
-        }
-        else {
-            tempHeaders = parsedLines[0]
-            parsedLines.removeAtIndex(0)
-        }
-        
-        self.rows = parsedLines
-        self.columnCount = tempHeaders.count
-        
-        let keysAndRows = self.rows.map { (field: [String]) -> [String: String] in
-            
-            var row = [String: String]()
-            
-            for (index, value) in field.enumerate() {
-                row[tempHeaders[index]] = value
-            }
-            
-            return row
-        }
-        
-        self.keyedRows = keysAndRows
-        self.headers = tempHeaders
-    }
-    
-    //TODO: Document that this assumes header string
-    public convenience init(String string: String) {
-        self.init(String: string, headers: nil, separator: ",")
-    }
-    
-    public convenience init(String string: String, separator: String) {
-        self.init(String: string, headers: nil, separator: separator)
-    }
-    
-    public convenience init(String string: String, headers: [String]?) {
-        self.init(String: string, headers: headers, separator: ",")
-    }
-    
-}
-
-//MARK: Helpers
-func includeQuotedStringInFields(Fields fields: [String], quotedString: String) -> [String] {
-    
-    var mergedField = ""
-    var newArray = [String]()
-    
-    for field in fields {
-        mergedField += field
-        if mergedField.componentsSeparatedByString("\"").count%2 != 1 {
-            mergedField += quotedString
-            continue
-        }
-        newArray.append(mergedField)
-        mergedField = ""
-    }
-    
-    return newArray
-}
-
-func sanitizedStringMap(String string: String) -> String {
-    
-    let startsWithQuote = string.hasPrefix("\"")
-    let endsWithQuote = string.hasSuffix("\"")
-    
-    if startsWithQuote && endsWithQuote {
-        let startIndex = string.startIndex.advancedBy(1)
-        let endIndex = string.endIndex.advancedBy(-1)
-        let range = startIndex ..< endIndex
-        let sanitizedField = string.substringWithRange(range)
-        
-        return sanitizedField
-    }
-    else {
-        return string
-    }
-    
-}
-
-
-
-
-
-
-
-class ImportAndSaveHelper {
-    
-    func loadAndSave(filename: String){
-        if let keyedRowsDic = loadDataFromFile(filename){
+        if let keyedRowsDic = optionalKeyedRows{
             if checkCSV(keyedRowsDic) {
                 parseDataForValuesAndSaveToRealm(keyedRowsDic)
             }else{
@@ -153,7 +36,7 @@ class ImportAndSaveHelper {
         let csvURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(fileName, ofType: "csv")!)
         do{
             let text = try String(contentsOfURL: csvURL)
-            let csvImporter = CSVImporter(String: text, separator: ";")
+            let csvImporter = CSVParser(String: text, separator: ";")
             if let keyedRows = csvImporter.keyedRows{
                 return keyedRows
             }
@@ -196,6 +79,7 @@ class ImportAndSaveHelper {
     }
     
     private func buildQuestionFromRow(row: [String:String], topic: Topic) -> Question? {
+        
         if let type = row["QuestionType"], question = row["Question"], hint = row["Hint"], feedback = row["Feedback"], picURL = row["Pic-URL"], correctAnswers = row["CorrectAnswers"]?.componentsSeparatedByString(","){
             var tmpAnswerDic = [String:String]()
             var answers = [String: Bool]()
@@ -243,9 +127,9 @@ class ImportAndSaveHelper {
     }
     
     private func saveToRealm(question: Question){
-            realm.beginWrite()
-            realm.add(question)
-            try! realm.commitWrite()
+        realm.beginWrite()
+        realm.add(question)
+        try! realm.commitWrite()
     }
     
     private func saveToRealm(topic: Topic){
@@ -260,10 +144,12 @@ class ImportAndSaveHelper {
     private func checkCSV(keyedRows: [[String:String]]) -> Bool {
         
         if !checkHeaderRow(keyedRows[0]){
+            print("Header is faulty")
             return false
         }
         for i in Range(1 ..< keyedRows.count){
             if !checkBodyRow(keyedRows[i]){
+                print("Body row \(i) is faulty")
                 return false
             }
         }
@@ -280,18 +166,19 @@ class ImportAndSaveHelper {
             print("Title missing")
             return false
         }
-        if headerRow["Hint"] == nil || headerRow["Hint"]!.isEmpty{
-            print("Author missing")
-            return false
-        }
-        if headerRow["Feedback"] == nil || headerRow["Feedback"]!.isEmpty{
-            print("Date missing")
-            return false
-        }
-        if headerRow["CorrectAnswers"] == nil || headerRow["Answer1"] == nil || headerRow["Answer2"] == nil{
-            print("Columns missing")
-            return false
-        }
+//        Not necessary
+//        if headerRow["Hint"] == nil || headerRow["Hint"]!.isEmpty{
+//            print("Author missing")
+//            return false
+//        }
+//        if headerRow["Feedback"] == nil || headerRow["Feedback"]!.isEmpty{
+//            print("Date missing")
+//            return false
+//        }
+//        if headerRow["CorrectAnswers"] == nil || headerRow["Answer1"] == nil || headerRow["Answer2"] == nil{
+//            print("Columns missing")
+//            return false
+//        }
         return true
     }
     

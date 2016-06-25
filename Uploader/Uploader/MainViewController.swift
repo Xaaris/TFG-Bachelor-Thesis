@@ -29,11 +29,12 @@ class MainViewController: UIViewController {
     var answerCounter = 0
     
     func extractCSVDataAndSaveToRealm() {
-        let importer = ImportAndSaveHelper()
-        importer.loadAndSave("Sample1")
-        importer.loadAndSave("Sample2")
-        importer.loadAndSave("Sample3")
-        importer.loadAndSave("Sample4")
+        let importer = Importer()
+//        importer.loadAndSave("Sample1", ext: "csv")
+        importer.loadAndSave("Sample2", ext: "csv")
+        importer.loadAndSave("Sample3", ext: "csv")
+        importer.loadAndSave("Sample4", ext: "csv")
+//        importer.loadAndSave("JavaIntro", ext: "xml")
         dataLoadedLabel.hidden = false
     }
     

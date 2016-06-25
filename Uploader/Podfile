@@ -7,4 +7,5 @@ target 'Uploader' do
 
 pod 'Parse', '~> 1.13'
 pod 'RealmSwift', '~> 0.99'
+pod 'SWXMLHash', '~> 2.3.0'
 end

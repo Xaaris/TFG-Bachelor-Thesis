@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+    
+    
+    
+    <!-- question: 0  -->
+    <question type="category">
+        <category>
+            <text>Java Intro</text>
+        </category>
+    </question>
+    
+    
+    
+    <!-- question: 85129  -->
+    <question type="multichoice">
+        <name><text>Java is a ____ language</text></name>
+        <questiontext format="html">
+            <text>Java is a ____ language</text>    </questiontext>
+        <generalfeedback format="html">
+            <text></text>    </generalfeedback>
+        <defaultgrade>1.0000000</defaultgrade>
+        <penalty>0.1000000</penalty>
+        <hidden>0</hidden>
+        <shuffleanswers>1</shuffleanswers>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <correctfeedback format="html">
+            <text></text>    </correctfeedback>
+        <partiallycorrectfeedback format="moodle_auto_format">
+            <text>1</text>    </partiallycorrectfeedback>
+        <incorrectfeedback format="html">
+            <text>No, Java is object oriented</text>    </incorrectfeedback>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="100">
+            <text>Object oriented</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0">
+            <text>Procedural</text>
+            <feedback format="html">
+                <text>
+                    
+                </text>
+            </feedback>
+        </answer>
+        <answer fraction="0">
+            <text>Functional</text>
+            <feedback format="html">
+                <text>
+                    
+                </text>
+            </feedback>
+        </answer>
+    </question>
+    
+    
+    
+    <!-- question: 68285  -->
+    <question type="multichoice">
+        <name><text>The first method of a Java program which gets called on startup is called:</text></name>
+        <questiontext format="html">
+            <text>The first method of a Java program which gets called on startup is called:</text>    </questiontext>
+        <generalfeedback format="html">
+            <text></text>    </generalfeedback>
+        <defaultgrade>1.0000000</defaultgrade>
+        <penalty>0.1000000</penalty>
+        <hidden>0</hidden>
+        <shuffleanswers>1</shuffleanswers>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <correctfeedback format="html">
+            <text></text>    </correctfeedback>
+        <partiallycorrectfeedback format="moodle_auto_format">
+            <text>1</text>    </partiallycorrectfeedback>
+        <incorrectfeedback format="html">
+            <text>It is called "main"</text>    </incorrectfeedback>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="100">
+            <text>main</text>
+            <feedback format="html">
+                <text>
+                    
+                </text>
+            </feedback>
+        </answer>
+        <answer fraction="0">
+            <text>start</text>
+            <feedback format="html">
+                <text>
+                    
+                </text>
+            </feedback>
+        </answer>
+        <answer fraction="0">
+            <text>begin</text>
+            <feedback format="html">
+                <text>
+                    
+                </text>
+            </feedback>
+        </answer>
+        <answer fraction="0">
+            <text>There is no such thing</text>
+            <feedback format="html">
+                <text>
+                    
+                </text>
+            </feedback>
+        </answer>
+    </question>
+    
+    
+    
+    <!-- question: 68290  -->
+    <question type="multichoice">
+        <name><text>The current version of Java is: </text></name>
+        <questiontext format="html">
+            <text>The current version of Java is: </text>    </questiontext>
+        <generalfeedback format="html">
+            <text></text>    </generalfeedback>
+        <defaultgrade>1.0000000</defaultgrade>
+        <penalty>0.1000000</penalty>
+        <hidden>0</hidden>
+        <shuffleanswers>1</shuffleanswers>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <correctfeedback format="html">
+            <text></text>    </correctfeedback>
+        <partiallycorrectfeedback format="moodle_auto_format">
+            <text>1</text>    </partiallycorrectfeedback>
+        <incorrectfeedback format="html">
+            <text>Java 8 was released in 2014</text>    </incorrectfeedback>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="100">
+            <text>8</text>
+            <feedback format="html">
+                <text>
+                    
+                </text>
+            </feedback>
+        </answer>
+        <answer fraction="0">
+            <text>2</text>
+            <feedback format="html">
+                <text>
+                    
+                </text>
+            </feedback>
+        </answer>
+        <answer fraction="0">
+            <text>4</text>
+            <feedback format="html">
+                <text>
+                    
+                </text>
+            </feedback>
+        </answer>
+        <answer fraction="0">
+            <text>XE</text>
+            <feedback format="html">
+                <text>
+                    
+                </text>
+            </feedback>
+        </answer>
+        <answer fraction="0">
+            <text>5</text>
+            <feedback format="html">
+                <text>
+                    
+                </text>
+            </feedback>
+        </answer>
+    </question>
+    
+    
+    
+    <!-- question: 68293  -->
+    <question type="multichoice">
+        <name><text>The first version of Java was released in:</text></name>
+        <questiontext format="html">
+            <text>The first version of Java was released in:</text>    </questiontext>
+        <generalfeedback format="html">
+            <text></text>    </generalfeedback>
+        <defaultgrade>1.0000000</defaultgrade>
+        <penalty>0.1000000</penalty>
+        <hidden>0</hidden>
+        <shuffleanswers>1</shuffleanswers>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <correctfeedback format="html">
+            <text></text>    </correctfeedback>
+        <partiallycorrectfeedback format="moodle_auto_format">
+            <text>1</text>    </partiallycorrectfeedback>
+        <incorrectfeedback format="html">
+            <text>1996</text>    </incorrectfeedback>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="100">
+            <text>1996</text>
+            <feedback format="html">
+                <text>
+                    
+                </text>
+            </feedback>
+        </answer>
+        <answer fraction="0">
+            <text>1972</text>
+            <feedback format="html">
+                <text>
+                    
+                </text>
+            </feedback>
+        </answer>
+        <answer fraction="0">
+            <text>1998</text>
+            <feedback format="html">
+                <text>
+                    
+                </text>
+            </feedback>
+        </answer>
+        <answer fraction="0">
+            <text>2004</text>
+            <feedback format="html">
+                <text>
+                    
+                </text>
+            </feedback>
+        </answer>
+        <answer fraction="0">
+            <text>2001</text>
+            <feedback format="html">
+                <text>
+                    
+                </text>
+            </feedback>
+        </answer>
+    </question>
+    
+    
+    
+    <!-- question: 68286  -->
+    <question type="multichoice">
+        <name><text>All data types have the base value "Null"</text></name>
+        <questiontext format="html">
+            <text>All data types have the base value "Null"</text>    </questiontext>
+        <generalfeedback format="html">
+            <text></text>    </generalfeedback>
+        <defaultgrade>1.0000000</defaultgrade>
+        <penalty>0.1000000</penalty>
+        <hidden>0</hidden>
+        <shuffleanswers>1</shuffleanswers>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <correctfeedback format="html">
+            <text></text>    </correctfeedback>
+        <partiallycorrectfeedback format="moodle_auto_format">
+            <text>1</text>    </partiallycorrectfeedback>
+        <incorrectfeedback format="html">
+            <text>The primitiv types can not be Null</text>    </incorrectfeedback>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="100">
+            <text>False</text>
+            <feedback format="html">
+                <text>
+                    
+                </text>
+            </feedback>
+        </answer>
+        <answer fraction="0">
+            <text>True</text>
+            <feedback format="html">
+                <text>
+                    
+                </text>
+            </feedback>
+        </answer>
+    </question>
+    
+    
+    
+    <!-- question: 68354  -->
+    <question type="multichoice">
+        <name><text>A Java program runs directly on your operating system without the need for a virtual machine. This makes Java so efficient.</text></name>
+        <questiontext format="html">
+            <text>A Java program runs directly on your operating system without the need for a virtual machine. This makes Java so efficient.</text>    </questiontext>
+        <generalfeedback format="html">
+            <text></text>    </generalfeedback>
+        <defaultgrade>1.0000000</defaultgrade>
+        <penalty>0.1000000</penalty>
+        <hidden>0</hidden>
+        <shuffleanswers>1</shuffleanswers>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <correctfeedback format="html">
+            <text></text>    </correctfeedback>
+        <partiallycorrectfeedback format="moodle_auto_format">
+            <text>1</text>    </partiallycorrectfeedback>
+        <incorrectfeedback format="html">
+            <text>No, Java needs the JVM (Java Virtual Machine) to run on your system</text>    </incorrectfeedback>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="100">
+            <text>Incorrect</text>
+            <feedback format="html">
+                <text>
+                    
+                </text>
+            </feedback>
+        </answer>
+        <answer fraction="0">
+            <text>Correct</text>
+            <feedback format="html">
+                <text>
+                    
+                </text>
+            </feedback>
+        </answer>
+    </question>
+    
+    
+    
+</quiz>
