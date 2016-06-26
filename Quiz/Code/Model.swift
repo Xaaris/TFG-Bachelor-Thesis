@@ -119,6 +119,7 @@ class Preference: Object{
     dynamic var feedback = false
     dynamic var showLockButton = false
     dynamic var lockSeconds = 2
+    dynamic var firstStart = true
 }
 
 /**

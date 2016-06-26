@@ -17,18 +17,21 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Main View")
+
     }
     
     override func viewDidAppear(animated: Bool) {
+        
+        // initialize Preferences
+        if realm.objects(Preference.self).isEmpty{
+            createDefaultPreferences()
+        }
         //Show Login view
         if (PFUser.currentUser() == nil) {
             let loginVC = self.storyboard?.instantiateViewControllerWithIdentifier("Login")
             self.presentViewController(loginVC!, animated: true, completion: nil)
         }
-        // initialize Preferences
-        if realm.objects(Preference.self).isEmpty{
-            createDefaultPreferences()
-        }
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -69,6 +72,7 @@ class MainViewController: UIViewController {
         let pref = Preference()
         pref.feedback = false
         pref.lockSeconds = 2
+        pref.firstStart = true
         realm.add(pref)
         try! realm.commitWrite()
     }
