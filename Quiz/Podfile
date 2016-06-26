@@ -8,5 +8,6 @@ target 'Quiz' do
 pod 'Parse'
 pod 'RealmSwift'
 pod 'Charts'
+pod 'Onboard'
 
 end

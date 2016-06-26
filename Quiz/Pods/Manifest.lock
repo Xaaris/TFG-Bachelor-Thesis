@@ -3,26 +3,29 @@ PODS:
   - Charts (2.2.5):
     - Charts/Core (= 2.2.5)
   - Charts/Core (2.2.5)
+  - Onboard (2.2.0)
   - Parse (1.13.0):
     - Bolts/Tasks (~> 1.6)
-  - Realm (1.0.0):
-    - Realm/Headers (= 1.0.0)
-  - Realm/Headers (1.0.0)
-  - RealmSwift (1.0.0):
-    - Realm (= 1.0.0)
+  - Realm (1.0.1):
+    - Realm/Headers (= 1.0.1)
+  - Realm/Headers (1.0.1)
+  - RealmSwift (1.0.1):
+    - Realm (= 1.0.1)
 
 DEPENDENCIES:
   - Charts
+  - Onboard
   - Parse
   - RealmSwift
 
 SPEC CHECKSUMS:
   Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
   Charts: b48fcc8d7190de910ff9e9748f5360c8ea7856e5
+  Onboard: c46261255c0bcbe26ab2823782764c96fca7a33e
   Parse: f51c24d2feb412e4b2d6cc73d37cb24e8d0089bc
-  Realm: e15cd8e7c11d3e576f628ba0b7cb855269b4991c
-  RealmSwift: 3229306d020d96f83b335f87a0dcbf2cef0e6a2b
+  Realm: 2e15e39d35b08abb529e212ed5d8af107b5236c8
+  RealmSwift: d73ea2af08c3676dbdd5e4b669651a0f492162a4
 
-PODFILE CHECKSUM: 6a8440b9452401019a279b6f8932e8bb78779ab6
+PODFILE CHECKSUM: f4eb7e72f8332faa0f3791ea3ee0e67697f5769d
 
 COCOAPODS: 1.0.1
