@@ -3,6 +3,7 @@ PODS:
   - Charts (2.2.5):
     - Charts/Core (= 2.2.5)
   - Charts/Core (2.2.5)
+  - Fingertips (0.4.0)
   - Onboard (2.2.0)
   - Parse (1.13.0):
     - Bolts/Tasks (~> 1.6)
@@ -14,6 +15,7 @@ PODS:
 
 DEPENDENCIES:
   - Charts
+  - Fingertips
   - Onboard
   - Parse
   - RealmSwift
@@ -21,11 +23,12 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
   Charts: b48fcc8d7190de910ff9e9748f5360c8ea7856e5
+  Fingertips: 09678a650eecad2c1733dfdd5cb4004600ce2899
   Onboard: c46261255c0bcbe26ab2823782764c96fca7a33e
   Parse: f51c24d2feb412e4b2d6cc73d37cb24e8d0089bc
   Realm: 2e15e39d35b08abb529e212ed5d8af107b5236c8
   RealmSwift: d73ea2af08c3676dbdd5e4b669651a0f492162a4
 
-PODFILE CHECKSUM: f4eb7e72f8332faa0f3791ea3ee0e67697f5769d
+PODFILE CHECKSUM: c9ed1c2808a6a131d257fd1553fcbceb2cd93601
 
 COCOAPODS: 1.0.1
