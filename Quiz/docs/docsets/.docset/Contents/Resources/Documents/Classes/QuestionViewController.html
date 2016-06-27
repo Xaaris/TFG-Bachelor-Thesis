@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>QuestionViewController Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/QuestionViewController" class="dashAnchor"></a>
+    <a title="QuestionViewController Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (50% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        QuestionViewController Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Answer.html">Answer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AnswerCell.html">AnswerCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ChooseTopicViewController.html">ChooseTopicViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CircleProgressView.html">CircleProgressView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DeleteStatisticsTableViewController.html">DeleteStatisticsTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ForgotPasswordViewController.html">ForgotPasswordViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LoginViewController.html">LoginViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MainViewController.html">MainViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MyColor.html">MyColor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PageViewContent.html">PageViewContent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Preference.html">Preference</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PreferencesTableViewController.html">PreferencesTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PresentQuestionPageViewController.html">PresentQuestionPageViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Question.html">Question</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/QuestionViewController.html">QuestionViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/QuizFinishedViewController.html">QuizFinishedViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/QuizResultsViewController.html">QuizResultsViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Reach.html">Reach</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SignUpViewController.html">SignUpViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Statistic.html">Statistic</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StatisticsViewController.html">StatisticsViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Topic.html">Topic</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v4Quiz37ReachabilityStatusChangedNotificationSS">ReachabilityStatusChangedNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v4Quiz5realmERR">realm</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/ReachabilityStatus.html">ReachabilityStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ReachabilityType.html">ReachabilityType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/UILabel.html">UILabel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIViewController.html">UIViewController</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/CloudLink.html">CloudLink</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Util.html">Util</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>QuestionViewController</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">QuestionViewController</span><span class="p">:</span> <span class="kt"><a href="../Classes/PageViewContent.html">PageViewContent</a></span><span class="p">,</span> <span class="kt">UITableViewDelegate</span><span class="p">,</span> <span class="kt">UITableViewDataSource</span></code></pre>
+
+                </div>
+              </div>
+            <p>Parent class for the question cards</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC4Quiz22QuestionViewController17questionTextLabelXwGSqCSo7UILabel_"></a>
+                    <a name="//apple_ref/swift/Property/questionTextLabel" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC4Quiz22QuestionViewController17questionTextLabelXwGSqCSo7UILabel_">questionTextLabel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">QuestionViewController</span><span class="p">:</span> <span class="kt"><a href="../Classes/PageViewContent.html">PageViewContent</a></span><span class="p">,</span> <span class="kt">UITableViewDelegate</span><span class="p">,</span> <span class="kt">UITableViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC4Quiz22QuestionViewController10lockButtonXwGSQCSo8UIButton_"></a>
+                    <a name="//apple_ref/swift/Property/lockButton" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC4Quiz22QuestionViewController10lockButtonXwGSQCSo8UIButton_">lockButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">QuestionViewController</span><span class="p">:</span> <span class="kt"><a href="../Classes/PageViewContent.html">PageViewContent</a></span><span class="p">,</span> <span class="kt">UITableViewDelegate</span><span class="p">,</span> <span class="kt">UITableViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC4Quiz22QuestionViewController15answerTableViewXwGSQCSo11UITableView_"></a>
+                    <a name="//apple_ref/swift/Property/answerTableView" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC4Quiz22QuestionViewController15answerTableViewXwGSQCSo11UITableView_">answerTableView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">QuestionViewController</span><span class="p">:</span> <span class="kt"><a href="../Classes/PageViewContent.html">PageViewContent</a></span><span class="p">,</span> <span class="kt">UITableViewDelegate</span><span class="p">,</span> <span class="kt">UITableViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC4Quiz22QuestionViewController13questionImageXwGSQCSo11UIImageView_"></a>
+                    <a name="//apple_ref/swift/Property/questionImage" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC4Quiz22QuestionViewController13questionImageXwGSQCSo11UIImageView_">questionImage</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">QuestionViewController</span><span class="p">:</span> <span class="kt"><a href="../Classes/PageViewContent.html">PageViewContent</a></span><span class="p">,</span> <span class="kt">UITableViewDelegate</span><span class="p">,</span> <span class="kt">UITableViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC4Quiz22QuestionViewController21imageLoadingIndicatorXwGSQCSo23UIActivityIndicatorView_"></a>
+                    <a name="//apple_ref/swift/Property/imageLoadingIndicator" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC4Quiz22QuestionViewController21imageLoadingIndicatorXwGSQCSo23UIActivityIndicatorView_">imageLoadingIndicator</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">QuestionViewController</span><span class="p">:</span> <span class="kt"><a href="../Classes/PageViewContent.html">PageViewContent</a></span><span class="p">,</span> <span class="kt">UITableViewDelegate</span><span class="p">,</span> <span class="kt">UITableViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC4Quiz22QuestionViewController11imageHeightXwGSQCSo18NSLayoutConstraint_"></a>
+                    <a name="//apple_ref/swift/Property/imageHeight" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC4Quiz22QuestionViewController11imageHeightXwGSQCSo18NSLayoutConstraint_">imageHeight</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">QuestionViewController</span><span class="p">:</span> <span class="kt"><a href="../Classes/PageViewContent.html">PageViewContent</a></span><span class="p">,</span> <span class="kt">UITableViewDelegate</span><span class="p">,</span> <span class="kt">UITableViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC4Quiz22QuestionViewController10textHeightXwGSQCSo18NSLayoutConstraint_"></a>
+                    <a name="//apple_ref/swift/Property/textHeight" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC4Quiz22QuestionViewController10textHeightXwGSQCSo18NSLayoutConstraint_">textHeight</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">QuestionViewController</span><span class="p">:</span> <span class="kt"><a href="../Classes/PageViewContent.html">PageViewContent</a></span><span class="p">,</span> <span class="kt">UITableViewDelegate</span><span class="p">,</span> <span class="kt">UITableViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC4Quiz22QuestionViewController9textWidthXwGSQCSo18NSLayoutConstraint_"></a>
+                    <a name="//apple_ref/swift/Property/textWidth" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC4Quiz22QuestionViewController9textWidthXwGSQCSo18NSLayoutConstraint_">textWidth</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">QuestionViewController</span><span class="p">:</span> <span class="kt"><a href="../Classes/PageViewContent.html">PageViewContent</a></span><span class="p">,</span> <span class="kt">UITableViewDelegate</span><span class="p">,</span> <span class="kt">UITableViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC4Quiz22QuestionViewController21isMultiChoiceQuestionSb"></a>
+                    <a name="//apple_ref/swift/Property/isMultiChoiceQuestion" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC4Quiz22QuestionViewController21isMultiChoiceQuestionSb">isMultiChoiceQuestion</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">QuestionViewController</span><span class="p">:</span> <span class="kt"><a href="../Classes/PageViewContent.html">PageViewContent</a></span><span class="p">,</span> <span class="kt">UITableViewDelegate</span><span class="p">,</span> <span class="kt">UITableViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC4Quiz22QuestionViewController8questionGSQCS_8Question_"></a>
+                    <a name="//apple_ref/swift/Property/question" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC4Quiz22QuestionViewController8questionGSQCS_8Question_">question</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">QuestionViewController</span><span class="p">:</span> <span class="kt"><a href="../Classes/PageViewContent.html">PageViewContent</a></span><span class="p">,</span> <span class="kt">UITableViewDelegate</span><span class="p">,</span> <span class="kt">UITableViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC4Quiz22QuestionViewController5timerCSo7NSTimer"></a>
+                    <a name="//apple_ref/swift/Property/timer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC4Quiz22QuestionViewController5timerCSo7NSTimer">timer</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">QuestionViewController</span><span class="p">:</span> <span class="kt"><a href="../Classes/PageViewContent.html">PageViewContent</a></span><span class="p">,</span> <span class="kt">UITableViewDelegate</span><span class="p">,</span> <span class="kt">UITableViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC4Quiz22QuestionViewController12lockProgressSd"></a>
+                    <a name="//apple_ref/swift/Property/lockProgress" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC4Quiz22QuestionViewController12lockProgressSd">lockProgress</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">QuestionViewController</span><span class="p">:</span> <span class="kt"><a href="../Classes/PageViewContent.html">PageViewContent</a></span><span class="p">,</span> <span class="kt">UITableViewDelegate</span><span class="p">,</span> <span class="kt">UITableViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC4Quiz22QuestionViewController16lastSelectedCellGSqCS_10AnswerCell_"></a>
+                    <a name="//apple_ref/swift/Property/lastSelectedCell" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC4Quiz22QuestionViewController16lastSelectedCellGSqCS_10AnswerCell_">lastSelectedCell</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">QuestionViewController</span><span class="p">:</span> <span class="kt"><a href="../Classes/PageViewContent.html">PageViewContent</a></span><span class="p">,</span> <span class="kt">UITableViewDelegate</span><span class="p">,</span> <span class="kt">UITableViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC4Quiz22QuestionViewController14multiChoiceStrSS"></a>
+                    <a name="//apple_ref/swift/Property/multiChoiceStr" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC4Quiz22QuestionViewController14multiChoiceStrSS">multiChoiceStr</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">QuestionViewController</span><span class="p">:</span> <span class="kt"><a href="../Classes/PageViewContent.html">PageViewContent</a></span><span class="p">,</span> <span class="kt">UITableViewDelegate</span><span class="p">,</span> <span class="kt">UITableViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC4Quiz22QuestionViewController15singleChoiceStrSS"></a>
+                    <a name="//apple_ref/swift/Property/singleChoiceStr" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC4Quiz22QuestionViewController15singleChoiceStrSS">singleChoiceStr</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">QuestionViewController</span><span class="p">:</span> <span class="kt"><a href="../Classes/PageViewContent.html">PageViewContent</a></span><span class="p">,</span> <span class="kt">UITableViewDelegate</span><span class="p">,</span> <span class="kt">UITableViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC4Quiz22QuestionViewController11selectedStrSS"></a>
+                    <a name="//apple_ref/swift/Property/selectedStr" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC4Quiz22QuestionViewController11selectedStrSS">selectedStr</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">QuestionViewController</span><span class="p">:</span> <span class="kt"><a href="../Classes/PageViewContent.html">PageViewContent</a></span><span class="p">,</span> <span class="kt">UITableViewDelegate</span><span class="p">,</span> <span class="kt">UITableViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC4Quiz22QuestionViewController9lockedStrSS"></a>
+                    <a name="//apple_ref/swift/Property/lockedStr" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC4Quiz22QuestionViewController9lockedStrSS">lockedStr</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">QuestionViewController</span><span class="p">:</span> <span class="kt"><a href="../Classes/PageViewContent.html">PageViewContent</a></span><span class="p">,</span> <span class="kt">UITableViewDelegate</span><span class="p">,</span> <span class="kt">UITableViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC4Quiz22QuestionViewController10correctStrSS"></a>
+                    <a name="//apple_ref/swift/Property/correctStr" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC4Quiz22QuestionViewController10correctStrSS">correctStr</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">QuestionViewController</span><span class="p">:</span> <span class="kt"><a href="../Classes/PageViewContent.html">PageViewContent</a></span><span class="p">,</span> <span class="kt">UITableViewDelegate</span><span class="p">,</span> <span class="kt">UITableViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC4Quiz22QuestionViewController8wrongStrSS"></a>
+                    <a name="//apple_ref/swift/Property/wrongStr" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC4Quiz22QuestionViewController8wrongStrSS">wrongStr</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">QuestionViewController</span><span class="p">:</span> <span class="kt"><a href="../Classes/PageViewContent.html">PageViewContent</a></span><span class="p">,</span> <span class="kt">UITableViewDelegate</span><span class="p">,</span> <span class="kt">UITableViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC4Quiz22QuestionViewController11viewDidLoadFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/viewDidLoad()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC4Quiz22QuestionViewController11viewDidLoadFT_T_">viewDidLoad()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>initial start of view</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC4Quiz22QuestionViewController11prepareViewFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/prepareView()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC4Quiz22QuestionViewController11prepareViewFT_T_">prepareView()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Prepares the view as in changing height of text label and image depending on the content. Also downloads the image if the question has one</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">prepareView</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC4Quiz22QuestionViewController14viewWillAppearFSbT_"></a>
+                    <a name="//apple_ref/swift/Method/viewWillAppear(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC4Quiz22QuestionViewController14viewWillAppearFSbT_">viewWillAppear(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Reloads data and shows or hides <q>hint</q> button depending on wether there is a hint</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillAppear</span><span class="p">(</span><span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC4Quiz22QuestionViewController16viewDidDisappearFSbT_"></a>
+                    <a name="//apple_ref/swift/Method/viewDidDisappear(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC4Quiz22QuestionViewController16viewDidDisappearFSbT_">viewDidDisappear(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Locks the question if a user swipes further</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidDisappear</span><span class="p">(</span><span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC4Quiz22QuestionViewController18updateLockedButtonFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/updateLockedButton()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC4Quiz22QuestionViewController18updateLockedButtonFT_T_">updateLockedButton()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enables/Disables/shows or hide the lock button depending on the context</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">updateLockedButton</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/TableView"></a>
+                <a name="//apple_ref/swift/Section/TableView" class="dashAnchor"></a>
+                <a href="#/TableView">
+                  <h3 class="section-name">TableView</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC4Quiz22QuestionViewController9tableViewFTCSo11UITableView21numberOfRowsInSectionSi_Si"></a>
+                    <a name="//apple_ref/swift/Method/tableView(_:numberOfRowsInSection:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC4Quiz22QuestionViewController9tableViewFTCSo11UITableView21numberOfRowsInSectionSi_Si">tableView(_:numberOfRowsInSection:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the number of answers for the tableView</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="n">numberOfRowsInSection</span> <span class="nv">section</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC4Quiz22QuestionViewController9tableViewFTCSo11UITableView21cellForRowAtIndexPathCSo11NSIndexPath_CSo15UITableViewCell"></a>
+                    <a name="//apple_ref/swift/Method/tableView(_:cellForRowAtIndexPath:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC4Quiz22QuestionViewController9tableViewFTCSo11UITableView21cellForRowAtIndexPathCSo11NSIndexPath_CSo15UITableViewCell">tableView(_:cellForRowAtIndexPath:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Specifies which which cell content gets shown depending on the status of the question:
+locked? revealt? answerd? correct/false?
+chooses image, text and text color to display
+- returns: a new cell</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="n">cellForRowAtIndexPath</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">NSIndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UITableViewCell</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new cell</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC4Quiz22QuestionViewController21buildSingleChoiceCellFCSo11NSIndexPathCSo15UITableViewCell"></a>
+                    <a name="//apple_ref/swift/Method/buildSingleChoiceCell(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC4Quiz22QuestionViewController21buildSingleChoiceCellFCSo11NSIndexPathCSo15UITableViewCell">buildSingleChoiceCell(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">QuestionViewController</span><span class="p">:</span> <span class="kt"><a href="../Classes/PageViewContent.html">PageViewContent</a></span><span class="p">,</span> <span class="kt">UITableViewDelegate</span><span class="p">,</span> <span class="kt">UITableViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC4Quiz22QuestionViewController20buildMultiChoiceCellFCSo11NSIndexPathCSo15UITableViewCell"></a>
+                    <a name="//apple_ref/swift/Method/buildMultiChoiceCell(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC4Quiz22QuestionViewController20buildMultiChoiceCellFCSo11NSIndexPathCSo15UITableViewCell">buildMultiChoiceCell(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">QuestionViewController</span><span class="p">:</span> <span class="kt"><a href="../Classes/PageViewContent.html">PageViewContent</a></span><span class="p">,</span> <span class="kt">UITableViewDelegate</span><span class="p">,</span> <span class="kt">UITableViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC4Quiz22QuestionViewController9tableViewFTCSo11UITableView23didSelectRowAtIndexPathCSo11NSIndexPath_T_"></a>
+                    <a name="//apple_ref/swift/Method/tableView(_:didSelectRowAtIndexPath:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC4Quiz22QuestionViewController9tableViewFTCSo11UITableView23didSelectRowAtIndexPathCSo11NSIndexPath_T_">tableView(_:didSelectRowAtIndexPath:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Logic for what happens when a cell gets tapped</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="n">didSelectRowAtIndexPath</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">NSIndexPath</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC4Quiz22QuestionViewController10startTimerFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/startTimer()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC4Quiz22QuestionViewController10startTimerFT_T_">startTimer()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Timer to lock a question</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">startTimer</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC4Quiz22QuestionViewController9stopTimerFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/stopTimer()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC4Quiz22QuestionViewController9stopTimerFT_T_">stopTimer()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Stops timer and resets lock progress</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">stopTimer</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC4Quiz22QuestionViewController18updateLockProgressFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/updateLockProgress()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC4Quiz22QuestionViewController18updateLockProgressFT_T_">updateLockProgress()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Increases the counter until the question should lock. Will call lockQuestion when counter reaches 1</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">updateLockProgress</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC4Quiz22QuestionViewController17lockButtonPressedFPs9AnyObject_T_"></a>
+                    <a name="//apple_ref/swift/Method/lockButtonPressed(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC4Quiz22QuestionViewController17lockButtonPressedFPs9AnyObject_T_">lockButtonPressed(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Locks question and saves it to realm</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">lockButtonPressed</span><span class="p">(</span><span class="nv">sender</span><span class="p">:</span> <span class="kt">AnyObject</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC4Quiz22QuestionViewController12lockQuestionFSbT_"></a>
+                    <a name="//apple_ref/swift/Method/lockQuestion(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC4Quiz22QuestionViewController12lockQuestionFSbT_">lockQuestion(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Locks a question so it can&rsquo;t be manipulated any further.
+- parameter withFeedback: boolean that defines if feedback should be shown</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">lockQuestion</span><span class="p">(</span><span class="nv">withFeedback</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>withFeedback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>boolean that defines if feedback should be shown</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Alerts"></a>
+                <a name="//apple_ref/swift/Section/Alerts" class="dashAnchor"></a>
+                <a href="#/Alerts">
+                  <h3 class="section-name">Alerts</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC4Quiz22QuestionViewController8showHintFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/showHint()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC4Quiz22QuestionViewController8showHintFT_T_">showHint()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Shows a hint as an alert</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">showHint</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC4Quiz22QuestionViewController12showFeedbackFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/showFeedback()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC4Quiz22QuestionViewController12showFeedbackFT_T_">showFeedback()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Shows feedback as an alert.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">showFeedback</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC4Quiz22QuestionViewController9showAlertFTSS7messageSS_T_"></a>
+                    <a name="//apple_ref/swift/Method/showAlert(_:message:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC4Quiz22QuestionViewController9showAlertFTSS7messageSS_T_">showAlert(_:message:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Shows an overlay alert with an <q>OK</q> button to dimiss it
+- parameters:
+   - title: Title of the alert
+   - message: body of the alert</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">showAlert</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>title</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Title of the alert</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>message</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>body of the alert</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/image%20download"></a>
+                <a name="//apple_ref/swift/Section/image download" class="dashAnchor"></a>
+                <a href="#/image%20download">
+                  <h3 class="section-name">image download</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC4Quiz22QuestionViewController13downloadImageFCSo5NSURLT_"></a>
+                    <a name="//apple_ref/swift/Method/downloadImage(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC4Quiz22QuestionViewController13downloadImageFCSo5NSURLT_">downloadImage(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Downloads a picture asynchronisly and puts it in the image view. also stops the activity indicator
+- parameters:
+   - url: url from which to download the image</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">downloadImage</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">NSURL</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>url</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>url from which to download the image</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-06-27)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
