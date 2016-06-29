@@ -148,7 +148,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func setupOnboarding() -> OnboardingViewController {
         
         // Create tutorial pages
-        let firstPage = OnboardingContentViewController(title: NSLocalizedString("Wellcome", comment: "wellcomming message at onboarding title"), body: NSLocalizedString("This short tutorial will guide you through the most important aspects of this app. Swipe left to continue", comment: "wellcomming message at onboarding"), image: UIImage(named: "Logo_tranparent"), buttonText: nil) {}
+        let firstPage = OnboardingContentViewController(title: NSLocalizedString("Welcome", comment: "welcomming message at onboarding title"), body: NSLocalizedString("This short tutorial will guide you through the most important aspects of this app. Swipe left to continue", comment: "welcomming message at onboarding"), image: UIImage(named: "Logo_tranparent"), buttonText: nil) {}
         
         let secondPage = OnboardingContentViewController(title: nil, body: NSLocalizedString("Choose a topic and start to learn", comment: "Tutorial page two text"), image: UIImage(named: "HomeScreen"), buttonText: nil) {}
         
