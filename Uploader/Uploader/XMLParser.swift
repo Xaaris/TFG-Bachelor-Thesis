@@ -9,10 +9,14 @@
 import Foundation
 import SWXMLHash
 
-
+///Class that parses moodle xml documents (limited functionality)
 class XMLParser {
     
-    
+    /**
+     Parses an xml document and returns an array of dictionaries if no error occurs, else nil
+        - parameter filename: String which specifies the file name
+        - returns: array of dictionaries, keyed rows
+     */
     func parseXML(filename: String) -> [[String:String]]? {
         
         let xmlURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(filename, ofType: "xml")!)
@@ -47,6 +51,12 @@ class XMLParser {
         return nil
     }
     
+    /**
+     Builds the header row for a topic from a category question. Since many attributes
+     are not supported by moodle xml most fields are left empty.
+     - parameter elem: XMLIndexer, one question or more specifically the category question
+     - returns: dictionary, header or Info row
+     */
     func buildHeaderRow(elem: XMLIndexer) -> [String:String] {
         var row = [String:String]()
         row["QuestionType"] = "Info"
@@ -60,6 +70,11 @@ class XMLParser {
         return row
     }
     
+    /**
+     Builds a multiple choice question
+     - parameter elem: XMLIndexer, one question from the xml doc
+     - returns: dictionary containing the data of the question
+     */
     func buildMultiChoiceQuestion(elem: XMLIndexer) -> [String:String] {
         var row = [String:String]()
         row["QuestionType"] = "MultipleChoice"
@@ -91,9 +106,5 @@ class XMLParser {
         }
         return row
     }
-    
-    
-    
-    
     
 }

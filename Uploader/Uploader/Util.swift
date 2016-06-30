@@ -12,13 +12,17 @@ import Parse
 
 struct Util {
     
+    //Predefined colors
     static let myGreenColor: UIColor = UIColor(red: 33/255, green: 127/255, blue: 0/255, alpha: 1)
     static let myRedColor: UIColor = UIColor(red: 127/255, green: 0/255, blue: 0/255, alpha: 1)
     static let myLightRedColor: UIColor = UIColor(red: 127/255, green: 0/255, blue: 0/255, alpha: 0.6)
     static let myLightYellowColor: UIColor = UIColor(red: 255/255, green: 236/255, blue: 28/255, alpha: 0.6)
     static let myLightGreenColor: UIColor = UIColor(red: 33/255, green: 127/255, blue: 0/255, alpha: 0.6)
     
-    
+    /**
+     Returns currently selected topic or nil if none is selected
+     - returns: the selected topic or nil
+     */
     static func getCurrentTopic() -> Topic? {
         let topics = realm.objects(Topic.self)
         for topic in topics{
@@ -29,6 +33,11 @@ struct Util {
         return nil
     }
     
+    /**
+     Returns the topic with the specified name or nil if no topic exists with taht name
+     - parameter title: title of the topic to be found
+     - returns: the topic or nil
+     */
     static func getTopicWithTitle(title: String) -> Topic? {
         let topics = realm.objects(Topic.self)
         for topic in topics{
@@ -39,12 +48,11 @@ struct Util {
         return nil
     }
     
-    
-
-
-    
-
-    
+    /**
+     Returns a new MyColor which is not yet assigned to a topic.
+     It chooses from a pool of predefined, not yet assigned colors before it generates random new ones
+     - returns: a new color
+     */
     static func getUnassignedColor() -> MyColor{
         let colors = realm.objects(MyColor)
         for color in colors {
@@ -63,9 +71,10 @@ struct Util {
         return newColor
     }
     
-
-    
-    
+    /**
+     Delets the the specified topic and all its questions and answers locally
+     - parameter topic: the topic which should be deleted
+     */
     static func deleteTopic(topic: Topic){
         try! realm.write {
             realm.delete(topic)
@@ -90,6 +99,7 @@ struct Util {
         }        
     }
     
+    ///Delets all topics locally
     static func deleteAllTopics(){
         let topics = realm.objects(Topic.self)
         for topic in topics{

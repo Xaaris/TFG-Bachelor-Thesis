@@ -8,13 +8,21 @@
 
 import Foundation
 
+///Class that can import and check CSV and XML documents
 class Importer {
     
+    /**
+     Starts the loading process of a CSV or XML file
+     - parameters:
+        - filename: String of the file name
+        - ext: String represetation of the file extension
+     - returns: array of dictionaries (optional)
+     */
     func loadAndSave(filename: String, ext: String){
         var optionalKeyedRows = [[String : String]]?()
         switch ext {
         case "csv":
-            optionalKeyedRows = loadDataFromFile(filename)
+            optionalKeyedRows = loadDataFromCSVFile(filename)
         case "xml":
             let xmlParser = XMLParser()
             optionalKeyedRows = xmlParser.parseXML(filename)
@@ -22,7 +30,7 @@ class Importer {
             print("Error: unrecognized extension")
         }
         if let keyedRowsDic = optionalKeyedRows{
-            if checkCSV(keyedRowsDic) {
+            if check(keyedRowsDic) {
                 parseDataForValuesAndSaveToRealm(keyedRowsDic)
             }else{
                 print("CSV check failed")
@@ -32,7 +40,13 @@ class Importer {
         }
     }
     
-    private func loadDataFromFile(fileName: String) -> [[String : String]]? {
+    /**
+     Starts the loading process of a CSV file
+     - parameters:
+        - filename: String of the file name
+     - returns: array of dictionaries (optional)
+     */
+    private func loadDataFromCSVFile(fileName: String) -> [[String : String]]? {
         let csvURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(fileName, ofType: "csv")!)
         do{
             let text = try String(contentsOfURL: csvURL)
@@ -46,6 +60,11 @@ class Importer {
         return nil
     }
     
+    /**
+     takes array of dictionaries and saves the topic to Realm
+     - parameters:
+        - keyedRowsDic: array of dictionaries containing a topic
+     */
     private func parseDataForValuesAndSaveToRealm(keyedRowsDic: [[String:String]]) {
         var topic = Topic()
         var counter = 1
@@ -69,6 +88,12 @@ class Importer {
         saveToRealm(topic)
     }
     
+    /**
+     Parses keyed row and builds a topic
+     - parameters:
+        - row: dictionary, header row
+     - returns: a topic
+     */
     private func getTopic(row: [String:String]) -> Topic{
         let topic = Topic()
         topic.title = row["Question"]!.isEmpty ? "No title" : row["Question"]!
@@ -78,6 +103,13 @@ class Importer {
         return topic
     }
     
+    /**
+     Parses keyed row and builds a question
+     - parameters:
+        - row: dictionary, question row
+        - topic: topic to which to associate the question
+     - returns: a question or nil in case of failure
+     */
     private func buildQuestionFromRow(row: [String:String], topic: Topic) -> Question? {
         
         if let type = row["QuestionType"], question = row["Question"], hint = row["Hint"], feedback = row["Feedback"], picURL = row["Pic-URL"], correctAnswers = row["CorrectAnswers"]?.componentsSeparatedByString(","){
@@ -126,12 +158,22 @@ class Importer {
         return nil
     }
     
+    /**
+     saves a question to Realm
+     - parameters:
+        - question: question to save
+     */
     private func saveToRealm(question: Question){
         realm.beginWrite()
         realm.add(question)
         try! realm.commitWrite()
     }
     
+    /**
+     saves a topic to Realm if it not already exists
+     - parameters:
+     - topic: topic to save
+     */
     private func saveToRealm(topic: Topic){
         //Save topic to realm
         realm.beginWrite()
@@ -141,7 +183,13 @@ class Importer {
         try! realm.commitWrite()
     }
     
-    private func checkCSV(keyedRows: [[String:String]]) -> Bool {
+    /**
+     Checks an array of dictionaries if they are in the correct format and no data is missing
+     - parameters:
+        - keyedRows: array of dictionaries containing a topic
+     - returns: Boolean if check succeded
+     */
+    private func check(keyedRows: [[String:String]]) -> Bool {
         
         if !checkHeaderRow(keyedRows[0]){
             print("Header is faulty")
@@ -156,6 +204,12 @@ class Importer {
         return true
     }
     
+    /**
+     Checks the header row if it is in the correct format and no data is missing
+     - parameters:
+        - headerRow: dictionary containing a topic
+     - returns: Boolean if check succeded
+     */
     private func checkHeaderRow(headerRow: [String:String]) -> Bool {
         //Check if keys exist
         if headerRow["QuestionType"] != "Info"{
@@ -182,6 +236,12 @@ class Importer {
         return true
     }
     
+    /**
+     Checks a body or questions row if it is in the correct format and no data is missing
+     - parameters:
+        - bodyRow: dictionary containing a question
+     - returns: Boolean if check succeded
+     */
     private func checkBodyRow(bodyRow: [String:String]) -> Bool {
         let questionTypes: Set = ["SingleChoice", "TrueFalse", "MultipleChoice"]
         if !bodyRow["QuestionType"]!.isEmpty {

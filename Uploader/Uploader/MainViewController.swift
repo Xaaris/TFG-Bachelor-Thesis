@@ -11,59 +11,65 @@ import Parse
 
 class MainViewController: UIViewController {
     
+    //Labels to show the loading and deletion process
     @IBOutlet weak var dataLoadedLabel: UILabel!
     @IBOutlet weak var dataDeletedLabel: UILabel!
     
-    
+    //Counter labels
     @IBOutlet weak var topicsCounterLabel: UILabel!
     @IBOutlet weak var questionsCounterLabel: UILabel!
     @IBOutlet weak var answersCounterLabel: UILabel!
     
+    //Upload button
     @IBOutlet weak var uploadButton: UIButton!
     
+    //Completion flags
     var answersDeleted = false
     var questionsDeleted = false
     var topicsDeleted = false
     
+    //Counters for number of topics, questions and answers
     var topicCounter = 0
     var questionCounter = 0
     var answerCounter = 0
     
+    // Files that should be uploaded to the cloud. Every file needs to be put in a tuple 
+    // here in the format ("filename","file extension")
+    let topicsToLoad = [("Sample2","csv"),("Sample3","csv"),("Sample4","csv")]
+//    let topicsToLoad = [("JavaIntro","xml")] //load xml file
     
     
-    
-    func extractCSVDataAndSaveToRealm() {
-        let importer = Importer()
-        //        importer.loadAndSave("Sample1", ext: "csv")
-        importer.loadAndSave("Sample2", ext: "csv")
-        importer.loadAndSave("Sample3", ext: "csv")
-        importer.loadAndSave("Sample4", ext: "csv")
-        //        importer.loadAndSave("JavaIntro", ext: "xml")
-        dataLoadedLabel.enabled = true
-        uploadButton.enabled = true
-    }
-    
-    
-    
-    
-    
-    @IBAction func startUpload(sender: AnyObject) {
-        uploadButton.enabled = false
-        saveAllTopicsToCloud()
-    }
-    
+    ///Starts deletion and data loading process when app starts
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         deleteAllTopics()
         extractCSVDataAndSaveToRealm()
     }
     
+    /// Loods all the above specified files into Realm
+    func extractCSVDataAndSaveToRealm() {
+        let importer = Importer()
+        for file in topicsToLoad{
+            importer.loadAndSave(file.0, ext: file.1)
+        }
+        dataLoadedLabel.enabled = true
+        uploadButton.enabled = true
+    }
+    
+    ///Starts The upload process, invoked by the user
+    @IBAction func startUpload(sender: AnyObject) {
+        uploadButton.enabled = false
+        saveAllTopicsToCloud()
+    }
+    
+    ///Deletes all old data both locally and in the cloud
     func deleteAllTopics(){
         //delete locally
         Util.deleteAllTopics()
         var deletedTopicsCounter = 0
         var deletedQuestionsCounter = 0
         var deletedAnswersCounter = 0
+        //Delete answers in the cloud
         let answerQuery = PFQuery(className: "Answer")
         answerQuery.limit = 1000
         answerQuery.findObjectsInBackgroundWithBlock { (objects, error) in
@@ -81,6 +87,7 @@ class MainViewController: UIViewController {
                 }
             }
         }
+        //Delete questions in the cloud
         let questionQuery = PFQuery(className: "Question")
         questionQuery.limit = 1000
         questionQuery.findObjectsInBackgroundWithBlock { (objects, error) in
@@ -98,6 +105,7 @@ class MainViewController: UIViewController {
                 }
             }
         }
+        //Delete topics in the cloud
         let topicQuery = PFQuery(className: "Topic")
         topicQuery.findObjectsInBackgroundWithBlock { (objects, error) in
             if error == nil {
@@ -118,7 +126,7 @@ class MainViewController: UIViewController {
     }
     
     
-    
+    ///Uploads all topics from Realm to the cloud
     func saveAllTopicsToCloud(){
         let topics = realm.objects(Topic.self)
         let numberOfTopics = topics.count

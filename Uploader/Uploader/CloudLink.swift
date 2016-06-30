@@ -9,8 +9,13 @@
 import UIKit
 import Parse
 
+///Functions to facilitate the up and downloading of data from and to the Parse server
 struct CloudLink {
     
+    /**
+     Takes a local statistic and saves it asynchronisly to the server
+     - parameters stat: statistic to save
+     */
     static func syncStatisticToCloud(stat: Statistic){
         
         let cloudStat = PFObject(className: "Statistic")
@@ -25,6 +30,10 @@ struct CloudLink {
         print("Saving Statistic to cloud")
     }
     
+    /**
+     Downloads all (max 100) statistics with the current user ID from the server
+     and saves them locally in Realm
+     */
     static func syncStatisticsToRealm(){
         let query = PFQuery(className: "Statistic")
         query.whereKey("userID", equalTo: (PFUser.currentUser()?.objectId)!)
