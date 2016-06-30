@@ -13,7 +13,6 @@
 		3B41F2491CD7DDE700A70AD8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B41F2481CD7DDE700A70AD8 /* MainViewController.swift */; };
 		3B6A27A51D1D86C200C57FCF /* JavaIntro.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3B6A27A41D1D86C200C57FCF /* JavaIntro.xml */; };
 		3B90DD8F1CD273B900BCD85A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B90DD8E1CD273B900BCD85A /* AppDelegate.swift */; };
-		3B90DD911CD273B900BCD85A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B90DD901CD273B900BCD85A /* ViewController.swift */; };
 		3B90DD941CD273B900BCD85A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B90DD921CD273B900BCD85A /* Main.storyboard */; };
 		3B90DD961CD273B900BCD85A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B90DD951CD273B900BCD85A /* Assets.xcassets */; };
 		3B90DD991CD273B900BCD85A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B90DD971CD273B900BCD85A /* LaunchScreen.storyboard */; };
@@ -35,7 +34,6 @@
 		3B6A27A41D1D86C200C57FCF /* JavaIntro.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = JavaIntro.xml; sourceTree = "<group>"; };
 		3B90DD8B1CD273B900BCD85A /* Uploader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uploader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B90DD8E1CD273B900BCD85A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3B90DD901CD273B900BCD85A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3B90DD931CD273B900BCD85A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3B90DD951CD273B900BCD85A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B90DD981CD273B900BCD85A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -85,26 +83,49 @@
 		3B90DD8D1CD273B900BCD85A /* Uploader */ = {
 			isa = PBXGroup;
 			children = (
-				3B089CD11CFF7A70002ADC41 /* Sample4.csv */,
-				3BF7E0AE1D0DC207007FD67D /* Sample3.csv */,
-				3B089CD31CFF7A70002ADC41 /* Sample1.csv */,
-				3B089CD41CFF7A70002ADC41 /* Sample2.csv */,
-				3B6A27A41D1D86C200C57FCF /* JavaIntro.xml */,
-				3B90DDA01CD275C800BCD85A /* CSVParser.swift */,
-				3BACD49B1D1D6DFA0069A9D8 /* XMLParser.swift */,
-				3BACD4991D1D6D920069A9D8 /* Importer.swift */,
-				3B90DD8E1CD273B900BCD85A /* AppDelegate.swift */,
-				3B90DDA61CD2761C00BCD85A /* Model.swift */,
-				3B90DDA21CD275E400BCD85A /* CloudLink.swift */,
-				3B90DDA31CD275E400BCD85A /* Util.swift */,
-				3B90DD901CD273B900BCD85A /* ViewController.swift */,
-				3B90DD921CD273B900BCD85A /* Main.storyboard */,
 				3B41F2481CD7DDE700A70AD8 /* MainViewController.swift */,
+				3B90DD8E1CD273B900BCD85A /* AppDelegate.swift */,
+				3BE3B4E31D254BDF002A87AA /* Sample Data */,
+				3BE3B4E41D254BEF002A87AA /* Importer */,
+				3BE3B4E51D254C3E002A87AA /* Helper Classes */,
+				3B90DD921CD273B900BCD85A /* Main.storyboard */,
 				3B90DD951CD273B900BCD85A /* Assets.xcassets */,
 				3B90DD971CD273B900BCD85A /* LaunchScreen.storyboard */,
 				3B90DD9A1CD273B900BCD85A /* Info.plist */,
 			);
 			path = Uploader;
+			sourceTree = "<group>";
+		};
+		3BE3B4E31D254BDF002A87AA /* Sample Data */ = {
+			isa = PBXGroup;
+			children = (
+				3B089CD11CFF7A70002ADC41 /* Sample4.csv */,
+				3BF7E0AE1D0DC207007FD67D /* Sample3.csv */,
+				3B089CD31CFF7A70002ADC41 /* Sample1.csv */,
+				3B089CD41CFF7A70002ADC41 /* Sample2.csv */,
+				3B6A27A41D1D86C200C57FCF /* JavaIntro.xml */,
+			);
+			name = "Sample Data";
+			sourceTree = "<group>";
+		};
+		3BE3B4E41D254BEF002A87AA /* Importer */ = {
+			isa = PBXGroup;
+			children = (
+				3B90DDA01CD275C800BCD85A /* CSVParser.swift */,
+				3BACD49B1D1D6DFA0069A9D8 /* XMLParser.swift */,
+				3BACD4991D1D6D920069A9D8 /* Importer.swift */,
+			);
+			name = Importer;
+			sourceTree = "<group>";
+		};
+		3BE3B4E51D254C3E002A87AA /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+				3B90DDA61CD2761C00BCD85A /* Model.swift */,
+				3B90DDA21CD275E400BCD85A /* CloudLink.swift */,
+				3B90DDA31CD275E400BCD85A /* Util.swift */,
+			);
+			name = "Helper Classes";
 			sourceTree = "<group>";
 		};
 		8A8EB6800A793C623B2F0524 /* Frameworks */ = {
@@ -252,7 +273,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B90DD911CD273B900BCD85A /* ViewController.swift in Sources */,
 				3B90DD8F1CD273B900BCD85A /* AppDelegate.swift in Sources */,
 				3BACD49C1D1D6DFA0069A9D8 /* XMLParser.swift in Sources */,
 				3B90DDA51CD275E400BCD85A /* Util.swift in Sources */,

@@ -1,5 +1,6 @@
 PODS:
   - Bolts/Tasks (1.7.0)
+  - Fingertips (0.4.0)
   - Parse (1.13.0):
     - Bolts/Tasks (~> 1.6)
   - Realm (0.103.2):
@@ -10,17 +11,19 @@ PODS:
   - SWXMLHash (2.3.2)
 
 DEPENDENCIES:
+  - Fingertips
   - Parse (~> 1.13)
   - RealmSwift (~> 0.99)
   - SWXMLHash (~> 2.3.0)
 
 SPEC CHECKSUMS:
   Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
+  Fingertips: 09678a650eecad2c1733dfdd5cb4004600ce2899
   Parse: f51c24d2feb412e4b2d6cc73d37cb24e8d0089bc
   Realm: 448f0416079fe5b0ed947e7d86f3c4e1c75826cb
   RealmSwift: 8a45cc8f02dfac093b72a3b5a01d567e27e15891
   SWXMLHash: 2f8c49af765718ad56020c4f875ec3ff22612f06
 
-PODFILE CHECKSUM: 6b0fb9f13753b9e1a478c72304498abf4dc657e5
+PODFILE CHECKSUM: 24516eb39049c62ae56a97f9405216887b7eca4c
 
 COCOAPODS: 1.0.1
