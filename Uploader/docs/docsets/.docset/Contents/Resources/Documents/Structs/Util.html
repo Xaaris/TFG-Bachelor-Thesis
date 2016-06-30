@@ -14,7 +14,7 @@
     <a title="Util Struct Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (6% documented)</p>
+        <p><a href="../index.html"> Docs</a> (32% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -59,9 +59,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/Topic.html">Topic</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/ViewController.html">ViewController</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/XMLParser.html">XMLParser</a>
@@ -226,7 +223,21 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Returns currently selected topic or nil if none is selected
+- returns: the selected topic or nil</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">getCurrentTopic</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/Topic.html">Topic</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the selected topic or nil</p>
 
                       </div>
                     </section>
@@ -245,7 +256,42 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Returns the topic with the specified name or nil if no topic exists with taht name
+- parameter title: title of the topic to be found
+- returns: the topic or nil</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">getTopicWithTitle</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/Topic.html">Topic</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>title</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>title of the topic to be found</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the topic or nil</p>
 
                       </div>
                     </section>
@@ -264,7 +310,22 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Returns a new MyColor which is not yet assigned to a topic.
+It chooses from a pool of predefined, not yet assigned colors before it generates random new ones
+- returns: a new color</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">getUnassignedColor</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MyColor.html">MyColor</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new color</p>
 
                       </div>
                     </section>
@@ -283,8 +344,37 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Delets the the specified topic and all its questions and answers locally
+- parameter topic: the topic which should be deleted</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">deleteTopic</span><span class="p">(</span><span class="nv">topic</span><span class="p">:</span> <span class="kt"><a href="../Classes/Topic.html">Topic</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>topic</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the topic which should be deleted</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -302,8 +392,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Delets all topics locally</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">deleteAllTopics</span><span class="p">()</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -313,7 +411,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-06-27)</p>
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-06-30)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

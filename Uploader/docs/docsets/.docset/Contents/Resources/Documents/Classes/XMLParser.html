@@ -14,7 +14,7 @@
     <a title="XMLParser Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (6% documented)</p>
+        <p><a href="../index.html"> Docs</a> (32% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -59,9 +59,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/Topic.html">Topic</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/ViewController.html">ViewController</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/XMLParser.html">XMLParser</a>
@@ -112,7 +109,13 @@
         <section>
           <section class="section">
             <h1>XMLParser</h1>
-            <p>Undocumented</p>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">XMLParser</span></code></pre>
+
+                </div>
+              </div>
+            <p>Class that parses moodle xml documents (limited functionality)</p>
 
           </section>
           <section class="section task-group-section">
@@ -131,7 +134,42 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Parses an xml document and returns an array of dictionaries if no error occurs, else nil
+   - parameter filename: String which specifies the file name
+   - returns: array of dictionaries, keyed rows</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">parseXML</span><span class="p">(</span><span class="nv">filename</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[[</span><span class="kt">String</span><span class="p">:</span><span class="kt">String</span><span class="p">]]?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>filename</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>String which specifies the file name</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>array of dictionaries, keyed rows</p>
 
                       </div>
                     </section>
@@ -150,7 +188,43 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Builds the header row for a topic from a category question. Since many attributes
+are not supported by moodle xml most fields are left empty.
+- parameter elem: XMLIndexer, one question or more specifically the category question
+- returns: dictionary, header or Info row</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">buildHeaderRow</span><span class="p">(</span><span class="nv">elem</span><span class="p">:</span> <span class="kt">XMLIndexer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span><span class="kt">String</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>elem</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>XMLIndexer, one question or more specifically the category question</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>dictionary, header or Info row</p>
 
                       </div>
                     </section>
@@ -169,7 +243,42 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Builds a multiple choice question
+- parameter elem: XMLIndexer, one question from the xml doc
+- returns: dictionary containing the data of the question</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">buildMultiChoiceQuestion</span><span class="p">(</span><span class="nv">elem</span><span class="p">:</span> <span class="kt">XMLIndexer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span><span class="kt">String</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>elem</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>XMLIndexer, one question from the xml doc</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>dictionary containing the data of the question</p>
 
                       </div>
                     </section>
@@ -180,7 +289,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-06-27)</p>
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-06-30)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
