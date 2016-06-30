@@ -11,8 +11,9 @@ import Parse
 
 class MainViewController: UIViewController {
     
-    @IBOutlet weak var dataDeletedLabel: UILabel!
     @IBOutlet weak var dataLoadedLabel: UILabel!
+    @IBOutlet weak var dataDeletedLabel: UILabel!
+    
     
     @IBOutlet weak var topicsCounterLabel: UILabel!
     @IBOutlet weak var questionsCounterLabel: UILabel!
@@ -28,22 +29,31 @@ class MainViewController: UIViewController {
     var questionCounter = 0
     var answerCounter = 0
     
+    
+    
+    
     func extractCSVDataAndSaveToRealm() {
         let importer = Importer()
-//        importer.loadAndSave("Sample1", ext: "csv")
+        //        importer.loadAndSave("Sample1", ext: "csv")
         importer.loadAndSave("Sample2", ext: "csv")
         importer.loadAndSave("Sample3", ext: "csv")
         importer.loadAndSave("Sample4", ext: "csv")
-//        importer.loadAndSave("JavaIntro", ext: "xml")
-        dataLoadedLabel.hidden = false
+        //        importer.loadAndSave("JavaIntro", ext: "xml")
+        dataLoadedLabel.enabled = true
+        uploadButton.enabled = true
     }
+    
+    
+    
+    
     
     @IBAction func startUpload(sender: AnyObject) {
         uploadButton.enabled = false
         saveAllTopicsToCloud()
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         deleteAllTopics()
         extractCSVDataAndSaveToRealm()
     }
@@ -66,7 +76,7 @@ class MainViewController: UIViewController {
                     print("Deleted Answers: \(deletedAnswersCounter)")
                     self.answersDeleted = true
                     if self.answersDeleted && self.questionsDeleted && self.topicsDeleted{
-                        self.dataDeletedLabel.hidden = false
+                        self.dataDeletedLabel.enabled = true
                     }
                 }
             }
@@ -83,7 +93,7 @@ class MainViewController: UIViewController {
                     print("Deleted Questions: \(deletedQuestionsCounter)")
                     self.questionsDeleted = true
                     if self.answersDeleted && self.questionsDeleted && self.topicsDeleted{
-                        self.dataDeletedLabel.hidden = false
+                        self.dataDeletedLabel.enabled = true
                     }
                 }
             }
@@ -99,15 +109,15 @@ class MainViewController: UIViewController {
                     print("Deleted Topics: \(deletedTopicsCounter)")
                     self.topicsDeleted = true
                     if self.answersDeleted && self.questionsDeleted && self.topicsDeleted{
-                        self.dataDeletedLabel.hidden = false
+                        self.dataDeletedLabel.enabled = true
                     }
                 }
             }
         }
-
+        
     }
     
-
+    
     
     func saveAllTopicsToCloud(){
         let topics = realm.objects(Topic.self)
@@ -163,6 +173,9 @@ class MainViewController: UIViewController {
                                                         if error == nil {
                                                             self.answerCounter += 1
                                                             self.answersCounterLabel.text = "Answers: \(self.answerCounter)/\(numberOfAnswers)"
+                                                            if self.answerCounter == numberOfAnswers {
+                                                                self.uploadCompleted()
+                                                            }
                                                         }
                                                     })
                                                     
@@ -187,6 +200,15 @@ class MainViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    /**
+     Shows an overlay alert to notify the user that the upload is complete with an "OK" button to dimiss it
+     */
+    func uploadCompleted(){
+        let alertController = UIAlertController(title: "Upload complete", message: "The upload process has completed. You can now exit the app.", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
 }
