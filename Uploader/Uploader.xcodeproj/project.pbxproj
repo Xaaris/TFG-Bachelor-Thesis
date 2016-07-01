@@ -27,24 +27,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3B089CD11CFF7A70002ADC41 /* Sample4.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample4.csv; sourceTree = "<group>"; };
-		3B089CD31CFF7A70002ADC41 /* Sample1.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample1.csv; sourceTree = "<group>"; };
-		3B089CD41CFF7A70002ADC41 /* Sample2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample2.csv; sourceTree = "<group>"; };
-		3B41F2481CD7DDE700A70AD8 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		3B6A27A41D1D86C200C57FCF /* JavaIntro.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = JavaIntro.xml; sourceTree = "<group>"; };
+		3B089CD11CFF7A70002ADC41 /* Sample4.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Sample4.csv; path = ../Code/Sample4.csv; sourceTree = "<group>"; };
+		3B089CD31CFF7A70002ADC41 /* Sample1.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Sample1.csv; path = ../Code/Sample1.csv; sourceTree = "<group>"; };
+		3B089CD41CFF7A70002ADC41 /* Sample2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Sample2.csv; path = ../Code/Sample2.csv; sourceTree = "<group>"; };
+		3B41F2481CD7DDE700A70AD8 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ../Code/MainViewController.swift; sourceTree = "<group>"; };
+		3B6A27A41D1D86C200C57FCF /* JavaIntro.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = JavaIntro.xml; path = ../Code/JavaIntro.xml; sourceTree = "<group>"; };
 		3B90DD8B1CD273B900BCD85A /* Uploader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uploader.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B90DD8E1CD273B900BCD85A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3B90DD8E1CD273B900BCD85A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../Code/AppDelegate.swift; sourceTree = "<group>"; };
 		3B90DD931CD273B900BCD85A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3B90DD951CD273B900BCD85A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3B90DD951CD273B900BCD85A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Code/Assets.xcassets; sourceTree = "<group>"; };
 		3B90DD981CD273B900BCD85A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		3B90DD9A1CD273B900BCD85A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3B90DDA01CD275C800BCD85A /* CSVParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSVParser.swift; sourceTree = "<group>"; };
-		3B90DDA21CD275E400BCD85A /* CloudLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudLink.swift; sourceTree = "<group>"; };
-		3B90DDA31CD275E400BCD85A /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
-		3B90DDA61CD2761C00BCD85A /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		3BACD4991D1D6D920069A9D8 /* Importer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Importer.swift; sourceTree = "<group>"; };
-		3BACD49B1D1D6DFA0069A9D8 /* XMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLParser.swift; sourceTree = "<group>"; };
-		3BF7E0AE1D0DC207007FD67D /* Sample3.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample3.csv; sourceTree = "<group>"; };
+		3B90DD9A1CD273B900BCD85A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Code/Info.plist; sourceTree = "<group>"; };
+		3B90DDA01CD275C800BCD85A /* CSVParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSVParser.swift; path = ../Code/CSVParser.swift; sourceTree = "<group>"; };
+		3B90DDA21CD275E400BCD85A /* CloudLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CloudLink.swift; path = ../Code/CloudLink.swift; sourceTree = "<group>"; };
+		3B90DDA31CD275E400BCD85A /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = ../Code/Util.swift; sourceTree = "<group>"; };
+		3B90DDA61CD2761C00BCD85A /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Model.swift; path = ../Code/Model.swift; sourceTree = "<group>"; };
+		3BACD4991D1D6D920069A9D8 /* Importer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Importer.swift; path = ../Code/Importer.swift; sourceTree = "<group>"; };
+		3BACD49B1D1D6DFA0069A9D8 /* XMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XMLParser.swift; path = ../Code/XMLParser.swift; sourceTree = "<group>"; };
+		3BF7E0AE1D0DC207007FD67D /* Sample3.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Sample3.csv; path = ../Code/Sample3.csv; sourceTree = "<group>"; };
 		C8F9C637F3579A531282C054 /* Pods_Uploader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Uploader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3818ACC16BC2E644FD07D8D /* Pods-Uploader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uploader.release.xcconfig"; path = "Pods/Target Support Files/Pods-Uploader/Pods-Uploader.release.xcconfig"; sourceTree = "<group>"; };
 		F17699453CDEE150518979DB /* Pods-Uploader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uploader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Uploader/Pods-Uploader.debug.xcconfig"; sourceTree = "<group>"; };
@@ -293,6 +293,7 @@
 				3B90DD931CD273B900BCD85A /* Base */,
 			);
 			name = Main.storyboard;
+			path = ../Code;
 			sourceTree = "<group>";
 		};
 		3B90DD971CD273B900BCD85A /* LaunchScreen.storyboard */ = {
@@ -301,6 +302,7 @@
 				3B90DD981CD273B900BCD85A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ../Code;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -394,7 +396,7 @@
 			baseConfigurationReference = F17699453CDEE150518979DB /* Pods-Uploader.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Uploader/Info.plist;
+				INFOPLIST_FILE = Code/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = test.Xaaris.Uploader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -406,7 +408,7 @@
 			baseConfigurationReference = E3818ACC16BC2E644FD07D8D /* Pods-Uploader.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Uploader/Info.plist;
+				INFOPLIST_FILE = Code/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = test.Xaaris.Uploader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
