@@ -8,6 +8,7 @@
 
 import XCTest
 
+//These test are not order independent! They need to be executed top to bottom or with helper methods
 class TFGUITests: XCTestCase {
         
     override func setUp() {
@@ -28,65 +29,97 @@ class TFGUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testTabBarSelection() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testOnboarding() {
+        let app = XCUIApplication()
+        app.buttons["Skip"].tap()
+    }
+    
+    func testLogin() {
         
-        let tabBarsQuery = XCUIApplication().tabBars
-        let statistikenButton = tabBarsQuery.buttons["Statistiken"]
+        let app = XCUIApplication()
+        app.buttons["Sign Up"].tap()
+        app.buttons["Close"].tap()
+        app.textFields["Username"].tap()
+        app.buttons["Login"].tap()
+        app.alerts["Invalid"].collectionViews.buttons["OK"].tap()
+        app.textFields["Username"].typeText("Xaaris")
+        app.buttons["Return"].tap()
+        app.buttons["Login"].tap()
+        app.alerts["Invalid"].collectionViews.buttons["OK"].tap()
+        app.secureTextFields["Password"].typeText("testtest")
+        app.buttons["Login"].tap()
+        app.images["Logo_big"].tap()
+
+    }
+
+    
+    func testTabBarSelection() {
+        
+        let app = XCUIApplication()
+        let tabBarsQuery = app.tabBars
+        let statistikenButton = tabBarsQuery.buttons["Statistics"]
         statistikenButton.tap()
+        app.scrollViews.otherElements.buttons["ButtonBackgroundStroke"].tap()
         tabBarsQuery.buttons["Preferences"].tap()
+        app.navigationBars["Preferences"].staticTexts["Preferences"].tap()
         statistikenButton.tap()
+        app.scrollViews.otherElements.buttons["ButtonBackgroundStroke"].tap()
         tabBarsQuery.buttons["Home"].tap()
+        //Back on Home Screen
+        app.images["Logo_big"].tap()
         
     }
     
     func testTopicSelection() {
         
         let app = XCUIApplication()
-        let wHleEinThemaButton = app.buttons["Wähle ein Thema"]
-        wHleEinThemaButton.tap()
-        app.tables.cells["This is the Title"].tap()
-        app.navigationBars["Wähle ein Thema"].childrenMatchingType(.Button).matchingIdentifier("Zurück").elementBoundByIndex(0).tap()
+        let chooseBtn = app.buttons["Choose a topic"]
+        chooseBtn.tap()
+        let javaCell = app.tables.cells["Java Intro"]
+        javaCell.tap()
+        app.navigationBars["Choose a Topic"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0).tap()
+        //Back on Home Screen
+        app.images["Logo_big"].tap()
         
     }
     
-    func testTesting() {
+    func testQuiz() {
+        
+        let app = XCUIApplication()
+        app.buttons["Start"].tap()
+        
+        let tablesQuery = app.tables
+        tablesQuery.elementBoundByIndex(0).swipeLeft()
+        app.navigationBars["Home"].buttons["hint button"].tap()
+        app.alerts["Hint"].collectionViews.buttons["OK"].tap()
+        for _ in 0 ..< 5 {
+            tablesQuery.elementBoundByIndex(0).swipeLeft()
+        }
+        app.buttons["Finish Quiz"].tap()
+        let scrollViewsQuery = app.scrollViews
+        let button = scrollViewsQuery.childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Button).element
+        button.tap()
+        button.tap()
+        app.buttons["Exit"].tap()
+        scrollViewsQuery.otherElements.buttons["ButtonBackgroundStroke"].tap()
+        let tabBarsQuery = app.tabBars
+        tabBarsQuery.buttons["Home"].tap()
+        //Back on Home Screen
+        app.images["Logo_big"].tap()
+        
+    }
+    
+    func testLogout() {
         
         let app = XCUIApplication()
         let tabBarsQuery = app.tabBars
-        let statistikenButton = tabBarsQuery.buttons["Statistiken"]
-        statistikenButton.tap()
-        
-        let scrollViewsQuery = app.scrollViews
-        let zeitProThemaInMinutenElementsQuery = scrollViewsQuery.otherElements.containingType(.StaticText, identifier:"Zeit pro Thema in minuten")
-        let element = zeitProThemaInMinutenElementsQuery.childrenMatchingType(.Other).elementBoundByIndex(0)
-        element.tap()
-        element.tap()
-        
-        let elementsQuery = scrollViewsQuery.otherElements
-        elementsQuery.staticTexts["Zeit pro Thema in minuten"].tap()
-        
-        let element2 = zeitProThemaInMinutenElementsQuery.childrenMatchingType(.Other).elementBoundByIndex(2)
-        element2.tap()
-        element2.tap()
         tabBarsQuery.buttons["Preferences"].tap()
-        statistikenButton.tap()
-        element.tap()
         
-        let button = scrollViewsQuery.childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Other).element.childrenMatchingType(.Button).element
-        button.tap()
-        
-        let thisIsTheTitlePickerWheel = elementsQuery.pickerWheels["This is the Title"]
-        thisIsTheTitlePickerWheel.tap()
-        element.tap()
-        button.tap()
-        elementsQuery.pickerWheels["Übersicht"].tap()
-        elementsQuery.pickerWheels["SAT Math Questions"].tap()
-        button.tap()
-        elementsQuery.pickerWheels["Java Intro"].tap()
-        thisIsTheTitlePickerWheel.tap()
-        
+        app.navigationBars["Preferences"].staticTexts["Preferences"].tap()
+        app.tables.buttons["Log Out"].tap()
+        app.alerts["Log Out?"].collectionViews.buttons["Log Out"].tap()
+        //Back at onboarding
+        app.pageIndicators["page 1 of 4"].tap()
     }
     
 }

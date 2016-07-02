@@ -511,11 +511,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
-				INFOPLIST_FILE = TFGUITests/Info.plist;
+				INFOPLIST_FILE = QuizUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = test.Xaaris.TFGUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = test.Xaaris.QuizUITests;
 				PRODUCT_NAME = Quiz;
-				TEST_TARGET_NAME = TFG;
+				TEST_TARGET_NAME = Quiz;
 			};
 			name = Debug;
 		};
@@ -523,11 +523,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
-				INFOPLIST_FILE = TFGUITests/Info.plist;
+				INFOPLIST_FILE = QuizUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = test.Xaaris.TFGUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = test.Xaaris.QuizUITests;
 				PRODUCT_NAME = Quiz;
-				TEST_TARGET_NAME = TFG;
+				TEST_TARGET_NAME = Quiz;
 			};
 			name = Release;
 		};
