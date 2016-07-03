@@ -16,8 +16,14 @@
 /* No comment provided by engineer. */
 "Are you sure you want to log out?" = "¿Estás segur@ que quieras cerrar la sesión?";
 
+/* Tutorial page four text */
+"Beautiful statistics show your progress" = "Estadísticas muestran tu progreso";
+
 /* No comment provided by engineer. */
 "Cancel" = "Cancelar";
+
+/* Tutorial page two text */
+"Choose a topic and start to learn" = "Elije un tema e empieza aprender";
 
 /* No comment provided by engineer. */
 "Date: " = "Fecha: ";
@@ -55,11 +61,17 @@
 /* No comment provided by engineer. */
 "Invalid" = "No Válido";
 
+/* Text on start button in tutorial */
+"Let's start!" = "Empezamos!";
+
 /* No comment provided by engineer. */
 "Log Out" = "Cerrar sesión";
 
 /* No comment provided by engineer. */
 "Log Out?" = "¿Cerrar Sesión?";
+
+/* Tutorial page three text */
+"Multiple choice questions might have more than one correct answer. Single choice questions have only one correct answer." = "Preguntas multiple choice pueden tener más que una respuesta correcta. Preguntas single choice solo tienen una respuesta correcta.";
 
 /* Single choice question */
 "No anser selected" = "No has elegido una repuesta";
@@ -109,6 +121,9 @@
 /* Footer that gets displayed under the slider for the lock seconds */
 "Seconds before a question automatically locks" = "Segundos antes de que la pregunta se cierra";
 
+/* Text on Skip button */
+"Skip" = "Saltar";
+
 /* No comment provided by engineer. */
 "Success" = "Éxito";
 
@@ -124,6 +139,9 @@
 /* Single choice question */
 "This is a single choice question. Please select one answer." = "Por favor elijes una repuesta";
 
+/* welcomming message at onboarding */
+"This short tutorial will guide you through the most important aspects of this app. Swipe left to continue" = "Este pequeño tutorial te guiará por los aspectos más importantes de la aplicación. Desliza hacia la izquierda para continuar ";
+
 /* Footer that gets displayed under the the section to delete individual topicstats */
 "This will delete all the statistics of a topic that are associated with your account" = "Eso borrará todos los estadísticas de un tema";
 
@@ -135,6 +153,9 @@
 
 /* No comment provided by engineer. */
 "Username must be greater than 4 characters" = "El nombre de usuario debe tener 4 caracteres como mínimo";
+
+/* welcomming message at onboarding title */
+"Welcome" = "Bienvenido";
 
 /* No comment provided by engineer. */
 "You are signed up!" = "¡Estás participando!";

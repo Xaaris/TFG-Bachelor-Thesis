@@ -156,7 +156,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         thirdPage.underTitlePadding = 0
         thirdPage.underIconPadding = 5
         
-        let fourthPage = OnboardingContentViewController(title: nil, body: NSLocalizedString("Beautiful statistics show you your progress", comment: "Tutorial page four text"), image: UIImage(named: "statistics"), buttonText: "Let's start!") { () -> Void in
+        let fourthPage = OnboardingContentViewController(title: nil, body: NSLocalizedString("Beautiful statistics show your progress", comment: "Tutorial page four text"), image: UIImage(named: "statistics"), buttonText: "Let's start!") { () -> Void in
             self.completeOnboarding()
         }
         let startButton = UIButton()

@@ -16,8 +16,14 @@
 /* No comment provided by engineer. */
 "Are you sure you want to log out?" = "Willst du dich wirklich ausloggen?";
 
+/* Tutorial page four text */
+"Beautiful statistics show your progress" = "Hilfreiche Statistiken zeigen deinen Fortschritt an";
+
 /* No comment provided by engineer. */
 "Cancel" = "Abbrechen";
+
+/* Tutorial page two text */
+"Choose a topic and start to learn" = "Wähle ein Thema und fang an zu lernen";
 
 /* No comment provided by engineer. */
 "Date: " = "Datum: ";
@@ -55,11 +61,17 @@
 /* No comment provided by engineer. */
 "Invalid" = "Ungültig";
 
+/* Text on start button in tutorial */
+"Let's start!" = "Los geht's!";
+
 /* No comment provided by engineer. */
 "Log Out" = "Ausloggen";
 
 /* No comment provided by engineer. */
 "Log Out?" = "Ausloggen?";
+
+/* Tutorial page three text */
+"Multiple choice questions might have more than one correct answer. Single choice questions have only one correct answer." = "Bei Multiple Choice Fragen können mehrere Antworten richtig sein, bei Single Choice Fragen ist nur eine Antwort richtig.";
 
 /* Single choice question */
 "No anser selected" = "Keine Antwort ausgewählt";
@@ -109,6 +121,9 @@
 /* Footer that gets displayed under the slider for the lock seconds */
 "Seconds before a question automatically locks" = "Sekunden bevor eine Frage automatisch gesperrt wird";
 
+/* Text on Skip button */
+"Skip" = "Überspringen";
+
 /* No comment provided by engineer. */
 "Success" = "Erfolgreich";
 
@@ -122,7 +137,10 @@
 "That was great!" = "Das war super!";
 
 /* Single choice question */
-"This is a single choice question. Please select one answer." = "Dieser Typ Frage erfordert genau eine Antwort.";
+"This is a single choice question. Please select one answer." = "Dieser Fragentyp erfordert genau eine Antwort.";
+
+/* welcomming message at onboarding */
+"This short tutorial will guide you through the most important aspects of this app. Swipe left to continue" = "Diese kurze Einführung wird dich durch die wichtigsten Features der App führen. Swipe nach links um fortzufahren";
 
 /* Footer that gets displayed under the the section to delete individual topicstats */
 "This will delete all the statistics of a topic that are associated with your account" = "Dies löscht alle Statistiken eines Themas, die mit deinem Account verknüpft sind";
@@ -136,6 +154,9 @@
 /* No comment provided by engineer. */
 "Username must be greater than 4 characters" = "Der Benutzername muss mindestens 4 Zeichen lang sein";
 
+/* welcomming message at onboarding title */
+"Welcome" = "Willkommen";
+
 /* No comment provided by engineer. */
 "You are signed up!" = "Du bist dabei!";
 
@@ -146,8 +167,8 @@
 "You got a score of " = "Dein Score ist ";
 
 /* No comment provided by engineer. */
-"You need an internet connection to be able to log in" = "Du benötigst eine Internetverbindung um Dich einloggen zu können";
+"You need an internet connection to be able to log in" = "Du benötigst eine Internetverbindung um dich einloggen zu können";
 
 /* No comment provided by engineer. */
-"You need an internet connection to be able to safely log out" = "Du benötigst eine Internetverbindung um Dich sicher ausloggen zu können";
+"You need an internet connection to be able to safely log out" = "Du benötigst eine Internetverbindung um dich sicher ausloggen zu können";
 
