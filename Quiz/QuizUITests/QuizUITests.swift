@@ -8,7 +8,7 @@
 
 import XCTest
 
-//These test are not order independent! They need to be executed top to bottom or with helper methods
+
 class TFGUITests: XCTestCase {
         
     override func setUp() {
@@ -22,21 +22,12 @@ class TFGUITests: XCTestCase {
         XCUIApplication().launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testOnboarding() {
+        
+        //Dismiss Onboarding
         let app = XCUIApplication()
         app.buttons["Skip"].tap()
-    }
-    
-    func testLogin() {
         
-        let app = XCUIApplication()
+        //Login
         app.buttons["Sign Up"].tap()
         app.buttons["Close"].tap()
         app.textFields["Username"].tap()
@@ -49,7 +40,32 @@ class TFGUITests: XCTestCase {
         app.secureTextFields["Password"].typeText("testtest")
         app.buttons["Login"].tap()
         app.images["Logo_big"].tap()
-
+        
+        //Select a topic
+        let chooseBtn = app.buttons["Choose a topic"]
+        chooseBtn.tap()
+        let javaCell = app.tables.cells["Java Intro"]
+        javaCell.tap()
+        app.navigationBars["Choose a Topic"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0).tap()
+        //Back on Home Screen
+        app.images["Logo_big"].tap()
+        
+    }
+    
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+        
+        //Logout
+        let app = XCUIApplication()
+        let tabBarsQuery = app.tabBars
+        tabBarsQuery.buttons["Preferences"].tap()
+        
+        app.navigationBars["Preferences"].staticTexts["Preferences"].tap()
+        app.tables.buttons["Log Out"].tap()
+        app.alerts["Log Out?"].collectionViews.buttons["Log Out"].tap()
+        //Back at onboarding
+        app.pageIndicators["page 1 of 4"].tap()
     }
 
     
@@ -70,18 +86,6 @@ class TFGUITests: XCTestCase {
         
     }
     
-    func testTopicSelection() {
-        
-        let app = XCUIApplication()
-        let chooseBtn = app.buttons["Choose a topic"]
-        chooseBtn.tap()
-        let javaCell = app.tables.cells["Java Intro"]
-        javaCell.tap()
-        app.navigationBars["Choose a Topic"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0).tap()
-        //Back on Home Screen
-        app.images["Logo_big"].tap()
-        
-    }
     
     func testQuiz() {
         
@@ -108,18 +112,4 @@ class TFGUITests: XCTestCase {
         app.images["Logo_big"].tap()
         
     }
-    
-    func testLogout() {
-        
-        let app = XCUIApplication()
-        let tabBarsQuery = app.tabBars
-        tabBarsQuery.buttons["Preferences"].tap()
-        
-        app.navigationBars["Preferences"].staticTexts["Preferences"].tap()
-        app.tables.buttons["Log Out"].tap()
-        app.alerts["Log Out?"].collectionViews.buttons["Log Out"].tap()
-        //Back at onboarding
-        app.pageIndicators["page 1 of 4"].tap()
-    }
-    
 }
