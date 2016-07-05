@@ -240,7 +240,7 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
         barChartView.descriptionText = ""
         barChartView.animate(yAxisDuration: 2.0, easingOption: .EaseInOutCubic)
         barChartView.xAxis.labelPosition = .Bottom
-        barChartView.xAxis.labelRotationAngle = -45
+        barChartView.xAxis.labelRotationAngle = -60
         barChartView.xAxis.setLabelsToSkip(0)
         barChartView.drawValueAboveBarEnabled = false
         barChartView.setScaleEnabled(false)
@@ -276,9 +276,11 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 var scores:[Double] = []
                 
                 //Preparing formatters
+                let currentLocaleFormater = NSDateFormatter.dateFormatFromTemplate("MMdd", options: 0, locale: NSLocale.currentLocale())
                 let dayDateFormatter = NSDateFormatter()
                 let hourDateFormatter = NSDateFormatter()
-                dayDateFormatter.dateFormat = "dd.MM" //"yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+                //This will set the format to the current Locale specified by the user
+                dayDateFormatter.dateFormat =  currentLocaleFormater //"dd.MM" //"yyyy-MM-dd'T'HH:mm:ssZZZZZ"
                 hourDateFormatter.dateFormat = "HH:mm"
                 let numberFormatter = NSNumberFormatter()
                 numberFormatter.minimumIntegerDigits = 1
@@ -401,10 +403,14 @@ class StatisticsViewController: UIViewController, UIPickerViewDelegate, UIPicker
     func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: ChartHighlight) {
         let statistic = displayedStatistics[entry.xIndex]
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yy ' ' HH:mm" //"yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        dateFormatter.dateStyle = .MediumStyle
+        dateFormatter.timeStyle = .ShortStyle
+        let numberFormatter = NSNumberFormatter()
+        numberFormatter.minimumIntegerDigits = 1
+        numberFormatter.maximumFractionDigits = 2
         barChartTopicLabel.text = NSLocalizedString("Topic: ", comment: "") + statistic.topic!.title
         barChartDateLabel.text = NSLocalizedString("Date: ", comment: "") + dateFormatter.stringFromDate(statistic.startTime)
-        barChartScoreLabel.text = NSLocalizedString("Score: ", comment: "") + (NSString(format: "%.2f", statistic.score) as String) + NSLocalizedString(" out of ", comment: "For Score x out of x") + String(statistic.numberOfQuestions)
+        barChartScoreLabel.text = NSLocalizedString("Score: ", comment: "") + numberFormatter.stringFromNumber(statistic.score)! + NSLocalizedString(" out of ", comment: "For Score x out of x") + String(statistic.numberOfQuestions)
     }
     
     
