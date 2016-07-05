@@ -14,14 +14,14 @@ import Fingertips
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-//    var window: UIWindow?
+    var window: UIWindow?
     
     // For screen recording
-    lazy var window: UIWindow? = {
-        let fingerTips = MBFingerTipWindow.init(frame: UIScreen.mainScreen().bounds)
-        fingerTips.alwaysShowTouches = true
-        return fingerTips
-    }()
+//    lazy var window: UIWindow? = {
+//        let fingerTips = MBFingerTipWindow.init(frame: UIScreen.mainScreen().bounds)
+//        fingerTips.alwaysShowTouches = true
+//        return fingerTips
+//    }()
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {

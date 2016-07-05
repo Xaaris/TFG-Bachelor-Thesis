@@ -26,6 +26,12 @@ class MainViewController: UIViewController {
         if realm.objects(Preference.self).isEmpty{
             createDefaultPreferences()
         }
+        //displaying current topic
+        if let currentTopic = Util.getCurrentTopic(){
+            topicLabel.text = currentTopic.title
+        }else{
+            topicLabel.text = NSLocalizedString("No topic selected", comment: "Message when no topic has been selected")
+        }
         //Show Login view
         if (PFUser.currentUser() == nil) {
             let loginVC = self.storyboard?.instantiateViewControllerWithIdentifier("Login")
@@ -35,12 +41,7 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        //displaying current topic
-        if let currentTopic = Util.getCurrentTopic(){
-            topicLabel.text = currentTopic.title
-        }else{
-            topicLabel.text = NSLocalizedString("No topic selected", comment: "Message when no topic has been selected")
-        }
+        
         //displaying current user name
         if let pUserName = Util.getCurrentUserName() {
             self.userNameLabel.text = pUserName
